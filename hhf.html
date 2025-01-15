@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchronized Audio Beacon</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .beacon-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .beacon {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            filter: blur(80px);
+            animation: flash 4.5s ease-out infinite;
+            box-shadow: 0 0 200px 150px rgba(223, 252, 203, 1);
+            mix-blend-mode: screen;
+        }
+        @keyframes flash {
+            0%, 33.33%, 100% {
+                width: 1px;
+                height: 1px;
+                opacity: 0;
+                background-color: rgba(138, 208, 90, 0);
+                box-shadow: 0 0 150px 100px rgba(223, 252, 203, 0);
+            }
+            33.34% {
+                width: 1px;
+                height: 1px;
+                opacity: 1;
+                background-color: rgba(138, 208, 90, 1);
+                box-shadow: 0 0 200px 150px rgba(138, 208, 90, 1);
+            }
+            34% {
+                width: 50vmax;
+                height: 50vmax;
+                opacity: 1;
+                background-color: rgba(180, 230, 150, 1);
+                box-shadow: 0 0 300px 250px rgba(180, 230, 150, 0.9);
+            }
+            66.67% {
+                width: 200vmax;
+                height: 200vmax;
+                opacity: 0;
+                background-color: rgba(223, 252, 203, 0);
+                box-shadow: 0 0 400px 350px rgba(223, 252, 203, 0);
+            }
+        }
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="beacon-container">
+        <div class="beacon"></div>
+        <div class="loading">Loading audio...</div>
+    </div>
+
+    <script>
+        const AUDIO_1_URL = 'https://contentltd.xyz/TerminalPing-1.ogg';
+        const AUDIO_2_URL = 'https://contentltd.xyz/TN_C_beep.ogg';
+
+        let audioContext;
+        let audio1Buffer;
+        let audio2Buffer;
+
+        async function loadAudios() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const [buffer1, buffer2] = await Promise.all([
+                fetch(AUDIO_1_URL).then(res => res.arrayBuffer()).then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer)),
+                fetch(AUDIO_2_URL).then(res => res.arrayBuffer()).then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+            ]);
+            audio1Buffer = buffer1;
+            audio2Buffer = buffer2;
+
+            document.querySelector('.loading').style.display = 'none';
+            playAudios();
+        }
+
+        function playAudios() {
+            const now = audioContext.currentTime;
+            const audio1Source = audioContext.createBufferSource();
+            const audio2Source = audioContext.createBufferSource();
+
+            audio1Source.buffer = audio1Buffer;
+            audio2Source.buffer = audio2Buffer;
+
+            audio1Source.connect(audioContext.destination);
+            audio2Source.connect(audioContext.destination);
+
+            audio1Source.start(now + 0.5); // Start 0.5 seconds into the cycle
+            audio2Source.start(now + 1.5); // Start 1.5 seconds into the cycle
+
+            // Schedule the next playback
+            setTimeout(playAudios, 4500); // 4.5 seconds cycle
+        }
+
+        // Start loading and playing audio when the page is loaded
+        window.addEventListener('load', loadAudios);
+    </script>
+</body>
+</html>
