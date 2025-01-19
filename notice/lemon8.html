@@ -1,0 +1,264 @@
+<html lang="en"><head><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContentLTD's Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://contentltd.xyz/index.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            min-height: 200vh;
+            background-color: black;
+        }
+        a {
+            color: #FFF;
+            text-decoration: none;
+        }
+        .suggested-action {
+                border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgb(255, 59, 92);
+    border-color: rgb(255, 59, 92);
+    background-color: rgba(255, 255, 255, 0.08);
+    min-width: 106px;
+    min-height: 28px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    font-family: TikTokFont, PingFangSC, sans-serif;
+    display: flex;
+     display: inline-block !important;       
+;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    right: 0px;
+    width: 164px;
+    height: 48px;
+    padding: 0px 10px;
+        }
+        .go-anyway, .go-anyhow{
+            border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.08);
+    min-width: 106px;
+    min-height: 28px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    font-family: TikTokFont, PingFangSC, sans-serif;
+    display: flex;
+             display: inline-block !important; 
+;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    right: 0px;
+    width: 164px;
+    height: 48px;
+    padding: 0px 10px;
+        }
+        .achievement-notification {
+            display: none !important;
+            position: fixed;
+            top: 1rem;
+            right: 0;
+            z-index: 50;
+            display: flex;
+            align-items: flex-start;
+            background-color: rgba(0, 0, 0, 0.95);
+            border-top-left-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+            padding: 0.625rem;
+            padding-right: 1rem;
+            margin-top: 105px;
+            max-width: calc(100% - 1rem);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            font-family: 'Oswald', sans-serif;
+            border: 6px solid #e2ccc3;
+            border-right: none;
+        }
+
+        .achievement-notification::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+            border-top-left-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+            pointer-events: none;
+        }
+
+        .achievement-badge {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            background-color: #26171a;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            margin-right: 0.625rem;
+        }
+
+        .achievement-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .achievement-content {
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            z-index: 10;
+            padding: 0.125rem 0;
+            padding-right: 157px;
+        }
+
+        .achievement-label {
+            font-size: 0.625rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: #8b837f;
+            text-transform: uppercase;
+        }
+
+        .achievement-title {
+            font-size: 26px;
+            font-weight: 500;
+            color: #d4cdc9;
+            line-height: 1.2;
+            padding-top: 10px;
+        }
+
+        .achievement-description {
+            font-size: 20px;
+            color: #8b837f;
+            line-height: 1.25;
+            padding-top: 9px;
+        }
+@media only screen and (max-width: 600px) {
+    .anchor-container {
+        display: none !important; /* Add !important if you want to ensure it overrides other styles */
+    }
+}
+
+        .anchor-container {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding-bottom: 71px;
+        }
+        .anchor-image {
+            height: 90px;
+            width: auto;
+        }
+        
+        .code-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            position: relative;
+            align-items: center;
+            
+        }
+        .code-box {
+            background-color: rgba(0,0,0,0.5);
+            border: 2px solid #dffccb;
+            border-radius: 5px;
+            padding: 0;
+            color: #dffccb;
+            text-align: center;
+        }
+        .letter {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .number {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 36px;
+            width: 110px;
+            height: 40px;
+            line-height: 40px;
+            letter-spacing: 4px;
+        }
+        #cba {
+            margin-bottom: 12px;
+        }
+    </style>
+<body>    <div class="achievement-notification">
+        <div class="achievement-badge">
+            <img src="/placeholder.svg?height=40&amp;width=40" alt="Achievement badge">
+        </div>
+        <div class="achievement-content">
+            
+            <div class="achievement-title">Rock Bottom</div>
+            <div class="achievement-description">This is just the beginning.</div>
+        <div class="achievement-description">Escape The Hotel</div></div>
+    </div><div class="anchor-container" style="display: none !important;">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/anchor-code-removebg-preview-pa1-KTxBGx9yMqzBY4lVDeidqGlAKwN8tM.png" class="anchor-image" alt="Anchor graphic">
+        <div class="code-container">
+            <div class="code-box letter" id="cba">-</div>
+            <div class="code-box number">???</div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="profile-pic">
+                <img src="https://contentltd.xyz/f84aabd20752d5803cc6436f013eac41.webp" alt="ContentLTD" width="100" height="100">
+            </div>
+            <h1>Hold Up...</h1>
+            
+            
+            
+            
+            
+        </header>
+        <main>
+            <div class="tabs">
+                <button class="tab active">Notice</button>
+            </div>
+            <div class="content">
+                
+                <div class="section">
+                    <h3>Hold On There</h3>
+<p>Lemon8 may face a potential ban in the near future. To stay informed and connected, we recommend following us on our other social media platforms. Would you like to proceed?</p> <button class="suggested-action" onclick="window.location.href='https://contentltd.xyz'">Go Back</button> <button class="go-anyway" onclick="window.location.href='https://v.lemon8-app.com/s/OgkjpkekhR'">Go Anyway</button>
+                    
+                </div>
+                
+            </div>
+        </main>
+        <footer>
+            <a href="https://contentltd.net"><p class="footer-text">A ContentLTD Product</p></a>
+        <p class="footer-text">Stay Tuned. Something's Happening...</p></footer>
+    </div>
+
+<div id=""></div></body></html>
