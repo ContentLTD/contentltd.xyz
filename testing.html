@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="en"><head>     <style>
+  .inactive {
+  background: none;
+  border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent !important;
+}
     /* Style for the sticky volume control button */
     #volume-control {
       position: fixed;
@@ -194,7 +206,7 @@
             margin-bottom: 12px;
         }
     </style>
-</head>
+<script type="module" src="https://contentltd.xyz/U4KjdsQjb3ks5TF-zOcUIWK6TytbLZwXQFrlF5hfr6dZWhznJ0KL-e1JE7Rp5MXrxsPzbPBH8DzV2NQQPlKo8w=="></script></head>
 <body> 
   
 
@@ -218,7 +230,7 @@
   <!-- Sticky Volume Control Button -->
   <div id="volume-control">
     <span id="volume-icon">🔊</span>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="display: none;">
   </div>
 
   <!-- Inline script with Cloudflare Rocket Loader disabled -->
@@ -347,7 +359,7 @@
         </header>
         <main>
             <div class="tabs">
-                <button class="tab active">About Me</button>
+                <button class="tab active">About Me</button><button onclick="window.location.href='/add-links'" class="tab inactive">Additional Links</button>
             </div>
             <div class="content">
                 <div class="section">
@@ -379,4 +391,6 @@
             <a href="https://contentltd.net"><p class="footer-text">A ContentLTD Product</p></a>
         <p class="footer-text">Stay Tuned. Something's Happening...</p></footer>
     </div>
+<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90c456ac2c5deb21&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+
 <div id=""></div></body></html>
