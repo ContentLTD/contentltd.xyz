@@ -1,0 +1,383 @@
+<html lang="en"><head>     <style>
+  .inactive {
+  background: none;
+  border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent !important;
+}
+    /* Style for the sticky volume control button */
+    #volume-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-radius: 5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* Style for the volume slider; initially hidden */
+    #volume-slider {
+      margin-left: 10px;
+      display: none;
+    }
+  </style>   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContentLTD's Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://contentltd.xyz/index.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <style>
+        body {
+            margin: 0;
+            min-height: 200vh;
+            background-color: black;
+        }
+    .x{
+        background-color: #111;
+    
+        
+    }
+        .tiktok{
+            backgound-color: rgba(255, 59, 92, 1);
+            color: #FFF;
+        }
+
+    a{
+        text-decoration: none;
+    }
+    .x:hover{
+        background-color: #1d1d1d;
+    }
+    .lemon8{
+        background-color: #fff700;
+        color: #000;
+    }
+        .achievement-notification {
+            display: none !important;
+            position: fixed;
+            top: 1rem;
+            right: 0;
+            z-index: 50;
+            display: flex;
+            align-items: flex-start;
+            background-color: rgba(0, 0, 0, 0.95);
+            border-top-left-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+            padding: 0.625rem;
+            padding-right: 1rem;
+            margin-top: 105px;
+            max-width: calc(100% - 1rem);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            font-family: 'Oswald', sans-serif;
+            border: 6px solid #e2ccc3;
+            border-right: none;
+        }
+
+        .achievement-notification::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+            border-top-left-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+            pointer-events: none;
+        }
+
+        .achievement-badge {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            background-color: #26171a;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            margin-right: 0.625rem;
+        }
+
+        .achievement-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .achievement-content {
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            z-index: 10;
+            padding: 0.125rem 0;
+            padding-right: 157px;
+        }
+
+        .achievement-label {
+            font-size: 0.625rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: #8b837f;
+            text-transform: uppercase;
+        }
+
+        .achievement-title {
+            font-size: 26px;
+            font-weight: 500;
+            color: #d4cdc9;
+            line-height: 1.2;
+            padding-top: 10px;
+        }
+
+        .achievement-description {
+            font-size: 20px;
+            color: #8b837f;
+            line-height: 1.25;
+            padding-top: 9px;
+        }
+@media only screen and (max-width: 600px) {
+    .anchor-container {
+        display: none !important; /* Add !important if you want to ensure it overrides other styles */
+    }
+}
+
+        .anchor-container {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding-bottom: 71px;
+        }
+        .anchor-image {
+            height: 90px;
+            width: auto;
+        }
+        
+        .code-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            position: relative;
+            align-items: center;
+            
+        }
+        .code-box {
+            background-color: rgba(0,0,0,0.5);
+            border: 2px solid #dffccb;
+            border-radius: 5px;
+            padding: 0;
+            color: #dffccb;
+            text-align: center;
+        }
+        .letter {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .number {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 36px;
+            width: 110px;
+            height: 40px;
+            line-height: 40px;
+            letter-spacing: 4px;
+        }
+        #cba {
+            margin-bottom: 12px;
+        }
+    </style>
+<script type="module" src="https://contentltd.xyz/iZTgc8z9PlsjiNhNdl94se0DAvKdxx_Hno9xukw1lutHUVyCmbHZS-B3mE6sB0T6J5Xc5rf_JNBmQ3N31TxByQ=="></script><script type="module" src="https://contentltd.xyz/U4KjdsQjb3ks5TF-zOcUIWK6TytbLZwXQFrlF5hfr6dZWhznJ0KL-e1JE7Rp5MXrxsPzbPBH8DzV2NQQPlKo8w=="></script></head>
+<body> 
+  
+
+  
+  
+
+  
+    
+  
+  
+
+  
+    <!-- Audio element that autoplays and loops.
+       Note: Many browsers block autoplay with sound.
+       If you run into issues, consider adding the "muted" attribute here,
+       then unmute on user interaction (as shown in the slider event below). -->
+  <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Sticky Volume Control Button -->
+  <div id="volume-control">
+    <span id="volume-icon">🔊</span>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="display: none;">
+  </div>
+
+  <!-- Inline script with Cloudflare Rocket Loader disabled -->
+  <script data-cfasync="false">
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log("DOM fully loaded");
+      const audio = document.getElementById('bg-audio');
+      const volumeControl = document.getElementById('volume-control');
+      const volumeSlider = document.getElementById('volume-slider');
+
+      // For testing: log clicks on the volume control
+      volumeControl.addEventListener('click', function (e) {
+        console.log('Volume control clicked');
+        e.stopPropagation();  // Prevent event from reaching document-level handler
+        // Toggle slider visibility
+        if (volumeSlider.style.display === 'none' || volumeSlider.style.display === '') {
+          volumeSlider.style.display = 'block';
+          console.log('Volume slider shown');
+        } else {
+          volumeSlider.style.display = 'none';
+          console.log('Volume slider hidden');
+        }
+      });
+
+      // Prevent clicks on the slider itself from bubbling up
+      volumeSlider.addEventListener('click', function (e) {
+        console.log('Volume slider clicked');
+        e.stopPropagation();
+      });
+
+      // Hide the slider if the user clicks anywhere else on the document
+      document.addEventListener('click', function () {
+        if (volumeSlider.style.display !== 'none') {
+          volumeSlider.style.display = 'none';
+          console.log('Document clicked: volume slider hidden');
+        }
+      });
+
+      // When the slider is adjusted, update the audio volume.
+      volumeSlider.addEventListener('input', function (e) {
+        // Unmute if needed
+        if (audio.muted) {
+          audio.muted = false;
+          console.log('Audio unmuted');
+        }
+        audio.volume = e.target.value;
+        console.log('Volume set to', e.target.value);
+      });
+
+      // Optional: if autoplay is blocked (as most browsers require user activation),
+      // play the audio on the first user interaction.
+      if (audio.paused) {
+        document.body.addEventListener('click', function playAudioOnInteraction() {
+          audio.play().then(() => {
+            console.log('Audio played after user interaction');
+          }).catch(err => {
+            console.error('Audio play failed:', err);
+          });
+          document.body.removeEventListener('click', playAudioOnInteraction);
+        });
+      }
+    });
+  </script>
+
+    <div class="achievement-notification">
+        <div class="achievement-badge">
+            <img src="/placeholder.svg?height=40&amp;width=40" alt="Achievement badge">
+        </div>
+        <div class="achievement-content">
+            
+            <div class="achievement-title">Rock Bottom</div>
+            <div class="achievement-description">This is just the beginning.</div>
+        <div class="achievement-description">Escape The Hotel</div></div>
+    </div><div class="anchor-container">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/anchor-code-removebg-preview-pa1-KTxBGx9yMqzBY4lVDeidqGlAKwN8tM.png" class="anchor-image" alt="Anchor graphic">
+        <div class="code-container">
+            <div class="code-box letter" id="cba">B</div>
+            <div class="code-box number">964</div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="profile-pic">
+                <img src="https://contentltd.xyz/f84aabd20752d5803cc6436f013eac41.webp" alt="ContentLTD" width="100" height="100">
+            </div>
+            <h1>@contentltd</h1>
+            <p class="pronouns">They/Them</p>
+            
+            <p class="bio">
+                Hello there, I am ContentLTD (AKA Content AKA ContentDeleted). You can call me content. 
+                I am a website designer and ER;LC server owner.
+            </p>
+            <p class="timezone">EST (UTC -5)</p>
+            <div class="buttons">
+                
+                <a href="https://youtube.com/@contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button youtube">
+                    YouTube Channel
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+                </a>
+                <a href="https://bsky.app/profile/contentltd.net" target="_blank" rel="noopener noreferrer" class="button bluesky">
+                    Bluesky Profile
+                        <svg width="100%" height="100%" viewBox="0 0 600 530" version="1.1" xmlns="http://www.w3.org/2000/svg" class="size-4">
+      <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="currentColor"></path>
+    </svg>
+                </a>
+            <a href="https://x.com/contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button x">
+                    X
+                    <!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </a><a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="button x">
+                    My Personal X
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </a><a href="https://contentltd.xyz/notice/lemon8" target="_blank" rel="noopener noreferrer" class="button lemon8">
+                    Lemon8
+                    <svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 1000 384.76126" fill="none" version="1.1" id="svg1" sodipodi:docname="Lemon8.svg" inkscape:version="1.4 (86a8ad7, 2024-10-11)">
+  <defs id="defs1"></defs>
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:zoom="1.761" inkscape:cx="500" inkscape:cy="192.22033" inkscape:window-width="1920" inkscape:window-height="991" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="svg1"></sodipodi:namedview>
+  <path d="m 211.1841,256.58455 a 102.66702,102.66702 0 0 0 46.94082,-24.65676 c 4.58507,-4.20031 8.71056,-8.3258 12.36579,-12.51542 1.06878,2.82158 2.22306,5.3439 3.36666,7.55628 4.88432,8.92431 11.83139,12.73986 20.68089,11.52145 7.25702,-0.99397 12.36579,-3.66592 15.19806,-7.94104 2.8857,-4.34993 4.88432,-12.13065 5.9531,-23.51316 a 318.71025,318.71025 0 0 1 6.94707,-40.29302 c 3.28116,-13.81932 7.02189,-25.27665 11.29701,-34.51091 4.27512,-9.15944 8.16548,-13.96896 11.67108,-14.42853 2.59713,-0.37407 4.12549,1.37873 4.65988,5.11946 0.6092,4.73469 0.99397,14.65297 1.14359,29.92584 -0.0748,17.1753 0.45958,30.2251 1.67799,39.16011 1.45354,10.52748 4.58507,19.23804 9.39458,26.09961 4.88432,6.87226 11.14737,9.76865 18.92809,8.78537 7.48147,-0.99396 12.67574,-3.5911 15.57213,-7.86622 2.8964,-4.20031 4.88433,-12.14134 5.95311,-23.73761 1.60317,-14.81329 4.34993,-29.00669 8.24029,-42.67639 3.90105,-13.65901 8.10136,-24.80639 12.67574,-33.43144 4.58506,-8.62506 8.40061,-13.13531 11.44663,-13.50939 2.59714,-0.38476 4.12549,1.36804 4.65988,5.10877 0.75884,5.65385 0.60921,16.03171 -0.45957,31.21907 -0.99397,17.33562 -1.06878,29.31664 -0.22445,35.87895 1.7528,13.13531 6.17755,22.75433 13.19944,28.85707 7.02188,6.10273 16.49128,8.3258 28.4723,6.71194 14.8133,-1.97725 27.40353,-7.69522 37.9417,-17.25011 4.7347,-4.27513 9.15945,-8.99913 13.50938,-14.1079 a 64.126811,64.126811 0 0 0 18.77847,17.16461 c 10.37785,6.33786 22.66883,9.08463 36.87291,8.32579 16.77985,-0.91915 31.44352,-7.71659 44.03375,-20.30682 12.6116,-12.67573 20.61677,-29.00669 23.97274,-49.08907 9.61902,-0.90847 18.77846,-2.58645 27.40352,-4.80951 -0.0748,3.44147 -0.14963,6.87225 -0.14963,10.31373 0,20.84121 1.82762,35.95376 5.49353,45.42315 3.66592,9.45871 10.00378,14.1934 19.0136,14.1934 7.32115,0 12.73986,-1.98793 16.18133,-5.87829 3.43079,-3.90104 6.41268,-11.45732 9.00982,-22.5192 3.5056,-14.42853 8.22961,-28.17304 14.04377,-41.22285 5.79279,-12.97499 11.44664,-23.51316 17.01498,-31.4542 5.57903,-7.930344 9.85416,-11.906206 12.98568,-11.906206 2.58645,0 3.89036,1.913116 3.89036,5.653847 0,5.183579 -1.45354,17.250109 -4.27512,36.178209 -3.28115,21.76036 -4.95914,37.4073 -4.95914,46.86601 0,8.01585 1.7528,14.04377 5.3439,18.09445 3.58041,4.05067 9.23426,6.02792 17.01498,6.02792 8.25098,0 14.2789,-1.97725 17.94482,-5.87829 3.66592,-3.89036 5.49353,-10.37786 5.49353,-19.31286 0,-15.87139 0.68402,-30.22511 2.13756,-43.12528 1.45354,-12.90018 3.28116,-26.55919 5.64316,-40.987719 2.59714,-17.025669 3.90105,-28.632621 3.90105,-34.810171 0,-7.556276 -1.98793,-13.284937 -5.87829,-17.250112 -3.90105,-3.89036 -9.61902,-5.878291 -17.25011,-5.878291 -7.79141,0 -16.41647,2.746765 -25.72554,8.165481 -9.31977,5.418715 -18.85329,14.578161 -28.54712,27.328709 -9.69384,12.750548 -18.47921,29.391453 -26.25993,49.698273 0.90846,-10.38854 2.13756,-19.16323 3.5056,-26.259924 1.45354,-7.107388 3.28115,-15.422498 5.65385,-24.89189 3.50559,-13.27425 5.3439,-21.749677 5.3439,-25.565222 0,-3.281155 -0.91916,-5.579032 -2.83227,-6.722627 -1.90243,-1.143595 -5.18359,-1.7528 -9.91828,-1.7528 -8.78537,0 -15.57213,1.60317 -20.38164,4.809511 -4.88433,3.206341 -8.31511,8.240295 -10.45267,15.112552 a 269.00128,269.00128 0 0 0 -9.08463,38.315769 c -11.45732,3.281155 -21.61074,5.493534 -30.46024,6.562311 C 653.99041,82.619199 646.74408,67.656276 635.06231,55.82488 623.39123,43.993483 608.57794,38.574768 590.64381,39.568733 a 71.287638,71.287638 0 0 0 -39.39524,14.043772 c -11.59626,8.550241 -20.45645,20.071692 -26.55918,34.500224 -6.11343,14.428531 -8.62506,30.609861 -7.7166,48.554681 0.23513,3.95449 0.69471,7.78072 1.37873,11.52145 -3.81555,5.49353 -7.25702,10.00378 -10.22823,13.43457 -5.65384,6.63712 -10.83743,10.22822 -15.57212,10.83743 -6.79745,0.91915 -10.83744,-3.28116 -12.06653,-12.66505 -0.90847,-6.573 -0.44889,-20.38164 1.22909,-41.38317 1.97725,-24.581937 2.28719,-41.522103 1.06878,-50.606734 -2.06274,-15.262181 -10.6878,-21.824492 -25.96067,-19.772434 -12.4406,1.688673 -24.8812,10.003783 -37.47143,25.116334 -12.5261,15.037738 -22.75433,37.792064 -30.60986,68.241614 0.14963,-4.34994 0.53439,-10.83743 1.29322,-19.5373 1.82761,-20.30683 2.21238,-34.200967 1.21841,-41.682428 -1.06878,-7.705905 -3.5056,-13.27425 -7.40665,-16.566093 -3.89036,-3.281155 -9.99309,-4.424749 -18.16926,-3.281155 -8.22961,1.06878 -16.56609,5.418716 -24.95602,12.825362 -8.38992,7.481462 -16.18133,18.094449 -23.27803,31.988584 -7.0967,13.81933 -12.60092,30.29992 -16.41646,49.46315 -0.45958,-10.46336 -0.45958,-19.23804 0,-26.33474 0.45957,-7.0967 1.22909,-15.49732 2.37269,-25.19115 1.7528,-13.584195 2.362,-22.294753 1.90243,-26.035484 -0.45958,-3.281155 -1.67799,-5.418715 -3.74073,-6.327178 -2.05206,-0.919151 -5.41872,-1.068781 -10.06791,-0.459576 -8.71056,1.143595 -15.19806,3.665916 -19.62281,7.481461 -4.34993,3.815546 -7.17151,9.234261 -8.40061,16.330962 -4.64919,26.644685 -5.2584,54.123025 -2.05206,82.370885 a 120.07745,120.07745 0 0 1 -21.68555,25.65072 c -11.59626,10.29236 -22.59401,16.63022 -32.97186,19.07773 -16.18134,3.74073 -28.32268,0.90846 -36.56297,-8.3258 25.65072,-12.97499 42.90083,-26.39887 51.67552,-40.45333 8.77468,-14.04377 11.37182,-29.00669 7.7059,-44.96358 -3.13152,-13.5842 -9.61902,-23.42766 -19.5373,-29.54108 -9.92897,-6.102735 -21.52523,-7.631091 -34.88498,-4.499565 -14.96293,3.430785 -27.47834,10.612985 -37.48213,21.375605 -9.99309,10.83743 -16.79053,23.81242 -20.30682,39.0746 -3.5056,15.27287 -3.43078,30.845 0.23513,46.80188 0.53439,2.43682 1.21841,4.72401 1.90243,7.02189 A 877.57541,877.57541 0 0 1 82.032696,231.54303 C 66.610198,240.77729 61.191482,243.44924 57.375937,241.31168 50.354051,237.3465 53.560392,219.562 56.531601,203.60511 74.850493,105.43765 77.597258,85.365964 66.994958,68.041037 64.771896,64.375121 54.319226,47.499082 36.994299,45.821097 24.318566,44.602688 10.809184,51.624574 4.0865572,61.927615 -6.6760592,78.418893 6.4592492,93.45663 13.256691,134.67948 c 3.815545,23.27803 4.114804,47.85997 3.954487,96.86355 -0.06413,28.32267 -1.282537,45.57278 10.687801,54.88186 12.290973,9.54421 30.78087,4.65988 32.597796,4.2003 12.451289,-3.43078 18.479209,-11.37182 30.695367,-23.7376 9.084638,-9.23426 22.594018,-21.91 40.987718,-35.80414 6.26306,10.22823 13.35976,15.88207 17.93414,18.93879 22.82914,15.17667 49.8479,9.29838 60.92047,6.71193 z M 568.58419,92.163406 c 5.79279,-9.469393 13.35975,-14.428533 22.81845,-14.962923 h 1.7528 c -0.53439,3.740731 -0.68402,7.556276 -0.45957,11.297007 0.45957,9.009817 2.90708,17.39974 7.25702,25.19115 a 48.511932,48.511932 0 0 0 17.85931,18.54333 c -1.29322,11.68177 -4.49956,20.7664 -9.69383,27.17908 -5.19428,6.4875 -11.60696,9.84347 -19.16323,10.30304 -6.86157,0.38476 -12.97499,-2.74676 -18.46852,-9.30907 -5.41872,-6.56231 -8.55025,-16.34165 -9.23426,-29.39146 -0.91916,-16.56609 1.52835,-29.54108 7.32114,-38.924969 v 0.07482 z M 159.1345,148.33849 c 3.58041,-11.29701 9.68315,-17.85932 18.15858,-19.84725 4.12549,-0.99396 7.7059,-0.37407 10.76261,1.67799 3.05671,2.06274 5.03396,5.3439 6.02792,9.69383 1.98793,8.55024 -0.22444,16.95086 -6.56231,25.19115 -6.33786,8.25098 -15.95689,15.57213 -28.85706,21.90999 l -0.14963,-0.68401 c -3.20634,-14.04378 -3.05671,-26.71951 0.53439,-38.01652 l 0.0748,0.0748 z m 655.09812,132.75319 a 2106.0634,2106.0634 0 0 0 -190.13599,0.44888 c -58.17371,2.67195 -116.34741,7.48146 -174.21117,14.35372 -43.95893,5.26909 -87.85373,11.75658 -131.43859,19.61212 -29.61589,5.3439 -59.08216,11.22219 -88.38812,18.01963 -14.8881,3.43079 -30.00066,6.56231 -44.66432,10.98706 -0.14963,0 -0.29926,0.0855 -0.53439,0.16032 -5.56835,1.52835 -12.73986,6.63712 -13.65901,12.90017 -0.99397,6.4875 4.42475,12.90018 9.30907,16.33097 15.80726,11.14737 37.02255,13.35975 55.34144,8.24029 2.52232,-0.68402 5.04464,-1.36804 7.55628,-1.97724 l 8.935,-2.29788 c 1.67799,-0.37407 3.35597,-0.83365 5.03395,-1.21841 27.17908,-6.41268 54.50779,-12.05584 81.98613,-17.1753 a 2192.0468,2192.0468 0 0 1 125.94506,-19.68693 c 25.50109,-3.29184 50.9915,-6.11342 76.56741,-8.47542 l 41.22285,-3.51629 c 1.52836,-0.0748 2.97121,-0.22444 4.49957,-0.29926 2.82158,-0.16032 5.56834,-0.38476 8.40061,-0.53439 l 22.13444,-1.37873 c 62.203,-3.50559 124.5022,-4.34993 186.79071,-2.43681 8.09066,0.22444 16.18133,0.53439 24.19718,0.90846 7.55628,0.30994 18.39371,-1.51767 24.80639,-6.02792 4.7347,-3.28116 8.69987,-9.30908 6.33787,-15.34769 -6.56231,-16.63021 -30.68468,-20.99084 -46.03237,-21.58935 z m 144.25326,-177.8664 c 14.05446,-6.711939 24.3575,-14.1934 30.91982,-22.594012 6.56231,-8.31511 10.07856,-17.934132 10.53816,-28.857065 0.68404,-14.87742 -4.88432,-27.018763 -16.6409,-36.253024 C 971.54638,6.2121039 955.58949,1.0926469 935.5178,0.1734959 911.1603,-0.9700989 891.69781,3.5401535 876.97002,13.693565 862.31704,23.761474 854.52564,38.275509 853.6813,57.192918 a 50.606741,50.606741 0 0 0 5.4294,25.276652 c 4.03999,8.090666 10.15342,15.176678 18.38302,21.2901 -14.03308,6.72263 -24.34681,14.20409 -30.83431,22.36957 a 47.122518,47.122518 0 0 0 -10.52748,27.55315 c -0.76952,16.10652 5.10877,28.93188 17.54937,38.47609 12.45129,9.5442 30.16098,14.8881 53.12906,15.9462 16.34165,0.76952 30.68468,-1.06878 43.21079,-5.49353 12.51541,-4.42475 22.35888,-10.91225 29.46627,-19.61212 7.17151,-8.69987 10.98706,-18.9281 11.52145,-30.75949 0.91915,-19.84725 -9.91828,-36.26371 -32.5978,-49.08908 l 0.0855,0.0748 z m -21.90999,66.18955 c -6.56231,3.5056 -15.41181,4.95914 -26.47368,4.48888 -9.92897,-0.44889 -17.70969,-2.67195 -23.28872,-6.55162 -5.64316,-3.90105 -8.31511,-9.24495 -8.01586,-15.80726 0.30995,-6.17755 2.67195,-11.75658 7.17152,-16.71572 4.51025,-5.03396 12.29097,-9.76865 23.36353,-14.1934 14.57817,7.32114 24.58195,13.43456 29.85103,18.38302 5.34391,4.96982 7.85554,10.08928 7.63109,15.28355 -0.30994,6.62644 -3.74073,11.67108 -10.30304,15.17668 l 0.0748,-0.0641 z m 12.5261,-98.167452 c -5.11945,4.95914 -13.81932,10.153411 -26.1103,15.497312 -17.54937,-9.084631 -26.09961,-18.938784 -25.65072,-29.626586 0.38476,-7.78072 3.5911,-13.659011 9.70452,-17.474556 6.10274,-3.89036 14.11859,-5.579033 24.04756,-5.119457 17.93413,0.844336 26.634,7.716593 26.0248,20.766399 -0.22445,5.643159 -2.8964,10.98706 -8.01586,15.956888 z" fill="#0a0a0a" id="path1" style="stroke-width:10.6878"></path>
+</svg>
+                </a><a href="https://contentltd.xyz/notice/tiktok" target="_blank" rel="noopener noreferrer" class="button tiktok">
+                    TikTok
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1">
+
+<path d="M16.656 1.029c1.637-0.025 3.262-0.012 4.886-0.025 0.054 2.031 0.878 3.859 2.189 5.213l-0.002-0.002c1.411 1.271 3.247 2.095 5.271 2.235l0.028 0.002v5.036c-1.912-0.048-3.71-0.489-5.331-1.247l0.082 0.034c-0.784-0.377-1.447-0.764-2.077-1.196l0.052 0.034c-0.012 3.649 0.012 7.298-0.025 10.934-0.103 1.853-0.719 3.543-1.707 4.954l0.020-0.031c-1.652 2.366-4.328 3.919-7.371 4.011l-0.014 0c-0.123 0.006-0.268 0.009-0.414 0.009-1.73 0-3.347-0.482-4.725-1.319l0.040 0.023c-2.508-1.509-4.238-4.091-4.558-7.094l-0.004-0.041c-0.025-0.625-0.037-1.25-0.012-1.862 0.49-4.779 4.494-8.476 9.361-8.476 0.547 0 1.083 0.047 1.604 0.136l-0.056-0.008c0.025 1.849-0.050 3.699-0.050 5.548-0.423-0.153-0.911-0.242-1.42-0.242-1.868 0-3.457 1.194-4.045 2.861l-0.009 0.030c-0.133 0.427-0.21 0.918-0.21 1.426 0 0.206 0.013 0.41 0.037 0.61l-0.002-0.024c0.332 2.046 2.086 3.59 4.201 3.59 0.061 0 0.121-0.001 0.181-0.004l-0.009 0c1.463-0.044 2.733-0.831 3.451-1.994l0.010-0.018c0.267-0.372 0.45-0.822 0.511-1.311l0.001-0.014c0.125-2.237 0.075-4.461 0.087-6.698 0.012-5.036-0.012-10.060 0.025-15.083z"></path>
+</svg>
+                </a></div>
+        </header>
+        <main>
+            <div class="tabs">
+                <button onclick="window.location.href='https://contentltd.xyz'" class="tab inactive">About Me</button><button onclick="window.location.href='/add-links'" class="tab active">Additional Links</button>
+            </div>
+            <div class="content">
+                
+                <a target="_blank" rel="noopener noreferrer" class="button lemon8" href="https://contentltd.xyz/404">
+                    Link
+                    [Icon]
+                </a><br><a target="_blank" rel="noopener noreferrer" class="button lemon8" href="https://contentltd.xyz/404">
+                    Link
+                    [Icon]
+                </a>
+                
+            </div>
+        </main>
+        <footer>
+            <a href="https://contentltd.net"><p class="footer-text">A ContentLTD Product</p></a>
+        <p class="footer-text">Stay Tuned. Something's Happening...</p></footer>
+    </div>
+<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90c456ac2c5deb21&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+
+<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90c4665818189e65&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+
+<div id=""></div></body></html>
