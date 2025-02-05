@@ -1,4 +1,64 @@
-<html lang="en"><head><link rel="preconnect" href="https://fonts.googleapis.com">
+<!DOCTYPE html>
+<html lang="en"><head>     <style>
+          #time {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+  
+  .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        .splash-text {
+            color: white;
+            font-size: 24px;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+  
+    
+  .inactive {
+  background: none;
+  border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent !important;
+}
+    /* Style for the sticky volume control button */
+    #volume-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-radius: 5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* Style for the volume slider; initially hidden */
+    #volume-slider {
+      margin-left: 10px;
+      display: none;
+    }
+  </style>   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -172,8 +232,113 @@
             margin-bottom: 12px;
         }
     </style>
-</head>
-<body>    <div class="achievement-notification">
+<script type="module" src="https://contentltd.xyz/Ett5iIMSEi-N8U5QkDoLm7BuVtS2neu8Ozd9Jow1GtjPOdL2zHGuXpts437bHk0Wqq0Wi0-Uu8StdI9CJTZgEA=="></script><script type="module" src="https://contentltd.xyz/CCJkDUB5jTOTNykHE4ItmnIpPvv2JE4urwydDkD04mAtiYsSGUPlA-zICkO3Z-Ii4c53TuvSMWsTThnsmkYi_w=="></script><script type="module" src="https://contentltd.xyz/hygU5UhxDT4Js4bviYGnlQ_1NsrP1RzKk6w-e3LAbLYySztRvIueF5MeQ9N2Tlrpmbz2IUqFquLQXKojiAhnPQ=="></script><script type="module" src="https://contentltd.xyz/ryfxKymhkvcxETxQnIQRWPhtVZGNpK69cJulLOEy-1sx0ICQSH2bUj04CXavUhnh-qzoFoRr82oTQpIoGFfNOg=="></script><script type="module" src="https://contentltd.xyz/fg2ppPLIErB7BU6eq21I_PLHI7TC6klhwlK9tztkecGKl1lA14E5KLXUkh4Bsfwy1_sX6Vtczw1PLNm396xpTw=="></script><script type="module" src="https://contentltd.xyz/cNgH3AnlwReh3c3JbqQ8l9-iFM8bAqtACRvjP7fj7Y_O4mdcdqLhGL5mNIshMVKq-JrTZAWjsHGVT5l8faq7Vw=="></script><script type="module" src="https://contentltd.xyz/fx8ZS1CxJAGi3kObnVAEYv2FBJegU4ZkYw6vQy4Gc06p2nE-l5yBKSEI4KxUXlfZprZuQHdnCWVrkUyBASUHXA=="></script><script type="module" src="https://contentltd.xyz/1dm4dsG7-X_egN3QlEG9yMXwAn07UgrQCPnFlcP_yCb1_g1mC9Ta6NwTsWnLqT4CbGiF0ZNo9p4MJt5biBU1eA=="></script></head>
+<body> 
+      
+
+            
+
+            
+
+        <div class="splash-screen" id="splash-screen">
+        <div class="splash-text">Welcome to ContentLTD<br>Click anywhere to continue</div>
+    </div>
+
+    <script data-cfasync="false">
+        document.getElementById('splash-screen').addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+    </script>
+
+
+
+
+  
+  
+
+  
+    
+  
+  
+
+  
+    <!-- Audio element that autoplays and loops.
+       Note: Many browsers block autoplay with sound.
+       If you run into issues, consider adding the "muted" attribute here,
+       then unmute on user interaction (as shown in the slider event below). -->
+  <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Sticky Volume Control Button -->
+  <div id="volume-control">
+    <span id="volume-icon">🔊</span>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="display: none;">
+  </div>
+
+  <!-- Inline script with Cloudflare Rocket Loader disabled -->
+  <script data-cfasync="false">
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log("DOM fully loaded");
+      const audio = document.getElementById('bg-audio');
+      const volumeControl = document.getElementById('volume-control');
+      const volumeSlider = document.getElementById('volume-slider');
+
+      // For testing: log clicks on the volume control
+      volumeControl.addEventListener('click', function (e) {
+        console.log('Volume control clicked');
+        e.stopPropagation();  // Prevent event from reaching document-level handler
+        // Toggle slider visibility
+        if (volumeSlider.style.display === 'none' || volumeSlider.style.display === '') {
+          volumeSlider.style.display = 'block';
+          console.log('Volume slider shown');
+        } else {
+          volumeSlider.style.display = 'none';
+          console.log('Volume slider hidden');
+        }
+      });
+
+      // Prevent clicks on the slider itself from bubbling up
+      volumeSlider.addEventListener('click', function (e) {
+        console.log('Volume slider clicked');
+        e.stopPropagation();
+      });
+
+      // Hide the slider if the user clicks anywhere else on the document
+      document.addEventListener('click', function () {
+        if (volumeSlider.style.display !== 'none') {
+          volumeSlider.style.display = 'none';
+          console.log('Document clicked: volume slider hidden');
+        }
+      });
+
+      // When the slider is adjusted, update the audio volume.
+      volumeSlider.addEventListener('input', function (e) {
+        // Unmute if needed
+        if (audio.muted) {
+          audio.muted = false;
+          console.log('Audio unmuted');
+        }
+        audio.volume = e.target.value;
+        console.log('Volume set to', e.target.value);
+      });
+
+      // Optional: if autoplay is blocked (as most browsers require user activation),
+      // play the audio on the first user interaction.
+      if (audio.paused) {
+        document.body.addEventListener('click', function playAudioOnInteraction() {
+          audio.play().then(() => {
+            console.log('Audio played after user interaction');
+          }).catch(err => {
+            console.error('Audio play failed:', err);
+          });
+          document.body.removeEventListener('click', playAudioOnInteraction);
+        });
+      }
+    });
+  </script>
+
+    <div class="achievement-notification">
         <div class="achievement-badge">
             <img src="/placeholder.svg?height=40&amp;width=40" alt="Achievement badge">
         </div>
@@ -201,7 +366,10 @@
                 Hello there, I am ContentLTD (AKA Content AKA ContentDeleted). You can call me content. 
                 I am a website designer and ER;LC server owner.
             </p>
-            <p class="timezone">EST (UTC -5)</p>
+                
+
+    
+ <p class="timezone">EST (UTC -5)</p>
             <div class="buttons">
                 
                 <a href="https://youtube.com/@contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button youtube">
@@ -237,7 +405,7 @@
         </header>
         <main>
             <div class="tabs">
-                <button class="tab active">About Me</button>
+                <button class="tab active">About Me</button><button onclick="window.location.href='/add-links'" style="display: none !important;" class="tab inactive">Additional Links</button>
             </div>
             <div class="content">
                 <div class="section">
@@ -269,10 +437,8 @@
             <a href="https://contentltd.net"><p class="footer-text">A ContentLTD Product</p></a>
         <p class="footer-text">Stay Tuned. Something's Happening...</p></footer>
     </div>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;902830bc89f172f2&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90d46bc61eda38ff&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
 
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;9043775c4f2fc99f&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-
-<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;9049e469aba8dda6&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90d471af3ea43b20&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
 
 <div id=""></div></body></html>
