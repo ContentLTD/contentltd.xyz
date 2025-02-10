@@ -1,4 +1,30 @@
 <html lang="en"><head>     <style>
+          #time {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+  
+  .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        .splash-text {
+            color: white;
+            font-size: 24px;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+  
+    
   .inactive {
   background: none;
   border: none;
@@ -205,7 +231,7 @@
             margin-bottom: 12px;
         }
     </style>
-<script type="module" src="https://contentltd.xyz/iZTgc8z9PlsjiNhNdl94se0DAvKdxx_Hno9xukw1lutHUVyCmbHZS-B3mE6sB0T6J5Xc5rf_JNBmQ3N31TxByQ=="></script><script type="module" src="https://contentltd.xyz/U4KjdsQjb3ks5TF-zOcUIWK6TytbLZwXQFrlF5hfr6dZWhznJ0KL-e1JE7Rp5MXrxsPzbPBH8DzV2NQQPlKo8w=="></script></head>
+<script type="module" src="https://contentltd.xyz/ZqDgXB-NebZnIIrvdRkqbagauA8l6za_Q2KzA5kAXecd1F3pk-1C-QNwZgrzXIjFcPh8y3yEIzmUgScR969yDw=="></script><script type="module" src="https://contentltd.xyz/iZTgc8z9PlsjiNhNdl94se0DAvKdxx_Hno9xukw1lutHUVyCmbHZS-B3mE6sB0T6J5Xc5rf_JNBmQ3N31TxByQ=="></script><script type="module" src="https://contentltd.xyz/U4KjdsQjb3ks5TF-zOcUIWK6TytbLZwXQFrlF5hfr6dZWhznJ0KL-e1JE7Rp5MXrxsPzbPBH8DzV2NQQPlKo8w=="></script></head>
 <body> 
   
 
@@ -222,7 +248,13 @@
        Note: Many browsers block autoplay with sound.
        If you run into issues, consider adding the "muted" attribute here,
        then unmute on user interaction (as shown in the slider event below). -->
-  <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
+  <div id="splash-screen" class="splash-screen">
+        <div class="splash-text">Welcome to ContentLTD<br>Click anywhere to continue</div>
+    </div><script data-cfasync="false">
+        document.getElementById('splash-screen').addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+    </script> <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
     Your browser does not support the audio element.
   </audio>
 
@@ -362,12 +394,9 @@
             </div>
             <div class="content">
                 
-                <a target="_blank" rel="noopener noreferrer" class="button lemon8" href="https://contentltd.xyz/404">
-                    Link
-                    [Icon]
-                </a><br><a target="_blank" rel="noopener noreferrer" class="button lemon8" href="https://contentltd.xyz/404">
-                    Link
-                    [Icon]
+                <a rel="noopener noreferrer" href="https://contentltd.xyz/404" class="button morp" style="background-color: #fff; color: #000" target="_blank">
+                    Maple Ontario Roleplay
+                    <img src="https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/69ad60f9-357a-4f1d-39fe-a67e03898500/public" height="16" width="16">
                 </a>
                 
             </div>
@@ -376,8 +405,4 @@
             <a href="https://contentltd.net"><p class="footer-text">A ContentLTD Product</p></a>
         <p class="footer-text">Stay Tuned. Something's Happening...</p></footer>
     </div>
-<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90c456ac2c5deb21&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-
-<div id=""></div><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90c4665818189e65&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-
 <div id=""></div></body></html>
