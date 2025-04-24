@@ -488,14 +488,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const handleFirstClick = () => {
     sessionStorage.setItem("videoPlayed", "true");
 
-    // Hide existing content
-    document.body.innerHTML = '';
+    // Hide all existing content visually
+    document.body.style.overflow = 'hidden';
+    const allContent = document.createElement('div');
+    allContent.id = 'hiddenContent';
+    while (document.body.firstChild) {
+      allContent.appendChild(document.body.firstChild);
+    }
+    allContent.style.display = 'none';
+    document.body.appendChild(allContent);
 
     // Create full-screen video
     const video = document.createElement("video");
     video.src = "https://github.com/lostinfinite/contentltd.xyz/raw/refs/heads/main/hck.mp4";
     video.autoplay = true;
-    video.muted = true; // You can remove this if you want sound
+    video.muted = true; // Remove this if you want sound
     video.controls = false;
     video.playsInline = true;
     video.style.position = "fixed";
@@ -509,9 +516,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(video);
 
-    // Remove video after 4 seconds
+    // Remove video after 4 seconds and reveal content again
     setTimeout(() => {
       video.remove();
+      allContent.style.display = '';
+      document.body.style.overflow = '';
     }, 4000);
 
     document.removeEventListener("click", handleFirstClick);
@@ -520,5 +529,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", handleFirstClick);
 });
 </script>
+
 
 </body></html>
