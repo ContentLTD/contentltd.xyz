@@ -481,5 +481,42 @@
 <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;918ca773fcd94bbd&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
 
 <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;93572f3eac7243f1&quot;,&quot;version&quot;:&quot;2025.4.0-1-g37f21b1&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (sessionStorage.getItem("videoPlayed")) return;
 
+  const handleFirstClick = () => {
+    sessionStorage.setItem("videoPlayed", "true");
+
+    // Hide existing content
+    document.body.innerHTML = '';
+
+    // Create full-screen video
+    const video = document.createElement("video");
+    video.src = "https://github.com/lostinfinite/contentltd.xyz/raw/refs/heads/main/hck.mp4";
+    video.autoplay = true;
+    video.controls = false;
+    video.playsInline = true;
+    video.style.position = "fixed";
+    video.style.top = "0";
+    video.style.left = "0";
+    video.style.width = "100vw";
+    video.style.height = "100vh";
+    video.style.objectFit = "cover";
+    video.style.zIndex = "9999";
+    video.style.backgroundColor = "black";
+    
+    document.body.appendChild(video);
+
+    // Remove video after it ends
+    video.addEventListener("ended", () => {
+      video.remove();
+    }, { once: true });
+
+    document.removeEventListener("click", handleFirstClick);
+  };
+
+  document.addEventListener("click", handleFirstClick);
+});
+</script>
 </body></html>
