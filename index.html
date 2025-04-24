@@ -485,18 +485,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("videoPlayed")) return;
 
-  const handleFirstClick = () => {
+  const handleClick = () => {
     sessionStorage.setItem("videoPlayed", "true");
-
-    // Hide all existing content visually
-    document.body.style.overflow = 'hidden';
-    const allContent = document.createElement('div');
-    allContent.id = 'hiddenContent';
-    while (document.body.firstChild) {
-      allContent.appendChild(document.body.firstChild);
-    }
-    allContent.style.display = 'none';
-    document.body.appendChild(allContent);
 
     // Create full-screen video
     const video = document.createElement("video");
@@ -505,30 +495,33 @@ document.addEventListener("DOMContentLoaded", () => {
     video.muted = true; // Remove this if you want sound
     video.controls = false;
     video.playsInline = true;
-    video.style.position = "fixed";
-    video.style.top = "0";
-    video.style.left = "0";
-    video.style.width = "100vw";
-    video.style.height = "100vh";
-    video.style.objectFit = "cover";
-    video.style.zIndex = "9999";
-    video.style.backgroundColor = "black";
+
+    // Style to cover whole page
+    Object.assign(video.style, {
+      position: "fixed",
+      top: "0",
+      left: "0",
+      width: "100vw",
+      height: "100vh",
+      objectFit: "cover",
+      zIndex: "9999",
+      backgroundColor: "black",
+    });
 
     document.body.appendChild(video);
 
-    // Remove video after 4 seconds and reveal content again
+    // Remove video after 4 seconds
     setTimeout(() => {
       video.remove();
-      allContent.style.display = '';
-      document.body.style.overflow = '';
     }, 4000);
 
-    document.removeEventListener("click", handleFirstClick);
+    document.removeEventListener("click", handleClick);
   };
 
-  document.addEventListener("click", handleFirstClick);
+  document.addEventListener("click", handleClick, { once: true });
 });
 </script>
+
 
 
 </body></html>
