@@ -495,6 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.createElement("video");
     video.src = "https://github.com/lostinfinite/contentltd.xyz/raw/refs/heads/main/hck.mp4";
     video.autoplay = true;
+    video.muted = true; // You can remove this if you want sound
     video.controls = false;
     video.playsInline = true;
     video.style.position = "fixed";
@@ -505,13 +506,13 @@ document.addEventListener("DOMContentLoaded", () => {
     video.style.objectFit = "cover";
     video.style.zIndex = "9999";
     video.style.backgroundColor = "black";
-    
+
     document.body.appendChild(video);
 
-    // Remove video after it ends
-    video.addEventListener("ended", () => {
+    // Remove video after 4 seconds
+    setTimeout(() => {
       video.remove();
-    }, { once: true });
+    }, 4000);
 
     document.removeEventListener("click", handleFirstClick);
   };
@@ -519,4 +520,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", handleFirstClick);
 });
 </script>
+
 </body></html>
