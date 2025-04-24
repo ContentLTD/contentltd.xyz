@@ -440,7 +440,7 @@
         </header>
         <main>
             <div class="tabs">
-                <button class="tab active">About Me</button><button onclick="window.location.href='/add-links'" class="tab inactive">Additional Links</button>
+                <button class="tab active">About Me</button><button onclick="window.location.href='/add-links'" style="display: none !important;" class="tab inactive">Additional Links</button>
             </div>
             <div class="content">
                 <div class="section">
@@ -488,16 +488,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const handleClick = () => {
     sessionStorage.setItem("videoPlayed", "true");
 
-    // Hide all existing content temporarily
-    const pageContent = document.body.innerHTML;
-    document.body.innerHTML = ""; // Clear temporarily
+    // Save original page content
+    const originalContent = document.body.innerHTML;
+    document.body.innerHTML = ""; // Clear body
 
-    // Create video element
+    // Create and configure the video
     const video = document.createElement("video");
     video.src = "https://github.com/lostinfinite/contentltd.xyz/raw/refs/heads/main/hck.mp4";
     video.autoplay = true;
     video.muted = true;
-    video.controls = false;
     video.playsInline = true;
 
     Object.assign(video.style, {
@@ -513,18 +512,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(video);
 
-    // After 4 seconds, remove video and restore content
+    // Remove video and restore content after 5 seconds
     setTimeout(() => {
-      document.body.removeChild(video);
-      document.body.innerHTML = pageContent;
-    }, 4000);
+      document.body.innerHTML = originalContent;
+    }, 5000);
 
+    // Only run once
     document.removeEventListener("click", handleClick);
   };
 
   document.addEventListener("click", handleClick, { once: true });
 });
 </script>
+
 
 
 </body></html>
