@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>          
-          
-<!-- Open Graph metadata for rich embeds -->
     <meta property="og:title" content="ContentLTD">
     <meta property="og:description" content="Hello, I'm ContentLimited (shortened to ContentLTD usually) and I am a website developer.">
-    <meta property="og:image" content="https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/d7bd1b5d-eeec-4e44-b02c-0a735e321b00/public">
+    <meta property="og:image" content="https://contentltd.xyz/pfp.png">
     <meta property="og:url" content="https://contentltd.xyz">
     <meta property="og:type" content="website">
-          
-          
-          <style>
-  
-  
+    <style>
         .profile-pic img {
             width: 100px;
             height: 100px;
@@ -19,14 +13,11 @@
             border: 4px solid rgba(255, 255, 255, 1) !important;
             background-color: black !important;
         }
-  
-  
-          #time {
+        #time {
             font-size: 2rem;
             font-weight: bold;
         }
-  
-  .splash-screen {
+        .splash-screen {
             position: fixed;
             top: 0;
             left: 0;
@@ -45,40 +36,36 @@
             font-family: 'Inter', sans-serif;
             text-align: center;
         }
-  
-    
-  .inactive {
-  background: none;
-  border: none;
-    border-bottom-width: medium;
-    border-bottom-style: none;
-    border-bottom-color: currentcolor;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-bottom: 2px solid transparent !important;
-}
-    /* Style for the sticky volume control button */
-    #volume-control {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      border-radius: 5px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    /* Style for the volume slider; initially hidden */
-    #volume-slider {
-      margin-left: 10px;
-      display: none;
-    }
-  </style>   <link rel="preconnect" href="https://fonts.googleapis.com">
+        .inactive {
+            background: none;
+            border: none;
+            border-bottom-width: medium;
+            border-bottom-style: none;
+            border-bottom-color: currentcolor;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent !important;
+        }
+        #volume-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        #volume-slider {
+            margin-left: 10px;
+            display: none;
+        }
+    </style>   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -93,7 +80,25 @@
         body {
             margin: 0;
             min-height: 200vh;
-            background-color: black;
+            background: #000;
+            /* overflow: hidden;  Removed to allow scrolling */
+        }
+        .ambient-bg-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ambient-light-fade {
+            transition: opacity 1s cubic-bezier(.4,0,.2,1);
+            opacity: 0 !important;
+        }
+        .ambient-light {
+            transition: opacity 1s cubic-bezier(.4,0,.2,1);
+            opacity: 1;
         }
     .x{
         background-color: #111;
@@ -101,7 +106,7 @@
         
     }
         .tiktok{
-            backgound-color: rgba(255, 59, 92, 1);
+            background-color: rgba(255, 59, 92, 1);
             color: #FFF;
         }
 
@@ -198,7 +203,7 @@
         }
 @media only screen and (max-width: 600px) {
     .anchor-container {
-        display: none !important; /* Add !important if you want to ensure it overrides other styles */
+        display: none !important;
     }
 }
 
@@ -252,9 +257,12 @@
         #cba {
             margin-bottom: 12px;
         }
+
+        
     </style></head>
 <body> 
       
+  <div class="ambient-bg-light"></div>
 
             
 
@@ -268,6 +276,60 @@
         document.getElementById('splash-screen').addEventListener('click', function() {
             this.style.display = 'none';
         });
+
+        // Ambient background lights with fade in/out
+        function randomBetween(a, b) {
+          return Math.random() * (b - a) + a;
+        }
+        function createLight(color1, color2) {
+          const el = document.createElement('div');
+          const size = randomBetween(350, 600);
+          el.className = 'ambient-light';
+          el.style.position = 'absolute';
+          el.style.width = `${size}px`;
+          el.style.height = `${size}px`;
+          el.style.borderRadius = '50%';
+          // Brighter: increase opacity range
+          el.style.opacity = randomBetween(0.18, 0.32);
+          el.style.filter = 'blur(80px)';
+          el.style.background = `radial-gradient(circle, ${color1} 0%, ${color2} 100%)`;
+          el.style.left = `${randomBetween(-0.1, 0.8) * 100}vw`;
+          el.style.top = `${randomBetween(-0.1, 0.8) * 100}vh`;
+          return el;
+        }
+        let ambientTimeout = null;
+        function renderAmbientLightsWithFade() {
+          const container = document.querySelector('.ambient-bg-light');
+          if (!container) return;
+          const oldLights = Array.from(container.children);
+          // Fade out old lights
+          oldLights.forEach(light => {
+            light.classList.add('ambient-light-fade');
+            light.classList.remove('ambient-light');
+          });
+          // After fade out, remove and add new lights
+          clearTimeout(ambientTimeout);
+          ambientTimeout = setTimeout(() => {
+            container.innerHTML = '';
+            const lights = [
+              createLight('rgba(255,60,60,1)', 'rgba(255,60,60,0)'),
+              createLight('rgba(60,120,255,1)', 'rgba(60,120,255,0)'),
+              createLight('rgba(255,60,60,1)', 'rgba(255,60,60,0)'),
+              createLight('rgba(60,120,255,1)', 'rgba(60,120,255,0)')
+            ];
+            lights.forEach(light => {
+              container.appendChild(light);
+              // Start hidden, then fade in
+              light.classList.add('ambient-light-fade');
+              // Force reflow for transition
+              void light.offsetWidth;
+              light.classList.remove('ambient-light-fade');
+              light.classList.add('ambient-light');
+            });
+          }, 1000); // 1s fade out
+        }
+        renderAmbientLightsWithFade();
+        setInterval(renderAmbientLightsWithFade, 6000);
     </script>
 
 
@@ -282,76 +344,54 @@
   
 
   
-    <!-- Audio element that autoplays and loops.
-       Note: Many browsers block autoplay with sound.
-       If you run into issues, consider adding the "muted" attribute here,
-       then unmute on user interaction (as shown in the slider event below). -->
-  <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
+  <audio id="bg-audio" src="/bg-music.mp3" autoplay="" loop="">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Sticky Volume Control Button -->
   <div id="volume-control">
     <span id="volume-icon">🔊</span>
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="display: none;">
   </div>
 
-  <!-- Inline script with Cloudflare Rocket Loader disabled -->
   <script data-cfasync="false">
     document.addEventListener('DOMContentLoaded', function () {
-      console.log("DOM fully loaded");
       const audio = document.getElementById('bg-audio');
       const volumeControl = document.getElementById('volume-control');
       const volumeSlider = document.getElementById('volume-slider');
 
-      // For testing: log clicks on the volume control
+      // Set initial audio volume to 25%
+      audio.volume = 0.25;
+      if (volumeSlider) volumeSlider.value = 0.25;
+
       volumeControl.addEventListener('click', function (e) {
-        console.log('Volume control clicked');
-        e.stopPropagation();  // Prevent event from reaching document-level handler
-        // Toggle slider visibility
+        e.stopPropagation();
         if (volumeSlider.style.display === 'none' || volumeSlider.style.display === '') {
           volumeSlider.style.display = 'block';
-          console.log('Volume slider shown');
         } else {
           volumeSlider.style.display = 'none';
-          console.log('Volume slider hidden');
         }
       });
 
-      // Prevent clicks on the slider itself from bubbling up
       volumeSlider.addEventListener('click', function (e) {
-        console.log('Volume slider clicked');
         e.stopPropagation();
       });
 
-      // Hide the slider if the user clicks anywhere else on the document
       document.addEventListener('click', function () {
         if (volumeSlider.style.display !== 'none') {
           volumeSlider.style.display = 'none';
-          console.log('Document clicked: volume slider hidden');
         }
       });
 
-      // When the slider is adjusted, update the audio volume.
       volumeSlider.addEventListener('input', function (e) {
-        // Unmute if needed
         if (audio.muted) {
           audio.muted = false;
-          console.log('Audio unmuted');
         }
         audio.volume = e.target.value;
-        console.log('Volume set to', e.target.value);
       });
 
-      // Optional: if autoplay is blocked (as most browsers require user activation),
-      // play the audio on the first user interaction.
       if (audio.paused) {
         document.body.addEventListener('click', function playAudioOnInteraction() {
-          audio.play().then(() => {
-            console.log('Audio played after user interaction');
-          }).catch(err => {
-            console.error('Audio play failed:', err);
-          });
+          audio.play().catch(function(){});
           document.body.removeEventListener('click', playAudioOnInteraction);
         });
       }
@@ -363,7 +403,6 @@
             <img src="/placeholder.svg?height=40&amp;width=40" alt="Achievement badge">
         </div>
         <div class="achievement-content">
-            
             <div class="achievement-title">Rock Bottom</div>
             <div class="achievement-description">This is just the beginning.</div>
         <div class="achievement-description">Escape The Hotel</div></div>
@@ -380,21 +419,38 @@
 
 <style>
   .profile-ban {
-    background: url('https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/70acbd1d-62b2-41f5-61d3-19a42f0a4400/public') no-repeat center center;
-    background-size: cover;
+    position: relative;
+    background: none;
     width: 100%;
     height: 110.05px; /* Fixed height as requested */
     border-top-left-radius: 15px; /* Rounded top left */
     border-top-right-radius: 15px; /* Rounded top right */
     overflow: hidden; /* Ensures rounded corners appear properly */
   }
+  .profile-ban-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/_assets/v2/banner.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(3px);
+    z-index: 1;
+  }
+  .profile-pic {
+    position: relative;
+    z-index: 2;
+  }
 </style>
 
             <div class="profile-ban">
-  <div class="profile-pic">
-    <img alt="ContentLTD" width="100" height="100" src="https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/d7bd1b5d-eeec-4e44-b02c-0a735e321b00/public">
-  </div>
-</div><h1>@contentltd</h1>
+              <div class="profile-ban-bg"></div>
+              <div class="profile-pic">
+                <img alt="ContentLTD" width="100" height="100" src="/_assets/v2/pfp.png">
+              </div>
+            </div>
+<h1>@contentltd</h1>
             <p class="pronouns">They/Them</p>
             
             <p class="bio">
@@ -419,7 +475,7 @@
                 </a>
             <a href="https://x.com/contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button x">
                     X
-                    <!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                 </a><a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="button x">
                     My Personal X
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -473,58 +529,8 @@
         <p class="footer-text">Stay Tuned. Something's Happening...</p>
 
 <hr style="background-color: rgba(255, 255, 255, 0.5) !important;">
-
-<p class="pronouns">I do not own or claim any rights to the banner and images displayed. Some images may be the property of Kit9 Studios and SNB3 (SoNoBro3), the creators of Class of '09 and The Coffin of Andy and Leyley. All visual content belongs to their respective owners. If you are the copyright holder and would like the content removed or properly credited, please contact me.</p></footer>
+<p class="pronouns">Profile Picture and Banner commissioned from @khairos</p></footer>
     </div>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;91783d834cd94bc7&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;918ca773fcd94bbd&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;93572f3eac7243f1&quot;,&quot;version&quot;:&quot;2025.4.0-1-g37f21b1&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem("videoPlayed")) return;
-
-  const handleClick = () => {
-    sessionStorage.setItem("videoPlayed", "true");
-
-    // Save original page content
-    const originalContent = document.body.innerHTML;
-    document.body.innerHTML = ""; // Clear body
-
-    // Create and configure the video
-    const video = document.createElement("video");
-    video.src = "https://github.com/lostinfinite/contentltd.xyz/raw/refs/heads/main/hck.mp4";
-    video.autoplay = true;
-    video.muted = true;
-    video.playsInline = true;
-
-    Object.assign(video.style, {
-      position: "fixed",
-      top: "0",
-      left: "0",
-      width: "100vw",
-      height: "100vh",
-      objectFit: "cover",
-      zIndex: "9999",
-      backgroundColor: "black"
-    });
-
-    document.body.appendChild(video);
-
-    // Remove video and restore content after 5 seconds
-    setTimeout(() => {
-      document.body.innerHTML = originalContent;
-    }, 5000);
-
-    // Only run once
-    document.removeEventListener("click", handleClick);
-  };
-
-  document.addEventListener("click", handleClick, { once: true });
-});
-</script>
-
 
 
 </body></html>
