@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>          
-          
-<!-- Open Graph metadata for rich embeds -->
     <meta property="og:title" content="ContentLTD">
     <meta property="og:description" content="Hello, I'm ContentLimited (shortened to ContentLTD usually) and I am a website developer.">
-    <meta property="og:image" content="https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/d7bd1b5d-eeec-4e44-b02c-0a735e321b00/public">
+    <meta property="og:image" content="https://contentltd.xyz/pfp.png">
     <meta property="og:url" content="https://contentltd.xyz">
     <meta property="og:type" content="website">
-          
-          
-          <style>
-  
-  
+    <style>
         .profile-pic img {
             width: 100px;
             height: 100px;
@@ -19,14 +13,11 @@
             border: 4px solid rgba(255, 255, 255, 1) !important;
             background-color: black !important;
         }
-  
-  
-          #time {
+        #time {
             font-size: 2rem;
             font-weight: bold;
         }
-  
-  .splash-screen {
+        .splash-screen {
             position: fixed;
             top: 0;
             left: 0;
@@ -45,40 +36,36 @@
             font-family: 'Inter', sans-serif;
             text-align: center;
         }
-  
-    
-  .inactive {
-  background: none;
-  border: none;
-    border-bottom-width: medium;
-    border-bottom-style: none;
-    border-bottom-color: currentcolor;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-bottom: 2px solid transparent !important;
-}
-    /* Style for the sticky volume control button */
-    #volume-control {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      border-radius: 5px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    /* Style for the volume slider; initially hidden */
-    #volume-slider {
-      margin-left: 10px;
-      display: none;
-    }
-  </style>   <link rel="preconnect" href="https://fonts.googleapis.com">
+        .inactive {
+            background: none;
+            border: none;
+            border-bottom-width: medium;
+            border-bottom-style: none;
+            border-bottom-color: currentcolor;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent !important;
+        }
+        #volume-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        #volume-slider {
+            margin-left: 10px;
+            display: none;
+        }
+    </style>   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -93,7 +80,25 @@
         body {
             margin: 0;
             min-height: 200vh;
-            background-color: black;
+            background: #000;
+            /* overflow: hidden;  Removed to allow scrolling */
+        }
+        .ambient-bg-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ambient-light-fade {
+            transition: opacity 1s cubic-bezier(.4,0,.2,1);
+            opacity: 0 !important;
+        }
+        .ambient-light {
+            transition: opacity 1s cubic-bezier(.4,0,.2,1);
+            opacity: 1;
         }
     .x{
         background-color: #111;
@@ -101,7 +106,7 @@
         
     }
         .tiktok{
-            backgound-color: rgba(255, 59, 92, 1);
+            background-color: rgba(255, 59, 92, 1);
             color: #FFF;
         }
 
@@ -198,7 +203,7 @@
         }
 @media only screen and (max-width: 600px) {
     .anchor-container {
-        display: none !important; /* Add !important if you want to ensure it overrides other styles */
+        display: none !important;
     }
 }
 
@@ -252,9 +257,70 @@
         #cba {
             margin-bottom: 12px;
         }
-    </style></head>
+
+        
+    </style>
+    
+  <script>document.addEventListener('DOMContentLoaded', () => {
+  const tabsContainer = document.querySelector('.tabs');
+  const tabs = document.querySelectorAll('.tab');
+
+
+  const underline = document.createElement('div');
+  underline.style.position = 'absolute';
+  underline.style.height = '2.5px';
+  underline.style.backgroundColor = '#e2ccc3';
+  underline.style.bottom = '0';
+  underline.style.borderRadius = '2px';
+  underline.style.transition = 'left 0.4s cubic-bezier(0.4,0,0.2,1), width 0.4s cubic-bezier(0.4,0,0.2,1)';
+  underline.style.willChange = 'left, width';
+
+
+  tabsContainer.style.position = 'relative';
+  tabsContainer.appendChild(underline);
+
+  function moveUnderline(tab) {
+    const containerRect = tabsContainer.getBoundingClientRect();
+    const tabRect = tab.getBoundingClientRect();
+    underline.style.left = (tabRect.left - containerRect.left) + 'px';
+    underline.style.width = tabRect.width + 'px';
+  }
+
+
+  const activeTab = document.querySelector('.tab.active');
+  if (activeTab) {
+    moveUnderline(activeTab);
+  }
+
+ 
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+
+      const currentActive = document.querySelector('.tab.active');
+      if (currentActive) currentActive.classList.remove('active');
+
+   
+      tab.classList.add('active');
+
+      moveUnderline(tab);
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    const active = document.querySelector('.tab.active');
+    if (active) moveUnderline(active);
+  });
+});
+</script>
+  </head>
 <body> 
       
+  <div class="ambient-bg-light"></div>
+  <div id="corner-icon-wrap" style="position: fixed; top: 0px; right: 0px; z-index: 10002; display: flex; align-items: center; gap: 4px; margin: 10px 10px 0 0;">
+    <img id="corner-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAAA8CAYAAACAc5NXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAzfHTVMAAAS/SURBVHja7Z3rdeM2EIWvcrYAlsCtINwKVq5grQpWriBWBb6uwHYF0lYQpQIpFSxTgZkKgg6cHxztgWm+IICUQM49x38k8HGsTzN3hgC0eHt7g0oVSp9iudHFYhHFfZJMANwCSAEUAPYkjcs5Yv6SL2K5+RiAInkP4AFAYr1sAGxI7hQoBcoFpi2AdcuQu75QxQzUb5r1R4EJALYk11P/X2iE8ocpBfDqcEhnpNIINW8Z+eurSUcqBco/QhkAG8fDJguVprzzIFpLW2BPMrde2zqeqjb9aZU3I6AqBtwAuPGE6jPJQj2UVnNA2W86kMzk/R2AO8fT/qEeSmFCQKgyBUphCgmVUaCmA8qyx5gM3U1LH6j+0iovYlMuD2+fKpA8k9y0QHdwuISLUc9JftEqL1KgBKZDg2/ZAXgBUFRnB/R8tOIKVS5jjAIVIVAdMNUB8UKSA0HVCJMCFQFQjjDZ2qNsPppAUKUoG6J52xwpBeqKgfKAqTY1+ULVR9rYvN4qzhcmyLEHORdI3onf6qtTETALTb1t8CfCNA4zu9I7AyqjQMUfnTIAy4CnzCTduUKVw/1xjAJ1hUoGOOfaEarWak6BUrlANTuYJl/lkXyVMn0I7QQm1FR/XjBplXe9Wg1oiOsi1QbA4xwj0ywilHzQRLlWbii9i1QhpBHqulWM4KnWai0VqJBKFaWZAEXyOBJUKszn4XCGstOdDHybR6nw/gVwdHl+NxUPNafpK2u4r0jx1Z7kSoGKHCiSTwDuEWaZk682JJ+1yovXM20FJiDMMidffVNTHjdM1RL+0lAVCtR0YLo0VAblPHUFKjKYiO5ZlGND9c6/KVBx6WvPcWNBNUuYpgSUywc3NFSzhWlSbYOB1s4Fg8lqZRQyprDeS+TaCYCXh4eHvUaocT3TE8n/SG49Fw9UI9UXlEunCseod9KmAabMamWkNeA/odyKeolyHrymvJGruXsBYg3/FSk2VDnJFcnPcN+Vrm3vzKzj2FQ91PVUc1kgqFIPX9a1EevXjnMrUBeAaYnmiXIhoEor1zPo15RshUlArX4Jji1AFQrUOPre8b4PVHlDRCp8YLL8ka13P9VB8tYjMipQHuqTFs6BKkfzHPC/fWASv1cFpto5/+ZwTQUqoEzPcS5QtcGEluO60lzS0MbYy4Q/u11QBW6vQI0jl53e+kDVBROkV7Sy0tDpmF0DREvpN73WwJTjYwP1VK3+8lbVHYFjU1SNTZI/4bZXwTtorKjRCZNjwXBqWvZOq2LWf1aAuiF51Al24wGVwH03laDw1MCUCRhN2sPaY8o6rvrlOJK8AXSC3ZitAwPgxrESyjBs97lo8Hc5gJU0Sk2NWa9+KTaYgKJ8lndOpCK5GBD0W5Qb2BsA/8D6yY6Gyq/qrx7t7Rc15Y0M1BlQ1e62O3J0TVG/X9WvVDcFoKKdvuKQ/nIZd8l7pfisrC4tYkKKfvpKR6Qa1JD3MOvfJb0lNUOO4rE+3JumvAsCZUF1Lx9gKkb5B8oN7c0I8CQCzu9y/Qzti0obN9pXoK4AqCtIvwf0236xkBbCsW1QzEB9giqElj1Aeuz7q+gxS4EKo2d87JTn4pN+zGl+uaa8sCY8AWB8AYo55f0PTOIPr490EBAAAAAASUVORK5CYII=" alt="Corner Icon">
+  <span id="corner-p" style="display:inline-block; height:20px; width:20px; background:#fff; color:#000000; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; border-radius:4px; text-align:center; line-height:20px; box-shadow:0 2px 8px #000a;">P</span>
+  <span id="corner-p" style="display:inline-block; height:20px; width:20px; background:#fff; color:#000000; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; border-radius:4px; text-align:center; line-height:20px; box-shadow:0 2px 8px #000a;">S</span>
+  </div>
 
             
 
@@ -264,11 +330,77 @@
         <div class="splash-text">Welcome to ContentLTD<br>Click anywhere to continue</div>
     </div>
 
-    <script data-cfasync="false">
-        document.getElementById('splash-screen').addEventListener('click', function() {
-            this.style.display = 'none';
-        });
-    </script>
+<script data-cfasync="false">
+  let ambientTimeout = null;
+
+  function randomBetween(a, b) {
+    return Math.random() * (b - a) + a;
+  }
+
+  function createLight(color) {
+    const el = document.createElement('div');
+    const size = randomBetween(350, 600);
+    el.className = 'ambient-light';
+    el.style.position = 'absolute';
+    el.style.width = `${size}px`;
+    el.style.height = `${size}px`;
+    el.style.borderRadius = '50%';
+    el.style.opacity = '0';
+    el.style.filter = `blur(${randomBetween(50, 120)}px)`;
+    el.style.background = `radial-gradient(circle, ${color} 0%, rgba(0,0,0,0) 100%)`;
+    el.style.left = `${randomBetween(0, 80)}vw`;
+    el.style.top = `${randomBetween(0, 80)}vh`;
+    el.style.transition = 'opacity 1s ease-in-out';
+    return el;
+  }
+
+  function fadeOutLights(container) {
+    const lights = Array.from(container.children);
+    lights.forEach(light => {
+      light.style.opacity = '0';
+    });
+    return new Promise(resolve => {
+      setTimeout(resolve, 1000); // wait for fade-out transition
+    });
+  }
+
+  async function renderAmbientLightsWithFade() {
+    const container = document.querySelector('.ambient-bg-light');
+    if (!container) return;
+
+    // Fade out existing lights first
+    await fadeOutLights(container);
+
+    // Remove old lights
+    container.innerHTML = '';
+
+    // Create 3 blue lights
+    for (let i = 0; i < 3; i++) {
+      const blueLight = createLight('rgba(60,120,255,0.6)');
+      container.appendChild(blueLight);
+      setTimeout(() => (blueLight.style.opacity = '0.6'), i * 200);
+    }
+
+    // Create 2 red lights
+    for (let i = 0; i < 2; i++) {
+      const redLight = createLight('rgba(255,60,60,0.6)');
+      container.appendChild(redLight);
+      setTimeout(() => (redLight.style.opacity = '0.6'), 600 + i * 200);
+    }
+
+    // Schedule next update
+    clearTimeout(ambientTimeout);
+    ambientTimeout = setTimeout(renderAmbientLightsWithFade, 2000);
+  }
+
+  document.getElementById('splash-screen').addEventListener('click', function () {
+    this.style.display = 'none';
+    renderAmbientLightsWithFade();
+  });
+</script>
+
+
+
 
 
 
@@ -282,76 +414,54 @@
   
 
   
-    <!-- Audio element that autoplays and loops.
-       Note: Many browsers block autoplay with sound.
-       If you run into issues, consider adding the "muted" attribute here,
-       then unmute on user interaction (as shown in the slider event below). -->
-  <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
+  <audio id="bg-audio" src="/bg-music.mp3" autoplay="" loop="">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Sticky Volume Control Button -->
   <div id="volume-control">
     <span id="volume-icon">🔊</span>
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="display: none;">
   </div>
 
-  <!-- Inline script with Cloudflare Rocket Loader disabled -->
   <script data-cfasync="false">
     document.addEventListener('DOMContentLoaded', function () {
-      console.log("DOM fully loaded");
       const audio = document.getElementById('bg-audio');
       const volumeControl = document.getElementById('volume-control');
       const volumeSlider = document.getElementById('volume-slider');
 
-      // For testing: log clicks on the volume control
+      // Set initial audio volume to 25%
+      audio.volume = 0.25;
+      if (volumeSlider) volumeSlider.value = 0.25;
+
       volumeControl.addEventListener('click', function (e) {
-        console.log('Volume control clicked');
-        e.stopPropagation();  // Prevent event from reaching document-level handler
-        // Toggle slider visibility
+        e.stopPropagation();
         if (volumeSlider.style.display === 'none' || volumeSlider.style.display === '') {
           volumeSlider.style.display = 'block';
-          console.log('Volume slider shown');
         } else {
           volumeSlider.style.display = 'none';
-          console.log('Volume slider hidden');
         }
       });
 
-      // Prevent clicks on the slider itself from bubbling up
       volumeSlider.addEventListener('click', function (e) {
-        console.log('Volume slider clicked');
         e.stopPropagation();
       });
 
-      // Hide the slider if the user clicks anywhere else on the document
       document.addEventListener('click', function () {
         if (volumeSlider.style.display !== 'none') {
           volumeSlider.style.display = 'none';
-          console.log('Document clicked: volume slider hidden');
         }
       });
 
-      // When the slider is adjusted, update the audio volume.
       volumeSlider.addEventListener('input', function (e) {
-        // Unmute if needed
         if (audio.muted) {
           audio.muted = false;
-          console.log('Audio unmuted');
         }
         audio.volume = e.target.value;
-        console.log('Volume set to', e.target.value);
       });
 
-      // Optional: if autoplay is blocked (as most browsers require user activation),
-      // play the audio on the first user interaction.
       if (audio.paused) {
         document.body.addEventListener('click', function playAudioOnInteraction() {
-          audio.play().then(() => {
-            console.log('Audio played after user interaction');
-          }).catch(err => {
-            console.error('Audio play failed:', err);
-          });
+          audio.play().catch(function(){});
           document.body.removeEventListener('click', playAudioOnInteraction);
         });
       }
@@ -363,7 +473,6 @@
             <img src="/placeholder.svg?height=40&amp;width=40" alt="Achievement badge">
         </div>
         <div class="achievement-content">
-            
             <div class="achievement-title">Rock Bottom</div>
             <div class="achievement-description">This is just the beginning.</div>
         <div class="achievement-description">Escape The Hotel</div></div>
@@ -380,32 +489,216 @@
 
 <style>
   .profile-ban {
-    background: url('https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/70acbd1d-62b2-41f5-61d3-19a42f0a4400/public') no-repeat center center;
-    background-size: cover;
+    position: relative;
+    background: none;
     width: 100%;
     height: 110.05px; /* Fixed height as requested */
     border-top-left-radius: 15px; /* Rounded top left */
     border-top-right-radius: 15px; /* Rounded top right */
     overflow: hidden; /* Ensures rounded corners appear properly */
   }
+  .profile-ban-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/_assets/v2/banner.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(3px);
+    z-index: 1;
+  }
+  .profile-pic {
+    position: relative;
+    z-index: 2;
+  }
 </style>
 
             <div class="profile-ban">
-  <div class="profile-pic">
-    <img alt="ContentLTD" width="100" height="100" src="https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/d7bd1b5d-eeec-4e44-b02c-0a735e321b00/public">
-  </div>
-</div><h1>@contentltd</h1>
+              <div class="profile-ban-bg"></div>
+              <div class="profile-pic">
+                <img alt="ContentLTD" width="100" height="100" src="/_assets/v2/pfp.png">
+              </div>
+            </div>
+<h1>@contentltd</h1>
             <p class="pronouns">They/Them</p>
             
             <p class="bio">
-                Hello there, I am ContentLTD (AKA Content AKA ContentDeleted). You can call me content. 
-                I am a website designer and ER;LC server owner.
+I’m ContentLTD. That’s all.
             </p>
-                
+
+            <style>/* hr1: dashed white line */
+.hr1 {
+  border: none;
+  border-top: 2px dashed white;
+  margin: 1em 0;
+}
+.hr2 {
+  border: none;
+  height: 2px;
+  margin: 1em 0;
+  border-radius: 3px;
+  background: linear-gradient(to right, 
+    #111 0%, 
+    #666 20%, 
+    #fff 50%, 
+    #666 80%, 
+    #111 100%);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.07);
+}
+
+</style>
+
+
 
     
- <p class="timezone">EST (UTC -5)</p>
-            <div class="buttons">
+<p class="timezone"><span id="est-time"></span> | EST (UTC -5)</p>
+<br>
+<h3>Now Playing:</h3>
+                <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+  .now-playing {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 600px;
+    padding: 5px 0;
+    color: white;
+  }
+
+  .now-playing .album-cover {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .now-playing .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .now-playing .details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .now-playing .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .now-playing .artist {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+
+  .loop-icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    opacity: 0.75;
+    margin-left: auto;
+  }
+
+  .progress-row {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .progress-row .time {
+    width: 40px;
+    text-align: center;
+  }
+
+.title {
+    text-align: left !important;
+}
+
+  .progress-bar {
+    flex-grow: 1;
+    height: 8px;
+    background: #444;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .progress-fill {
+    background: #1db954;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s linear;
+  }
+</style>
+
+<div class="now-playing">
+  <img class="album-cover" src="https://cdn.contentltd.xyz/cover.jpg" alt="Album Cover" />
+  <div class="info">
+    <div style="display: flex; align-items: flex-start;">
+      <div class="details">
+        <span class="title">Unstable</span>
+        <span class="artist">@LSPLASH</span>
+      </div>
+      <svg class="loop-icon" viewBox="0 0 24 24">
+        <path d="M7 7v4H3v2h4v4l5-5-5-5zm10 4v4h-4v2h4v4l5-5-5-5z" />
+      </svg>
+    </div>
+    <div class="progress-row">
+      <span class="time current">0:00</span>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <span class="time total">0:00</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const audio = document.getElementById('bg-audio');
+    if (!audio) return;
+
+    const currentTimeEl = document.querySelector('.now-playing .time.current');
+    const totalTimeEl = document.querySelector('.now-playing .time.total');
+    const progressFill = document.querySelector('.now-playing .progress-fill');
+
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return '0:00';
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    audio.addEventListener('loadedmetadata', () => {
+      totalTimeEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = percent + '%';
+    });
+  })();
+</script>
+<hr class="hr2" />
+        </header>
+        <main>
+            <div class="tabs">
+                <button class="tab active" data-tab="about">Socials</button>
+                <button class="tab" data-tab="skills">Ya Boi</button>
+                <button class="tab" data-tab="experience" id="exp-tab" style="display:none;">Experience</button>
+            </div>
+            <div class="tab-content" id="tab-about">
+                            <div class="buttons">
                 
                 <a href="https://youtube.com/@contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button youtube">
                     YouTube Channel
@@ -419,11 +712,12 @@
                 </a>
             <a href="https://x.com/contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button x">
                     X
-                    <!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                 </a><a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="button x">
                     My Personal X
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                </a><a href="https://contentltd.xyz/notice/lemon8" target="_blank" rel="noopener noreferrer" class="button lemon8">
+                </a>
+                <!-- <a href="https://contentltd.xyz/notice/lemon8" target="_blank" rel="noopener noreferrer" class="button lemon8">
                     Lemon8
                     <svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 1000 384.76126" fill="none" version="1.1" id="svg1" sodipodi:docname="Lemon8.svg" inkscape:version="1.4 (86a8ad7, 2024-10-11)">
   <defs id="defs1"></defs>
@@ -436,95 +730,467 @@
 
 <path d="M16.656 1.029c1.637-0.025 3.262-0.012 4.886-0.025 0.054 2.031 0.878 3.859 2.189 5.213l-0.002-0.002c1.411 1.271 3.247 2.095 5.271 2.235l0.028 0.002v5.036c-1.912-0.048-3.71-0.489-5.331-1.247l0.082 0.034c-0.784-0.377-1.447-0.764-2.077-1.196l0.052 0.034c-0.012 3.649 0.012 7.298-0.025 10.934-0.103 1.853-0.719 3.543-1.707 4.954l0.020-0.031c-1.652 2.366-4.328 3.919-7.371 4.011l-0.014 0c-0.123 0.006-0.268 0.009-0.414 0.009-1.73 0-3.347-0.482-4.725-1.319l0.040 0.023c-2.508-1.509-4.238-4.091-4.558-7.094l-0.004-0.041c-0.025-0.625-0.037-1.25-0.012-1.862 0.49-4.779 4.494-8.476 9.361-8.476 0.547 0 1.083 0.047 1.604 0.136l-0.056-0.008c0.025 1.849-0.050 3.699-0.050 5.548-0.423-0.153-0.911-0.242-1.42-0.242-1.868 0-3.457 1.194-4.045 2.861l-0.009 0.030c-0.133 0.427-0.21 0.918-0.21 1.426 0 0.206 0.013 0.41 0.037 0.61l-0.002-0.024c0.332 2.046 2.086 3.59 4.201 3.59 0.061 0 0.121-0.001 0.181-0.004l-0.009 0c1.463-0.044 2.733-0.831 3.451-1.994l0.010-0.018c0.267-0.372 0.45-0.822 0.511-1.311l0.001-0.014c0.125-2.237 0.075-4.461 0.087-6.698 0.012-5.036-0.012-10.060 0.025-15.083z"></path>
 </svg>
-                </a></div>
-        </header>
-        <main>
-            <div class="tabs">
-                <button class="tab active">About Me</button>
+                </a> -->  </div>
             </div>
-            <div class="content">
-                <div class="section">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Website Design</li>
-                        <li>Server Management</li>
-                        <li>Content Creation</li>
-                    </ul>
+                        <div class="tab-content" id="tab-skills" style="display:none;">
+                 <div class="section">
+                    <h3>Ya Boi :)</h3>
+<p>I’m ContentLTD. I spend most of my time online, building websites and testing ideas. Still figuring things out, same as everyone else.</p>
                 </div>
-                <div class="section">
-                    <h3>Interests</h3>
-                    <ul>
-                        <li>Web Development</li>
-                        <li>Gaming</li>
-                        <li>Technology</li>
-                    </ul>
+
+            </div>
+            <div class="tab-content exp-cards-list" id="tab-experience" style="display:none;">
+                <div class="experience-card" style="border-color:#FFBB00; --exp-accent:#FFBB00;" data-role="Founder" data-status="Current" data-link="https://contentltd.net" data-server="ContentLTD Brand">
+                    <div class="exp-pfp-wrap" style="background:#181818;">
+                        <img src="https://contentltd.net/assets/contentltd_white.webp" alt="ContentLTD Brand Logo" class="exp-pfp" draggable="false" ondragstart="return false;" oncontextmenu="return false;" oncopy="return false;">
+                    </div>
+                    <div class="exp-info">
+                        <div class="exp-server-name">ContentLTD Brand</div>
+                        <div class="exp-meta">Founder &ndash; Current</div>
+                    </div>
+                    <div class="exp-expanded-content">
+                        <div class="exp-expanded-left">
+                            <div class="exp-role">Founder</div>
+                            <div class="exp-status">Current</div>
+                        </div>
+                        <div class="exp-expanded-right">
+                            <a class="exp-link" href="https://contentltd.net" target="_blank">Visit Server</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="section">
-                    <h3>Projects</h3>
-                    <p>
-                        Currently working on various web design projects and managing the ER;LC server. 
-                        Stay tuned for upcoming content and collaborations!
-                    </p>
+
+                <div class="experience-card" style="border-image: linear-gradient(90deg, #ff3b3b 0%, #3b7bff 100%) 1; border-width:2px; border-style:solid; --exp-accent:#3b7bff;" data-role="Founder" data-status="Current" data-link="https://discord.gg/acrp" data-server="Allegheny County Roleplay">
+                    <div class="exp-pfp-wrap" style="background:#181818;">
+                        <img src="https://cdn2.contentltd.net/acrp%20(2).png" alt="Allegheny County Roleplay Logo" class="exp-pfp" draggable="false" ondragstart="return false;" oncontextmenu="return false;" oncopy="return false;">
+                    </div>
+                    <div class="exp-info">
+                        <div class="exp-server-name">Allegheny County Roleplay</div>
+                        <div class="exp-meta">Founder &ndash; Current</div>
+                    </div>
+                    <div class="exp-expanded-content">
+                        <div class="exp-expanded-left">
+                            <div class="exp-role">Founder</div>
+                            <div class="exp-status">Current</div>
+                        </div>
+                        <div class="exp-expanded-right">
+                            <a class="exp-link" href="https://discord.gg/acrp" target="_blank">Join Server</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card" style="border-color:#FFF; --exp-accent:#FFF;" data-role="Internal Affairs Agent" data-status="Quit" data-link="https://discord.gg/mbrp" data-server="Metro Beach Roleplay">
+                    <div class="exp-pfp-wrap" style="background:#181818;">
+                        <img src="https://cdn.contentltd.xyz/mbrp.png" alt="Metro Beach Roleplay Logo" class="exp-pfp" draggable="false" ondragstart="return false;" oncontextmenu="return false;" oncopy="return false;">
+                    </div>
+                    <div class="exp-info">
+                        <div class="exp-server-name">Metro Beach Roleplay</div>
+                        <div class="exp-meta">Internal Affairs Agent &ndash; Former</div>
+                    </div>
+                    <div class="exp-expanded-content">
+                        <div class="exp-expanded-left">
+                            <div class="exp-role">Internal Affairs Agent</div>
+                            <div class="exp-status">Quit</div>
+                        </div>
+                        <div class="exp-expanded-right">
+                            <a class="exp-link" href="https://discord.gg/mbrp" target="_blank">Join Server</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
-        <footer>
-            <a href="https://contentltd.net"><p class="footer-text">A ContentLTD Product</p></a>
-        <p class="footer-text">Stay Tuned. Something's Happening...</p>
-
-<hr style="background-color: rgba(255, 255, 255, 0.5) !important;">
-
-<p class="pronouns">I do not own or claim any rights to the banner and images displayed. Some images may be the property of Kit9 Studios and SNB3 (SoNoBro3), the creators of Class of '09 and The Coffin of Andy and Leyley. All visual content belongs to their respective owners. If you are the copyright holder and would like the content removed or properly credited, please contact me.</p></footer>
-    </div>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;91783d834cd94bc7&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;918ca773fcd94bbd&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;93572f3eac7243f1&quot;,&quot;version&quot;:&quot;2025.4.0-1-g37f21b1&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+<style>
+    .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+    .tab {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-family: 'Oswald', sans-serif;
+        padding: 10px 28px;
+        cursor: pointer;
+        border-bottom: 2.5px solid transparent;
+        transition: border-color 0.2s, color 0.2s;
+        outline: none;
+        letter-spacing: 0.5px;
+    }
+    .tab.active {
+        border-bottom: 2.5px solid #e2ccc3;
+        color: #e2ccc3;
+    }
+    .tab-content {
+        animation: fadein 0.4s;
+    }
+    @keyframes fadein {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .experience-card {
+        display: flex;
+        align-items: center;
+        background: rgba(20, 20, 20, 0.92);
+        border-radius: 12px;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.14);
+        padding: 16px 18px;
+        margin: 0 auto;
+        max-width: 340px;
+        min-width: 340px;
+        min-height: 80px;
+        border: 2px solid #e2ccc3;
+        gap: 16px;
+        box-sizing: border-box;
+    }
+    .exp-pfp-wrap {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #181818;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 6px 0 rgba(0,0,0,0.10);
+        transition: all 0.4s cubic-bezier(.4,0,.2,1);
+    }
+    .exp-pfp {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        border-radius: 0;
+        user-select: none;
+        pointer-events: none;
+    }
+    .experience-card {
+        transition: box-shadow 0.3s, background 0.3s, min-height 0.4s cubic-bezier(.4,0,.2,1);
+        position: relative;
+    }
+    .experience-card.expanded {
+        min-height: 220px;
+        background: rgba(30, 30, 30, 0.98);
+        box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22);
+        flex-direction: column;
+        align-items: stretch;
+        z-index: 2;
+    }
+    .experience-card.expanded .exp-pfp-wrap {
+        margin: 0 auto 10px auto;
+        width: 64px;
+        height: 64px;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18);
+    }
+    .experience-card.expanded .exp-info {
+        flex-direction: row;
+        gap: 0;
+        margin-top: 12px;
+        justify-content: stretch;
+    }
+    .experience-card .exp-expanded-content {
+        display: none;
+    }
+    .experience-card.expanded .exp-expanded-content {
+        display: flex;
+        flex-direction: row;
+        margin-top: 18px;
+        width: 100%;
+        min-height: 90px;
+        border-top: 2px dashed var(--exp-accent, #e2ccc3);
+        padding-top: 18px;
+        gap: 0;
+    }
+    .exp-expanded-left, .exp-expanded-right {
+        flex: 1;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .exp-expanded-left {
+        border-right: 2px dashed var(--exp-accent, #e2ccc3);
+        align-items: flex-start;
+    }
+    .exp-expanded-right {
+        align-items: flex-end;
+    }
+    .exp-role {
+        font-size: 1.1rem;
+        font-family: 'Oswald', sans-serif;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+    .exp-status {
+        font-size: 1rem;
+        color: #8b837f;
+        font-family: 'Inter', sans-serif;
+    }
+    .exp-link {
+        font-size: 1rem;
+        color: var(--exp-accent, #e2ccc3);
+        font-family: 'Inter', sans-serif;
+        text-decoration: underline;
+        margin-top: 8px;
+        word-break: break-all;
+    }
+    .experience-card.expanded .exp-server-name {
+        text-align: center;
+        width: 100%;
+    }
+    @media (max-width: 600px) {
+        .experience-card {
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px 4px;
+            max-width: 98vw;
+        }
+        .exp-pfp-wrap {
+            width: 48px;
+            height: 48px;
+        }
+        .exp-pfp {
+            width: 48px;
+            height: 48px;
+        }
+        .exp-server-name {
+            font-size: 1rem;
+        }
+    }
+    .exp-cards-list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .exp-meta {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.92rem;
+        color: #8b837f;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        transition: opacity 0.2s;
+    }
+    .experience-card.expanded .exp-meta {
+        display: none;
+    }
+</style>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem("videoPlayed")) return;
-
-  const handleClick = () => {
-    sessionStorage.setItem("videoPlayed", "true");
-
-    // Save original page content
-    const originalContent = document.body.innerHTML;
-    document.body.innerHTML = ""; // Clear body
-
-    // Create and configure the video
-    const video = document.createElement("video");
-    video.src = "https://github.com/lostinfinite/contentltd.xyz/raw/refs/heads/main/hck.mp4";
-    video.autoplay = true;
-    video.muted = true;
-    video.playsInline = true;
-
-    Object.assign(video.style, {
-      position: "fixed",
-      top: "0",
-      left: "0",
-      width: "100vw",
-      height: "100vh",
-      objectFit: "cover",
-      zIndex: "9999",
-      backgroundColor: "black"
-    });
-
-    document.body.appendChild(video);
-
-    // Remove video and restore content after 5 seconds
-    setTimeout(() => {
-      document.body.innerHTML = originalContent;
-    }, 5000);
-
-    // Only run once
-    document.removeEventListener("click", handleClick);
+// Tab switching logic
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = {
+    about: document.getElementById('tab-about'),
+    experience: document.getElementById('tab-experience'),
+    skills: document.getElementById('tab-skills')
   };
 
-  document.addEventListener("click", handleClick, { once: true });
+  // Only show Experience tab if URL matches
+  const expTab = document.getElementById('exp-tab');
+  const expContent = document.getElementById('tab-experience');
+  const url = window.location.href;
+  if (url.match(/index\.html\?utm=discord$/)) {
+    expTab.style.display = '';
+  } else {
+    expTab.style.display = 'none';
+    expContent.style.display = 'none';
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      tabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+
+      Object.values(tabContents).forEach(content => {
+        content.style.display = 'none';
+      });
+
+      const selectedTab = this.dataset.tab;
+      if (tabContents[selectedTab]) {
+        tabContents[selectedTab].style.display = '';
+      }
+    });
+  });
 });
+
 </script>
 
+        </main>
+        <hr class="hr1" />
 
+        <footer>
+<p class="footer-text">&copy; <span id="copyright-year"></span> ContentLTD <sup>℠</sup>. All rights reserved.</p>
+<p class="pronouns">Profile Picture and Banner commissioned from @khairos</p></footer>
+    </div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+  #corner-icon-wrap {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 10002;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 10px 10px 0 0;
+  }
+  #corner-icon {
+    height: 20px;
+    opacity: 0.96;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 8px #000a);
+    transition: opacity 0.2s;
+  }
+  #corner-p {
+    height: 20px;
+    width: 20px;
+    opacity: 0.96;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 8px #000a);
+    transition: opacity 0.2s;
+  }
+  .now-playing-chip {
+    position: fixed; /* changed from sticky */
+    top: 35px;
+    right: 10px;
+    z-index: 999;
+    background: rgba(34, 34, 34, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    max-width: 300px;
+  }
+
+  .now-playing-chip .cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .now-playing-chip .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .now-playing-chip .title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+  }
+
+  .now-playing-chip .artist {
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .now-playing-chip .time {
+    font-size: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    text-align: right;
+    white-space: nowrap;
+  }
+</style>
+<br><br>
+<div class="now-playing-chip">
+  <img class="cover" src="https://cdn.contentltd.xyz/cover.jpg" alt="Album Cover" />
+  <div class="info">
+    <div class="title">Unstable</div>
+    <div class="artist">@LSPLASH</div>
+  </div>
+  <div class="time">
+    <span class="current">0:00</span> /
+    <span class="total">0:00</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const audio = document.getElementById('bg-audio');
+    if (!audio) return;
+
+    const currentEl = document.querySelector('.now-playing-chip .current');
+    const totalEl = document.querySelector('.now-playing-chip .total');
+
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return '0:00';
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    audio.addEventListener('loadedmetadata', () => {
+      totalEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      currentEl.textContent = formatTime(audio.currentTime);
+    });
+  })();
+</script>
+<script>
+(() => {
+  const ease = 0.1; // smaller is smoother/slower
+  let currentScroll = window.scrollY;
+  let targetScroll = currentScroll;
+  let ticking = false;
+
+  function updateScroll() {
+    currentScroll += (targetScroll - currentScroll) * ease;
+
+    if (Math.abs(targetScroll - currentScroll) < 0.5) {
+      currentScroll = targetScroll;
+      ticking = false;
+    } else {
+      requestAnimationFrame(updateScroll);
+    }
+
+    window.scrollTo(0, currentScroll);
+  }
+
+  function onWheel(e) {
+    e.preventDefault();
+    targetScroll += e.deltaY;
+    targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateScroll);
+    }
+  }
+
+  window.addEventListener('wheel', onWheel, { passive: false });
+})();
+// Set copyright year dynamically
+document.addEventListener('DOMContentLoaded', function() {
+  var yearSpan = document.getElementById('copyright-year');
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  // Set EST time
+  function updateESTTime() {
+    var now = new Date();
+    // Convert to EST (UTC-5)
+    var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    var est = new Date(utc - (5 * 60 * 60 * 1000));
+    var hours = est.getHours();
+    var minutes = est.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var timeString = hours + ':' + minutes + ' ' + ampm;
+    var estSpan = document.getElementById('est-time');
+    if (estSpan) estSpan.textContent = timeString;
+  }
+  updateESTTime();
+  setInterval(updateESTTime, 60000);
+});
+</script>
 
 </body></html>
