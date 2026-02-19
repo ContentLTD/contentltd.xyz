@@ -1,6 +1,6 @@
 <html lang="en"><head>          
           
-<!-- Open Graph metadata for rich embeds -->
+
     <meta property="og:title" content="ContentLTD">
     <meta property="og:description" content="Hello, I'm ContentLimited (shortened to ContentLTD usually) and I am a website developer.">
     <meta property="og:image" content="https://yt3.googleusercontent.com/fm3EfAme--1R-AXyYk9fhrEFybJOB_tqX_hQ7jNDazZR3tpevPTX1JINsk6DlDFplngz67Xz=s176-c-k-c0x00ffffff-no-rj">
@@ -58,7 +58,7 @@
   cursor: pointer;
   border-bottom: 2px solid transparent !important;
 }
-    /* Style for the sticky volume control button */
+    
     #volume-control {
       position: fixed;
       bottom: 20px;
@@ -73,7 +73,7 @@
       z-index: 1000;
     }
 
-    /* Style for the volume slider; initially hidden */
+    
     #volume-slider {
       margin-left: 10px;
       display: none;
@@ -198,7 +198,7 @@
         }
 @media only screen and (max-width: 600px) {
     .anchor-container {
-        display: none !important; /* Add !important if you want to ensure it overrides other styles */
+        display: none !important; 
     }
 }
 
@@ -270,9 +270,6 @@
         });
     </script>
 
-
-
-
   
   
 
@@ -282,21 +279,18 @@
   
 
   
-    <!-- Audio element that autoplays and loops.
-       Note: Many browsers block autoplay with sound.
-       If you run into issues, consider adding the "muted" attribute here,
-       then unmute on user interaction (as shown in the slider event below). -->
+    
   <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Sticky Volume Control Button -->
+  
   <div id="volume-control">
     <span id="volume-icon">🔊</span>
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="display: none;">
   </div>
 
-  <!-- Inline script with Cloudflare Rocket Loader disabled -->
+  
   <script data-cfasync="false">
     document.addEventListener('DOMContentLoaded', function () {
       console.log("DOM fully loaded");
@@ -304,11 +298,10 @@
       const volumeControl = document.getElementById('volume-control');
       const volumeSlider = document.getElementById('volume-slider');
 
-      // For testing: log clicks on the volume control
       volumeControl.addEventListener('click', function (e) {
         console.log('Volume control clicked');
         e.stopPropagation();  // Prevent event from reaching document-level handler
-        // Toggle slider visibility
+
         if (volumeSlider.style.display === 'none' || volumeSlider.style.display === '') {
           volumeSlider.style.display = 'block';
           console.log('Volume slider shown');
@@ -318,13 +311,11 @@
         }
       });
 
-      // Prevent clicks on the slider itself from bubbling up
       volumeSlider.addEventListener('click', function (e) {
         console.log('Volume slider clicked');
         e.stopPropagation();
       });
 
-      // Hide the slider if the user clicks anywhere else on the document
       document.addEventListener('click', function () {
         if (volumeSlider.style.display !== 'none') {
           volumeSlider.style.display = 'none';
@@ -332,9 +323,8 @@
         }
       });
 
-      // When the slider is adjusted, update the audio volume.
       volumeSlider.addEventListener('input', function (e) {
-        // Unmute if needed
+
         if (audio.muted) {
           audio.muted = false;
           console.log('Audio unmuted');
@@ -343,8 +333,6 @@
         console.log('Volume set to', e.target.value);
       });
 
-      // Optional: if autoplay is blocked (as most browsers require user activation),
-      // play the audio on the first user interaction.
       if (audio.paused) {
         document.body.addEventListener('click', function playAudioOnInteraction() {
           audio.play().then(() => {
@@ -383,10 +371,10 @@
     background: url('https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/fd919fd0-4b55-477e-7f10-4d7704ed8100/public') no-repeat center center;
     background-size: cover;
     width: 100%;
-    height: 110.05px; /* Fixed height as requested */
-    border-top-left-radius: 15px; /* Rounded top left */
-    border-top-right-radius: 15px; /* Rounded top right */
-    overflow: hidden; /* Ensures rounded corners appear properly */
+    height: 110.05px; 
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+    overflow: hidden; 
   }
 </style>
 
@@ -419,7 +407,7 @@
                 </a>
             <a href="https://x.com/contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button x">
                     X
-                    <!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                 </a><a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="button x">
                     My Personal X
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -476,12 +464,5 @@
 
 <p class="pronouns">I do not own or claim any rights to the banner and images displayed. Some images may be the property of Kit9 Studios and SNB3 (SoNoBro3), the creators of Class of '09 and The Coffin of Andy and Leyley. All visual content belongs to their respective owners. If you are the copyright holder and would like the content removed or properly credited, please contact me.</p></footer>
     </div>
-
-
-
-
-
-
-
 
 </body></html>
