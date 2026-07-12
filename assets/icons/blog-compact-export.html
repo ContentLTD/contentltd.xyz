@@ -1,0 +1,77 @@
+<!doctype html>
+<!-- Open this file in a browser — it will render the blog compact icon
+     to a 512x512 canvas and immediately trigger a JPG download.       -->
+<html>
+<head><meta charset="utf-8"><title>blog-compact icon export</title></head>
+<body style="margin:0;background:#111;">
+<canvas id="c" width="512" height="512" style="display:block;margin:40px auto;border:1px solid #333;"></canvas>
+<script>
+(function () {
+  var canvas = document.getElementById('c');
+  var ctx    = canvas.getContext('2d');
+  var W = 512, H = 512;
+
+  // ── background ──────────────────────────────────────────────
+  ctx.fillStyle = '#0d0b0a';
+  ctx.fillRect(0, 0, W, H);
+
+  // ── warm top-left radial blush ───────────────────────────────
+  var warm = ctx.createRadialGradient(143, 112, 0, 143, 112, 300);
+  warm.addColorStop(0, 'rgba(196,104,58,0.14)');
+  warm.addColorStop(1, 'rgba(13,11,10,0)');
+  ctx.fillStyle = warm;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── cool bottom-right hint ──────────────────────────────────
+  var cool = ctx.createRadialGradient(420, 430, 0, 420, 430, 246);
+  cool.addColorStop(0, 'rgba(74,140,92,0.07)');
+  cool.addColorStop(1, 'rgba(13,11,10,0)');
+  ctx.fillStyle = cool;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── "C." logotype ───────────────────────────────────────────
+  // Try to load Instrument Serif from Google Fonts first, then draw.
+  var font = new FontFace(
+    'Instrument Serif',
+    "url('https://fonts.gstatic.com/s/instrumentserif/v6/Qw3TZQpMCyTtJSvBtNoorS5X.woff2') format('woff2')"
+  );
+  font.load().then(function (f) {
+    document.fonts.add(f);
+    drawText();
+  }).catch(function () {
+    drawText(); // fallback to Georgia
+  });
+
+  function drawText() {
+    var font268 = 'italic 268px "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif';
+    ctx.textAlign    = 'left';
+    ctx.textBaseline = 'alphabetic';
+
+    // "C" in white/ivory
+    ctx.font      = font268;
+    ctx.fillStyle = '#f0ebe4';
+    ctx.fillText('C', 148, 338);
+
+    // "." in burnt orange, positioned after the C
+    var cW = ctx.measureText('C').width;
+    ctx.fillStyle = '#c4683a';
+    ctx.fillText('.', 148 + cW - 8, 338);
+
+    save();
+  }
+
+  function save() {
+    // Export as JPG (quality 0.95)
+    canvas.toBlob(function (blob) {
+      var url = URL.createObjectURL(blob);
+      var a   = document.createElement('a');
+      a.href     = url;
+      a.download = 'blog-compact-512.jpg';
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }, 'image/jpeg', 0.95);
+  }
+})();
+</script>
+</body>
+</html>

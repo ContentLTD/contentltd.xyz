@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allegheny County Roleplay (ACRP) — Case Study by ContentLTD</title>
+
+  <meta name="description" content="Case study by ContentLTD: how I designed and built the Allegheny County Roleplay (ACRP) community platform in vanilla HTML, CSS, and JavaScript — two years of tuning, zero copy-paste.">
+  <meta name="author" content="ContentLTD">
+  <meta name="keywords" content="ContentLTD, ACRP, Allegheny County Roleplay, case study, ER:LC, Roblox community, vanilla HTML, web developer, community platform">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://contentltd.xyz/work/acrp.html">
+  <link rel="alternate" hreflang="en" href="https://contentltd.xyz/work/acrp.html">
+  <link rel="alternate" hreflang="x-default" href="https://contentltd.xyz/work/acrp.html">
+
+  <meta property="og:site_name" content="ContentLTD">
+  <meta property="og:title" content="ACRP — Case Study by ContentLTD">
+  <meta property="og:description" content="How ContentLTD designed and built the Allegheny County Roleplay community platform.">
+  <meta property="og:url" content="https://contentltd.xyz/work/acrp.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://profileapi.contentltd.xyz/pfp/image.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="ContentLTD">
+  <meta property="article:section" content="Case Study">
+  <meta property="article:tag" content="ACRP">
+  <meta property="article:tag" content="Vanilla JS">
+  <meta property="article:tag" content="Web Development">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@contentltd_">
+  <meta name="twitter:creator" content="@contentltd_">
+  <meta name="twitter:title" content="ACRP — Case Study by ContentLTD">
+  <meta name="twitter:description" content="How ContentLTD designed and built the Allegheny County Roleplay community platform.">
+  <meta name="twitter:image" content="https://profileapi.contentltd.xyz/pfp/image.png">
+
+  <meta name="theme-color" content="#0d0b0a">
+  <meta name="color-scheme" content="dark">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://contentltd.xyz/work/acrp.html#article",
+        "headline": "Allegheny County Roleplay (ACRP) — Case Study",
+        "description": "How ContentLTD designed and built the Allegheny County Roleplay community platform.",
+        "url": "https://contentltd.xyz/work/acrp.html",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png",
+        "inLanguage": "en-US",
+        "author": {
+          "@type": "Person",
+          "@id": "https://contentltd.xyz/#person",
+          "name": "ContentLTD",
+          "url": "https://contentltd.xyz/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ContentLTD",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://profileapi.contentltd.xyz/pfp/image.png"
+          }
+        },
+        "mainEntityOfPage": "https://contentltd.xyz/work/acrp.html",
+        "about": {
+          "@type": "CreativeWork",
+          "name": "Allegheny County Roleplay",
+          "alternateName": "ACRP",
+          "url": "https://alleghenycountyroleplay.com",
+          "creator": { "@id": "https://contentltd.xyz/#person" }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ContentLTD", "item": "https://contentltd.xyz/" },
+          { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://contentltd.xyz/work/" },
+          { "@type": "ListItem", "position": 3, "name": "ACRP", "item": "https://contentltd.xyz/work/acrp.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="https://profileapi.contentltd.xyz/pfp/image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap"></noscript>
+
+  <style>
+    :root {
+      --base:         #0d0b0a;
+      --surface:      #161311;
+      --surface-2:    #1e1a17;
+      --surface-3:    #252017;
+      --text:         #e8e2db;
+      --text-2:       #a69f95;
+      --text-3:       #6b645c;
+      --accent:       #c4683a;
+      --accent-soft:  rgba(196, 104, 58, 0.14);
+      --rule:         rgba(255, 255, 255, 0.06);
+      --radius:       10px;
+      --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: rgba(196, 104, 58, 0.35); color: var(--text); }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-synthesis: none;
+      background: var(--base);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Top bar ──────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 56px;
+      background: rgba(13, 11, 10, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .topbar-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-2);
+      transition: color 160ms ease;
+    }
+
+    .topbar-back:hover { color: var(--text); }
+
+    .topbar-back svg {
+      transition: transform 160ms var(--ease-out);
+    }
+    .topbar-back:hover svg { transform: translateX(-3px); }
+
+    .topbar-breadcrumb {
+      font-size: 0.8125rem;
+      color: var(--text-3);
+    }
+
+    .topbar-breadcrumb a {
+      color: var(--text-3);
+      transition: color 150ms ease;
+    }
+
+    .topbar-breadcrumb a:hover { color: var(--text-2); }
+
+    /* ── Page layout ──────────────────────────────── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 48px 120px;
+    }
+
+    /* ── Hero ─────────────────────────────────────── */
+    .hero {
+      margin-bottom: 64px;
+    }
+
+    .hero-kicker {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .meta-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    .meta-value {
+      font-size: 0.875rem;
+      color: var(--text-2);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #faf6f1;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: opacity 150ms ease, transform 150ms var(--ease-out);
+    }
+
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary:active { opacity: 0.82; transform: translateY(0); transition-duration: 80ms; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--text-2);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 150ms ease, color 150ms ease, background 150ms ease, transform 150ms var(--ease-out);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.15);
+      color: var(--text);
+      background: var(--surface);
+      transform: translateY(-1px);
+    }
+
+    /* ── Hero screenshot ──────────────────────────── */
+    .hero-screenshot {
+      margin-top: 40px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: var(--surface-2);
+      aspect-ratio: 16 / 9;
+      position: relative;
+    }
+
+    .hero-screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .screenshot-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--text-3);
+      font-size: 0.8rem;
+    }
+
+    .screenshot-placeholder svg { opacity: 0.25; }
+
+    /* ── Divider ──────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: var(--rule);
+      margin: 56px 0;
+    }
+
+    /* ── Section ──────────────────────────────────── */
+    .section {
+      margin-bottom: 52px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .section p {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.75;
+    }
+
+    .section p + p {
+      margin-top: 14px;
+    }
+
+    /* ── Highlight callout ────────────────────────── */
+    .callout {
+      margin: 28px 0;
+      padding: 20px 24px;
+      border-left: 2px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .callout p {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── Bullet list ──────────────────────────────── */
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .bullet-list li {
+      display: flex;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    .bullet-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+    }
+
+    /* ── Tech stack grid ──────────────────────────── */
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tech-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-2);
+      line-height: 1;
+    }
+
+    /* ── Stats row ────────────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 28px;
+    }
+
+    .stat-item {
+      background: var(--surface);
+      padding: 22px 20px;
+    }
+
+    .stat-value {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-3);
+      margin-top: 4px;
+    }
+
+    /* ── Screenshot gallery ───────────────────────── */
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: var(--surface-2);
+      aspect-ratio: 16 / 10;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── Footer ───────────────────────────────────── */
+    .page-footer {
+      margin-top: 80px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-footer p {
+      font-size: 0.78rem;
+      color: var(--text-3);
+    }
+
+    .page-footer a {
+      color: var(--text-2);
+      transition: color 150ms ease;
+    }
+
+    .page-footer a:hover { color: var(--text); }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .topbar { padding: 0 20px; }
+      .page { padding: 56px 20px 96px; }
+      .screenshot-gallery { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      .topbar-breadcrumb { display: none; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header class="topbar" role="banner">
+    <a href="/work/" class="topbar-back" aria-label="Back to Work">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 2L4 7l5 5"/>
+      </svg>
+      Work
+    </a>
+    <nav class="topbar-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">contentltd.xyz</a>
+      <span aria-hidden="true"> / </span>
+      <a href="/work/">Work</a>
+      <span aria-hidden="true"> / </span>
+      <span>ACRP</span>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    
+    <section class="hero">
+      <p class="hero-kicker">Case Study</p>
+      <h1>Allegheny County Roleplay</h1>
+
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Founder &amp; Lead Developer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Type</span>
+          <span class="meta-value">Community Platform</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">Active</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Stack</span>
+          <span class="meta-value">HTML · CSS · Vanilla JS</span>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="https://alleghenycountyroleplay.com" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Visit ACRP
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 10L10 2M5 2h5v5"/>
+          </svg>
+        </a>
+        <a href="/work/" class="btn-secondary">← All work</a>
+      </div>
+
+      
+      <div class="hero-screenshot">
+        <img src="/work/thumbnails/acrp_hero.jpg" alt="Allegheny County Roleplay portal screenshot"
+             onerror="this.style.display='none'">
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section class="section">
+      <p class="section-label">The Brief</p>
+      <h2>A site that feels like a real organization</h2>
+      <p>
+        Roblox communities, especially ER:LC communities,live and die on Discord. They usually have no web presence,
+        no identity, no permanence, aside from maybe the site they threw together on Sonoran CMS or their listing
+        on the Melonly Directory.
+      </p>
+      <p>
+        ACRP needed something different. They needed a platform that felt like a real organization
+        instead of a hobby or personal project.
+      </p>
+    </section>
+
+    
+    <section class="section">
+      <p class="section-label">The Numbers</p>
+      <h2>Two years of tuning</h2>
+      <p>
+        This site was first published about two years ago, give or take, and has been improving ever since.
+        There are roughly 10–30 pages on the site (I genuinely lost count), and I've used zero copy-paste assets.
+      </p>
+
+      
+      </div>
+    </section>
+
+    
+    <section class="section">
+      <p class="section-label">The Hard Part</p>
+      <h2>Vanilla, without the boilerplate look</h2>
+      <p>
+        Achieving something that doesn't feel like a bootstrap template, a boilerplate, or a copy-and-paste job
+        in vanilla HTML is a lot harder than you'd think. Frameworks give you conventions and easy-to-use
+        components (or not-easy-to-use, depending on the framework). Without them, you either impose your own,
+        let the codebase drift, or use Shadcn…
+      </p>
+      <p>
+        We used Shadcn. Just kidding.
+      </p>
+      <p>
+        In all seriousness, after two years of tuning and redesigns, we have something that feels coherent,
+        unique, and simple.
+      </p>
+    </section>
+
+    
+    <section class="section">
+      <p class="section-label">The Stack</p>
+      <h2>HTML5. CSS3. Vanilla JS.</h2>
+      <p>
+        Believe it or not — HTML5, CSS3, and Vanilla JS. My fingers hurt. Please help.
+      </p>
+      <div class="tech-grid">
+        <span class="tech-chip">
+          <svg width="13" height="13" viewBox="0 0 512 512" aria-hidden="true"><path fill="#e34c26" d="M64 32l34.9 395.8L256 480l157.1-52.2L448 32H64zm308 132H188l4 51h176l-13.6 148.4L256 393.2l-98.7-61.5-6.5-71.2h49l3.4 37.9 52.8 14.3 52.7-14.3 5.5-59.2H144.3l-12.2-131.6h248.4l-8.5 91.6z"/></svg>
+          HTML5
+        </span>
+        <span class="tech-chip">
+          <svg width="13" height="13" viewBox="0 0 512 512" aria-hidden="true"><path fill="#264de4" d="M64 32l34.9 395.8L256 480l157.1-52.2L448 32H64zm307.8 132.5l-4.3 47.4H184.6l4.3 47.4h178.6l-13.4 148.4-98 27.3-97.7-27.3-6.3-71.2h47.4l3.4 37.9 53.2 14.4 53.5-14.4 5.5-61.6H149.4l-12.2-131.6h237.6z"/></svg>
+          CSS3
+        </span>
+        <span class="tech-chip">
+          <svg width="13" height="13" viewBox="0 0 630 630" aria-hidden="true"><rect width="630" height="630" fill="#f7df1e" rx="4"/><path d="M165.65 526.47l48.2-29.18c9.3 16.5 17.77 30.48 38.09 30.48 19.48 0 31.77-7.62 31.77-37.25V258.42h59.2v233.6c0 61.32-35.94 89.2-88.38 89.2-47.36 0-74.92-24.52-88.88-54.75M375.58 516.13l48.2-27.9c12.73 20.75 29.25 36.02 58.42 36.02 24.52 0 40.19-12.28 40.19-29.25 0-20.29-16.1-27.45-43.2-39.27l-14.82-6.37c-42.75-18.18-71.13-40.95-71.13-89.2 0-44.41 33.84-78.24 86.74-78.24 37.64 0 64.73 13.08 84.18 47.36l-46.07 29.55c-10.15-18.18-21.08-25.34-38.11-25.34-17.37 0-28.34 11-28.34 25.34 0 17.75 10.96 24.91 36.26 35.89l14.82 6.37c50.34 21.55 78.71 43.55 78.71 92.85 0 53.15-41.75 82.54-97.82 82.54-54.84 0-90.3-26.12-107.64-60.3"/></svg>
+          Vanilla JS
+        </span>
+      </div>
+    </section>
+
+
+    
+    <section class="section">
+      <p class="section-label">The Outcome</p>
+      <h2>A site that feels good to use</h2>
+      <p>
+        The outcome is a website that feels good to use. Hell, even I find myself sitting down for an hour
+        just to mess with the hover effect on the "ACRP" wordmark in the nav bar.
+      </p>
+    </section>
+
+    
+    <section class="section">
+      <img src="/work/asset/acrp/acrp_fullsite.png"
+           alt="Full-page screenshot of the Allegheny County Roleplay website"
+           loading="lazy"
+           decoding="async"
+           style="width: 100%; height: auto; border-radius: 10px; display: block; border: 1px solid var(--rule);">
+    </section>
+
+    
+    <section class="section">
+      <p class="section-label">Links</p>
+      <div class="hero-actions">
+        <a href="https://alleghenycountyroleplay.com" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Visit ACRP
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 10L10 2M5 2h5v5"/>
+          </svg>
+        </a>
+        <a href="/work/" class="btn-secondary">← All work</a>
+        <a href="/" class="btn-secondary">contentltd.xyz</a>
+      </div>
+    </section>
+
+    
+    <footer class="page-footer">
+      <p>© <span id="year"></span> ContentLTD</p>
+      <p><a href="/work/">← Work</a></p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

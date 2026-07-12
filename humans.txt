@@ -1,0 +1,17 @@
+/* TEAM */
+  Developer & Community Builder: ContentLTD
+  Site: https://contentltd.xyz
+  Bluesky: @contentltd.xyz
+  GitHub: @contentltd
+  X / Twitter: @contentltd_
+  Last.fm: contentltd
+  Contact: info [at] contentltd.net
+
+/* SITE */
+  Last update: 2026/05/26
+  Standards: HTML5, CSS3, JavaScript
+  Components: Vanilla JS
+
+/* THANKS */
+  iconmonstr — icons
+  Google Fonts — Inter, DM Sans, Instrument Serif

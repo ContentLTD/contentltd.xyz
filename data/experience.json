@@ -1,0 +1,60 @@
+{
+  "experience": [
+ 
+    {
+      "id": "acrp",
+      "name": "Allegheny County Roleplay",
+      "role": "CEO",
+      "duration": "2 Years",
+      "status": "current",
+      "statusLabel": "Current",
+      "type": "erlc",
+      "description": "Leading a roleplay community with thousands of members. Responsible for strategic direction, development oversight, staff management, and community growth initiatives.",
+      "icon": "https://auxcdn.contentltd.xyz/acrp%20(2).png",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://alleghenycountyroleplay.com"
+        },
+        {
+          "label": "Careers",
+          "url": "https://alleghenycountyroleplay.com/careers"
+        }
+      ]
+    }, 
+    {
+      "id": "mbrp",
+      "name": "Metro Beach Roleplay",
+      "role": "Internal Affairs",
+      "duration": "~6 Months",
+      "status": "ended",
+      "statusLabel": "Former",
+      "type": "erlc",
+      "description": "Served in Internal Affairs, handling investigations, staff oversight, and ensuring community standards were upheld across the roleplay experience.",
+      "icon": "https://cdn.contentltd.xyz/mbrp.png",
+      "links": [
+        {
+          "label": "Discord",
+          "url": "https://discord.gg/5e3KK2kd7U"
+        }
+      ]
+    },
+        {
+      "id": "aopa",
+      "name": "Vexora External Relations",
+      "role": "Senior Developer",
+      "duration": "~3 Months",
+      "status": "ended",
+      "statusLabel": "Former",
+      "type": "erlc",
+      "description": "Helped by building and providing websites, and other systems for VEA.",
+      "icon": "https://cdn.contentltd.xyz/vea.webp",
+      "links": [
+        {
+          "label": "Discord",
+          "url": "https://discord.gg/uvfuvyygU3"
+        }
+      ]
+    }
+  ]
+}
