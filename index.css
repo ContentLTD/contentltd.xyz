@@ -55,7 +55,7 @@ body {
 
 @font-face {
   font-family: 'Handwritten';
-  src: url('/_assets/handwritten.ttf') format('truetype');
+  src: url('https://auxcdn.contentltd.xyz/media/handwritten.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -77,7 +77,7 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: var(--base) url('/_assets/Arcadia_Bay.jpeg') center / cover no-repeat;
+  background: var(--base) url('https://auxcdn.contentltd.xyz/media/Arcadia_Bay.jpeg') center / cover no-repeat;
 }
 .bg-photo::after {
   content: '';
@@ -287,7 +287,7 @@ body.wx-flash::before {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  background: var(--base) url('/_assets/Arcadia_Bay.jpeg') center / cover no-repeat;
+  background: var(--base) url('https://auxcdn.contentltd.xyz/media/Arcadia_Bay.jpeg') center / cover no-repeat;
   z-index: 1000;
   transition: opacity 900ms ease;
 }
