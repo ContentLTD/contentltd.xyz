@@ -1,0 +1,177 @@
+{
+  "_comment": "Embed / social metadata reference for contentltd.xyz",
+  "site": {
+    "name": "ContentLTD",
+    "url": "https://contentltd.xyz",
+    "canonical": "https://contentltd.xyz",
+    "title": "ContentLTD — Developer & Community Builder",
+    "description": "Website developer. Building things on the internet.",
+    "author": "ContentLTD",
+    "locale": "en_US",
+    "themeColor": "#0e0e0e",
+    "image": {
+      "url": "https://profileapi.contentltd.xyz/pfp/image.png",
+      "width": 512,
+      "height": 512,
+      "alt": "ContentLTD profile picture",
+      "type": "image/png"
+    }
+  },
+
+  "platforms": {
+
+    "openGraph": {
+      "note": "Used by Facebook, Discord, LinkedIn, Slack, WhatsApp, iMessage, Telegram, Reddit, Notion, and most link previewers",
+      "tags": {
+        "og:site_name": "ContentLTD",
+        "og:title": "ContentLTD — Developer & Community Builder",
+        "og:description": "Website developer. Building things on the internet.",
+        "og:image": "https://profileapi.contentltd.xyz/pfp/image.png",
+        "og:image:width": "512",
+        "og:image:height": "512",
+        "og:image:alt": "ContentLTD profile picture",
+        "og:url": "https://contentltd.xyz",
+        "og:type": "profile",
+        "og:locale": "en_US",
+        "profile:username": "contentltd"
+      }
+    },
+
+    "twitter": {
+      "note": "Twitter/X card — also read by some other platforms as fallback",
+      "tags": {
+        "twitter:card": "summary",
+        "twitter:site": "@contentltd_",
+        "twitter:creator": "@contentltd_",
+        "twitter:title": "ContentLTD — Developer & Community Builder",
+        "twitter:description": "Website developer. Building things on the internet.",
+        "twitter:image": "https://profileapi.contentltd.xyz/pfp/image.png",
+        "twitter:image:alt": "ContentLTD profile picture",
+        "twitter:url": "https://contentltd.xyz"
+      }
+    },
+
+    "discord": {
+      "note": "Discord reads OG tags. summary card via og:type=profile",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "description": "Website developer. Building things on the internet.",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png",
+        "color": "#0e0e0e"
+      }
+    },
+
+    "slack": {
+      "note": "Slack reads OG tags natively",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "description": "Website developer. Building things on the internet.",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png"
+      }
+    },
+
+    "linkedin": {
+      "note": "LinkedIn reads OG tags. og:type=profile activates person card",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "description": "Website developer. Building things on the internet.",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png"
+      }
+    },
+
+    "whatsapp": {
+      "note": "WhatsApp reads OG tags",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "description": "Website developer. Building things on the internet.",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png"
+      }
+    },
+
+    "telegram": {
+      "note": "Telegram reads OG tags",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "description": "Website developer. Building things on the internet.",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png"
+      }
+    },
+
+    "imessage": {
+      "note": "iMessage / iOS link preview reads OG tags + apple-touch-icon",
+      "appleTouchIcon": "https://profileapi.contentltd.xyz/pfp/image.png",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "description": "Website developer. Building things on the internet.",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png"
+      }
+    },
+
+    "bluesky": {
+      "note": "Bluesky reads OG tags for link cards",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "description": "Website developer. Building things on the internet.",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png"
+      }
+    },
+
+    "reddit": {
+      "note": "Reddit reads OG tags for link post previews",
+      "preview": {
+        "title": "ContentLTD — Developer & Community Builder",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png"
+      }
+    },
+
+    "google": {
+      "note": "Google Search — uses <title>, meta description, canonical, and JSON-LD",
+      "title": "ContentLTD — Developer & Community Builder",
+      "description": "Website developer. Building things on the internet.",
+      "canonical": "https://contentltd.xyz",
+      "robots": "index, follow",
+      "structuredData": {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "ContentLTD",
+        "url": "https://contentltd.xyz",
+        "image": "https://profileapi.contentltd.xyz/pfp/image.png",
+        "description": "Website developer and community builder.",
+        "sameAs": [
+          "https://bsky.app/profile/contentltd.xyz",
+          "https://github.com/contentltd",
+          "https://youtube.com/@contentltd_rblx",
+          "https://twitter.com/contentltd_"
+        ]
+      }
+    },
+
+    "windows": {
+      "note": "Windows tiles / Edge browser",
+      "msapplicationTileColor": "#0e0e0e",
+      "msapplicationTileImage": "https://profileapi.contentltd.xyz/pfp/image.png"
+    },
+
+    "ios": {
+      "note": "iOS home screen / Safari",
+      "appleMobileWebAppTitle": "ContentLTD",
+      "appleMobileWebAppCapable": "yes",
+      "appleMobileWebAppStatusBarStyle": "black-translucent",
+      "appleTouchIcon": "https://profileapi.contentltd.xyz/pfp/image.png"
+    },
+
+    "browser": {
+      "note": "Browser tab / theme",
+      "favicon": "https://profileapi.contentltd.xyz/pfp/image.png",
+      "themeColor": "#0e0e0e",
+      "colorScheme": "dark"
+    }
+  },
+
+  "socialProfiles": [
+    { "platform": "Bluesky",  "url": "https://bsky.app/profile/contentltd.xyz",    "handle": "@contentltd.xyz" },
+    { "platform": "GitHub",   "url": "https://github.com/contentltd",               "handle": "contentltd" },
+    { "platform": "YouTube",  "url": "https://youtube.com/@contentltd_rblx",        "handle": "@contentltd_rblx" },
+    { "platform": "X",        "url": "https://twitter.com/contentltd_",             "handle": "@contentltd_" }
+  ]
+}

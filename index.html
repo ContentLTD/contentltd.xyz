@@ -1,530 +1,3413 @@
 <!DOCTYPE html>
-<html lang="en"><head>          
-          
-<!-- Open Graph metadata for rich embeds -->
-    <meta property="og:title" content="ContentLTD">
-    <meta property="og:description" content="Hello, I'm ContentLimited (shortened to ContentLTD usually) and I am a website developer.">
-    <meta property="og:image" content="https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/d7bd1b5d-eeec-4e44-b02c-0a735e321b00/public">
-    <meta property="og:url" content="https://contentltd.xyz">
-    <meta property="og:type" content="website">
-          
-          
-          <style>
-  
-  
-        .profile-pic img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 1) !important;
-            background-color: black !important;
-        }
-  
-  
-          #time {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-  
-  .splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            cursor: pointer;
-        }
-        .splash-text {
-            color: white;
-            font-size: 24px;
-            font-family: 'Inter', sans-serif;
-            text-align: center;
-        }
-  
-    
-  .inactive {
-  background: none;
-  border: none;
-    border-bottom-width: medium;
-    border-bottom-style: none;
-    border-bottom-color: currentcolor;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-bottom: 2px solid transparent !important;
-}
-    /* Style for the sticky volume control button */
-    #volume-control {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      border-radius: 5px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      z-index: 1000;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ─── Primary SEO ──────────────────────────────────────────── -->
+  <title>ContentLTD — Developer, Community Builder & Founder of ACRP</title>
+  <meta name="description" content="ContentLTD is a website developer and community builder. Founder of Allegheny County Roleplay (ACRP). Building websites, web apps, and online communities on the internet.">
+  <meta name="author" content="ContentLTD">
+  <meta name="creator" content="ContentLTD">
+  <meta name="publisher" content="ContentLTD">
+  <meta name="keywords" content="ContentLTD, Content LTD, contentltd, contentltd.xyz, ContentLTD developer, ContentLTD blog, ACRP, Allegheny County Roleplay, web developer, community builder">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow">
+  <meta name="rating" content="general">
+  <meta name="distribution" content="global">
+  <meta name="application-name" content="ContentLTD">
+  <link rel="canonical" href="https://contentltd.xyz/">
+  <link rel="alternate" hreflang="en" href="https://contentltd.xyz/">
+  <link rel="alternate" hreflang="x-default" href="https://contentltd.xyz/">
+  <link rel="sitemap" type="application/xml" href="https://contentltd.xyz/sitemap.xml">
+  <link rel="author" type="text/plain" href="https://contentltd.xyz/humans.txt">
+
+  <!-- ─── rel="me" — verified identity (Google Knowledge Graph + IndieWeb) ─── -->
+  <link rel="me" href="https://github.com/contentltd">
+  <link rel="me" href="https://bsky.app/profile/contentltd.xyz">
+  <link rel="me" href="https://x.com/contentltd_">
+  <link rel="me" href="https://youtube.com/@contentltd_rblx">
+  <link rel="me" href="https://www.last.fm/user/contentltd">
+  <link rel="me" href="mailto:c@contentltd.xyz">
+
+  <!-- ─── Open Graph ──────────────────────────────────────────── -->
+  <meta property="og:site_name" content="ContentLTD">
+  <meta property="og:title" content="ContentLTD — Developer, Community Builder & Founder of ACRP">
+  <meta property="og:description" content="ContentLTD is a website developer and community builder. Founder of Allegheny County Roleplay. Building things on the internet.">
+  <meta property="og:image" content="https://profileapi.contentltd.xyz/pfp/image.png">
+  <meta property="og:image:secure_url" content="https://profileapi.contentltd.xyz/pfp/image.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="ContentLTD profile picture">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:url" content="https://contentltd.xyz/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="profile:username" content="contentltd">
+
+  <!-- ─── Twitter / X ─────────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@contentltd_">
+  <meta name="twitter:creator" content="@contentltd_">
+  <meta name="twitter:domain" content="contentltd.xyz">
+  <meta name="twitter:title" content="ContentLTD — Developer & Community Builder">
+  <meta name="twitter:description" content="ContentLTD is a website developer and community builder. Founder of ACRP.">
+  <meta name="twitter:image" content="https://profileapi.contentltd.xyz/pfp/image.png">
+  <meta name="twitter:image:alt" content="ContentLTD profile picture">
+  <meta name="twitter:url" content="https://contentltd.xyz/">
+
+  <!-- ─── App / Theme ─────────────────────────────────────────── -->
+  <meta name="theme-color" content="#0d0b0a">
+  <meta name="color-scheme" content="dark">
+  <meta name="msapplication-TileColor" content="#0d0b0a">
+  <meta name="msapplication-TileImage" content="https://profileapi.contentltd.xyz/pfp/image.png">
+  <meta name="apple-mobile-web-app-title" content="ContentLTD">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- ─── Verification placeholders (uncomment & fill once verified) ─ -->
+  <!-- <meta name="google-site-verification" content="REPLACE_ME"> -->
+  <!-- <meta name="msvalidate.01" content="REPLACE_ME"> -->
+  <!-- <meta name="yandex-verification" content="REPLACE_ME"> -->
+
+  <!-- ─── Structured Data: WebSite (sitelinks searchbox candidate) ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://contentltd.xyz/#website",
+    "url": "https://contentltd.xyz/",
+    "name": "ContentLTD",
+    "alternateName": ["Content LTD", "contentltd", "contentltd.xyz"],
+    "description": "Personal site of ContentLTD — developer and community builder.",
+    "inLanguage": "en-US",
+    "publisher": { "@id": "https://contentltd.xyz/#person" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://contentltd.xyz/blog/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
     }
-    /* Style for the volume slider; initially hidden */
-    #volume-slider {
-      margin-left: 10px;
-      display: none;
-    }
-  </style>   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ContentLTD's Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
-    
-    
-    
-    
-<link rel="stylesheet" href="https://contentltd.xyz/index.css"><style>
-        body {
-            margin: 0;
-            min-height: 200vh;
-            background-color: black;
-        }
-    .x{
-        background-color: #111;
-    
-        
-    }
-        .tiktok{
-            backgound-color: rgba(255, 59, 92, 1);
-            color: #FFF;
-        }
-
-    a{
-        text-decoration: none;
-    }
-    .x:hover{
-        background-color: #1d1d1d;
-    }
-    .lemon8{
-        background-color: #fff700;
-        color: #000;
-    }
-        .achievement-notification {
-            display: none !important;
-            position: fixed;
-            top: 1rem;
-            right: 0;
-            z-index: 50;
-            display: flex;
-            align-items: flex-start;
-            background-color: rgba(0, 0, 0, 0.95);
-            border-top-left-radius: 0.75rem;
-            border-bottom-left-radius: 0.75rem;
-            padding: 0.625rem;
-            padding-right: 1rem;
-            margin-top: 105px;
-            max-width: calc(100% - 1rem);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            font-family: 'Oswald', sans-serif;
-            border: 6px solid #e2ccc3;
-            border-right: none;
-        }
-
-        .achievement-notification::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
-            border-top-left-radius: 0.75rem;
-            border-bottom-left-radius: 0.75rem;
-            pointer-events: none;
-        }
-
-        .achievement-badge {
-            flex-shrink: 0;
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 0.5rem;
-            background-color: #26171a;
-            overflow: hidden;
-            position: relative;
-            z-index: 10;
-            margin-right: 0.625rem;
-        }
-
-        .achievement-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.9;
-        }
-
-        .achievement-content {
-            flex: 1;
-            min-width: 0;
-            position: relative;
-            z-index: 10;
-            padding: 0.125rem 0;
-            padding-right: 157px;
-        }
-
-        .achievement-label {
-            font-size: 0.625rem;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            color: #8b837f;
-            text-transform: uppercase;
-        }
-
-        .achievement-title {
-            font-size: 26px;
-            font-weight: 500;
-            color: #d4cdc9;
-            line-height: 1.2;
-            padding-top: 10px;
-        }
-
-        .achievement-description {
-            font-size: 20px;
-            color: #8b837f;
-            line-height: 1.25;
-            padding-top: 9px;
-        }
-@media only screen and (max-width: 600px) {
-    .anchor-container {
-        display: none !important; /* Add !important if you want to ensure it overrides other styles */
-    }
-}
-
-        .anchor-container {
-            position: fixed;
-            left: 20px;
-            bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding-bottom: 71px;
-        }
-        .anchor-image {
-            height: 90px;
-            width: auto;
-        }
-        
-        .code-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            position: relative;
-            align-items: center;
-            
-        }
-        .code-box {
-            background-color: rgba(0,0,0,0.5);
-            border: 2px solid #dffccb;
-            border-radius: 5px;
-            padding: 0;
-            color: #dffccb;
-            text-align: center;
-        }
-        .letter {
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 700;
-            font-size: 28px;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-        }
-        .number {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
-            font-size: 36px;
-            width: 110px;
-            height: 40px;
-            line-height: 40px;
-            letter-spacing: 4px;
-        }
-        #cba {
-            margin-bottom: 12px;
-        }
-    </style></head>
-<body> 
-      
-
-            
-
-            
-
-        <div class="splash-screen" id="splash-screen">
-        <div class="splash-text">Welcome to ContentLTD<br>Click anywhere to continue</div>
-    </div>
-
-    <script data-cfasync="false">
-        document.getElementById('splash-screen').addEventListener('click', function() {
-            this.style.display = 'none';
-        });
-    </script>
-
-
-
-
-  
-  
-
-  
-    
-  
-  
-
-  
-    <!-- Audio element that autoplays and loops.
-       Note: Many browsers block autoplay with sound.
-       If you run into issues, consider adding the "muted" attribute here,
-       then unmute on user interaction (as shown in the slider event below). -->
-  <audio id="bg-audio" src="https://contentltd.xyz/bg-music.mp3" autoplay="" loop="">
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Sticky Volume Control Button -->
-  <div id="volume-control">
-    <span id="volume-icon">🔊</span>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="display: none;">
-  </div>
-
-  <!-- Inline script with Cloudflare Rocket Loader disabled -->
-  <script data-cfasync="false">
-    document.addEventListener('DOMContentLoaded', function () {
-      console.log("DOM fully loaded");
-      const audio = document.getElementById('bg-audio');
-      const volumeControl = document.getElementById('volume-control');
-      const volumeSlider = document.getElementById('volume-slider');
-
-      // For testing: log clicks on the volume control
-      volumeControl.addEventListener('click', function (e) {
-        console.log('Volume control clicked');
-        e.stopPropagation();  // Prevent event from reaching document-level handler
-        // Toggle slider visibility
-        if (volumeSlider.style.display === 'none' || volumeSlider.style.display === '') {
-          volumeSlider.style.display = 'block';
-          console.log('Volume slider shown');
-        } else {
-          volumeSlider.style.display = 'none';
-          console.log('Volume slider hidden');
-        }
-      });
-
-      // Prevent clicks on the slider itself from bubbling up
-      volumeSlider.addEventListener('click', function (e) {
-        console.log('Volume slider clicked');
-        e.stopPropagation();
-      });
-
-      // Hide the slider if the user clicks anywhere else on the document
-      document.addEventListener('click', function () {
-        if (volumeSlider.style.display !== 'none') {
-          volumeSlider.style.display = 'none';
-          console.log('Document clicked: volume slider hidden');
-        }
-      });
-
-      // When the slider is adjusted, update the audio volume.
-      volumeSlider.addEventListener('input', function (e) {
-        // Unmute if needed
-        if (audio.muted) {
-          audio.muted = false;
-          console.log('Audio unmuted');
-        }
-        audio.volume = e.target.value;
-        console.log('Volume set to', e.target.value);
-      });
-
-      // Optional: if autoplay is blocked (as most browsers require user activation),
-      // play the audio on the first user interaction.
-      if (audio.paused) {
-        document.body.addEventListener('click', function playAudioOnInteraction() {
-          audio.play().then(() => {
-            console.log('Audio played after user interaction');
-          }).catch(err => {
-            console.error('Audio play failed:', err);
-          });
-          document.body.removeEventListener('click', playAudioOnInteraction);
-        });
-      }
-    });
+  }
   </script>
 
-    <div class="achievement-notification">
-        <div class="achievement-badge">
-            <img src="/placeholder.svg?height=40&amp;width=40" alt="Achievement badge">
-        </div>
-        <div class="achievement-content">
-            
-            <div class="achievement-title">Rock Bottom</div>
-            <div class="achievement-description">This is just the beginning.</div>
-        <div class="achievement-description">Escape The Hotel</div></div>
-    </div><div class="anchor-container">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/anchor-code-removebg-preview-pa1-KTxBGx9yMqzBY4lVDeidqGlAKwN8tM.png" class="anchor-image" alt="Anchor graphic">
-        <div class="code-container">
-            <div class="code-box letter" id="cba">B</div>
-            <div class="code-box number">964</div>
-        </div>
-    </div>
-    <div class="container">
-        <header>
-            
-
-<style>
-  .profile-ban {
-    background: url('https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/70acbd1d-62b2-41f5-61d3-19a42f0a4400/public') no-repeat center center;
-    background-size: cover;
-    width: 100%;
-    height: 110.05px; /* Fixed height as requested */
-    border-top-left-radius: 15px; /* Rounded top left */
-    border-top-right-radius: 15px; /* Rounded top right */
-    overflow: hidden; /* Ensures rounded corners appear properly */
+  <!-- ─── Structured Data: Person (entity for Knowledge Graph) ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://contentltd.xyz/#person",
+    "name": "ContentLTD",
+    "alternateName": ["Content LTD", "contentltd"],
+    "url": "https://contentltd.xyz/",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://profileapi.contentltd.xyz/pfp/image.png",
+      "width": 512,
+      "height": 512
+    },
+    "description": "Website developer and community builder. Founder of Allegheny County Roleplay (ACRP).",
+    "jobTitle": "Web Developer & Community Builder",
+    "knowsAbout": [
+      "Web Development",
+      "Cloudflare Workers",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Community Management",
+      "Online Communities",
+      "Roblox Development"
+    ],
+    "mainEntityOfPage": { "@id": "https://contentltd.xyz/#webpage" },
+    "sameAs": [
+      "https://bsky.app/profile/contentltd.xyz",
+      "https://github.com/contentltd",
+      "https://youtube.com/@contentltd_rblx",
+      "https://x.com/contentltd_",
+      "https://twitter.com/contentltd_",
+      "https://www.last.fm/user/contentltd"
+    ]
   }
-</style>
+  </script>
 
-            <div class="profile-ban">
-  <div class="profile-pic">
-    <img alt="ContentLTD" width="100" height="100" src="https://imagedelivery.net/kGAxGmhovFjft44aAIlSSQ/d7bd1b5d-eeec-4e44-b02c-0a735e321b00/public">
+  <!-- ─── Structured Data: Organization (brand entity) ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://contentltd.xyz/#organization",
+    "name": "ContentLTD",
+    "alternateName": ["Content LTD", "contentltd"],
+    "url": "https://contentltd.xyz/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://profileapi.contentltd.xyz/pfp/image.png",
+      "width": 512,
+      "height": 512
+    },
+    "founder": { "@id": "https://contentltd.xyz/#person" },
+    "email": "c@contentltd.xyz",
+    "sameAs": [
+      "https://bsky.app/profile/contentltd.xyz",
+      "https://github.com/contentltd",
+      "https://youtube.com/@contentltd_rblx",
+      "https://x.com/contentltd_"
+    ]
+  }
+  </script>
+
+  <!-- ─── Structured Data: WebPage (binds entities to this URL) ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://contentltd.xyz/#webpage",
+    "url": "https://contentltd.xyz/",
+    "name": "ContentLTD — Developer, Community Builder & Founder of ACRP",
+    "description": "ContentLTD is a website developer and community builder. Founder of Allegheny County Roleplay (ACRP).",
+    "isPartOf": { "@id": "https://contentltd.xyz/#website" },
+    "about": { "@id": "https://contentltd.xyz/#person" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://profileapi.contentltd.xyz/pfp/image.png"
+    },
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="https://profileapi.contentltd.xyz/pfp/image.png">
+  <link rel="apple-touch-icon" href="https://profileapi.contentltd.xyz/pfp/image.png">
+
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.weather.gov">
+  <link rel="preconnect" href="https://profileapi.contentltd.xyz" crossorigin>
+  <link rel="dns-prefetch" href="https://ipapi.co">
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://ws.audioscrobbler.com">
+
+  
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="preload" href="/index.css" as="style">
+  <link rel="preload" href="/_assets/Arcadia_Bay.jpeg" as="image" fetchpriority="high">
+  <link rel="preload" href="/_assets/handwritten.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="https://profileapi.contentltd.xyz/pfp/image.png" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="/index.css">
+
+  <!-- ─── Feature flags — flip these booleans to toggle site features ─── -->
+  <script>
+  window.SITE_FLAGS = {
+    workTab: false,      // show the "Work" tab in the sidebar main nav
+    enterSounds: false   // play the terminal-ping SFX when the splash is dismissed
+  };
+  </script>
+
+  <script>
+  (function() {
+    var s = localStorage.getItem('site-settings');
+    if (!s) return;
+    try {
+      var p = JSON.parse(s);
+      if (p.reducedMotion) document.documentElement.classList.add('wx-reduced');
+      if (p.interFont) document.documentElement.classList.add('font-inter');
+      if (p.highContrast) document.documentElement.classList.add('font-hc');
+      if (p.largeText) document.documentElement.classList.add('font-large');
+      if (p.monochrome) document.documentElement.classList.add('mode-mono');
+      if (p.oled) document.documentElement.classList.add('mode-oled');
+    } catch(e) {}
+  })();
+  </script>
+<body>
+
+  <div class="splash" id="splash" role="dialog" aria-modal="true" tabindex="0">
+    <p class="splash-note">This site plays music</p>
+    <button class="splash-enter" id="splash-btn">Enter</button>
+    <div class="splash-caption" aria-hidden="true">Arcadia Bay, OR<br>12:17 AM</div>
   </div>
-</div><h1>@contentltd</h1>
-            <p class="pronouns">They/Them</p>
-            
-            <p class="bio">
-                Hello there, I am ContentLTD (AKA Content AKA ContentDeleted). You can call me content. 
-                I am a website designer and ER;LC server owner.
-            </p>
-                
+
+  <div class="music-hint" id="music-hint" role="status" aria-hidden="true">
+    <p class="music-hint-title">Don't want Music?</p>
+    <p class="music-hint-body">Press CTRL + M on both Mac and Windows to mute the music, or press your space bar.</p>
+    <div class="music-hint-keys">
+      <div class="music-hint-row">
+        <span class="key-cap">CTRL</span>
+        <span class="key-plus">+</span>
+        <span class="key-cap">M</span>
+      </div>
+      <div class="music-hint-row">
+        <span class="key-cap key-space">Space</span>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bg-audio" preload="none" loop tabindex="-1"></audio>
+  <audio id="ping-1" src="/TerminalPing-1.ogg" preload="auto"></audio>
+  <audio id="ping-2" src="/TN_C_beep.ogg" preload="auto"></audio>
+
+  
+  <div class="bg-photo" aria-hidden="true"></div>
+
+  <div class="sky" id="sky" aria-hidden="true">
+    <div class="sky-gradient" id="sky-gradient"></div>
+    <svg class="sky-svg" id="sky-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 900">
+      <defs>
+        <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffe6b8" stop-opacity="0.9"/>
+          <stop offset="60%" stop-color="#ffb366" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
+        </radialGradient>
+        
+        <radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"  stop-color="#f6f8ff" stop-opacity="0.55"/>
+          <stop offset="25%" stop-color="#e4e9f5" stop-opacity="0.32"/>
+          <stop offset="55%" stop-color="#c0cadd" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#a4b0c2" stop-opacity="0"/>
+        </radialGradient>
+        
+        <radialGradient id="moonBloom" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"  stop-color="#cfd9ee" stop-opacity="0.22"/>
+          <stop offset="40%" stop-color="#aab6d0" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#7f8ca8" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="moonDisc" cx="35%" cy="35%" r="70%">
+          <stop offset="0%"  stop-color="#fafbfd"/>
+          <stop offset="55%" stop-color="#e4e7ee"/>
+          <stop offset="90%" stop-color="#b7bdc9"/>
+          <stop offset="100%" stop-color="#8a91a0"/>
+        </radialGradient>
+        <radialGradient id="moonShadow" cx="80%" cy="70%" r="70%">
+          <stop offset="0%"  stop-color="#232634" stop-opacity="0.55"/>
+          <stop offset="60%" stop-color="#232634" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#232634" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="moonCraterBlur"><feGaussianBlur stdDeviation="0.6"/></filter>
+        
+        <filter id="cloudBlur"><feGaussianBlur stdDeviation="12"/></filter>
+        <filter id="cloudBlurLight"><feGaussianBlur stdDeviation="6"/></filter>
+        <filter id="cloudBlurStrong"><feGaussianBlur stdDeviation="18"/></filter>
+        <filter id="softBlur"><feGaussianBlur stdDeviation="4"/></filter>
+        
+        <filter id="cloudFeather" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="18" result="b"/>
+          <feComponentTransfer in="b">
+            <feFuncA type="linear" slope="1.15" intercept="-0.08"/>
+          </feComponentTransfer>
+        </filter>
+        
+        <filter id="boltGlow" x="-50%" y="-10%" width="200%" height="120%">
+          <feGaussianBlur stdDeviation="3.5" result="halo"/>
+          <feMerge>
+            <feMergeNode in="halo"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <g id="sky-stars"></g>
+      <g id="sky-celestial"></g>
+      <g id="sky-moonlight"></g>
+      <g id="sky-clouds"></g>
+      <g id="sky-precip"></g>
+      <g id="sky-fog"></g>
+      <g id="sky-lightning"></g>
+    </svg>
+    <div class="sky-vignette"></div>
+  </div>
+
+  <div class="layout">
+    
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile s1">
+          <div class="avatar">
+            <img id="profile-avatar" loading="eager" decoding="async" alt="ContentLTD" width="88" height="88" src="https://profileapi.contentltd.xyz/pfp/image.png">
+          </div>
+          <h1>ContentLTD</h1>
+          <p class="tagline">Building things on the internet</p>
+          <p class="pronouns">they/them · istp-t · est</p>
+          <p class="geo-greeting" id="geo-greeting"></p>
+        </div>
+
+        <nav class="links s2" aria-label="Social links">
+          <a href="/blog/" rel="noopener" class="link-item">
+            <span class="link-text">Blog</span>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://youtube.com/@contentltd_rblx" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span class="link-text">YouTube</span>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://bsky.app/profile/contentltd.xyz" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span class="link-text">Bluesky</span>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span class="link-text">X (Personal)</span>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://www.last.fm/user/contentltd" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span class="link-text">Last.fm</span>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://tracker.project-flight.com/?user=Itz_ContentLTD" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span class="link-text">Project Flight</span>
+            <span class="link-arrow">→</span>
+          </a>
+        </nav>
+
+        <section class="tz-widget s3" id="tz-widget" aria-label="Timezone info">
+          <p class="section-label">Local Time</p>
+          <div class="tz-body">
+            <span class="tz-clock" id="tz-clock">--:--</span>
+            <span class="tz-badge t-text-swap neutral" id="tz-badge" title="Calculating your offset…">±0h</span>
+          </div>
+          <div class="wx-line" id="wx-line" aria-live="polite">
+            <span class="wx-dot" id="wx-dot"></span>
+            <span class="wx-text" id="wx-text">Reading the sky…</span>
+          </div>
+        </section>
+
+        <section class="now-playing s4" aria-label="Now playing">
+          <div class="np-header">
+            <p class="section-label">Now Playing</p>
+            <a class="np-lfm" id="np-lfm" href="https://www.last.fm/user/contentltd" target="_blank" rel="noopener noreferrer" hidden></a>
+          </div>
+          <div class="np-content">
+            <img class="np-cover" id="np-cover" width="48" height="48" loading="lazy" decoding="async" src="" alt="">
+            <div class="np-details">
+              <span class="np-title t-text-swap" id="np-title">Loading...</span>
+              <span class="np-artist t-text-swap" id="np-artist"></span>
+              <span class="np-album" id="np-album"></span>
+            </div>
+          </div>
+          <div class="np-progress">
+            <div class="np-bar"><div class="np-fill" id="np-fill"></div></div>
+            <div class="np-times">
+              <span id="np-current">0:00</span>
+              <span id="np-duration">0:00</span>
+            </div>
+          </div>
+          <button class="vol-btn" id="vol-btn" aria-label="Toggle mute">
+            <span id="vol-icon">🔊</span>
+            <input type="range" id="vol-slider" min="0" max="1" step="0.01" value="0.25" aria-label="Volume">
+          </button>
+          <p class="vol-ios-hint" id="vol-ios-hint" hidden>Use device volume buttons</p>
+        </section>
+
+        <footer class="sidebar-footer s5">
+          <p>Music and artwork belong to their respective copyright holders.</p>
+          <p>Copyright inquiries: <a href="mailto:legal@contentltd.xyz">legal@contentltd.xyz</a></p>
+          <p>Icons by <a href="https://iconmonstr.com" target="_blank" rel="noopener noreferrer">iconmonstr</a></p>
+        </footer>
+      </div>
+    </aside>
 
     
- <p class="timezone">EST (UTC -5)</p>
-            <div class="buttons">
-                
-                <a href="https://youtube.com/@contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button youtube">
-                    YouTube Channel
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
-                </a>
-                <a href="https://bsky.app/profile/contentltd.net" target="_blank" rel="noopener noreferrer" class="button bluesky">
-                    Bluesky Profile
-                        <svg width="100%" height="100%" viewBox="0 0 600 530" version="1.1" xmlns="http://www.w3.org/2000/svg" class="size-4">
-      <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="currentColor"></path>
-    </svg>
-                </a>
-            <a href="https://x.com/contentltd_rblx" target="_blank" rel="noopener noreferrer" class="button x">
-                    X
-                    <!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><!--?xml version="1.0" ?--><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                </a><a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="button x">
-                    My Personal X
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                </a><a href="https://contentltd.xyz/notice/lemon8" target="_blank" rel="noopener noreferrer" class="button lemon8">
-                    Lemon8
-                    <svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 1000 384.76126" fill="none" version="1.1" id="svg1" sodipodi:docname="Lemon8.svg" inkscape:version="1.4 (86a8ad7, 2024-10-11)">
-  <defs id="defs1"></defs>
-  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:zoom="1.761" inkscape:cx="500" inkscape:cy="192.22033" inkscape:window-width="1920" inkscape:window-height="991" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="svg1"></sodipodi:namedview>
-  <path d="m 211.1841,256.58455 a 102.66702,102.66702 0 0 0 46.94082,-24.65676 c 4.58507,-4.20031 8.71056,-8.3258 12.36579,-12.51542 1.06878,2.82158 2.22306,5.3439 3.36666,7.55628 4.88432,8.92431 11.83139,12.73986 20.68089,11.52145 7.25702,-0.99397 12.36579,-3.66592 15.19806,-7.94104 2.8857,-4.34993 4.88432,-12.13065 5.9531,-23.51316 a 318.71025,318.71025 0 0 1 6.94707,-40.29302 c 3.28116,-13.81932 7.02189,-25.27665 11.29701,-34.51091 4.27512,-9.15944 8.16548,-13.96896 11.67108,-14.42853 2.59713,-0.37407 4.12549,1.37873 4.65988,5.11946 0.6092,4.73469 0.99397,14.65297 1.14359,29.92584 -0.0748,17.1753 0.45958,30.2251 1.67799,39.16011 1.45354,10.52748 4.58507,19.23804 9.39458,26.09961 4.88432,6.87226 11.14737,9.76865 18.92809,8.78537 7.48147,-0.99396 12.67574,-3.5911 15.57213,-7.86622 2.8964,-4.20031 4.88433,-12.14134 5.95311,-23.73761 1.60317,-14.81329 4.34993,-29.00669 8.24029,-42.67639 3.90105,-13.65901 8.10136,-24.80639 12.67574,-33.43144 4.58506,-8.62506 8.40061,-13.13531 11.44663,-13.50939 2.59714,-0.38476 4.12549,1.36804 4.65988,5.10877 0.75884,5.65385 0.60921,16.03171 -0.45957,31.21907 -0.99397,17.33562 -1.06878,29.31664 -0.22445,35.87895 1.7528,13.13531 6.17755,22.75433 13.19944,28.85707 7.02188,6.10273 16.49128,8.3258 28.4723,6.71194 14.8133,-1.97725 27.40353,-7.69522 37.9417,-17.25011 4.7347,-4.27513 9.15945,-8.99913 13.50938,-14.1079 a 64.126811,64.126811 0 0 0 18.77847,17.16461 c 10.37785,6.33786 22.66883,9.08463 36.87291,8.32579 16.77985,-0.91915 31.44352,-7.71659 44.03375,-20.30682 12.6116,-12.67573 20.61677,-29.00669 23.97274,-49.08907 9.61902,-0.90847 18.77846,-2.58645 27.40352,-4.80951 -0.0748,3.44147 -0.14963,6.87225 -0.14963,10.31373 0,20.84121 1.82762,35.95376 5.49353,45.42315 3.66592,9.45871 10.00378,14.1934 19.0136,14.1934 7.32115,0 12.73986,-1.98793 16.18133,-5.87829 3.43079,-3.90104 6.41268,-11.45732 9.00982,-22.5192 3.5056,-14.42853 8.22961,-28.17304 14.04377,-41.22285 5.79279,-12.97499 11.44664,-23.51316 17.01498,-31.4542 5.57903,-7.930344 9.85416,-11.906206 12.98568,-11.906206 2.58645,0 3.89036,1.913116 3.89036,5.653847 0,5.183579 -1.45354,17.250109 -4.27512,36.178209 -3.28115,21.76036 -4.95914,37.4073 -4.95914,46.86601 0,8.01585 1.7528,14.04377 5.3439,18.09445 3.58041,4.05067 9.23426,6.02792 17.01498,6.02792 8.25098,0 14.2789,-1.97725 17.94482,-5.87829 3.66592,-3.89036 5.49353,-10.37786 5.49353,-19.31286 0,-15.87139 0.68402,-30.22511 2.13756,-43.12528 1.45354,-12.90018 3.28116,-26.55919 5.64316,-40.987719 2.59714,-17.025669 3.90105,-28.632621 3.90105,-34.810171 0,-7.556276 -1.98793,-13.284937 -5.87829,-17.250112 -3.90105,-3.89036 -9.61902,-5.878291 -17.25011,-5.878291 -7.79141,0 -16.41647,2.746765 -25.72554,8.165481 -9.31977,5.418715 -18.85329,14.578161 -28.54712,27.328709 -9.69384,12.750548 -18.47921,29.391453 -26.25993,49.698273 0.90846,-10.38854 2.13756,-19.16323 3.5056,-26.259924 1.45354,-7.107388 3.28115,-15.422498 5.65385,-24.89189 3.50559,-13.27425 5.3439,-21.749677 5.3439,-25.565222 0,-3.281155 -0.91916,-5.579032 -2.83227,-6.722627 -1.90243,-1.143595 -5.18359,-1.7528 -9.91828,-1.7528 -8.78537,0 -15.57213,1.60317 -20.38164,4.809511 -4.88433,3.206341 -8.31511,8.240295 -10.45267,15.112552 a 269.00128,269.00128 0 0 0 -9.08463,38.315769 c -11.45732,3.281155 -21.61074,5.493534 -30.46024,6.562311 C 653.99041,82.619199 646.74408,67.656276 635.06231,55.82488 623.39123,43.993483 608.57794,38.574768 590.64381,39.568733 a 71.287638,71.287638 0 0 0 -39.39524,14.043772 c -11.59626,8.550241 -20.45645,20.071692 -26.55918,34.500224 -6.11343,14.428531 -8.62506,30.609861 -7.7166,48.554681 0.23513,3.95449 0.69471,7.78072 1.37873,11.52145 -3.81555,5.49353 -7.25702,10.00378 -10.22823,13.43457 -5.65384,6.63712 -10.83743,10.22822 -15.57212,10.83743 -6.79745,0.91915 -10.83744,-3.28116 -12.06653,-12.66505 -0.90847,-6.573 -0.44889,-20.38164 1.22909,-41.38317 1.97725,-24.581937 2.28719,-41.522103 1.06878,-50.606734 -2.06274,-15.262181 -10.6878,-21.824492 -25.96067,-19.772434 -12.4406,1.688673 -24.8812,10.003783 -37.47143,25.116334 -12.5261,15.037738 -22.75433,37.792064 -30.60986,68.241614 0.14963,-4.34994 0.53439,-10.83743 1.29322,-19.5373 1.82761,-20.30683 2.21238,-34.200967 1.21841,-41.682428 -1.06878,-7.705905 -3.5056,-13.27425 -7.40665,-16.566093 -3.89036,-3.281155 -9.99309,-4.424749 -18.16926,-3.281155 -8.22961,1.06878 -16.56609,5.418716 -24.95602,12.825362 -8.38992,7.481462 -16.18133,18.094449 -23.27803,31.988584 -7.0967,13.81933 -12.60092,30.29992 -16.41646,49.46315 -0.45958,-10.46336 -0.45958,-19.23804 0,-26.33474 0.45957,-7.0967 1.22909,-15.49732 2.37269,-25.19115 1.7528,-13.584195 2.362,-22.294753 1.90243,-26.035484 -0.45958,-3.281155 -1.67799,-5.418715 -3.74073,-6.327178 -2.05206,-0.919151 -5.41872,-1.068781 -10.06791,-0.459576 -8.71056,1.143595 -15.19806,3.665916 -19.62281,7.481461 -4.34993,3.815546 -7.17151,9.234261 -8.40061,16.330962 -4.64919,26.644685 -5.2584,54.123025 -2.05206,82.370885 a 120.07745,120.07745 0 0 1 -21.68555,25.65072 c -11.59626,10.29236 -22.59401,16.63022 -32.97186,19.07773 -16.18134,3.74073 -28.32268,0.90846 -36.56297,-8.3258 25.65072,-12.97499 42.90083,-26.39887 51.67552,-40.45333 8.77468,-14.04377 11.37182,-29.00669 7.7059,-44.96358 -3.13152,-13.5842 -9.61902,-23.42766 -19.5373,-29.54108 -9.92897,-6.102735 -21.52523,-7.631091 -34.88498,-4.499565 -14.96293,3.430785 -27.47834,10.612985 -37.48213,21.375605 -9.99309,10.83743 -16.79053,23.81242 -20.30682,39.0746 -3.5056,15.27287 -3.43078,30.845 0.23513,46.80188 0.53439,2.43682 1.21841,4.72401 1.90243,7.02189 A 877.57541,877.57541 0 0 1 82.032696,231.54303 C 66.610198,240.77729 61.191482,243.44924 57.375937,241.31168 50.354051,237.3465 53.560392,219.562 56.531601,203.60511 74.850493,105.43765 77.597258,85.365964 66.994958,68.041037 64.771896,64.375121 54.319226,47.499082 36.994299,45.821097 24.318566,44.602688 10.809184,51.624574 4.0865572,61.927615 -6.6760592,78.418893 6.4592492,93.45663 13.256691,134.67948 c 3.815545,23.27803 4.114804,47.85997 3.954487,96.86355 -0.06413,28.32267 -1.282537,45.57278 10.687801,54.88186 12.290973,9.54421 30.78087,4.65988 32.597796,4.2003 12.451289,-3.43078 18.479209,-11.37182 30.695367,-23.7376 9.084638,-9.23426 22.594018,-21.91 40.987718,-35.80414 6.26306,10.22823 13.35976,15.88207 17.93414,18.93879 22.82914,15.17667 49.8479,9.29838 60.92047,6.71193 z M 568.58419,92.163406 c 5.79279,-9.469393 13.35975,-14.428533 22.81845,-14.962923 h 1.7528 c -0.53439,3.740731 -0.68402,7.556276 -0.45957,11.297007 0.45957,9.009817 2.90708,17.39974 7.25702,25.19115 a 48.511932,48.511932 0 0 0 17.85931,18.54333 c -1.29322,11.68177 -4.49956,20.7664 -9.69383,27.17908 -5.19428,6.4875 -11.60696,9.84347 -19.16323,10.30304 -6.86157,0.38476 -12.97499,-2.74676 -18.46852,-9.30907 -5.41872,-6.56231 -8.55025,-16.34165 -9.23426,-29.39146 -0.91916,-16.56609 1.52835,-29.54108 7.32114,-38.924969 v 0.07482 z M 159.1345,148.33849 c 3.58041,-11.29701 9.68315,-17.85932 18.15858,-19.84725 4.12549,-0.99396 7.7059,-0.37407 10.76261,1.67799 3.05671,2.06274 5.03396,5.3439 6.02792,9.69383 1.98793,8.55024 -0.22444,16.95086 -6.56231,25.19115 -6.33786,8.25098 -15.95689,15.57213 -28.85706,21.90999 l -0.14963,-0.68401 c -3.20634,-14.04378 -3.05671,-26.71951 0.53439,-38.01652 l 0.0748,0.0748 z m 655.09812,132.75319 a 2106.0634,2106.0634 0 0 0 -190.13599,0.44888 c -58.17371,2.67195 -116.34741,7.48146 -174.21117,14.35372 -43.95893,5.26909 -87.85373,11.75658 -131.43859,19.61212 -29.61589,5.3439 -59.08216,11.22219 -88.38812,18.01963 -14.8881,3.43079 -30.00066,6.56231 -44.66432,10.98706 -0.14963,0 -0.29926,0.0855 -0.53439,0.16032 -5.56835,1.52835 -12.73986,6.63712 -13.65901,12.90017 -0.99397,6.4875 4.42475,12.90018 9.30907,16.33097 15.80726,11.14737 37.02255,13.35975 55.34144,8.24029 2.52232,-0.68402 5.04464,-1.36804 7.55628,-1.97724 l 8.935,-2.29788 c 1.67799,-0.37407 3.35597,-0.83365 5.03395,-1.21841 27.17908,-6.41268 54.50779,-12.05584 81.98613,-17.1753 a 2192.0468,2192.0468 0 0 1 125.94506,-19.68693 c 25.50109,-3.29184 50.9915,-6.11342 76.56741,-8.47542 l 41.22285,-3.51629 c 1.52836,-0.0748 2.97121,-0.22444 4.49957,-0.29926 2.82158,-0.16032 5.56834,-0.38476 8.40061,-0.53439 l 22.13444,-1.37873 c 62.203,-3.50559 124.5022,-4.34993 186.79071,-2.43681 8.09066,0.22444 16.18133,0.53439 24.19718,0.90846 7.55628,0.30994 18.39371,-1.51767 24.80639,-6.02792 4.7347,-3.28116 8.69987,-9.30908 6.33787,-15.34769 -6.56231,-16.63021 -30.68468,-20.99084 -46.03237,-21.58935 z m 144.25326,-177.8664 c 14.05446,-6.711939 24.3575,-14.1934 30.91982,-22.594012 6.56231,-8.31511 10.07856,-17.934132 10.53816,-28.857065 0.68404,-14.87742 -4.88432,-27.018763 -16.6409,-36.253024 C 971.54638,6.2121039 955.58949,1.0926469 935.5178,0.1734959 911.1603,-0.9700989 891.69781,3.5401535 876.97002,13.693565 862.31704,23.761474 854.52564,38.275509 853.6813,57.192918 a 50.606741,50.606741 0 0 0 5.4294,25.276652 c 4.03999,8.090666 10.15342,15.176678 18.38302,21.2901 -14.03308,6.72263 -24.34681,14.20409 -30.83431,22.36957 a 47.122518,47.122518 0 0 0 -10.52748,27.55315 c -0.76952,16.10652 5.10877,28.93188 17.54937,38.47609 12.45129,9.5442 30.16098,14.8881 53.12906,15.9462 16.34165,0.76952 30.68468,-1.06878 43.21079,-5.49353 12.51541,-4.42475 22.35888,-10.91225 29.46627,-19.61212 7.17151,-8.69987 10.98706,-18.9281 11.52145,-30.75949 0.91915,-19.84725 -9.91828,-36.26371 -32.5978,-49.08908 l 0.0855,0.0748 z m -21.90999,66.18955 c -6.56231,3.5056 -15.41181,4.95914 -26.47368,4.48888 -9.92897,-0.44889 -17.70969,-2.67195 -23.28872,-6.55162 -5.64316,-3.90105 -8.31511,-9.24495 -8.01586,-15.80726 0.30995,-6.17755 2.67195,-11.75658 7.17152,-16.71572 4.51025,-5.03396 12.29097,-9.76865 23.36353,-14.1934 14.57817,7.32114 24.58195,13.43456 29.85103,18.38302 5.34391,4.96982 7.85554,10.08928 7.63109,15.28355 -0.30994,6.62644 -3.74073,11.67108 -10.30304,15.17668 l 0.0748,-0.0641 z m 12.5261,-98.167452 c -5.11945,4.95914 -13.81932,10.153411 -26.1103,15.497312 -17.54937,-9.084631 -26.09961,-18.938784 -25.65072,-29.626586 0.38476,-7.78072 3.5911,-13.659011 9.70452,-17.474556 6.10274,-3.89036 14.11859,-5.579033 24.04756,-5.119457 17.93413,0.844336 26.634,7.716593 26.0248,20.766399 -0.22445,5.643159 -2.8964,10.98706 -8.01586,15.956888 z" fill="#0a0a0a" id="path1" style="stroke-width:10.6878"></path>
-</svg>
-                </a><a href="https://contentltd.xyz/notice/tiktok" target="_blank" rel="noopener noreferrer" class="button tiktok">
-                    TikTok
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1">
+    <div class="t-page-slide" id="page-slider" data-page="1">
+    <main class="main t-page" data-page-id="1">
 
-<path d="M16.656 1.029c1.637-0.025 3.262-0.012 4.886-0.025 0.054 2.031 0.878 3.859 2.189 5.213l-0.002-0.002c1.411 1.271 3.247 2.095 5.271 2.235l0.028 0.002v5.036c-1.912-0.048-3.71-0.489-5.331-1.247l0.082 0.034c-0.784-0.377-1.447-0.764-2.077-1.196l0.052 0.034c-0.012 3.649 0.012 7.298-0.025 10.934-0.103 1.853-0.719 3.543-1.707 4.954l0.020-0.031c-1.652 2.366-4.328 3.919-7.371 4.011l-0.014 0c-0.123 0.006-0.268 0.009-0.414 0.009-1.73 0-3.347-0.482-4.725-1.319l0.040 0.023c-2.508-1.509-4.238-4.091-4.558-7.094l-0.004-0.041c-0.025-0.625-0.037-1.25-0.012-1.862 0.49-4.779 4.494-8.476 9.361-8.476 0.547 0 1.083 0.047 1.604 0.136l-0.056-0.008c0.025 1.849-0.050 3.699-0.050 5.548-0.423-0.153-0.911-0.242-1.42-0.242-1.868 0-3.457 1.194-4.045 2.861l-0.009 0.030c-0.133 0.427-0.21 0.918-0.21 1.426 0 0.206 0.013 0.41 0.037 0.61l-0.002-0.024c0.332 2.046 2.086 3.59 4.201 3.59 0.061 0 0.121-0.001 0.181-0.004l-0.009 0c1.463-0.044 2.733-0.831 3.451-1.994l0.010-0.018c0.267-0.372 0.45-0.822 0.511-1.311l0.001-0.014c0.125-2.237 0.075-4.461 0.087-6.698 0.012-5.036-0.012-10.060 0.025-15.083z"></path>
-</svg>
-                </a></div>
+      
+      <div class="main-tabs s1" id="main-tabs" role="tablist" aria-label="View">
+        <button class="main-tab active" id="tab-personal" role="tab" aria-selected="true" aria-controls="panel-personal">Personal</button>
+        <button class="main-tab" id="tab-work" role="tab" aria-selected="false" aria-controls="panel-work">Work</button>
+        <button class="main-tab" id="tab-lyrics" role="tab" aria-selected="false" aria-controls="panel-lyrics">Lyrics</button>
+      </div>
+
+      
+      <div class="tab-panel active" id="panel-personal" role="tabpanel" aria-labelledby="tab-personal">
+
+        <div class="info-card s1">
+          <h3 class="info-card-title">About Me</h3>
+          <p class="info-card-body">I'm ContentLTD and I'm a website developer and a community leader. I am currently leading Allegheny County Roleplay while making websites for other ER;LC servers.</p>
+        </div>
+
+        <div class="info-card s2">
+          <h3 class="info-card-title">Favorite Quote</h3>
+          <blockquote class="info-card-quote" id="quote-block">
+            <p id="quote-text"></p>
+            <cite id="quote-cite"></cite>
+          </blockquote>
+        </div>
+
+        <section class="gh-section s3" id="gh-section">
+          <header class="gh-section-header">
+            <span class="section-label">Recent Activity</span>
+            <div class="feed-platform-links">
+              <a href="https://github.com/ContentLTD" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+              <a href="https://bsky.app/profile/contentltd.xyz" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="Bluesky"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 360 320" fill="currentColor"><path d="M180 142c-16.3-31.7-60.7-90.8-102-120C36.6-.5 1.6-4 1.6 23.9c0 5 2.7 42.2 4.4 48.3 5.6 20 25.5 26.5 43.4 23.2 0 0-57.4 9.8-57.4 67.2 0 56 56.2 74.8 101.7 55.2 0 0-16.5 45.6-28 72C52 327.4 68.1 345 93.7 320c19.1-18.5 43.8-68 54.8-97.7 5.2-14 8.3-25 8.3-25H203s3.1 11 8.3 25c11 29.7 35.7 79.2 54.8 97.7 25.6 25 41.7 7.4 28.2-20.2-11.5-26.4-28-72-28-72 45.5 19.6 101.7.8 101.7-55.2 0-57.4-57.4-67.2-57.4-67.2 17.9 3.3 37.8-3.2 43.4-23.2 1.7-6.1 4.4-43.3 4.4-48.3 0-27.9-35-24.4-76.5 2.1C240.7 51.2 196.3 110.3 180 142z"/></svg></a>
+              <a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="X"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+          </header>
+          <div class="gh-feed" id="gh-feed">
+            <div class="gh-loading">Loading…</div>
+          </div>
+        </section>
+
+      </div>
+
+      
+      <div class="tab-panel" id="panel-work" role="tabpanel" aria-labelledby="tab-work">
+
+        <header class="main-header s1">
+          <h2>Experience</h2>
+          <p class="header-sub" typewriter="40">Work, projects, and roles I've held</p>
         </header>
-        <main>
-            <div class="tabs">
-                <button class="tab active">About Me</button>
-            </div>
-            <div class="content">
-                <div class="section">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Website Design</li>
-                        <li>Server Management</li>
-                        <li>Content Creation</li>
-                    </ul>
-                </div>
-                <div class="section">
-                    <h3>Interests</h3>
-                    <ul>
-                        <li>Web Development</li>
-                        <li>Gaming</li>
-                        <li>Technology</li>
-                    </ul>
-                </div>
-                <div class="section">
-                    <h3>Projects</h3>
-                    <p>
-                        Currently working on various web design projects and managing the ER;LC server. 
-                        Stay tuned for upcoming content and collaborations!
-                    </p>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <a href="https://contentltd.net"><p class="footer-text">A ContentLTD Product</p></a>
-        <p class="footer-text">Stay Tuned. Something's Happening...</p>
 
-<hr style="background-color: rgba(255, 255, 255, 0.5) !important;">
+        <div class="info-card s2">
+          <h3 class="info-card-title">What I Do</h3>
+          <p class="info-card-body">I make websites that ER;LC communities are proud to link.</p>
+        </div>
 
-<p class="pronouns">I do not own or claim any rights to the banner and images displayed. Some images may be the property of Kit9 Studios and SNB3 (SoNoBro3), the creators of Class of '09 and The Coffin of Andy and Leyley. All visual content belongs to their respective owners. If you are the copyright holder and would like the content removed or properly credited, please contact me.</p></footer>
+        <div class="info-card s3">
+          <h3 class="info-card-title">My Techstack</h3>
+          <div class="techstack-grid">
+            <span class="tech-tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" aria-hidden="true"><path fill="#e34c26" d="M64 32l34.9 395.8L256 480l157.1-52.2L448 32H64zm308 132H188l4 51h176l-13.6 148.4L256 393.2l-98.7-61.5-6.5-71.2h49l3.4 37.9 52.8 14.3 52.7-14.3 5.5-59.2H144.3l-12.2-131.6h248.4l-8.5 91.6z"/></svg>
+              HTML
+            </span>
+            <span class="tech-tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" aria-hidden="true"><path fill="#264de4" d="M64 32l34.9 395.8L256 480l157.1-52.2L448 32H64zm307.8 132.5l-4.3 47.4H184.6l4.3 47.4h178.6l-13.4 148.4-98 27.3-97.7-27.3-6.3-71.2h47.4l3.4 37.9 53.2 14.4 53.5-14.4 5.5-61.6H149.4l-12.2-131.6h237.6z"/></svg>
+              CSS
+            </span>
+            <span class="tech-tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 630 630" aria-hidden="true"><rect width="630" height="630" fill="#f7df1e" rx="4"/><path d="M165.65 526.47l48.204-29.177c9.302 16.504 17.765 30.476 38.087 30.476 19.484 0 31.769-7.621 31.769-37.25V258.42h59.204v233.6c0 61.32-35.944 89.2-88.385 89.2-47.361 0-74.921-24.52-88.879-54.75M375.58 516.13l48.204-27.895c12.729 20.747 29.245 36.023 58.421 36.023 24.517 0 40.187-12.282 40.187-29.25 0-20.29-16.104-27.452-43.197-39.27l-14.822-6.371c-42.754-18.177-71.128-40.95-71.128-89.2 0-44.411 33.836-78.24 86.739-78.24 37.638 0 64.729 13.075 84.182 47.363l-46.066 29.549c-10.148-18.18-21.081-25.344-38.116-25.344-17.372 0-28.336 11.005-28.336 25.344 0 17.745 10.963 24.908 36.258 35.894l14.822 6.371c50.337 21.548 78.711 43.548 78.711 92.852 0 53.147-41.754 82.54-97.822 82.54-54.839 0-90.303-26.124-107.637-60.305"/></svg>
+              JS
+            </span>
+            <span class="tech-tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 255" aria-hidden="true"><defs><linearGradient id="py-a" x1="12.959%" y1="12.039%" x2="79.639%" y2="78.201%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="py-b" x1="19.128%" y1="20.579%" x2="90.742%" y2="88.429%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs><path fill="url(#py-a)" d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z"/><path fill="url(#py-b)" d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z"/></svg>
+              Python
+            </span>
+          </div>
+        </div>
+
+        <div class="exp-filters" id="exp-filters" role="group" aria-label="Filter by type">
+          <button class="exp-filter active" data-filter="all">All</button>
+          <button class="exp-filter" data-filter="erlc">ER;LC</button>
+          <button class="exp-filter" data-filter="discord">General Discord</button>
+          <button class="exp-filter" data-filter="projects">Projects</button>
+          <button class="exp-filter" data-filter="other">Other</button>
+        </div>
+
+        <div class="experience-list" id="experience-list">
+
+        </div>
+
+        <div class="work-cards-grid s5">
+          <a href="/work" target="_blank" rel="noopener noreferrer" class="info-card work-action-card">
+            <h3 class="info-card-title">See my Work</h3>
+            <p class="info-card-body">You can see the sites I've worked on along with their case studies.</p>
+            <span class="info-card-cta">View my work →</span>
+          </a>
+          <a href="#" id="contact-card-btn" class="info-card work-action-card">
+            <h3 class="info-card-title">Contact Me for Work</h3>
+            <p class="info-card-body">Open to freelance web development, community consulting, and project collaborations.</p>
+            <span class="info-card-cta">Book a quick chat →</span>
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="tab-panel" id="panel-lyrics" role="tabpanel" aria-labelledby="tab-lyrics">
+
+        <div class="info-card s1 lyrics-card">
+          <h3 class="info-card-title">Lyrics</h3>
+          <p class="lyrics-meta" id="lyrics-meta"></p>
+          <div class="lyrics-lines" id="lyrics-lines"></div>
+        </div>
+
+      </div>
+
+    </main>
+
+  <section class="cal-panel t-page" id="cal-panel" data-page-id="2" aria-label="Book a chat">
+    <button class="cal-back-btn" id="cal-back-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </button>
+    <div class="cal-embed-card">
+      <div id="my-cal-inline-quick-chat"></div>
     </div>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;91783d834cd94bc7&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+    <button class="cal-tripping-btn" id="cal-tripping-btn">Is the embed tripping ballz?</button>
+    <div class="cal-tripping-fallback" id="cal-tripping-fallback" hidden>
+      <p class="cal-tripping-heading">Is the embed tripping ballz again?</p>
+      <p class="cal-tripping-body">I had a feeling, its okay. Its not you... Probably... Anyway, you can message me on X (formally Twitter) OR visit my cal.com link. Up to you.</p>
+      <div class="cal-tripping-actions">
+        <a class="cal-tripping-cta cal-tripping-cta--primary" href="https://twitter.com/messages/compose?recipient_id=1880498825246154752" target="_blank" rel="noopener noreferrer">
+          Message me on X
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L2.196 2.25H8.04l4.265 5.64 5.94-5.64Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="cal-tripping-cta cal-tripping-cta--secondary" href="https://cal.com/contentltd/quick-chat" target="_blank" rel="noopener noreferrer">Cal.com ↗</a>
+      </div>
+    </div>
+    <div class="cal-mobile-fallback">
+      <p class="cal-mobile-fallback-heading">Cal.com didn't get our memo</p>
+      <p class="cal-mobile-fallback-body">Seems like Cal.com didn't get our memo to support mobile users. I apologize for this, but you can always contact me on X (formally Twitter).</p>
+      <a class="cal-mobile-fallback-cta" href="https://twitter.com/messages/compose?recipient_id=1880498825246154752" target="_blank" rel="noopener noreferrer">
+        Message me on X
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L2.196 2.25H8.04l4.265 5.64 5.94-5.64Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+  </section>
+  </div>
+  </div>
 
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;918ca773fcd94bbd&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var contactBtn = document.getElementById('contact-card-btn');
+    var slider     = document.getElementById('page-slider');
+    var mainEl     = document.querySelector('main.main');
+    var calPanel   = document.getElementById('cal-panel');
+    var backBtn    = document.getElementById('cal-back-btn');
+    if (!slider || !mainEl || !calPanel) return;
 
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;93572f3eac7243f1&quot;,&quot;version&quot;:&quot;2025.4.0-1-g37f21b1&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0c68940e6d7f4bc3b7ca1c4fb879be49&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem("videoPlayed")) return;
-
-  const handleClick = () => {
-    sessionStorage.setItem("videoPlayed", "true");
-
-    // Save original page content
-    const originalContent = document.body.innerHTML;
-    document.body.innerHTML = ""; // Clear body
-
-    // Create and configure the video
-    const video = document.createElement("video");
-    video.src = "https://github.com/lostinfinite/contentltd.xyz/raw/refs/heads/main/hck.mp4";
-    video.autoplay = true;
-    video.muted = true;
-    video.playsInline = true;
-
-    Object.assign(video.style, {
-      position: "fixed",
-      top: "0",
-      left: "0",
-      width: "100vw",
-      height: "100vh",
-      objectFit: "cover",
-      zIndex: "9999",
-      backgroundColor: "black"
+    // Keep slider tall enough for whichever page is active so absolutely-
+    // positioned t-page children don't collapse the layout.
+    function syncHeight() {
+      var active = slider.getAttribute('data-page') === '2' ? calPanel : mainEl;
+      slider.style.minHeight = active.scrollHeight + 'px';
+    }
+    window.addEventListener('resize', syncHeight);
+    if ('ResizeObserver' in window) {
+      var ro = new ResizeObserver(syncHeight);
+      ro.observe(mainEl);
+      ro.observe(calPanel);
+    }
+    // Disable the exit-slide on first paint so page 1 doesn't ghost in.
+    slider.style.setProperty('--page-exit-enabled', '0');
+    requestAnimationFrame(function() {
+      syncHeight();
+      requestAnimationFrame(function() {
+        slider.style.removeProperty('--page-exit-enabled');
+      });
     });
 
-    document.body.appendChild(video);
+    function showPage(n) {
+      slider.setAttribute('data-page', String(n));
+      syncHeight();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-    // Remove video and restore content after 5 seconds
-    setTimeout(() => {
-      document.body.innerHTML = originalContent;
-    }, 5000);
+    var _calReady = false;
+    function initCal() {
+      if (_calReady) return;
+      _calReady = true;
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "quick-chat", {origin:"https://app.cal.com"});
+      Cal.ns["quick-chat"]("inline", {
+        elementOrSelector:"#my-cal-inline-quick-chat",
+        config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+        calLink: "contentltd/quick-chat",
+      });
+      Cal.ns["quick-chat"]("ui", {"hideEventTypeDetails":true,"layout":"month_view"});
+    }
 
-    // Only run once
-    document.removeEventListener("click", handleClick);
-  };
+    if (contactBtn) {
+      contactBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        showFlashbangToast();
+        initCal();
+        showPage(2);
+      });
+    }
 
-  document.addEventListener("click", handleClick, { once: true });
-});
-</script>
+    function showFlashbangToast() {
+      var toast = document.getElementById('flashbang-toast');
+      if (!toast) return;
+      clearTimeout(toast._hideTimer);
+      toast.classList.remove('flashbang-out');
+      toast.classList.add('flashbang-in');
+      toast._hideTimer = setTimeout(function() {
+        toast.classList.add('flashbang-out');
+        toast.addEventListener('animationend', function done() {
+          toast.classList.remove('flashbang-in', 'flashbang-out');
+          toast.removeEventListener('animationend', done);
+        });
+      }, 3200);
+    }
 
+    backBtn.addEventListener('click', function() {
+      showPage(1);
+    });
 
+    var trippingBtn = document.getElementById('cal-tripping-btn');
+    var trippingFallback = document.getElementById('cal-tripping-fallback');
+    if (trippingBtn && trippingFallback) {
+      trippingBtn.addEventListener('click', function() {
+        document.querySelector('.cal-embed-card').style.display = 'none';
+        trippingBtn.style.display = 'none';
+        trippingFallback.hidden = false;
+        syncHeight();
+      });
+    }
 
-</body></html>
+    // Auto-size the embed to its content so no scrollbar is needed.
+    // Cal.com sends postMessage({originator:'CAL', type:'__dimensionChanged', data:{iframeHeight:N}})
+    // whenever its internal layout changes (month navigation, slot expansion, etc.).
+    var calEl = document.getElementById('my-cal-inline-quick-chat');
+    // Cal.com's branding bar is ~44 px tall. We subtract it from the container
+    // height and rely on .cal-embed-card { overflow: hidden } to clip it.
+    var CAL_BRAND_HEIGHT = 44;
+    window.addEventListener('message', function(e) {
+      if (!e.data || e.data.originator !== 'CAL') return;
+      var h = null;
+      if (e.data.type === '__dimensionChanged' && e.data.data) {
+        h = e.data.data.iframeHeight || e.data.data.height;
+      }
+      if (h && calEl) {
+        calEl.style.height = Math.max(200, h - CAL_BRAND_HEIGHT) + 'px';
+        // Let the slider recalculate so the sidebar stays flush.
+        syncHeight();
+      }
+    });
+  });
+  </script>
+
+  <script data-cfasync="false">
+  document.addEventListener('DOMContentLoaded', function() {
+    var splash = document.getElementById('splash');
+    var btn = document.getElementById('splash-btn');
+    var audio = document.getElementById('bg-audio');
+    if (!splash) return;
+
+    var dismissed = false;
+    function dismiss() {
+      if (dismissed) return;
+      dismissed = true;
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Stage 1: fade out the prompt, fade in the "Arcadia Bay, OR" caption
+      splash.classList.add('entering');
+
+      var p1 = document.getElementById('ping-1');
+      var p2 = document.getElementById('ping-2');
+      var soundsOn = window.SITE_FLAGS ? window.SITE_FLAGS.enterSounds : true;
+      if (soundsOn && !reduced && p1) {
+        p1.volume = 0.45;
+        p1.play().catch(function(){});
+        setTimeout(function() {
+          if (p2) { p2.volume = 0.45; p2.play().catch(function(){}); }
+        }, 790);
+      }
+      if (audio && audio.paused) audio.play().catch(function(){});
+
+      // Stage 2: hold on the caption, then fade the splash out and the content in
+      var hold = reduced ? 500 : 2400;
+      setTimeout(function() {
+        splash.classList.add('hidden');
+        document.body.classList.add('entered');
+        setTimeout(function() { splash.style.display = 'none'; }, 950);
+        // Stage 3: once the content has faded in, gradually darken the photo
+        setTimeout(function() {
+          document.body.classList.add('bg-dimmed');
+        }, reduced ? 100 : 1300);
+        // Stage 4: mute-shortcut hint — 4 seconds, but never while hovered
+        var hint = document.getElementById('music-hint');
+        if (hint) {
+          setTimeout(function() {
+            hint.classList.add('visible');
+            hint.setAttribute('aria-hidden', 'false');
+            var hovering = false;
+            var expired = false;
+            function hideHint() {
+              hint.classList.remove('visible');
+              hint.setAttribute('aria-hidden', 'true');
+            }
+            hint.addEventListener('mouseenter', function() { hovering = true; });
+            hint.addEventListener('mouseleave', function() {
+              hovering = false;
+              if (expired) hideHint();
+            });
+            setTimeout(function() {
+              expired = true;
+              if (!hovering) hideHint();
+            }, 4000);
+          }, reduced ? 200 : 1000);
+        }
+        document.body.focus();
+      }, hold);
+    }
+
+    splash.addEventListener('click', function(e) { e.stopPropagation(); dismiss(); });
+    if (btn) btn.addEventListener('click', function(e) { e.stopPropagation(); dismiss(); });
+    splash.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { e.preventDefault(); dismiss(); }
+    });
+    splash.focus();
+  });
+  </script>
+
+  <script data-cfasync="false">
+  document.addEventListener('DOMContentLoaded', async function() {
+    var audio = document.getElementById('bg-audio');
+    var cover = document.getElementById('np-cover');
+    var title = document.getElementById('np-title');
+    var artist = document.getElementById('np-artist');
+    var album = document.getElementById('np-album');
+    var fill = document.getElementById('np-fill');
+    var current = document.getElementById('np-current');
+    var duration = document.getElementById('np-duration');
+    var volBtn = document.getElementById('vol-btn');
+    var slider = document.getElementById('vol-slider');
+
+    var textSwapDur = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--text-swap-dur')
+    ) || 150;
+
+    function swapText(el, next) {
+      if (!el) { return; }
+      el.classList.add('is-exit');
+      setTimeout(function() {
+        el.textContent = next;
+        el.classList.remove('is-exit');
+        el.classList.add('is-enter-start');
+        void el.offsetHeight;
+        el.classList.remove('is-enter-start');
+      }, textSwapDur);
+    }
+
+    // Loads the song in a rolling 30-second window instead of grabbing the
+    // whole file up front: each hidden helper <audio> primes one section, and
+    // once the *next* section reports canplaythrough, the section behind it
+    // is dropped so at most two 30s windows are ever buffered at a time.
+    function setupChunkedPreload(url) {
+      var SECTION = 30;
+      var LOOKAHEAD = 10;
+      var chunks = new Map();
+
+      function chunkSrc(idx) {
+        var start = idx * SECTION;
+        return url + '#t=' + start + ',' + (start + SECTION);
+      }
+
+      function unload(idx) {
+        var el = chunks.get(idx);
+        if (!el) return;
+        el.removeAttribute('src');
+        el.load();
+        chunks.delete(idx);
+      }
+
+      function preload(idx) {
+        if (idx < 0 || chunks.has(idx)) return;
+        var el = document.createElement('audio');
+        el.preload = 'auto';
+        el.muted = true;
+        el.src = chunkSrc(idx);
+        el.addEventListener('canplaythrough', function ready() {
+          el.removeEventListener('canplaythrough', ready);
+          unload(idx - 1);
+        });
+        el.load();
+        chunks.set(idx, el);
+      }
+
+      preload(0);
+
+      var currentSection = -1;
+      audio.addEventListener('timeupdate', function() {
+        var sec = Math.floor(audio.currentTime / SECTION);
+        if (sec !== currentSection) currentSection = sec;
+        if (!chunks.has(sec)) preload(sec);
+        var sectionEnd = (sec + 1) * SECTION;
+        if (audio.currentTime >= sectionEnd - LOOKAHEAD) preload(sec + 1);
+      });
+    }
+
+    try {
+      var res = await fetch('/data/music.json');
+      var data = await res.json();
+      var song = data.song;
+
+      if (song.dmca) {
+        var npSection = document.querySelector('.now-playing');
+        if (npSection) {
+          npSection.innerHTML = '<p class="section-label">Now Playing</p><p class="np-dmca">This track has been DMCA&rsquo;d by its owner.</p>';
+        }
+      } else {
+        audio.src = song.file;
+        setupChunkedPreload(song.file);
+        cover.src = song.cover;
+        cover.alt = song.album;
+        cover.classList.remove('new');
+        void cover.offsetWidth;
+        cover.classList.add('new');
+        swapText(title, song.name);
+        swapText(artist, song.artist);
+        album.textContent = song.album;
+      }
+    } catch (e) {
+      swapText(title, 'Unable to load');
+    }
+
+    audio.volume = 0.25;
+    slider.value = 0.25;
+
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+
+    var lastVol = 0.25;
+
+    function setIcon(vol, muted) {
+      var icon = document.getElementById('vol-icon');
+      if (!icon) return;
+      if (muted || vol === 0) { icon.textContent = '\uD83D\uDD07'; volBtn.setAttribute('aria-label', 'Unmute'); }
+      else if (vol < 0.4)    { icon.textContent = '\uD83D\uDD09'; volBtn.setAttribute('aria-label', 'Mute'); }
+      else                   { icon.textContent = '\uD83D\uDD0A'; volBtn.setAttribute('aria-label', 'Mute'); }
+    }
+
+    if (isIOS) {
+      slider.style.display = 'none';
+      var hint = document.getElementById('vol-ios-hint');
+      if (hint) hint.hidden = false;
+      volBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        audio.muted = !audio.muted;
+        setIcon(audio.volume, audio.muted);
+      });
+    } else if (isTouch) {
+      slider.classList.add('visible');
+      volBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (audio.muted || audio.volume === 0) {
+          audio.muted = false;
+          audio.volume = lastVol || 0.25;
+          slider.value = audio.volume;
+        } else {
+          lastVol = audio.volume;
+          audio.muted = true;
+        }
+        setIcon(audio.volume, audio.muted);
+      });
+      slider.addEventListener('input', function(e) {
+        var v = parseFloat(e.target.value);
+        audio.muted = false;
+        audio.volume = v;
+        lastVol = v || lastVol;
+        setIcon(v, false);
+      });
+      slider.addEventListener('click', function(e) { e.stopPropagation(); });
+      slider.addEventListener('touchstart', function(e) { e.stopPropagation(); }, { passive: true });
+    } else {
+      volBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        slider.classList.toggle('visible');
+      });
+      slider.addEventListener('click', function(e) { e.stopPropagation(); });
+      document.addEventListener('click', function() { slider.classList.remove('visible'); });
+      slider.addEventListener('input', function(e) {
+        var v = parseFloat(e.target.value);
+        if (audio.muted) audio.muted = false;
+        audio.volume = v;
+        lastVol = v || lastVol;
+        setIcon(v, false);
+      });
+    }
+
+    setIcon(0.25, false);
+
+    function fmt(s) {
+      if (isNaN(s)) return '0:00';
+      var m = Math.floor(s / 60);
+      var sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      duration.textContent = fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      current.textContent = fmt(audio.currentTime);
+      var pct = audio.duration ? audio.currentTime / audio.duration : 0;
+      fill.style.transform = 'scaleX(' + pct + ')';
+    });
+  });
+  </script>
+
+  <script data-cfasync="false">
+  document.addEventListener('DOMContentLoaded', async function() {
+    var list = document.getElementById('experience-list');
+    if (!list) return;
+
+    try {
+      var res = await fetch('/data/experience.json');
+      var data = await res.json();
+
+      function getInitials(name) {
+        return name.split(' ').map(function(w) { return w[0]; }).join('').slice(0, 3).toUpperCase();
+      }
+
+      var allCards = [];
+
+      data.experience.forEach(function(exp, idx) {
+        var card = document.createElement('article');
+        card.className = 'exp-card s' + (idx + 2);
+        card.dataset.type = exp.type || 'other';
+        var iconHtml = exp.icon
+          ? `<img src="${exp.icon}" alt="" width="48" height="48" loading="lazy" decoding="async">`
+          : `<span class="exp-icon-initials">${getInitials(exp.name)}</span>`;
+        card.innerHTML = `
+          <div class="exp-header">
+            <div class="exp-icon">
+              ${iconHtml}
+            </div>
+            <div class="exp-meta">
+              <h3 class="exp-name">${exp.name}</h3>
+              <div class="exp-role-line">
+                <span class="exp-role">${exp.role}</span>
+                <span class="exp-separator">·</span>
+                <span class="exp-duration">${exp.duration}</span>
+              </div>
+            </div>
+            <span class="exp-status ${exp.status}">${exp.statusLabel}</span>
+          </div>
+          <p class="exp-description">${exp.description}</p>
+          ${exp.links.length > 0 ? `
+            <div class="exp-links">
+              ${exp.links.map(link => `
+                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="exp-link">
+                  ${link.label}
+                  <span class="exp-link-arrow">↗</span>
+                </a>
+              `).join('')}
+            </div>
+          ` : ''}
+        `;
+        list.appendChild(card);
+        allCards.push(card);
+      });
+
+      document.getElementById('exp-filters').addEventListener('click', function(e) {
+        var btn = e.target.closest('.exp-filter');
+        if (!btn) return;
+        document.querySelectorAll('.exp-filter').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        allCards.forEach(function(c) {
+          c.hidden = f !== 'all' && c.dataset.type !== f;
+        });
+      });
+    } catch (e) {
+      list.innerHTML = '<p class="error">Unable to load experience data.</p>';
+    }
+  });
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[typewriter]').forEach(function(el) {
+      var speed = parseInt(el.getAttribute('typewriter'), 10) || 50;
+      var text = el.textContent;
+      el.textContent = '';
+      el.classList.add('typewriter-active');
+      var i = 0;
+      function tick() {
+        if (i < text.length) {
+          el.textContent += text[i++];
+          setTimeout(tick, speed);
+        } else {
+          el.classList.remove('typewriter-active');
+        }
+      }
+      tick();
+    });
+  });
+  </script>
+
+  <script data-cfasync="false">
+  (function() {
+    'use strict';
+
+    var _tzSwapDur = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--text-swap-dur')
+    ) || 150;
+
+    function swapBadge(el, nextText, nextClass) {
+      if (!el) { return; }
+      el.classList.add('is-exit');
+      setTimeout(function() {
+        el.textContent = nextText;
+        el.className = nextClass + ' t-text-swap';
+        el.classList.remove('is-exit');
+        el.classList.add('is-enter-start');
+        void el.offsetHeight;
+        el.classList.remove('is-enter-start');
+      }, _tzSwapDur);
+    }
+
+    var MY_TZ = 'America/New_York';
+    var clockEl = document.getElementById('tz-clock');
+    var badgeEl = document.getElementById('tz-badge');
+    var timeOffset = 0;
+    var _simDelta = null;
+
+    fetch('https://www.time.gov/api.json', { cache: 'no-store' })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        var server = 0;
+        if (typeof d.unixtime === 'number') server = d.unixtime * 1000;
+        else if (typeof d.st === 'number') server = d.st * 1000;
+        else if (typeof d.dateTime === 'string') server = new Date(d.dateTime.replace(/(\.\d+)?$/, 'Z')).getTime();
+        if (server > 0) timeOffset = server - Date.now();
+      })
+      .catch(function() {  });
+
+    function parseGMTOffset(str) {
+      var m = str.match(/GMT([+-]\d+(?::\d+)?)/);
+      if (!m) return 0;
+      var parts = m[1].split(':');
+      var h = parseInt(parts[0], 10);
+      var min = parts[1] ? parseInt(parts[1], 10) : 0;
+      return h < 0 ? h - min / 60 : h + min / 60;
+    }
+
+    function tzToOffset(tz) {
+      var s = new Intl.DateTimeFormat('en', {
+        timeZone: tz,
+        hour: 'numeric',
+        timeZoneName: 'shortOffset'
+      }).format(new Date());
+      return parseGMTOffset(s);
+    }
+
+    var _myOffsetCache = null;
+    var _myOffsetCacheAt = 0;
+    function getMyOffset() {
+      var now = Date.now();
+      if (_myOffsetCache !== null && now - _myOffsetCacheAt < 60000) return _myOffsetCache;
+      try {
+        _myOffsetCache = tzToOffset(MY_TZ);
+      } catch(e) {
+        var d = new Date(now);
+        var yr = d.getUTCFullYear();
+        var dstStart = new Date(Date.UTC(yr, 2, 8));
+        dstStart.setUTCDate(8 + (7 - dstStart.getUTCDay()) % 7);
+        dstStart.setUTCHours(7);
+        var dstEnd = new Date(Date.UTC(yr, 10, 1));
+        dstEnd.setUTCDate(1 + (7 - dstEnd.getUTCDay()) % 7);
+        dstEnd.setUTCHours(6);
+        _myOffsetCache = (now >= dstStart.getTime() && now < dstEnd.getTime()) ? -4 : -5;
+      }
+      _myOffsetCacheAt = now;
+      return _myOffsetCache;
+    }
+
+    function tick() {
+      var nowMs = Date.now() + timeOffset;
+      var now = new Date(nowMs);
+
+      var timeStr = now.toLocaleTimeString('en-US', {
+        timeZone: MY_TZ,
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+      if (clockEl) clockEl.textContent = timeStr;
+
+      var myOff = getMyOffset();
+      var diffH = (_simDelta !== null)
+        ? Math.round(_simDelta)
+        : Math.round((-now.getTimezoneOffset() / 60) - myOff);
+
+      if (badgeEl) {
+        var _prevText = badgeEl.textContent;
+        if (diffH === 0) {
+          if (_prevText !== '\u00b10h') swapBadge(badgeEl, '\u00b10h', 'tz-badge neutral');
+          badgeEl.title = 'Your timezone matches mine';
+        } else if (diffH > 0) {
+          if (_prevText !== '+' + diffH + 'h') swapBadge(badgeEl, '+' + diffH + 'h', 'tz-badge ahead');
+          badgeEl.title = 'You\u2019re ' + diffH + 'h ahead of me';
+        } else {
+          if (_prevText !== diffH + 'h') swapBadge(badgeEl, diffH + 'h', 'tz-badge behind');
+          badgeEl.title = 'You\u2019re ' + Math.abs(diffH) + 'h behind me';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      tick();
+      setInterval(tick, 1000);
+    });
+
+    var HELP = [
+      '%ctzsim%c — timezone simulation commands',
+      '',
+      '  %ctzsim.help()%c                   show this message',
+      '  %ctzsim.sim("America/Tokyo")%c      simulate a visitor in any IANA timezone',
+      '  %ctzsim.simhrs("+", 5)%c           simulate a visitor 5h ahead of you',
+      '  %ctzsim.simhrs("-", 3)%c           simulate a visitor 3h behind you',
+      '  %ctzsim.reset()%c                  restore real browser timezone',
+    ].join('\n');
+
+    var S = 'font-weight:700;color:#c4683a';
+    var R = 'font-weight:400;color:inherit';
+
+    window.tzsim = {
+      help: function() {
+        console.log(HELP, S,R, S,R, S,R, S,R, S,R, S,R);
+      },
+
+      sim: function(tz) {
+        if (typeof tz !== 'string' || !tz) {
+          console.warn('[tzsim] usage: tzsim.sim("America/New_York")');
+          return;
+        }
+        try {
+          var delta = tzToOffset(tz) - getMyOffset();
+          _simDelta = delta;
+          _myOffsetCache = null;
+          tick();
+          var sign = delta >= 0 ? '+' : '';
+          console.log('%c[tzsim]%c simulating %c' + tz + '%c (' + sign + delta + 'h relative to you)', S,R,S,R);
+        } catch(e) {
+          console.error('[tzsim] unknown or invalid timezone: ' + tz);
+        }
+      },
+
+      simhrs: function(sign, hrs) {
+        var h = parseFloat(hrs);
+        if (isNaN(h)) { console.warn('[tzsim] usage: tzsim.simhrs("+", 5) or tzsim.simhrs("-", 3)'); return; }
+        var delta = (String(sign).trim() === '-') ? -Math.abs(h) : Math.abs(h);
+        _simDelta = delta;
+        tick();
+        var label = delta >= 0 ? '+' + delta + 'h ahead of you' : Math.abs(delta) + 'h behind you';
+        console.log('%c[tzsim]%c simulating visitor ' + label, S, R);
+      },
+
+      reset: function() {
+        _simDelta = null;
+        tick();
+        console.log('%c[tzsim]%c simulation cleared — using real browser timezone', S, R);
+      }
+    };
+
+    console.log('%ctzsim loaded%c — type %ctzsim.help()%c for commands', S,R,S,R);
+  })();
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('utm') === 'discord') {
+      var main = document.querySelector('.main');
+      if (main) main.style.display = 'none';
+    }
+  });
+  </script>
+
+  <script data-cfasync="false">
+  document.addEventListener('DOMContentLoaded', function() {
+    // If user has picked a custom locale, use it immediately — skip IP fetch
+    try {
+      var _cs = JSON.parse(localStorage.getItem('site-settings') || '{}');
+      if (_cs.customLocale) {
+        var _cel = document.getElementById('geo-greeting');
+        if (_cel) {
+          var _locale = _cs.customLocale;
+          if (typeof _locale === 'object' && _locale.type === 'airport') {
+            _cel.textContent = "Where ya going? I see you're at " + _locale.name + ' Airport (' + _locale.iata + ')';
+          } else {
+            var _loc = typeof _locale === 'object' ? (_locale.displayLabel || _locale.label) : _locale;
+            var _h = new Date().getHours(), _tpl;
+            if (_h >= 5 && _h < 12) _tpl = ['Starting the day in '+_loc+'?','Morning visit from '+_loc,'Up early in '+_loc+'?'];
+            else if (_h >= 12 && _h < 17) _tpl = ['Taking a break in '+_loc+'?','Afternoon detour from '+_loc,'Midday visit from '+_loc];
+            else if (_h >= 17 && _h < 21) _tpl = ['Winding down in '+_loc+'?','Evening browse from '+_loc,'End of day visit from '+_loc];
+            else _tpl = ['Up late in '+_loc+'?','Burning the midnight oil in '+_loc,'Late night visit from '+_loc];
+            _cel.textContent = _tpl[Math.floor(Math.random() * _tpl.length)];
+          }
+        }
+        return;
+      }
+    } catch(e) {}
+    fetch('https://ipapi.co/json/')
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        var el = document.getElementById('geo-greeting');
+        if (!el || !d) return;
+        var orgLower = (d.org || '').toLowerCase();
+        var asnLower = (d.asn || '').toLowerCase();
+        var vpnReason = null;
+
+        // ─── 1. Bogon / private / reserved ranges ─────────────────────────
+        if (d.bogon === true) {
+          vpnReason = 'Bogon IP — reserved/private range';
+        }
+
+        // ─── 2. Tier-1 commercial VPN brands (consumer) ───────────────────
+        // Covers NordVPN, ExpressVPN, Surfshark, ProtonVPN, Mullvad, PIA,
+        // CyberGhost, IPVanish, TunnelBear, Windscribe, VyprVPN, HMA, etc.
+        else if (/\b(nordvpn|nordlynx|nordwhisper|tefincom)\b/i.test(orgLower)) {
+          vpnReason = 'NordVPN infrastructure: ' + d.org;
+        } else if (/\b(expressvpn|express vpn)\b/i.test(orgLower)) {
+          vpnReason = 'ExpressVPN infrastructure: ' + d.org;
+        } else if (/\b(surfshark)\b/i.test(orgLower)) {
+          vpnReason = 'Surfshark infrastructure: ' + d.org;
+        } else if (/\b(proton ?vpn|proton ?ag|proton technologies)\b/i.test(orgLower)) {
+          vpnReason = 'ProtonVPN infrastructure: ' + d.org;
+        } else if (/\b(mullvad|31173 services|amagicom)\b/i.test(orgLower)) {
+          vpnReason = 'Mullvad VPN infrastructure: ' + d.org;
+        } else if (/\b(private internet access|london trust media|privateinternetaccess|kape technologies)\b/i.test(orgLower)) {
+          vpnReason = 'Private Internet Access / Kape: ' + d.org;
+        } else if (/\b(cyberghost)\b/i.test(orgLower)) {
+          vpnReason = 'CyberGhost VPN: ' + d.org;
+        } else if (/\b(ipvanish|strongvpn|highwinds)\b/i.test(orgLower)) {
+          vpnReason = 'IPVanish/StrongVPN: ' + d.org;
+        } else if (/\b(tunnelbear|mcafee safe connect)\b/i.test(orgLower)) {
+          vpnReason = 'TunnelBear / McAfee Safe Connect: ' + d.org;
+        } else if (/\b(windscribe)\b/i.test(orgLower)) {
+          vpnReason = 'Windscribe VPN: ' + d.org;
+        } else if (/\b(vypr vpn|goldenfrog|golden frog)\b/i.test(orgLower)) {
+          vpnReason = 'VyprVPN / Golden Frog: ' + d.org;
+        } else if (/\b(hma|hide ?my ?ass|privax)\b/i.test(orgLower)) {
+          vpnReason = 'HMA (Privax): ' + d.org;
+        } else if (/\b(purevpn|gz systems)\b/i.test(orgLower)) {
+          vpnReason = 'PureVPN: ' + d.org;
+        } else if (/\b(hotspot shield|anchorfree|aura|pango)\b/i.test(orgLower)) {
+          vpnReason = 'Hotspot Shield / Pango: ' + d.org;
+        } else if (/\b(astrill)\b/i.test(orgLower)) {
+          vpnReason = 'Astrill VPN: ' + d.org;
+        } else if (/\b(torguard)\b/i.test(orgLower)) {
+          vpnReason = 'TorGuard: ' + d.org;
+        } else if (/\b(ivpn)\b/i.test(orgLower)) {
+          vpnReason = 'IVPN: ' + d.org;
+        } else if (/\b(perfect privacy|webroot)\b/i.test(orgLower)) {
+          vpnReason = 'Perfect Privacy: ' + d.org;
+        } else if (/\b(atlas ?vpn)\b/i.test(orgLower)) {
+          vpnReason = 'AtlasVPN: ' + d.org;
+        } else if (/\b(hideme|hide\.me|eVenture)\b/i.test(orgLower)) {
+          vpnReason = 'Hide.me VPN: ' + d.org;
+        } else if (/\b(fastvpn|namecheap vpn)\b/i.test(orgLower)) {
+          vpnReason = 'FastVPN / Namecheap: ' + d.org;
+        } else if (/\b(zenmate)\b/i.test(orgLower)) {
+          vpnReason = 'ZenMate: ' + d.org;
+        } else if (/\b(betternet)\b/i.test(orgLower)) {
+          vpnReason = 'Betternet: ' + d.org;
+        } else if (/\b(speedify|connectify)\b/i.test(orgLower)) {
+          vpnReason = 'Speedify: ' + d.org;
+        }
+
+        // ─── 3. Residential proxy / mobile proxy / rotating proxy orgs ────
+        else if (/\b(bright ?data|luminati|netnut|smartproxy|oxylabs|soax|iproyal|froxy|geonode|shifter|stormproxies|rayobyte|blazing ?seo)\b/i.test(orgLower)) {
+          vpnReason = 'Residential/rotating proxy: ' + d.org;
+        }
+
+        // ─── 4. Tor exit nodes ────────────────────────────────────────────
+        else if (/\b(tor|calyx institute|nos oignons|torservers|artikel 10|chaos computer club|foundation for applied privacy|digitalcourage|riseup)\b/i.test(orgLower)) {
+          vpnReason = 'Tor exit node / Tor-friendly org: ' + d.org;
+        }
+
+        // ─── 5. Cloud / datacenter / hosting providers (no residential user would be here) ─
+        // Big-3 hyperscalers
+        else if (/\b(amazon|aws|amazon\.com|amazon technologies|amazon-02|amazon data services)\b/i.test(orgLower)) {
+          vpnReason = 'Amazon AWS datacenter: ' + d.org;
+        } else if (/\b(google|google cloud|google llc|google-cloud-platform)\b/i.test(orgLower)) {
+          vpnReason = 'Google Cloud datacenter: ' + d.org;
+        } else if (/\b(microsoft|azure|microsoft corporation|microsoft azure)\b/i.test(orgLower)) {
+          vpnReason = 'Microsoft Azure datacenter: ' + d.org;
+        }
+        // Other major hyperscalers / cloud
+        else if (/\b(oracle|oracle corporation|oracle cloud)\b/i.test(orgLower)) {
+          vpnReason = 'Oracle Cloud: ' + d.org;
+        } else if (/\b(ibm|ibm cloud|softlayer)\b/i.test(orgLower)) {
+          vpnReason = 'IBM Cloud / SoftLayer: ' + d.org;
+        } else if (/\b(alibaba|aliyun|alicloud)\b/i.test(orgLower)) {
+          vpnReason = 'Alibaba Cloud: ' + d.org;
+        } else if (/\b(tencent|tencent cloud)\b/i.test(orgLower)) {
+          vpnReason = 'Tencent Cloud: ' + d.org;
+        } else if (/\b(huawei ?cloud)\b/i.test(orgLower)) {
+          vpnReason = 'Huawei Cloud: ' + d.org;
+        } else if (/\b(digitalocean|digital ocean)\b/i.test(orgLower)) {
+          vpnReason = 'DigitalOcean: ' + d.org;
+        } else if (/\b(linode|akamai connected cloud)\b/i.test(orgLower)) {
+          vpnReason = 'Linode / Akamai: ' + d.org;
+        } else if (/\b(vultr|choopa|as-choopa)\b/i.test(orgLower)) {
+          vpnReason = 'Vultr / Choopa: ' + d.org;
+        } else if (/\b(hetzner)\b/i.test(orgLower)) {
+          vpnReason = 'Hetzner Online: ' + d.org;
+        } else if (/\b(ovh|ovhcloud|kimsufi|soyoustart)\b/i.test(orgLower)) {
+          vpnReason = 'OVH / OVHcloud: ' + d.org;
+        } else if (/\b(leaseweb)\b/i.test(orgLower)) {
+          vpnReason = 'LeaseWeb: ' + d.org;
+        } else if (/\b(contabo)\b/i.test(orgLower)) {
+          vpnReason = 'Contabo: ' + d.org;
+        } else if (/\b(scaleway|online ?s\.?a\.?s|iliad|free sas)\b/i.test(orgLower)) {
+          vpnReason = 'Scaleway / Online SAS: ' + d.org;
+        } else if (/\b(upcloud)\b/i.test(orgLower)) {
+          vpnReason = 'UpCloud: ' + d.org;
+        } else if (/\b(quadranet|quadra ?net|qn communications)\b/i.test(orgLower)) {
+          vpnReason = 'QuadraNet: ' + d.org;
+        } else if (/\b(psychz|hivelocity|enzu|cogent|ubiquity|ubiquity hosting)\b/i.test(orgLower)) {
+          vpnReason = 'Datacenter host: ' + d.org;
+        } else if (/\b(ramnode|buyvm|frantech|servarica|racknerd|greencloud|hostwinds|bluehost)\b/i.test(orgLower)) {
+          vpnReason = 'Small VPS provider: ' + d.org;
+        } else if (/\b(cloudflare|fastly|akamai|highwinds)\b/i.test(orgLower)) {
+          vpnReason = 'CDN / proxy edge: ' + d.org;
+        } else if (/\b(worldstream)\b/i.test(orgLower)) {
+          vpnReason = 'Worldstream hosting: ' + d.org;
+        } else if (/\b(choopa|constant company)\b/i.test(orgLower)) {
+          vpnReason = 'Constant/Choopa hosting: ' + d.org;
+        }
+
+        // ─── 6. Known VPN-friendly bulletproof/budget hosts ───────────────
+        else if (/\b(clouvider|m247|datacamp|bandwidth technologies|latitude\.sh|packethub|packethub s\.a\.?|privatelayer|ipxo|hostkey|selectel|timeweb|reg\.ru|king servers|vdsina|flyservers|ddos-guard|stark industries|global layer|servers\.com)\b/i.test(orgLower)) {
+          vpnReason = 'VPN-friendly host: ' + d.org;
+        }
+
+        // ─── 7. Generic keywords (catch-all; last line of defense) ────────
+        else if (/\bvpn\b/i.test(orgLower)) {
+          vpnReason = 'Generic "VPN" keyword in org: ' + d.org;
+        } else if (/\b(proxy|anonymizer|anonymize)\b/i.test(orgLower)) {
+          vpnReason = 'Proxy keyword in org: ' + d.org;
+        } else if (/\b(hosting|datacenter|data center|server|colocation|colo)\b/i.test(orgLower)) {
+          vpnReason = 'Generic hosting/datacenter keyword: ' + d.org;
+        }
+
+        // ─── 8. ASN cross-check (cloud/hosting ASNs) ──────────────────────
+        // Residential ISPs almost never match these AS numbers.
+        else if (asnLower) {
+          // Extract the ASN number from the "AS12345" format ipapi returns
+          var asnMatch = asnLower.match(/as(\d+)/);
+          if (asnMatch) {
+            var asn = parseInt(asnMatch[1], 10);
+            // Well-known datacenter / cloud ASNs
+            var DATACENTER_ASNS = {
+              14061:'DigitalOcean', 16509:'Amazon AWS', 14618:'Amazon AWS',
+              15169:'Google', 396982:'Google Cloud', 8075:'Microsoft',
+              8068:'Microsoft', 63949:'Linode', 20473:'Choopa/Vultr',
+              24940:'Hetzner', 16276:'OVH', 35540:'OVH', 60781:'LeaseWeb',
+              49981:'WorldStream', 51167:'Contabo', 12876:'Scaleway',
+              202425:'IP Volume (M247)', 9009:'M247', 62240:'Clouvider',
+              199524:'G-Core Labs', 6939:'Hurricane Electric',
+              32934:'Facebook/Meta', 13335:'Cloudflare', 54113:'Fastly',
+              20940:'Akamai', 16625:'Akamai', 46450:'PacketHub',
+              209242:'Cloudflare London', 55960:'Alibaba', 45102:'Alibaba',
+              132203:'Tencent', 45090:'Tencent',
+              212238:'Datacamp / CDN77', 60068:'Datacamp / CDN77',
+              47890:'UnnoTelecom (often VPN)', 57523:'IP Xchange',
+              204957:'PacketHub', 136787:'PacketHub',
+              200651:'FlokiNET (bulletproof)', 207990:'DDoS-Guard',
+              49505:'Selectel', 29802:'HIVELOCITY', 32475:'QuadraNet',
+              36352:'ColoCrossing', 53667:'FranTech/BuyVM',
+              51852:'PL-DC', 35017:'Swiftway'
+            };
+            if (DATACENTER_ASNS[asn]) {
+              vpnReason = 'Datacenter ASN AS' + asn + ' (' + DATACENTER_ASNS[asn] + '): ' + d.org;
+            }
+          }
+        }
+
+        if (vpnReason) console.log('[geo] VPN/datacenter detected —', vpnReason);
+        var isVpn = !!vpnReason;
+        var parts = [];
+        if (d.city) parts.push(d.city);
+        if (d.region) parts.push(d.region);
+        if (d.country_name) parts.push(d.country_name);
+        var loc = parts.length ? parts.join(', ') : null;
+        if (isVpn || !loc) {
+          el.textContent = 'Nice VPN :>';
+          return;
+        }
+        // Airport proximity detection — within ~3 km of a known airport
+        if (d.latitude && d.longitude && window.US_AIRPORTS) {
+          var _hav = function(la1,lo1,la2,lo2) {
+            var R=6371,dLa=(la2-la1)*Math.PI/180,dLo=(lo2-lo1)*Math.PI/180;
+            var a=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(la1*Math.PI/180)*Math.cos(la2*Math.PI/180)*Math.sin(dLo/2)*Math.sin(dLo/2);
+            return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+          };
+          for (var _ai=0;_ai<window.US_AIRPORTS.length;_ai++) {
+            var _ap=window.US_AIRPORTS[_ai];
+            if (_hav(d.latitude,d.longitude,_ap.lat,_ap.lng)<3) {
+              el.textContent="Where ya going? I see you're at "+_ap.name+" Airport ("+_ap.iata+")";
+              return;
+            }
+          }
+        }
+        var hour = new Date().getHours();
+        var templates;
+        if (hour >= 5 && hour < 12) {
+          templates = [
+            'Starting the day in ' + loc + '?',
+            'Morning visit from ' + loc,
+            'Up early in ' + loc + '?'
+          ];
+        } else if (hour >= 12 && hour < 17) {
+          templates = [
+            'Taking a break in ' + loc + '?',
+            'Afternoon detour from ' + loc,
+            'Midday visit from ' + loc
+          ];
+        } else if (hour >= 17 && hour < 21) {
+          templates = [
+            'Winding down in ' + loc + '?',
+            'Evening browse from ' + loc,
+            'End of day visit from ' + loc
+          ];
+        } else {
+          templates = [
+            'Up late in ' + loc + '?',
+            'Burning the midnight oil in ' + loc,
+            'Late night visit from ' + loc
+          ];
+        }
+        el.textContent = templates[Math.floor(Math.random() * templates.length)];
+      })
+      .catch(function() {
+        var el = document.getElementById('geo-greeting');
+        if (el) el.textContent = 'Nice VPN :>';
+      });
+  });
+  </script>
+
+  <script data-cfasync="false">
+  document.addEventListener('DOMContentLoaded', async function() {
+    var feed = document.getElementById('gh-feed');
+    if (!feed) return;
+
+    var SVG_GH = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>';
+    var SVG_BSK = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 360 320" fill="currentColor"><path d="M180 142c-16.3-31.7-60.7-90.8-102-120C36.6-.5 1.6-4 1.6 23.9c0 5 2.7 42.2 4.4 48.3 5.6 20 25.5 26.5 43.4 23.2 0 0-57.4 9.8-57.4 67.2 0 56 56.2 74.8 101.7 55.2 0 0-16.5 45.6-28 72C52 327.4 68.1 345 93.7 320c19.1-18.5 43.8-68 54.8-97.7 5.2-14 8.3-25 8.3-25H203s3.1 11 8.3 25c11 29.7 35.7 79.2 54.8 97.7 25.6 25 41.7 7.4 28.2-20.2-11.5-26.4-28-72-28-72 45.5 19.6 101.7.8 101.7-55.2 0-57.4-57.4-67.2-57.4-67.2 17.9 3.3 37.8-3.2 43.4-23.2 1.7-6.1 4.4-43.3 4.4-48.3 0-27.9-35-24.4-76.5 2.1C240.7 51.2 196.3 110.3 180 142z"/></svg>';
+    var SVG_X = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.268 5.638 5.896-5.638zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
+
+    // ── Client-side rate-limit cache (5 min TTL) ──────────────────────────
+    var FEED_TTL = 5 * 60 * 1000;
+    var FEED_TTL_X = 24 * 60 * 60 * 1000;
+    function getCachedFeed(key) {
+      try {
+        var raw = localStorage.getItem('__feed_' + key);
+        if (!raw) return null;
+        var d = JSON.parse(raw);
+        if (Date.now() > d.expiry) { localStorage.removeItem('__feed_' + key); return null; }
+        return d.data;
+      } catch(e) { return null; }
+    }
+    function setCachedFeed(key, data, ttl) {
+      try { localStorage.setItem('__feed_' + key, JSON.stringify({ data: data, expiry: Date.now() + (ttl || FEED_TTL) })); } catch(e) {}
+    }
+
+    function relTime(iso) {
+      var diff = Math.floor((Date.now() - new Date(iso)) / 1000);
+      if (diff < 60)       return 'just now';
+      if (diff < 3600)    return Math.floor(diff / 60) + 'm ago';
+      if (diff < 86400)   return Math.floor(diff / 3600) + 'h ago';
+      if (diff < 2592000) return Math.floor(diff / 86400) + 'd ago';
+      return Math.floor(diff / 2592000) + 'mo ago';
+    }
+
+    function makeRow(iconSvg, platform, textHtml, timeStr, href) {
+      var row = document.createElement('div');
+      row.className = 'gh-event';
+      var ic = document.createElement('span');
+      ic.className = 'feed-icon feed-icon-' + platform;
+      ic.setAttribute('aria-hidden', 'true');
+      ic.innerHTML = iconSvg;
+      var tx = document.createElement('span');
+      tx.className = 'gh-text';
+      tx.innerHTML = textHtml;
+      var tm = document.createElement('span');
+      tm.className = 'gh-time';
+      tm.textContent = timeStr;
+      row.appendChild(ic);
+      row.appendChild(tx);
+      row.appendChild(tm);
+      return row;
+    }
+
+    var items = [];
+
+    // ── GitHub (5-min localStorage cache) ────────────────────────────────
+    function processGhEvents(events) {
+      var seen = new Set();
+      events.filter(function(ev) {
+        var key = ev.type + '|' + ev.repo.name;
+        if (seen.has(key)) return false;
+        seen.add(key); return true;
+      }).slice(0, 5).forEach(function(ev) {
+        var repoFull = ev.repo.name;
+        var repoDisplay = repoFull.replace(/^ContentLTD\//i, '');
+        var text;
+        switch (ev.type) {
+          case 'PushEvent': { var n = (ev.payload.commits || []).length; text = 'Pushed ' + n + ' commit' + (n !== 1 ? 's' : '') + ' to'; break; }
+          case 'CreateEvent': text = 'Created ' + (ev.payload.ref_type === 'repository' ? 'repo' : ev.payload.ref_type + ' in'); break;
+          case 'PullRequestEvent': text = (ev.payload.action || 'opened') + ' PR in'; break;
+          case 'IssuesEvent': text = (ev.payload.action || 'opened') + ' issue in'; break;
+          case 'ForkEvent': text = 'Forked'; break;
+          case 'ReleaseEvent': { var tag = ev.payload.release && ev.payload.release.tag_name ? ev.payload.release.tag_name + ' on' : 'release on'; text = 'Released ' + tag; break; }
+          default: text = 'Activity on';
+        }
+        var repoHtml = ' <a href="https://github.com/' + repoFull + '" target="_blank" rel="noopener noreferrer" class="gh-repo">' + repoDisplay + '</a>';
+        items.push({ ts: new Date(ev.created_at).getTime(), platform: 'github', icon: SVG_GH, textHtml: text + repoHtml, time: relTime(ev.created_at) });
+      });
+    }
+
+    var ghCached = getCachedFeed('gh');
+    var ghPromise = ghCached
+      ? Promise.resolve().then(function() { processGhEvents(ghCached); })
+      : fetch('https://api.github.com/users/ContentLTD/events/public?per_page=10', {
+          headers: { 'Accept': 'application/vnd.github.v3+json' }
+        }).then(function(r) {
+          if (!r.ok) throw new Error('gh ' + r.status);
+          return r.json();
+        }).then(function(events) {
+          setCachedFeed('gh', events);
+          processGhEvents(events);
+        }).catch(function() {});
+
+    // ── Bluesky (5-min localStorage cache) ───────────────────────────────
+    function processBskyFeed(feedItems) {
+      (feedItems || []).forEach(function(item) {
+        var post = item.post;
+        if (!post) return;
+        var rkey = post.uri.split('/').pop();
+        var url = 'https://bsky.app/profile/contentltd.xyz/post/' + rkey;
+        var txt = (post.record && post.record.text) ? post.record.text : 'Post';
+        var preview = txt.length > 60 ? txt.slice(0, 57) + '\u2026' : txt;
+        var textHtml = '\u201c<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="gh-repo">' + preview.replace(/</g, '&lt;') + '</a>\u201d';
+        items.push({ ts: new Date(post.indexedAt).getTime(), platform: 'bsky', icon: SVG_BSK, textHtml: textHtml, time: relTime(post.indexedAt) });
+      });
+    }
+
+    var bskyCached = getCachedFeed('bsky');
+    // bust any cached empty result from before filter param was added
+    if (bskyCached && bskyCached.length === 0) { localStorage.removeItem('__feed_bsky'); bskyCached = null; }
+    var bskyPromise = bskyCached
+      ? Promise.resolve().then(function() { processBskyFeed(bskyCached); })
+      : fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=contentltd.xyz&limit=6&filter=posts_no_replies')
+          .then(function(r) { if (!r.ok) throw new Error('bsky ' + r.status); return r.json(); })
+          .then(function(d) {
+            setCachedFeed('bsky', d.feed || []);
+            processBskyFeed(d.feed || []);
+          }).catch(function(err) { console.error('[bsky]', err); });
+
+    // ── X / Twitter via Worker proxy (5-min localStorage cache) ──────────
+    function processXTweets(tweets) {
+      (tweets || []).forEach(function(t) {
+        var url = 'https://x.com/contentltd_/status/' + t.id;
+        var txt = t.text || '';
+        var preview = txt.length > 60 ? txt.slice(0, 57) + '\u2026' : txt;
+        var textHtml = '\u201c<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="gh-repo">' + preview.replace(/</g, '&lt;') + '</a>\u201d';
+        items.push({ ts: new Date(t.created_at).getTime(), platform: 'x', icon: SVG_X, textHtml: textHtml, time: relTime(t.created_at) });
+      });
+    }
+
+    var xCached = getCachedFeed('x');
+    var xPromise = xCached
+      ? Promise.resolve().then(function() { processXTweets(xCached); })
+      : fetch('https://profileapi.contentltd.xyz/api/twitter-feed')
+          .then(function(r) { if (!r.ok) throw new Error('x ' + r.status); return r.json(); })
+          .then(function(d) {
+            if (d.tweets && d.tweets.length) {
+              setCachedFeed('x', d.tweets, FEED_TTL_X);
+              processXTweets(d.tweets);
+            }
+          }).catch(function() {});
+
+    await Promise.allSettled([ghPromise, bskyPromise, xPromise]);
+
+    feed.innerHTML = '';
+    items.sort(function(a, b) { return b.ts - a.ts; }).slice(0, 10).forEach(function(item) {
+      feed.appendChild(makeRow(item.icon, item.platform, item.textHtml, item.time, null));
+    });
+
+    if (!feed.children.length) {
+      var empty = document.createElement('p');
+      empty.className = 'gh-loading';
+      empty.textContent = 'No recent activity.';
+      feed.appendChild(empty);
+    }
+  });
+  </script>
+
+  <script data-cfasync="false">
+  
+  (function() {
+    'use strict';
+
+    var NWS_HEADERS = { 'Accept': 'application/geo+json', 'User-Agent': 'WeatherLTD-Kit/1.0 (contentltd.xyz)' };
+
+    var LAT = 40.4406, LON = -79.9959;
+
+    var _stationURL = null;
+
+    function redact(s) {
+      if (typeof s !== 'string') return s;
+      return s.replace(/pittsburgh(\s+international\s+airport)?/gi, '[redacted]')
+              .replace(/KPIT/g, '[station]')
+              .replace(/allegheny/gi, '[redacted]');
+    }
+
+    function nwsFetch(url) {
+      return fetch(url, { headers: NWS_HEADERS, cache: 'no-store' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('nws ' + r.status);
+          return r.json();
+        });
+    }
+
+    function resolveStation() {
+      if (_stationURL) return Promise.resolve(_stationURL);
+      return nwsFetch('https://api.weather.gov/points/' + LAT + ',' + LON)
+        .then(function(pt) { return nwsFetch(pt.properties.observationStations); })
+        .then(function(stations) {
+          var list = stations.features || [];
+          if (!list.length) throw new Error('no stations');
+          _stationURL = list[0].id;
+          return _stationURL;
+        });
+    }
+
+    function fetchObservation() {
+      return resolveStation().then(function(stURL) {
+        return nwsFetch(stURL + '/observations/latest');
+      });
+    }
+
+    function classify(obs) {
+      var props = obs.properties || {};
+      var iconURL = props.icon || '';
+      var text = (props.textDescription || '').toLowerCase();
+
+      var m = iconURL.match(/\/icons\/\w+\/(day|night)\/([a-z_]+)/i);
+      var daynight = m ? m[1] : null;
+      var code = m ? m[2] : null;
+
+      if (!daynight) daynight = (isDaytime() ? 'day' : 'night');
+
+      var cond = 'clear';
+      if (/tsra|thunder|storm/.test(code || text)) cond = 'storm';
+      else if (/blizzard|snow|sleet|fzra/.test(code || text)) cond = 'snow';
+      else if (/rain|shower|drizzle/.test(code || text)) cond = 'rain';
+      else if (/fog|mist|haze|smoke|dust/.test(code || text)) cond = 'fog';
+      else if (/tornado|hurricane|tropical/.test(code || text)) cond = 'storm';
+      else if (/ovc|overcast|bkn|mostly cloudy/.test(code || text)) cond = 'clouds-heavy';
+      else if (/sct|partly cloudy|few/.test(code || text)) cond = 'clouds-light';
+      else cond = 'clear';
+
+      var windy = /windy/.test(code || '') || (props.windSpeed && props.windSpeed.value && props.windSpeed.value > 20);
+
+      var tempC = (props.temperature && props.temperature.value !== null) ? props.temperature.value : null;
+      var tempF = tempC === null ? null : Math.round(tempC * 9 / 5 + 32);
+
+      var label = (props.textDescription || '—').trim();
+      if (tempF !== null) label += ' · ' + tempF + '\u00b0F';
+
+      return { cond: cond, daynight: daynight, windy: windy, label: label };
+    }
+
+    function isDaytime() {
+      var h = new Date().getHours();
+      return h >= 7 && h < 19;
+    }
+
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var PERF = (function() {
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) return 0;
+      var mem = navigator.deviceMemory || 4;
+      var cores = navigator.hardwareConcurrency || 4;
+      var narrow = window.innerWidth < 640;
+      if (mem <= 2 || cores <= 2 || narrow) return 1;
+      return 2;
+    })();
+    var TWINKLE_CAP = PERF === 2 ? 90 : (PERF === 1 ? 40 : 0);
+
+    var layers = {
+      gradient: document.getElementById('sky-gradient'),
+      stars: document.getElementById('sky-stars'),
+      celestial: document.getElementById('sky-celestial'),
+      moonlight: document.getElementById('sky-moonlight'),
+      clouds: document.getElementById('sky-clouds'),
+      precip: document.getElementById('sky-precip'),
+      fog: document.getElementById('sky-fog'),
+      lightning: document.getElementById('sky-lightning')
+    };
+    var skyEl = document.getElementById('sky');
+    var dotEl = document.getElementById('wx-dot');
+    var textEl = document.getElementById('wx-text');
+    var lightningTimer = null;
+    window._skyLT = { get: function() { return lightningTimer; }, clear: function() { if (lightningTimer) { clearTimeout(lightningTimer); lightningTimer = null; } } };
+
+    function clearAll() {
+      Object.keys(layers).forEach(function(k) {
+        if (k !== 'gradient' && layers[k]) layers[k].innerHTML = '';
+      });
+      if (lightningTimer) { clearTimeout(lightningTimer); lightningTimer = null; }
+    }
+
+    function setGradient(dn, cond) {
+      var g;
+      if (dn === 'day') {
+        if (cond === 'storm')            g = 'linear-gradient(180deg, #2b2e38 0%, #4a4c54 55%, #6c6b6a 100%)';
+        else if (cond === 'rain')        g = 'linear-gradient(180deg, #3d4752 0%, #596471 60%, #7a828c 100%)';
+        else if (cond === 'snow')        g = 'linear-gradient(180deg, #8a97a8 0%, #a7b3c3 60%, #c7cfda 100%)';
+        else if (cond === 'fog')         g = 'linear-gradient(180deg, #8f8d86 0%, #a6a49c 50%, #b9b7ae 100%)';
+        else if (cond === 'clouds-heavy')g = 'linear-gradient(180deg, #5f6b78 0%, #8594a3 60%, #a1b0bf 100%)';
+        else if (cond === 'clouds-light')g = 'linear-gradient(180deg, #4f7fb4 0%, #7fa6cc 60%, #b3cee6 100%)';
+        else                             g = 'linear-gradient(180deg, #2f6aa8 0%, #5a92c8 55%, #b8d6ed 100%)';
+      } else {
+        if (cond === 'storm')            g = 'linear-gradient(180deg, #070710 0%, #11121c 55%, #1a1c28 100%)';
+        else if (cond === 'rain')        g = 'linear-gradient(180deg, #0a0f17 0%, #131a26 55%, #1d2633 100%)';
+        else if (cond === 'snow')        g = 'linear-gradient(180deg, #0e1320 0%, #1b2438 60%, #2a3550 100%)';
+        else if (cond === 'fog')         g = 'linear-gradient(180deg, #1a1a1f 0%, #26262c 50%, #30302f 100%)';
+        else if (cond === 'clouds-heavy')g = 'linear-gradient(180deg, #0c0e16 0%, #161a25 60%, #22283a 100%)';
+        else if (cond === 'clouds-light')g = 'linear-gradient(180deg, #06090f 0%, #0e1420 60%, #1d2640 100%)';
+        else                             g = 'linear-gradient(180deg, #040611 0%, #0a1126 60%, #172043 100%)';
+      }
+      layers.gradient.style.background = g;
+    }
+
+    function addStars(count) {
+      if (PERF === 1) count = Math.round(count * 0.6);
+      if (PERF === 0) count = Math.round(count * 0.3);
+
+      var ns = SVG_NS;
+      var frag = document.createDocumentFragment();
+      var heroCount = Math.max(PERF === 2 ? 6 : 3, Math.round(count * 0.04));
+      for (var h = 0; h < heroCount; h++) {
+        var hx = Math.random() * 1600;
+        var hy = Math.random() * 560;
+        var glow = document.createElementNS(ns, 'circle');
+        glow.setAttribute('cx', hx.toFixed(1));
+        glow.setAttribute('cy', hy.toFixed(1));
+        glow.setAttribute('r', (3.5 + Math.random() * 2).toFixed(1));
+        glow.setAttribute('fill', '#eaf0ff');
+        glow.setAttribute('opacity', '0.22');
+        glow.setAttribute('filter', 'url(#softBlur)');
+        frag.appendChild(glow);
+        var core = document.createElementNS(ns, 'circle');
+        core.setAttribute('cx', hx.toFixed(1));
+        core.setAttribute('cy', hy.toFixed(1));
+        core.setAttribute('r', (1.4 + Math.random() * 0.8).toFixed(1));
+        core.setAttribute('fill', '#ffffff');
+        core.setAttribute('class', 'wx-star');
+        core.style.animationDuration = (3 + Math.random() * 4) + 's';
+        core.style.animationDelay = (-Math.random() * 5) + 's';
+        core.style.opacity = (0.85 + Math.random() * 0.15).toFixed(2);
+        frag.appendChild(core);
+      }
+      var twinkleBudget = Math.max(0, TWINKLE_CAP - heroCount);
+      for (var i = 0; i < count; i++) {
+        var c = document.createElementNS(ns, 'circle');
+        var x = Math.random() * 1600;
+        var y = Math.random() * 600;
+        var roll = Math.random();
+        var r = roll < 0.05 ? 1.4 : (roll < 0.25 ? 0.9 : (roll < 0.6 ? 0.6 : 0.4));
+        var tint = Math.random();
+        var fill = tint < 0.08 ? '#cfd8ff' : (tint < 0.14 ? '#fff0d8' : '#f8f5ee');
+        c.setAttribute('cx', x.toFixed(1));
+        c.setAttribute('cy', y.toFixed(1));
+        c.setAttribute('r', r);
+        c.setAttribute('fill', fill);
+        if (twinkleBudget > 0 && Math.random() < 0.25) {
+          c.setAttribute('class', 'wx-star');
+          c.style.animationDuration = (2 + Math.random() * 5) + 's';
+          c.style.animationDelay = (-Math.random() * 5) + 's';
+          twinkleBudget--;
+        }
+        c.setAttribute('opacity', (0.25 + Math.random() * 0.7).toFixed(2));
+        frag.appendChild(c);
+      }
+      layers.stars.appendChild(frag);
+    }
+
+    function addCelestial(dn) {
+      var ns = SVG_NS;
+      if (dn === 'day') {
+        var glow = document.createElementNS(ns, 'circle');
+        glow.setAttribute('cx', 1250); glow.setAttribute('cy', 200); glow.setAttribute('r', 160);
+        glow.setAttribute('fill', 'url(#sunGrad)');
+        layers.celestial.appendChild(glow);
+        var disc = document.createElementNS(ns, 'circle');
+        disc.setAttribute('cx', 1250); disc.setAttribute('cy', 200); disc.setAttribute('r', 50);
+        disc.setAttribute('fill', '#fff6dc');
+        disc.setAttribute('opacity', '0.95');
+        layers.celestial.appendChild(disc);
+        return;
+      }
+
+      var mx = 1280, my = 180, mr = 52;
+
+      if (layers.moonlight) {
+        var bloom = document.createElementNS(ns, 'circle');
+        bloom.setAttribute('cx', mx);
+        bloom.setAttribute('cy', my);
+        bloom.setAttribute('r', mr * 8);
+        bloom.setAttribute('fill', 'url(#moonBloom)');
+        layers.moonlight.appendChild(bloom);
+        var bloom2 = document.createElementNS(ns, 'circle');
+        bloom2.setAttribute('cx', mx);
+        bloom2.setAttribute('cy', my);
+        bloom2.setAttribute('r', mr * 4.5);
+        bloom2.setAttribute('fill', 'url(#moonHalo)');
+        bloom2.setAttribute('opacity', '0.7');
+        layers.moonlight.appendChild(bloom2);
+      }
+
+      var g = document.createElementNS(ns, 'g');
+
+      var halo = document.createElementNS(ns, 'circle');
+      halo.setAttribute('cx', mx); halo.setAttribute('cy', my); halo.setAttribute('r', mr * 3.2);
+      halo.setAttribute('fill', 'url(#moonHalo)');
+      g.appendChild(halo);
+
+      var disc = document.createElementNS(ns, 'circle');
+      disc.setAttribute('cx', mx); disc.setAttribute('cy', my); disc.setAttribute('r', mr);
+      disc.setAttribute('fill', 'url(#moonDisc)');
+      g.appendChild(disc);
+
+      var shadow = document.createElementNS(ns, 'circle');
+      shadow.setAttribute('cx', mx); shadow.setAttribute('cy', my); shadow.setAttribute('r', mr);
+      shadow.setAttribute('fill', 'url(#moonShadow)');
+      g.appendChild(shadow);
+
+      var craters = [
+        { x: -0.30, y: -0.15, r: 0.14, o: 0.18 },
+        { x:  0.12, y: -0.25, r: 0.09, o: 0.14 },
+        { x:  0.28, y:  0.10, r: 0.20, o: 0.22 },
+        { x: -0.05, y:  0.35, r: 0.10, o: 0.16 },
+        { x: -0.45, y:  0.22, r: 0.08, o: 0.13 },
+        { x:  0.40, y: -0.40, r: 0.06, o: 0.10 },
+        { x: -0.20, y:  0.05, r: 0.07, o: 0.12 },
+        { x:  0.00, y: -0.05, r: 0.04, o: 0.09 },
+        { x:  0.15, y:  0.40, r: 0.05, o: 0.10 },
+        { x: -0.35, y: -0.35, r: 0.05, o: 0.11 }
+      ];
+      var craterGroup = document.createElementNS(ns, 'g');
+      craterGroup.setAttribute('filter', 'url(#moonCraterBlur)');
+      var clipId = 'moonClip-' + Math.random().toString(36).slice(2, 8);
+      var clip = document.createElementNS(ns, 'clipPath');
+      clip.setAttribute('id', clipId);
+      var clipC = document.createElementNS(ns, 'circle');
+      clipC.setAttribute('cx', mx); clipC.setAttribute('cy', my); clipC.setAttribute('r', mr);
+      clip.appendChild(clipC);
+      g.appendChild(clip);
+      craterGroup.setAttribute('clip-path', 'url(#' + clipId + ')');
+
+      craters.forEach(function(c) {
+        var cx = mx + c.x * mr;
+        var cy = my + c.y * mr;
+        var cr = c.r * mr;
+        var floor = document.createElementNS(ns, 'circle');
+        floor.setAttribute('cx', cx); floor.setAttribute('cy', cy); floor.setAttribute('r', cr);
+        floor.setAttribute('fill', '#8a90a0');
+        floor.setAttribute('opacity', c.o.toFixed(2));
+        craterGroup.appendChild(floor);
+        if (c.r > 0.07) {
+          var rim = document.createElementNS(ns, 'circle');
+          rim.setAttribute('cx', cx - cr * 0.15);
+          rim.setAttribute('cy', cy - cr * 0.15);
+          rim.setAttribute('r', cr * 0.85);
+          rim.setAttribute('fill', 'none');
+          rim.setAttribute('stroke', '#ffffff');
+          rim.setAttribute('stroke-width', '0.6');
+          rim.setAttribute('opacity', '0.22');
+          craterGroup.appendChild(rim);
+        }
+      });
+      g.appendChild(craterGroup);
+
+      var limb = document.createElementNS(ns, 'circle');
+      limb.setAttribute('cx', mx - mr * 0.08);
+      limb.setAttribute('cy', my - mr * 0.08);
+      limb.setAttribute('r', mr * 0.98);
+      limb.setAttribute('fill', 'none');
+      limb.setAttribute('stroke', '#ffffff');
+      limb.setAttribute('stroke-width', '1.2');
+      limb.setAttribute('opacity', '0.25');
+      g.appendChild(limb);
+
+      layers.celestial.appendChild(g);
+    }
+
+    function puffyMass(opts) {
+      var parts = [];
+      var count = opts.bumpCount;
+      var leftX  = opts.cx - opts.width / 2;
+      var rightX = opts.cx + opts.width / 2;
+      var topY   = opts.baseY - opts.height;
+
+      for (var i = 0; i < count; i++) {
+        var t = i / (count - 1 || 1);
+        var jitterX = (Math.random() - 0.5) * opts.width * 0.15;
+        var cx = leftX + t * opts.width + jitterX;
+        var rise = Math.sin(t * Math.PI) * opts.height * 0.85 + opts.height * 0.15;
+        var cy = opts.baseY - rise + (Math.random() - 0.5) * opts.height * 0.12;
+        var r = (opts.width / count) * (0.8 + Math.random() * 0.7);
+        if (t < 0.15 || t > 0.85) r *= 0.7;
+        parts.push({ cx: cx, cy: cy, r: r });
+      }
+      return parts;
+    }
+
+    function appendCircles(parent, circles, fill, opacity) {
+      circles.forEach(function(c) {
+        var el = document.createElementNS(SVG_NS, 'circle');
+        el.setAttribute('cx', c.cx.toFixed(1));
+        el.setAttribute('cy', c.cy.toFixed(1));
+        el.setAttribute('r',  c.r.toFixed(1));
+        el.setAttribute('fill', fill);
+        if (opacity != null) el.setAttribute('opacity', opacity);
+        parent.appendChild(el);
+      });
+    }
+
+    function addCloud(opts) {
+      var g = document.createElementNS(SVG_NS, 'g');
+      g.setAttribute('class', 'wx-cloud');
+
+      var type = opts.type;
+      var baseY = opts.baseY;
+      var width = opts.w;
+      var cx = width / 2;
+
+      var palette;
+      if (type === 'storm') {
+        palette = {
+          halo:    'rgba(38, 42, 52, 0.55)',
+          body:    'rgba(46, 52, 64, 0.85)',
+          shade:   'rgba(20, 24, 32, 0.6)',
+          highlight:'rgba(120, 130, 148, 0.35)',
+          base:    'rgba(10, 12, 18, 0.75)'
+        };
+      } else if (opts.dark) {
+        palette = {
+          halo:    'rgba(40, 46, 58, 0.55)',
+          body:    'rgba(58, 66, 80, 0.8)',
+          shade:   'rgba(28, 32, 42, 0.55)',
+          highlight:'rgba(140, 150, 168, 0.35)',
+          base:    'rgba(20, 24, 32, 0.55)'
+        };
+      } else {
+        palette = {
+          halo:    'rgba(255, 255, 255, 0.55)',
+          body:    'rgba(250, 252, 255, 0.85)',
+          shade:   'rgba(170, 180, 195, 0.55)',
+          highlight:'rgba(255, 255, 255, 0.8)',
+          base:    'rgba(140, 150, 168, 0.5)'
+        };
+      }
+
+      if (type === 'storm') {
+        var height = width * (0.55 + Math.random() * 0.25);
+
+        if (PERF === 2) {
+          var halo = document.createElementNS(SVG_NS, 'g');
+          halo.setAttribute('filter', 'url(#cloudBlurStrong)');
+          var haloBumps = puffyMass({ cx: cx, baseY: baseY + 20, width: width * 1.15, height: height * 1.1, bumpCount: 9 });
+          appendCircles(halo, haloBumps, palette.halo);
+          g.appendChild(halo);
+        }
+
+        var body = document.createElementNS(SVG_NS, 'g');
+        body.setAttribute('filter', 'url(#cloudBlur)');
+        var bodyBumps = puffyMass({ cx: cx, baseY: baseY, width: width, height: height, bumpCount: 11 });
+        appendCircles(body, bodyBumps, palette.body);
+        bodyBumps.forEach(function(b) {
+          if (b.cy > baseY - height * 0.35) {
+            var s = document.createElementNS(SVG_NS, 'circle');
+            s.setAttribute('cx', b.cx);
+            s.setAttribute('cy', b.cy + b.r * 0.25);
+            s.setAttribute('r',  b.r * 0.75);
+            s.setAttribute('fill', palette.shade);
+            body.appendChild(s);
+          }
+        });
+        g.appendChild(body);
+
+        var light = document.createElementNS(SVG_NS, 'g');
+        light.setAttribute('filter', 'url(#cloudBlurLight)');
+        bodyBumps.forEach(function(b) {
+          if (b.cy < baseY - height * 0.45) {
+            var hl = document.createElementNS(SVG_NS, 'circle');
+            hl.setAttribute('cx', b.cx + b.r * 0.15);
+            hl.setAttribute('cy', b.cy - b.r * 0.3);
+            hl.setAttribute('r',  b.r * 0.6);
+            hl.setAttribute('fill', palette.highlight);
+            light.appendChild(hl);
+          }
+        });
+        var base = document.createElementNS(SVG_NS, 'ellipse');
+        base.setAttribute('cx', cx);
+        base.setAttribute('cy', baseY - 2);
+        base.setAttribute('rx', width * 0.55);
+        base.setAttribute('ry', 20);
+        base.setAttribute('fill', palette.base);
+        light.appendChild(base);
+        g.appendChild(light);
+
+        g.setAttribute('data-storm', '1');
+        g.setAttribute('data-base-y', baseY);
+        g.setAttribute('data-cx', cx);
+      }
+      else if (type === 'heavy' || type === 'stratus') {
+        var h2 = width * (type === 'stratus' ? 0.18 : 0.28);
+        var back = document.createElementNS(SVG_NS, 'g');
+        back.setAttribute('filter', 'url(#cloudBlurStrong)');
+        var backBumps = puffyMass({ cx: cx, baseY: baseY + 10, width: width * 1.1, height: h2 * 1.3, bumpCount: 8 });
+        appendCircles(back, backBumps, palette.halo);
+        g.appendChild(back);
+
+        var body2 = document.createElementNS(SVG_NS, 'g');
+        body2.setAttribute('filter', 'url(#cloudBlur)');
+        var bodyBumps2 = puffyMass({ cx: cx, baseY: baseY, width: width, height: h2, bumpCount: 10 });
+        appendCircles(body2, bodyBumps2, palette.body);
+        g.appendChild(body2);
+
+        var shade2 = document.createElementNS(SVG_NS, 'g');
+        shade2.setAttribute('filter', 'url(#cloudBlur)');
+        bodyBumps2.forEach(function(b) {
+          if (b.cy > baseY - h2 * 0.3) {
+            var s = document.createElementNS(SVG_NS, 'circle');
+            s.setAttribute('cx', b.cx);
+            s.setAttribute('cy', b.cy + b.r * 0.3);
+            s.setAttribute('r',  b.r * 0.7);
+            s.setAttribute('fill', palette.shade);
+            shade2.appendChild(s);
+          }
+        });
+        g.appendChild(shade2);
+      }
+      else if (type === 'cirrus') {
+        var streakColor = opts.dark ? 'rgba(190, 200, 220, 0.35)' : 'rgba(255, 255, 255, 0.65)';
+        for (var ci = 0; ci < 6; ci++) {
+          var streak = document.createElementNS(SVG_NS, 'ellipse');
+          streak.setAttribute('cx', ci * (width / 6) + Math.random() * 30);
+          streak.setAttribute('cy', baseY + (Math.random() - 0.5) * 30);
+          streak.setAttribute('rx', 90 + Math.random() * 70);
+          streak.setAttribute('ry', 4 + Math.random() * 3);
+          streak.setAttribute('fill', streakColor);
+          streak.setAttribute('filter', 'url(#cloudBlurLight)');
+          g.appendChild(streak);
+        }
+      }
+      else if (type === 'altocumulus') {
+        var puffCount = 6 + Math.floor(Math.random() * 4);
+        var puffGroup = document.createElementNS(SVG_NS, 'g');
+        puffGroup.setAttribute('filter', 'url(#cloudBlurLight)');
+        for (var pi = 0; pi < puffCount; pi++) {
+          var pc = document.createElementNS(SVG_NS, 'ellipse');
+          var px = pi * (width / puffCount) + (Math.random() - 0.5) * 20;
+          var py = baseY + (Math.random() - 0.5) * 18;
+          pc.setAttribute('cx', px);
+          pc.setAttribute('cy', py);
+          pc.setAttribute('rx', 32 + Math.random() * 22);
+          pc.setAttribute('ry', 14 + Math.random() * 8);
+          pc.setAttribute('fill', palette.body);
+          puffGroup.appendChild(pc);
+        }
+        g.appendChild(puffGroup);
+      }
+      else {
+        var h3 = width * 0.32;
+        var body3 = document.createElementNS(SVG_NS, 'g');
+        body3.setAttribute('filter', 'url(#cloudBlur)');
+        var bumps3 = puffyMass({ cx: cx, baseY: baseY, width: width, height: h3, bumpCount: 7 });
+        appendCircles(body3, bumps3, palette.body);
+        g.appendChild(body3);
+
+        var tops3 = document.createElementNS(SVG_NS, 'g');
+        tops3.setAttribute('filter', 'url(#cloudBlurLight)');
+        bumps3.forEach(function(b) {
+          if (b.cy < baseY - h3 * 0.35) {
+            var hl = document.createElementNS(SVG_NS, 'circle');
+            hl.setAttribute('cx', b.cx);
+            hl.setAttribute('cy', b.cy - b.r * 0.2);
+            hl.setAttribute('r', b.r * 0.55);
+            hl.setAttribute('fill', palette.highlight);
+            tops3.appendChild(hl);
+          }
+        });
+        g.appendChild(tops3);
+
+        var flat = document.createElementNS(SVG_NS, 'ellipse');
+        flat.setAttribute('cx', cx);
+        flat.setAttribute('cy', baseY - 2);
+        flat.setAttribute('rx', width * 0.38);
+        flat.setAttribute('ry', 8);
+        flat.setAttribute('fill', palette.base);
+        flat.setAttribute('filter', 'url(#cloudBlurLight)');
+        g.appendChild(flat);
+      }
+
+      g.style.animationDuration = opts.speed + 's';
+      g.style.animationDelay = opts.delay + 's';
+      g.setAttribute('transform', 'translate(' + opts.startX + ' 0) scale(' + opts.scale + ')');
+      layers.clouds.appendChild(g);
+    }
+
+    function addClouds(level, dark) {
+      var ranges = {
+        storm:   { cirrus: 2, stratus: 1, storm: 3, heavy: 1, altocumulus: 1 },
+        heavy:   { cirrus: 1, stratus: 2, heavy: 4, altocumulus: 2, light: 1 },
+        light:   { cirrus: 2, altocumulus: 2, light: 3 },
+        'night-clear': { cirrus: 2 },
+        'night-light': { cirrus: 3, altocumulus: 1 },
+        'night-heavy': { cirrus: 2, stratus: 1, altocumulus: 1, heavy: 1 },
+        'night-storm': { cirrus: 2, storm: 2 }
+      };
+      var mix = ranges[level] || ranges.light;
+
+      if (PERF < 2) {
+        var scale = PERF === 1 ? 0.65 : 0.4;
+        mix = Object.keys(mix).reduce(function(acc, k) {
+          acc[k] = Math.max(1, Math.round(mix[k] * scale));
+          return acc;
+        }, {});
+      }
+
+      function add(type, count, yMin, yMax, wMin, wMax, scaleMin, scaleMax, speedMin, speedMax) {
+        for (var i = 0; i < count; i++) {
+          addCloud({
+            type: type,
+            baseY: yMin + Math.random() * (yMax - yMin),
+            w: wMin + Math.random() * (wMax - wMin),
+            scale: scaleMin + Math.random() * (scaleMax - scaleMin),
+            startX: -500 - Math.random() * 900,
+            speed: speedMin + Math.random() * (speedMax - speedMin),
+            delay: -Math.random() * 180,
+            dark: dark
+          });
+        }
+      }
+
+      if (mix.cirrus)      add('cirrus',      mix.cirrus,       50,  140, 480, 720, 0.9, 1.4, 200, 280);
+      if (mix.altocumulus) add('altocumulus', mix.altocumulus, 150,  260, 360, 560, 0.7, 1.1, 150, 220);
+      if (mix.stratus)     add('stratus',     mix.stratus,     220,  340, 580, 900, 0.8, 1.2, 130, 190);
+      if (mix.heavy)       add('heavy',       mix.heavy,       220,  420, 420, 700, 0.75, 1.2, 110, 180);
+      if (mix.storm)       add('storm',       mix.storm,       260,  520, 600, 1000, 0.7, 1.4, 100, 180);
+      if (mix.light)       add('light',       mix.light,       200,  380, 360, 560, 0.7, 1.1, 120, 180);
+    }
+
+    function addRain(intensity) {
+      var count = intensity === 'heavy' ? 140 : (intensity === 'light' ? 60 : 100);
+      if (PERF === 1) count = Math.round(count * 0.55);
+      if (PERF === 0) count = Math.round(count * 0.25);
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < count; i++) {
+        var line = document.createElementNS(SVG_NS, 'line');
+        var x = Math.random() * 1700 - 50;
+        line.setAttribute('x1', x);
+        line.setAttribute('y1', -20);
+        line.setAttribute('x2', x - 8);
+        line.setAttribute('y2', 8);
+        line.setAttribute('stroke', 'rgba(180, 205, 230, 0.55)');
+        line.setAttribute('stroke-width', 1.2);
+        line.setAttribute('class', 'wx-drop');
+        line.style.animationDuration = (0.45 + Math.random() * 0.45) + 's';
+        line.style.animationDelay = (-Math.random() * 1.2) + 's';
+        frag.appendChild(line);
+      }
+      layers.precip.appendChild(frag);
+    }
+
+    function addSnow(intensity) {
+      var count = intensity === 'heavy' ? 160 : 90;
+      if (PERF === 1) count = Math.round(count * 0.6);
+      if (PERF === 0) count = Math.round(count * 0.3);
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < count; i++) {
+        var c = document.createElementNS(SVG_NS, 'circle');
+        var x = Math.random() * 1700;
+        c.setAttribute('cx', x);
+        c.setAttribute('cy', -10);
+        c.setAttribute('r', (0.9 + Math.random() * 1.8).toFixed(1));
+        c.setAttribute('fill', 'rgba(245, 248, 255, 0.9)');
+        c.setAttribute('class', 'wx-flake');
+        c.style.setProperty('--sway', (Math.random() * 160 - 80) + 'px');
+        c.style.animationDuration = (6 + Math.random() * 6) + 's';
+        c.style.animationDelay = (-Math.random() * 8) + 's';
+        frag.appendChild(c);
+      }
+      layers.precip.appendChild(frag);
+    }
+
+    function addFog() {
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 4; i++) {
+        var r = document.createElementNS(SVG_NS, 'rect');
+        r.setAttribute('x', -200);
+        r.setAttribute('y', 300 + i * 140);
+        r.setAttribute('width', 2000);
+        r.setAttribute('height', 180);
+        r.setAttribute('fill', 'rgba(210, 210, 208, 0.22)');
+        r.setAttribute('filter', 'url(#cloudBlur)');
+        r.setAttribute('class', 'wx-fog');
+        r.style.animationDuration = (140 + i * 50) + 's';
+        r.style.animationDelay = (-Math.random() * 100) + 's';
+        frag.appendChild(r);
+      }
+      layers.fog.appendChild(frag);
+    }
+
+    function buildChannelPath(startX, startY, endY, segLenMin, segLenMax, jitter) {
+      var x = startX, y = startY;
+      var d = 'M ' + x.toFixed(0) + ' ' + y.toFixed(0);
+      var points = [{ x: x, y: y }];
+      while (y < endY) {
+        x += (Math.random() - 0.5) * jitter;
+        y += segLenMin + Math.random() * (segLenMax - segLenMin);
+        d += ' L ' + x.toFixed(0) + ' ' + y.toFixed(0);
+        points.push({ x: x, y: y });
+      }
+      return { d: d, points: points };
+    }
+
+    function appendBoltPath(parent, d, width, opacity, color) {
+      var halo = document.createElementNS(SVG_NS, 'path');
+      halo.setAttribute('d', d);
+      halo.setAttribute('stroke', color || '#c8d4ff');
+      halo.setAttribute('stroke-width', (width * 4).toFixed(1));
+      halo.setAttribute('fill', 'none');
+      halo.setAttribute('stroke-linecap', 'round');
+      halo.setAttribute('stroke-linejoin', 'round');
+      halo.setAttribute('opacity', (opacity * 0.35).toFixed(2));
+      halo.setAttribute('filter', 'url(#softBlur)');
+      parent.appendChild(halo);
+      var core = document.createElementNS(SVG_NS, 'path');
+      core.setAttribute('d', d);
+      core.setAttribute('stroke', '#ffffff');
+      core.setAttribute('stroke-width', width.toFixed(1));
+      core.setAttribute('fill', 'none');
+      core.setAttribute('stroke-linecap', 'round');
+      core.setAttribute('stroke-linejoin', 'round');
+      core.setAttribute('opacity', opacity.toFixed(2));
+      parent.appendChild(core);
+    }
+
+    function drawBolt() {
+      layers.lightning.innerHTML = '';
+      var g = document.createElementNS(SVG_NS, 'g');
+      g.setAttribute('filter', 'url(#boltGlow)');
+      layers.lightning.appendChild(g);
+
+      var startX = 200 + Math.random() * 1200;
+      var startY = 120 + Math.random() * 120;
+      var endY   = 620 + Math.random() * 180;
+      var main = buildChannelPath(startX, startY, endY, 35, 65, 55);
+
+      appendBoltPath(g, main.d, 2.6, 1.0);
+
+      var forkCount = 2 + Math.floor(Math.random() * 3);
+      for (var f = 0; f < forkCount; f++) {
+        var branchIdx = 2 + Math.floor(Math.random() * (main.points.length - 3));
+        var bp = main.points[branchIdx];
+        var forkEndY = bp.y + 60 + Math.random() * 180;
+        var forkStartXOffset = (Math.random() - 0.5) * 10;
+        var fork = buildChannelPath(bp.x + forkStartXOffset, bp.y, forkEndY, 25, 50, 70);
+        appendBoltPath(g, fork.d, 1.4 + Math.random() * 0.6, 0.8);
+      }
+
+      for (var sf = 0; sf < 3; sf++) {
+        var idx = Math.floor(Math.random() * main.points.length);
+        var sp = main.points[idx];
+        var tipD = 'M ' + sp.x + ' ' + sp.y +
+                   ' L ' + (sp.x + (Math.random() - 0.5) * 60).toFixed(0) +
+                   ' ' + (sp.y + 20 + Math.random() * 40).toFixed(0);
+        appendBoltPath(g, tipD, 0.9, 0.55);
+      }
+    }
+
+    function drawSheet() {
+      layers.lightning.innerHTML = '';
+      var g = document.createElementNS(SVG_NS, 'g');
+      g.setAttribute('opacity', '0.85');
+      var cx = 200 + Math.random() * 1200;
+      var cy = 120 + Math.random() * 120;
+      var blob = document.createElementNS(SVG_NS, 'ellipse');
+      blob.setAttribute('cx', cx);
+      blob.setAttribute('cy', cy);
+      blob.setAttribute('rx', 300 + Math.random() * 200);
+      blob.setAttribute('ry', 120 + Math.random() * 80);
+      blob.setAttribute('fill', '#e6ecff');
+      blob.setAttribute('filter', 'url(#cloudBlur)');
+      blob.setAttribute('opacity', '0.55');
+      g.appendChild(blob);
+      layers.lightning.appendChild(g);
+    }
+
+    function flashCloudBases(intensity) {
+      var stormClouds = layers.clouds.querySelectorAll('[data-storm="1"]');
+      stormClouds.forEach(function(sc) {
+        var baseY = parseFloat(sc.getAttribute('data-base-y'));
+        var cx = parseFloat(sc.getAttribute('data-cx')) || 0;
+        var flash = document.createElementNS(SVG_NS, 'ellipse');
+        flash.setAttribute('cx', cx);
+        flash.setAttribute('cy', baseY);
+        flash.setAttribute('rx', 260);
+        flash.setAttribute('ry', 40);
+        flash.setAttribute('fill', '#eef3ff');
+        flash.setAttribute('opacity', intensity);
+        flash.setAttribute('class', 'wx-flash-underlight');
+        sc.appendChild(flash);
+        setTimeout(function() {
+          flash.style.transition = 'opacity 500ms ease-out';
+          flash.setAttribute('opacity', '0');
+          setTimeout(function() { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 600);
+        }, 70);
+      });
+    }
+
+    function scheduleLightning() {
+      var nextIn = 4000 + Math.random() * 12000;
+      lightningTimer = setTimeout(function() {
+        fireEvent();
+        scheduleLightning();
+      }, nextIn);
+    }
+
+    function fireEvent() {
+      var isSheet = Math.random() < 0.3;
+      var strokes = isSheet ? 1 : (2 + Math.floor(Math.random() * 4));
+
+      if (isSheet) {
+        drawSheet();
+        triggerFlash(0.55);
+        flashCloudBases(0.4);
+        setTimeout(function() { layers.lightning.innerHTML = ''; }, 240);
+        return;
+      }
+
+      function stroke(i) {
+        if (i === 0) {
+          drawBolt();
+          triggerFlash(1.0);
+          flashCloudBases(0.7);
+        } else {
+          drawBolt();
+          layers.lightning.style.opacity = (0.55 + Math.random() * 0.4).toFixed(2);
+          setTimeout(function() { layers.lightning.style.opacity = ''; }, 80);
+          triggerFlash(0.45 + Math.random() * 0.4);
+        }
+        setTimeout(function() {
+          if (layers.lightning) layers.lightning.innerHTML = '';
+        }, 90 + Math.random() * 90);
+
+        if (i < strokes - 1) {
+          setTimeout(function() { stroke(i + 1); }, 60 + Math.random() * 100);
+        }
+      }
+      stroke(0);
+    }
+
+    function triggerFlash(intensity) {
+      document.body.style.setProperty('--wx-flash-intensity', intensity.toFixed(2));
+      document.body.style.setProperty('--wx-flash-x', (15 + Math.random() * 70).toFixed(0) + '%');
+      document.body.style.setProperty('--wx-flash-y', (10 + Math.random() * 25).toFixed(0) + '%');
+      document.body.classList.remove('wx-flash');
+      void document.body.offsetWidth;
+      document.body.classList.add('wx-flash');
+    }
+
+    function render(info) {
+      clearAll();
+      document.body.classList.remove('wx-flash');
+      setGradient(info.daynight, info.cond);
+
+      var dn = info.daynight;
+      var cond = info.cond;
+      document.body.classList.toggle('is-night', dn === 'night');
+      document.body.classList.toggle('is-day', dn === 'day');
+      document.body.classList.toggle('wx-storm', cond === 'storm');
+      document.body.classList.toggle('wx-cloudy', cond === 'clouds-heavy' || cond === 'rain' || cond === 'snow' || cond === 'fog');
+
+      if (dn === 'night') {
+        var starCount = 420;
+        if (cond === 'clouds-light') starCount = 340;
+        else if (cond === 'clouds-heavy' || cond === 'fog') starCount = 180;
+        else if (cond === 'rain' || cond === 'snow') starCount = 140;
+        else if (cond === 'storm') starCount = 90;
+        addStars(starCount);
+      }
+
+      if (dn === 'night' && cond !== 'storm') addCelestial(dn);
+      else if (dn === 'day' && (cond === 'clear' || cond === 'clouds-light')) addCelestial(dn);
+
+      function cloudLevel(base) {
+        if (dn === 'night') return 'night-' + base;
+        return base;
+      }
+
+      switch (cond) {
+        case 'clear':
+          if (dn === 'night') addClouds('night-clear', true);
+          break;
+        case 'clouds-light':
+          addClouds(cloudLevel('light'), dn === 'night');
+          break;
+        case 'clouds-heavy':
+          addClouds(cloudLevel('heavy'), dn === 'night');
+          break;
+        case 'rain':
+          addClouds(cloudLevel('heavy'), dn === 'night');
+          addRain(info.windy ? 'heavy' : 'medium');
+          break;
+        case 'snow':
+          addClouds(cloudLevel('heavy'), dn === 'night');
+          addSnow(info.windy ? 'heavy' : 'medium');
+          break;
+        case 'storm':
+          addClouds(dn === 'night' ? 'night-storm' : 'storm', true);
+          addRain('heavy');
+          scheduleLightning();
+          break;
+        case 'fog':
+          addClouds(cloudLevel('light'), dn === 'night');
+          addFog();
+          break;
+      }
+
+      if (dotEl) dotEl.className = 'wx-dot ' + (cond === 'clouds-heavy' || cond === 'clouds-light' ? 'clouds' : cond);
+      if (textEl) textEl.textContent = info.label;
+
+      skyEl.classList.add('ready');
+    }
+
+    function update() {
+      fetchObservation()
+        .then(function(obs) {
+          var info = classify(obs);
+          render(info);
+          console.log('%c[WeatherLTD]%c ' + redact(info.label) + ' \u2014 ' + info.cond + ' (' + info.daynight + ')',
+            'font-weight:700;color:#c4683a', 'font-weight:400;color:inherit');
+        })
+        .catch(function(err) {
+          render({ cond: 'clear', daynight: isDaytime() ? 'day' : 'night', windy: false, label: '—' });
+          console.log('%c[WeatherLTD]%c offline', 'font-weight:700;color:#c4683a', 'font-weight:400;color:inherit');
+        });
+    }
+
+    window.wx = {
+      refresh: update,
+      simulate: function(cond, daynight) {
+        render({ cond: cond, daynight: daynight || (isDaytime() ? 'day' : 'night'), windy: false, label: 'simulated · ' + cond });
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var kick = function() { update(); };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(kick, { timeout: 1500 });
+      } else {
+        setTimeout(kick, 200);
+      }
+      setInterval(function() {
+        if (!document.hidden) update();
+      }, 10 * 60 * 1000);
+      var lastRun = Date.now();
+      document.addEventListener('visibilitychange', function() {
+        document.body.classList.toggle('wx-hidden', document.hidden);
+        if (!document.hidden && Date.now() - lastRun > 60 * 1000) {
+          lastRun = Date.now();
+          update();
+        }
+      });
+    });
+  })();
+  </script>
+
+  <script data-cfasync="false">
+  (function() {
+    var LASTFM_USER = 'contentltd';
+    var LASTFM_KEY = '';
+    if (!LASTFM_KEY) return;
+    fetch('https://ws.audioscrobbler.com/2.0/?method=user.getInfo&user=' + LASTFM_USER + '&api_key=' + LASTFM_KEY + '&format=json')
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        var count = d && d.user && d.user.playcount;
+        if (!count) return;
+        var el = document.getElementById('np-lfm');
+        if (!el) return;
+        var n = parseInt(count, 10);
+        el.textContent = n.toLocaleString() + ' scrobbles';
+        el.hidden = false;
+      })
+      .catch(function() {});
+  })();
+  </script>
+
+  <script>
+  document.addEventListener('keydown', function(e) {
+    var tag = e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target.isContentEditable) return;
+    var audio = document.getElementById('bg-audio');
+    if (!audio) return;
+    if (e.key === 'm' || e.key === 'M') {
+      audio.muted = !audio.muted;
+      var icon = document.getElementById('vol-icon');
+      var btn = document.getElementById('vol-btn');
+      if (icon) {
+        if (audio.muted) {
+          icon.textContent = '\uD83D\uDD07';
+          if (btn) btn.setAttribute('aria-label', 'Unmute');
+        } else {
+          icon.textContent = audio.volume < 0.4 ? '\uD83D\uDD09' : '\uD83D\uDD0A';
+          if (btn) btn.setAttribute('aria-label', 'Mute');
+        }
+      }
+    }
+    if (e.key === ' ') {
+      e.preventDefault();
+      if (audio.paused) audio.play().catch(function(){});
+      else audio.pause();
+    }
+  });
+  </script>
+
+  
+  <button class="settings-fab" id="settings-fab" aria-label="Settings" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+  </button>
+  <div class="settings-panel t-dropdown" id="settings-panel" data-origin="bottom-right" aria-label="Settings">
+    <div class="settings-panel-title">Settings</div>
+
+    <div class="settings-section-label">Display</div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-motion">Reduced motion</label>
+      <button role="switch" class="settings-toggle" id="tog-motion" aria-checked="false"></button>
+    </div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-font">Inter font</label>
+      <button role="switch" class="settings-toggle" id="tog-font" aria-checked="false"></button>
+    </div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-mono">Monochrome</label>
+      <button role="switch" class="settings-toggle" id="tog-mono" aria-checked="false"></button>
+    </div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-oled">OLED mode</label>
+      <button role="switch" class="settings-toggle" id="tog-oled" aria-checked="false"></button>
+    </div>
+
+    <div class="settings-divider"></div>
+    <div class="settings-section-label">Accessibility</div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-contrast">High contrast</label>
+      <button role="switch" class="settings-toggle" id="tog-contrast" aria-checked="false"></button>
+    </div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-large">Large text</label>
+      <button role="switch" class="settings-toggle" id="tog-large" aria-checked="false"></button>
+    </div>
+
+    <div class="settings-divider"></div>
+    <div class="settings-section-label">Privacy</div>
+    <button class="settings-row-btn" id="open-locale-picker" aria-label="Choose a custom location">
+      <span class="settings-label" style="pointer-events:none">Hide locale</span>
+      <span class="locale-row-right">
+        <span class="locale-active-badge" id="locale-active-badge" style="display:none"></span>
+        <span class="settings-chevron">›</span>
+      </span>
+    </button>
+  </div>
+
+  <script>
+  (function() {
+    var fab          = document.getElementById('settings-fab');
+    var panel        = document.getElementById('settings-panel');
+    var togMotion    = document.getElementById('tog-motion');
+    var togFont      = document.getElementById('tog-font');
+    var togMono      = document.getElementById('tog-mono');
+    var togOled      = document.getElementById('tog-oled');
+    var togContrast  = document.getElementById('tog-contrast');
+    var togLarge     = document.getElementById('tog-large');
+    var localeRow    = document.getElementById('open-locale-picker');
+    var localeBadge  = document.getElementById('locale-active-badge');
+
+    function loadSettings() {
+      try { return JSON.parse(localStorage.getItem('site-settings') || '{}'); } catch(e) { return {}; }
+    }
+    function saveSettings(s) {
+      try { localStorage.setItem('site-settings', JSON.stringify(s)); } catch(e) {}
+    }
+
+    function applyMotion(on) {
+      document.documentElement.classList.toggle('wx-reduced', on);
+      document.body.classList.toggle('wx-reduced', on);
+      togMotion.setAttribute('aria-checked', on ? 'true' : 'false');
+      togMotion.classList.toggle('is-on', on);
+      if (on && window._skyLT) window._skyLT.clear();
+      if (!on && window.wx && window.wx.resumeLightning) window.wx.resumeLightning();
+    }
+    function applyFont(on) {
+      document.documentElement.classList.toggle('font-inter', on);
+      document.body.classList.toggle('font-inter', on);
+      togFont.setAttribute('aria-checked', on ? 'true' : 'false');
+      togFont.classList.toggle('is-on', on);
+    }
+    function applyContrast(on) {
+      document.documentElement.classList.toggle('font-hc', on);
+      document.body.classList.toggle('font-hc', on);
+      togContrast.setAttribute('aria-checked', on ? 'true' : 'false');
+      togContrast.classList.toggle('is-on', on);
+    }
+    function applyLarge(on) {
+      document.documentElement.classList.toggle('font-large', on);
+      document.body.classList.toggle('font-large', on);
+      togLarge.setAttribute('aria-checked', on ? 'true' : 'false');
+      togLarge.classList.toggle('is-on', on);
+    }
+    function applyMono(on) {
+      document.documentElement.classList.toggle('mode-mono', on);
+      document.body.classList.toggle('mode-mono', on);
+      togMono.setAttribute('aria-checked', on ? 'true' : 'false');
+      togMono.classList.toggle('is-on', on);
+    }
+    function applyOled(on) {
+      document.documentElement.classList.toggle('mode-oled', on);
+      document.body.classList.toggle('mode-oled', on);
+      togOled.setAttribute('aria-checked', on ? 'true' : 'false');
+      togOled.classList.toggle('is-on', on);
+    }
+
+    var s = loadSettings();
+    applyMotion(!!s.reducedMotion);
+    applyFont(!!s.interFont);
+    applyContrast(!!s.highContrast);
+    applyLarge(!!s.largeText);
+    applyMono(!!s.monochrome);
+    applyOled(!!s.oled);
+    if (s.customLocale && localeBadge) {
+      var _cl = s.customLocale;
+      localeBadge.textContent = typeof _cl === 'object' ? (_cl.displayLabel || _cl.label) : _cl;
+      localeBadge.style.display = '';
+    }
+
+    var closeMs = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--dropdown-close-dur')
+    ) || 150;
+
+    function openPanel() {
+      panel.classList.remove('is-closing');
+      panel.classList.add('is-open');
+      fab.setAttribute('aria-expanded', 'true');
+    }
+    function closePanel() {
+      panel.classList.remove('is-open');
+      panel.classList.add('is-closing');
+      fab.setAttribute('aria-expanded', 'false');
+      setTimeout(function() { panel.classList.remove('is-closing'); }, closeMs);
+    }
+
+    fab.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (panel.classList.contains('is-open')) { closePanel(); } else { openPanel(); }
+    });
+    document.addEventListener('click', function(e) {
+      if (panel.classList.contains('is-open') && !panel.contains(e.target) && e.target !== fab) {
+        closePanel();
+      }
+    });
+
+    togMotion.addEventListener('click', function() {
+      var next = togMotion.getAttribute('aria-checked') !== 'true';
+      applyMotion(next);
+      var st = loadSettings(); st.reducedMotion = next; saveSettings(st);
+    });
+    togFont.addEventListener('click', function() {
+      var next = togFont.getAttribute('aria-checked') !== 'true';
+      applyFont(next);
+      var st = loadSettings(); st.interFont = next; saveSettings(st);
+    });
+    togContrast.addEventListener('click', function() {
+      var next = togContrast.getAttribute('aria-checked') !== 'true';
+      applyContrast(next);
+      var st = loadSettings(); st.highContrast = next; saveSettings(st);
+    });
+    togLarge.addEventListener('click', function() {
+      var next = togLarge.getAttribute('aria-checked') !== 'true';
+      applyLarge(next);
+      var st = loadSettings(); st.largeText = next; saveSettings(st);
+    });
+    togMono.addEventListener('click', function() {
+      var next = togMono.getAttribute('aria-checked') !== 'true';
+      applyMono(next);
+      var st = loadSettings(); st.monochrome = next; saveSettings(st);
+    });
+    togOled.addEventListener('click', function() {
+      var next = togOled.getAttribute('aria-checked') !== 'true';
+      applyOled(next);
+      var st = loadSettings(); st.oled = next; saveSettings(st);
+    });
+
+    if (localeRow) {
+      localeRow.addEventListener('click', function() {
+        closePanel();
+        if (window.openLocalePicker) window.openLocalePicker();
+      });
+    }
+  })();
+  </script>
+
+  <script src="/assets/contrast-engine.js" defer></script>
+
+  <script>
+  (function() {
+    var flags = window.SITE_FLAGS || {};
+
+    if (!flags.workTab) {
+      var workTab = document.getElementById('tab-work');
+      var workPanel = document.getElementById('panel-work');
+      if (workTab) workTab.remove();
+      if (workPanel) workPanel.remove();
+    }
+
+    var tabBar = document.getElementById('main-tabs');
+    if (tabBar && tabBar.querySelectorAll('.main-tab').length < 2) tabBar.hidden = true;
+
+    var tabs = document.querySelectorAll('.main-tab');
+    var panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        tabs.forEach(function(t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(function(p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        var panelId = tab.getAttribute('aria-controls');
+        document.getElementById(panelId).classList.add('active');
+      });
+    });
+  })();
+  </script>
+
+  <script data-cfasync="false">
+  (function() {
+    var container = document.getElementById('lyrics-lines');
+    var metaEl = document.getElementById('lyrics-meta');
+    var audio = document.getElementById('bg-audio');
+    if (!container) return;
+
+    function parseTimestamp(ts) {
+      var m = ts.match(/^(\d+):(\d+):(\d+(?:\.\d+)?)$/);
+      if (!m) return 0;
+      return (+m[1]) * 3600 + (+m[2]) * 60 + parseFloat(m[3]);
+    }
+
+    function fail() {
+      container.innerHTML = '<p class="lyrics-error">Unable to load lyrics.</p>';
+    }
+
+    fetch('/data/obstacles.ttml')
+      .then(function(r) {
+        if (!r.ok) throw new Error('http ' + r.status);
+        return r.text();
+      })
+      .then(function(text) {
+        var xml = new DOMParser().parseFromString(text.trim(), 'application/xml');
+        if (xml.getElementsByTagName('parsererror').length) throw new Error('bad ttml');
+
+        var cues = [];
+        var ps = xml.getElementsByTagName('p');
+        for (var i = 0; i < ps.length; i++) {
+          var begin = ps[i].getAttribute('begin');
+          var end = ps[i].getAttribute('end');
+          if (!begin || !end) continue;
+          cues.push({ start: parseTimestamp(begin), end: parseTimestamp(end), text: ps[i].textContent.trim() });
+        }
+
+        var lines = [];
+        cues.forEach(function(cue) {
+          if (!cue.text) return; // instrumental gap — nothing to render
+          var line = document.createElement('p');
+          line.className = 'lyrics-line';
+          line.textContent = cue.text;
+          container.appendChild(line);
+          lines.push({ el: line, cue: cue });
+        });
+
+        if (!lines.length) { fail(); return; }
+
+        if (!audio) return;
+
+        var activeIdx = -1;
+        function update() {
+          var t = audio.currentTime;
+          var found = -1;
+          for (var i = 0; i < lines.length; i++) {
+            if (t >= lines[i].cue.start && t < lines[i].cue.end) { found = i; break; }
+          }
+          if (found === activeIdx) return;
+          if (activeIdx >= 0) lines[activeIdx].el.classList.remove('active');
+          activeIdx = found;
+          if (activeIdx >= 0) {
+            var activeEl = lines[activeIdx].el;
+            activeEl.classList.add('active');
+            activeEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          }
+        }
+
+        audio.addEventListener('timeupdate', update);
+        update();
+      })
+      .catch(fail);
+
+    fetch('/data/music.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (metaEl && data.song && !data.song.dmca) {
+          metaEl.textContent = data.song.name + ' — ' + data.song.artist;
+        }
+      })
+      .catch(function() {});
+  })();
+  </script>
+
+  <script>
+  (function() {
+    var QUOTES = [
+      { text: "I\u2019m not some country bred bitch with built in water wings!", cite: "Jecka, Class of \u201909" },
+      { text: "How about i slit your throat and watch the honor roll out?", cite: "Nicole, Class of \u201909" },
+      { text: "Why!? Why possibly!?", cite: "Caleb Hammer" },
+      { text: "It wont go down easy if it aint cheesy", cite: "Some random person on my TikTok FYP" },
+      { text: "I love being a pedophile", cite: "Some teacher, Class of \u201909" }
+    ];
+    var q = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+    var textEl = document.getElementById('quote-text');
+    var citeEl = document.getElementById('quote-cite');
+    if (textEl) textEl.textContent = '\u201c' + q.text + '\u201d';
+    if (citeEl) citeEl.textContent = '\u2014 ' + q.cite;
+  })();
+  </script>
+
+  
+  <div class="locale-modal-backdrop" id="locale-modal" role="dialog" aria-modal="true" aria-labelledby="locale-modal-ttl" aria-hidden="true">
+    <div class="locale-modal-card">
+      <div class="locale-modal-hdr">
+        <span class="locale-modal-ttl" id="locale-modal-ttl">Choose a location</span>
+        <button class="locale-modal-x" id="locale-modal-x" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="locale-search-bar">
+        <input type="text" id="locale-search" placeholder="Search any US city…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="locale-results">
+        <ul class="locale-results" id="locale-results" role="listbox" aria-label="City suggestions"></ul>
+      </div>
+      <div id="locale-map-el" class="locale-map"></div>
+      <div class="locale-modal-ftr">
+        <button class="locale-reset-btn" id="locale-reset-btn">Use real location</button>
+        <button class="locale-confirm-btn" id="locale-confirm-btn" disabled>Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var US_CITIES = [
+      {name:'New York',state:'NY',lat:40.7128,lng:-74.006},
+      {name:'Los Angeles',state:'CA',lat:34.0522,lng:-118.2437},
+      {name:'Chicago',state:'IL',lat:41.8781,lng:-87.6298},
+      {name:'Houston',state:'TX',lat:29.7604,lng:-95.3698},
+      {name:'Phoenix',state:'AZ',lat:33.4484,lng:-112.074},
+      {name:'Philadelphia',state:'PA',lat:39.9526,lng:-75.1652},
+      {name:'San Antonio',state:'TX',lat:29.4241,lng:-98.4936},
+      {name:'San Diego',state:'CA',lat:32.7157,lng:-117.1611},
+      {name:'Dallas',state:'TX',lat:32.7767,lng:-96.797},
+      {name:'San Jose',state:'CA',lat:37.3382,lng:-121.8863},
+      {name:'Austin',state:'TX',lat:30.2672,lng:-97.7431},
+      {name:'Jacksonville',state:'FL',lat:30.3322,lng:-81.6557},
+      {name:'Fort Worth',state:'TX',lat:32.7555,lng:-97.3308},
+      {name:'Columbus',state:'OH',lat:39.9612,lng:-82.9988},
+      {name:'Charlotte',state:'NC',lat:35.2271,lng:-80.8431},
+      {name:'San Francisco',state:'CA',lat:37.7749,lng:-122.4194},
+      {name:'Indianapolis',state:'IN',lat:39.7684,lng:-86.1581},
+      {name:'Seattle',state:'WA',lat:47.6062,lng:-122.3321},
+      {name:'Denver',state:'CO',lat:39.7392,lng:-104.9903},
+      {name:'Washington',state:'DC',lat:38.9072,lng:-77.0369},
+      {name:'Nashville',state:'TN',lat:36.1627,lng:-86.7816},
+      {name:'Oklahoma City',state:'OK',lat:35.4676,lng:-97.5164},
+      {name:'El Paso',state:'TX',lat:31.7619,lng:-106.485},
+      {name:'Boston',state:'MA',lat:42.3601,lng:-71.0589},
+      {name:'Las Vegas',state:'NV',lat:36.1699,lng:-115.1398},
+      {name:'Portland',state:'OR',lat:45.5051,lng:-122.675},
+      {name:'Memphis',state:'TN',lat:35.1495,lng:-90.0489},
+      {name:'Louisville',state:'KY',lat:38.2527,lng:-85.7585},
+      {name:'Baltimore',state:'MD',lat:39.2904,lng:-76.6122},
+      {name:'Milwaukee',state:'WI',lat:43.0389,lng:-87.9065},
+      {name:'Albuquerque',state:'NM',lat:35.0844,lng:-106.6504},
+      {name:'Tucson',state:'AZ',lat:32.2226,lng:-110.9747},
+      {name:'Fresno',state:'CA',lat:36.7378,lng:-119.7871},
+      {name:'Sacramento',state:'CA',lat:38.5816,lng:-121.4944},
+      {name:'Atlanta',state:'GA',lat:33.749,lng:-84.388},
+      {name:'Kansas City',state:'MO',lat:39.0997,lng:-94.5786},
+      {name:'Colorado Springs',state:'CO',lat:38.8339,lng:-104.8214},
+      {name:'Raleigh',state:'NC',lat:35.7796,lng:-78.6382},
+      {name:'Omaha',state:'NE',lat:41.2565,lng:-95.9345},
+      {name:'Minneapolis',state:'MN',lat:44.9778,lng:-93.265},
+      {name:'Tampa',state:'FL',lat:27.9506,lng:-82.4572},
+      {name:'Miami',state:'FL',lat:25.7617,lng:-80.1918},
+      {name:'New Orleans',state:'LA',lat:29.9511,lng:-90.0715},
+      {name:'Cleveland',state:'OH',lat:41.4993,lng:-81.6944},
+      {name:'Wichita',state:'KS',lat:37.6872,lng:-97.3301},
+      {name:'Virginia Beach',state:'VA',lat:36.8529,lng:-75.978},
+      {name:'Detroit',state:'MI',lat:42.3314,lng:-83.0458},
+      {name:'Pittsburgh',state:'PA',lat:40.4406,lng:-79.9959},
+      {name:'St. Louis',state:'MO',lat:38.627,lng:-90.1994},
+      {name:'Salt Lake City',state:'UT',lat:40.7608,lng:-111.891},
+      {name:'Orlando',state:'FL',lat:28.5383,lng:-81.3792},
+      {name:'Cincinnati',state:'OH',lat:39.1031,lng:-84.512},
+      {name:'Richmond',state:'VA',lat:37.5407,lng:-77.436},
+      {name:'Boise',state:'ID',lat:43.615,lng:-116.2023},
+      {name:'Spokane',state:'WA',lat:47.6588,lng:-117.426},
+      {name:'Anchorage',state:'AK',lat:61.2181,lng:-149.9003},
+      {name:'Honolulu',state:'HI',lat:21.3069,lng:-157.8583}
+    ];
+
+    var US_AIRPORTS = window.US_AIRPORTS = [
+      {name:'Hartsfield-Jackson Atlanta International',iata:'ATL',city:'Atlanta',state:'GA',lat:33.6367,lng:-84.4281},
+      {name:'Los Angeles International',iata:'LAX',city:'Los Angeles',state:'CA',lat:33.9425,lng:-118.408},
+      {name:'O\'Hare International',iata:'ORD',city:'Chicago',state:'IL',lat:41.9742,lng:-87.9073},
+      {name:'Dallas/Fort Worth International',iata:'DFW',city:'Dallas',state:'TX',lat:32.8998,lng:-97.0403},
+      {name:'Denver International',iata:'DEN',city:'Denver',state:'CO',lat:39.8561,lng:-104.6737},
+      {name:'John F. Kennedy International',iata:'JFK',city:'New York',state:'NY',lat:40.6413,lng:-73.7781},
+      {name:'San Francisco International',iata:'SFO',city:'San Francisco',state:'CA',lat:37.6213,lng:-122.379},
+      {name:'Seattle-Tacoma International',iata:'SEA',city:'Seattle',state:'WA',lat:47.4502,lng:-122.3088},
+      {name:'Orlando International',iata:'MCO',city:'Orlando',state:'FL',lat:28.4312,lng:-81.3081},
+      {name:'Miami International',iata:'MIA',city:'Miami',state:'FL',lat:25.7959,lng:-80.287},
+      {name:'Harry Reid International',iata:'LAS',city:'Las Vegas',state:'NV',lat:36.084,lng:-115.1537},
+      {name:'Phoenix Sky Harbor International',iata:'PHX',city:'Phoenix',state:'AZ',lat:33.4373,lng:-112.0078},
+      {name:'George Bush Intercontinental',iata:'IAH',city:'Houston',state:'TX',lat:29.9902,lng:-95.3368},
+      {name:'Charlotte Douglas International',iata:'CLT',city:'Charlotte',state:'NC',lat:35.214,lng:-80.9431},
+      {name:'Boston Logan International',iata:'BOS',city:'Boston',state:'MA',lat:42.3656,lng:-71.0096},
+      {name:'Minneapolis-Saint Paul International',iata:'MSP',city:'Minneapolis',state:'MN',lat:44.8848,lng:-93.2223},
+      {name:'Detroit Metropolitan Wayne County',iata:'DTW',city:'Detroit',state:'MI',lat:42.2162,lng:-83.3554},
+      {name:'Philadelphia International',iata:'PHL',city:'Philadelphia',state:'PA',lat:39.8721,lng:-75.2437},
+      {name:'LaGuardia Airport',iata:'LGA',city:'New York',state:'NY',lat:40.7773,lng:-73.8726},
+      {name:'Baltimore/Washington International',iata:'BWI',city:'Baltimore',state:'MD',lat:39.1754,lng:-76.6683},
+      {name:'Portland International',iata:'PDX',city:'Portland',state:'OR',lat:45.5898,lng:-122.5951},
+      {name:'Dulles International',iata:'IAD',city:'Washington',state:'DC',lat:38.9531,lng:-77.4565},
+      {name:'Ronald Reagan Washington National',iata:'DCA',city:'Washington',state:'DC',lat:38.8521,lng:-77.0377},
+      {name:'Nashville International',iata:'BNA',city:'Nashville',state:'TN',lat:36.1263,lng:-86.6774},
+      {name:'Austin-Bergstrom International',iata:'AUS',city:'Austin',state:'TX',lat:30.1975,lng:-97.6664},
+      {name:'San Diego International',iata:'SAN',city:'San Diego',state:'CA',lat:32.7338,lng:-117.1933},
+      {name:'Tampa International',iata:'TPA',city:'Tampa',state:'FL',lat:27.9755,lng:-82.5332},
+      {name:'Salt Lake City International',iata:'SLC',city:'Salt Lake City',state:'UT',lat:40.7884,lng:-111.9778},
+      {name:'Louis Armstrong New Orleans International',iata:'MSY',city:'New Orleans',state:'LA',lat:29.9934,lng:-90.258},
+      {name:'Kansas City International',iata:'MCI',city:'Kansas City',state:'MO',lat:39.2976,lng:-94.7139},
+      {name:'Cleveland Hopkins International',iata:'CLE',city:'Cleveland',state:'OH',lat:41.4117,lng:-81.8498},
+      {name:'Pittsburgh International',iata:'PIT',city:'Pittsburgh',state:'PA',lat:40.4915,lng:-80.2329},
+      {name:'San Jose International',iata:'SJC',city:'San Jose',state:'CA',lat:37.3626,lng:-121.929},
+      {name:'Raleigh-Durham International',iata:'RDU',city:'Raleigh',state:'NC',lat:35.8801,lng:-78.788},
+      {name:'Honolulu Daniel K. Inouye International',iata:'HNL',city:'Honolulu',state:'HI',lat:21.3187,lng:-157.9225},
+      {name:'Ted Stevens Anchorage International',iata:'ANC',city:'Anchorage',state:'AK',lat:61.1744,lng:-149.9963},
+      {name:'Indianapolis International',iata:'IND',city:'Indianapolis',state:'IN',lat:39.7173,lng:-86.2944},
+      {name:'Sacramento International',iata:'SMF',city:'Sacramento',state:'CA',lat:38.6954,lng:-121.5908},
+      {name:'Oakland International',iata:'OAK',city:'Oakland',state:'CA',lat:37.7213,lng:-122.2208},
+      {name:'Fort Lauderdale-Hollywood International',iata:'FLL',city:'Fort Lauderdale',state:'FL',lat:26.0726,lng:-80.1527},
+      {name:'Jacksonville International',iata:'JAX',city:'Jacksonville',state:'FL',lat:30.4941,lng:-81.6879},
+      {name:'Columbus John Glenn International',iata:'CMH',city:'Columbus',state:'OH',lat:39.9999,lng:-82.8919},
+      {name:'Memphis International',iata:'MEM',city:'Memphis',state:'TN',lat:35.0424,lng:-89.9767},
+      {name:'Milwaukee Mitchell International',iata:'MKE',city:'Milwaukee',state:'WI',lat:42.9472,lng:-87.8966},
+      {name:'St. Louis Lambert International',iata:'STL',city:'St. Louis',state:'MO',lat:38.7487,lng:-90.37},
+      {name:'Buffalo Niagara International',iata:'BUF',city:'Buffalo',state:'NY',lat:42.9405,lng:-78.7322},
+      {name:'Bradley International',iata:'BDL',city:'Hartford',state:'CT',lat:41.9389,lng:-72.6832},
+      {name:'Richmond International',iata:'RIC',city:'Richmond',state:'VA',lat:37.5052,lng:-77.3197},
+      {name:'Louisville Muhammad Ali International',iata:'SDF',city:'Louisville',state:'KY',lat:38.1744,lng:-85.736},
+      {name:'John Wayne Airport',iata:'SNA',city:'Orange County',state:'CA',lat:33.6757,lng:-117.8682}
+    ];
+
+    var _map = null;
+    var _markers = [];
+    var _airportMarkers = [];
+    var _selectedEntry = null; // { type:'city'|'airport'|'custom', idx?, data? }
+
+    function loadSettings() {
+      try { return JSON.parse(localStorage.getItem('site-settings') || '{}'); } catch(e) { return {}; }
+    }
+    function saveSettings(s) {
+      try { localStorage.setItem('site-settings', JSON.stringify(s)); } catch(e) {}
+    }
+
+    function setGeoGreeting(localeObj) {
+      var el = document.getElementById('geo-greeting');
+      if (!el) return;
+      if (typeof localeObj === 'string') localeObj = { type: 'city', label: localeObj };
+      if (localeObj.type === 'airport') {
+        el.textContent = "Where ya going? I see you're at " + localeObj.name + ' Airport (' + localeObj.iata + ')';
+        return;
+      }
+      var loc = localeObj.displayLabel || localeObj.label;
+      var h = new Date().getHours(), tpl;
+      if (h >= 5 && h < 12) tpl = ['Starting the day in '+loc+'?','Morning visit from '+loc,'Up early in '+loc+'?'];
+      else if (h >= 12 && h < 17) tpl = ['Taking a break in '+loc+'?','Afternoon detour from '+loc,'Midday visit from '+loc];
+      else if (h >= 17 && h < 21) tpl = ['Winding down in '+loc+'?','Evening browse from '+loc,'End of day visit from '+loc];
+      else tpl = ['Up late in '+loc+'?','Burning the midnight oil in '+loc,'Late night visit from '+loc];
+      el.textContent = tpl[Math.floor(Math.random() * tpl.length)];
+    }
+
+    function selectCity(idx) {
+      _selectedEntry = { type: 'city', idx: idx };
+      var city = US_CITIES[idx];
+      var searchEl = document.getElementById('locale-search');
+      if (searchEl) searchEl.value = city.name + ', ' + city.state;
+      document.getElementById('locale-confirm-btn').disabled = false;
+      _markers.forEach(function(m, i) {
+        if (i === idx) { m.setStyle({radius:9, fillColor:'#fff', color:'rgba(196,104,58,0.9)', weight:8, fillOpacity:1}); m.bringToFront(); }
+        else m.setStyle({radius:5, fillColor:'#c4683a', color:'rgba(196,104,58,0.2)', weight:5, fillOpacity:0.8});
+      });
+      _airportMarkers.forEach(function(m) {
+        m.setStyle({radius:5, fillColor:'#6b9fd4', color:'rgba(107,159,212,0.2)', weight:5, fillOpacity:0.7});
+      });
+      if (_map && city.lat != null) _map.setView([city.lat, city.lng], Math.max(_map.getZoom(), 6), {animate:true, duration:0.4});
+    }
+
+    function selectAirport(idx) {
+      _selectedEntry = { type: 'airport', idx: idx };
+      var ap = US_AIRPORTS[idx];
+      var searchEl = document.getElementById('locale-search');
+      if (searchEl) searchEl.value = ap.iata + ' \u2013 ' + ap.name;
+      document.getElementById('locale-confirm-btn').disabled = false;
+      _markers.forEach(function(m) {
+        m.setStyle({radius:5, fillColor:'#c4683a', color:'rgba(196,104,58,0.2)', weight:5, fillOpacity:0.8});
+      });
+      _airportMarkers.forEach(function(m, i) {
+        if (i === idx) { m.setStyle({radius:9, fillColor:'#fff', color:'rgba(107,159,212,0.9)', weight:8, fillOpacity:1}); m.bringToFront(); }
+        else m.setStyle({radius:5, fillColor:'#6b9fd4', color:'rgba(107,159,212,0.2)', weight:5, fillOpacity:0.7});
+      });
+      if (_map && ap.lat != null) _map.setView([ap.lat, ap.lng], Math.max(_map.getZoom(), 7), {animate:true, duration:0.4});
+    }
+
+    function initMap() {
+      var el = document.getElementById('locale-map-el');
+      if (!el || !window.L) return;
+      if (_map) { _map.invalidateSize(); return; }
+
+      _map = L.map(el, {center:[39.5,-98.35], zoom:4, minZoom:3, maxZoom:12});
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
+        subdomains:'abcd', maxZoom:19
+      }).addTo(_map);
+
+      US_CITIES.forEach(function(city, i) {
+        if (city.lat == null) return;
+        var m = L.circleMarker([city.lat, city.lng], {
+          radius:5, fillColor:'#c4683a', color:'rgba(196,104,58,0.2)', weight:5, opacity:1, fillOpacity:0.8, interactive:true
+        }).addTo(_map);
+        m.bindTooltip(city.name + ', ' + city.state, {direction:'top', offset:[0,-4]});
+        m.on('click', function() { selectCity(i); });
+        _markers.push(m);
+      });
+
+      US_AIRPORTS.forEach(function(ap, i) {
+        if (ap.lat == null) return;
+        var m = L.circleMarker([ap.lat, ap.lng], {
+          radius:5, fillColor:'#6b9fd4', color:'rgba(107,159,212,0.2)', weight:5, opacity:1, fillOpacity:0.7, interactive:true
+        }).addTo(_map);
+        m.bindTooltip('\u2708 ' + ap.iata + ' \u2013 ' + ap.name, {direction:'top', offset:[0,-4]});
+        m.on('click', function() { selectAirport(i); });
+        _airportMarkers.push(m);
+      });
+
+      // Restore any previously saved selection
+      var st = loadSettings();
+      if (st.customLocale) {
+        var saved = st.customLocale;
+        if (typeof saved === 'object') {
+          if (saved.type === 'airport') {
+            var ai = US_AIRPORTS.findIndex(function(a) { return a.iata === saved.iata; });
+            if (ai !== -1) selectAirport(ai);
+          } else if (saved.type === 'city') {
+            var ci = US_CITIES.findIndex(function(c) { return (c.name+', '+c.state) === saved.label; });
+            if (ci !== -1) selectCity(ci);
+          } else if (saved.type === 'custom') {
+            _selectedEntry = { type:'custom', data: saved };
+            var searchEl = document.getElementById('locale-search');
+            if (searchEl) searchEl.value = saved.displayLabel || saved.label;
+            document.getElementById('locale-confirm-btn').disabled = false;
+          }
+        } else {
+          var oci = US_CITIES.findIndex(function(c) { return (c.name+', '+c.state) === saved; });
+          if (oci !== -1) selectCity(oci);
+        }
+      }
+    }
+
+    function loadLeaflet(cb) {
+      if (window.L) { cb(); return; }
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(css);
+      var js = document.createElement('script');
+      js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      js.onload = cb;
+      document.head.appendChild(js);
+    }
+
+    window.openLocalePicker = function() {
+      var modal = document.getElementById('locale-modal');
+      if (!modal) return;
+      _selectedEntry = null;
+      document.getElementById('locale-search').value = '';
+      document.getElementById('locale-confirm-btn').disabled = true;
+      modal.setAttribute('aria-hidden', 'false');
+      modal.style.display = 'flex';
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          modal.classList.add('is-open');
+          loadLeaflet(function() { setTimeout(initMap, 60); });
+        });
+      });
+    };
+
+    function closeLocalePicker() {
+      var modal = document.getElementById('locale-modal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      setTimeout(function() { modal.style.display = 'none'; }, 220);
+    }
+
+    // ── Search dropdown ───────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function() {
+      var modal   = document.getElementById('locale-modal');
+      var closeX  = document.getElementById('locale-modal-x');
+      var search  = document.getElementById('locale-search');
+      var results = document.getElementById('locale-results');
+      var confirm = document.getElementById('locale-confirm-btn');
+      var reset   = document.getElementById('locale-reset-btn');
+      if (!modal) return;
+
+      var _activeIdx = -1;
+
+      function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+      function escapeHTML(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+      function highlight(text, q) {
+        if (!q) return text;
+        return text.replace(new RegExp('(' + escapeRe(q) + ')', 'gi'), '<mark>$1</mark>');
+      }
+
+      function closeResults() {
+        results.classList.remove('is-open');
+        search.setAttribute('aria-expanded', 'false');
+        _activeIdx = -1;
+      }
+
+      function getAllResultItems() {
+        return results.querySelectorAll('[data-city],[data-airport-idx],[data-custom]');
+      }
+
+      function renderResults(q) {
+        while (results.firstChild) results.removeChild(results.firstChild);
+        if (!q) { closeResults(); return; }
+        var ql = q.toLowerCase();
+
+        var airportMatches = US_AIRPORTS.filter(function(a) {
+          return (a.iata + ' ' + a.name + ' ' + a.city + ' ' + a.state).toLowerCase().includes(ql);
+        });
+        var cityMatches = US_CITIES.filter(function(c) {
+          return (c.name + ', ' + c.state).toLowerCase().includes(ql);
+        });
+
+        var shownAirports = airportMatches.slice(0, 6);
+        var shownCities   = cityMatches.slice(0, Math.max(0, 10 - shownAirports.length));
+
+        if (shownAirports.length + shownCities.length === 0) {
+          var emptyLi = document.createElement('li');
+          emptyLi.className = 'locale-results-empty';
+          emptyLi.textContent = 'No results \u2014 search globally?';
+          results.appendChild(emptyLi);
+        } else {
+          shownAirports.forEach(function(a) {
+            var i = US_AIRPORTS.indexOf(a);
+            var li = document.createElement('li');
+            li.className = 'locale-result-item';
+            li.setAttribute('role', 'option');
+            li.dataset.airportIdx = i;
+            li.innerHTML =
+              '<span class="locale-result-city">' +
+                '<span class="locale-result-type-badge">\u2708\uFE0F</span>' +
+                highlight(a.iata + ' \u2013 ' + a.name, q) +
+              '</span>' +
+              '<span class="locale-result-state">' + a.state + '</span>';
+            li.addEventListener('mousedown', function(e) {
+              e.preventDefault();
+              selectAirport(i);
+              closeResults();
+              _markers.forEach(function(m) { m.setStyle({fillOpacity:0.8}); });
+            });
+            results.appendChild(li);
+          });
+
+          shownCities.forEach(function(c) {
+            var li = document.createElement('li');
+            li.className = 'locale-result-item';
+            li.setAttribute('role', 'option');
+            li.dataset.city = c.name + ', ' + c.state;
+            li.innerHTML =
+              '<span class="locale-result-city">' + highlight(c.name, q) + '</span>' +
+              '<span class="locale-result-state">' + c.state + '</span>';
+            li.addEventListener('mousedown', function(e) { e.preventDefault(); pickResult(li.dataset.city); });
+            results.appendChild(li);
+          });
+
+          var exactCity    = US_CITIES.some(function(c) { return (c.name+', '+c.state).toLowerCase() === ql; });
+          var exactAirport = US_AIRPORTS.some(function(a) { return a.iata.toLowerCase() === ql; });
+          if (!exactCity && !exactAirport) {
+            var divLi = document.createElement('li');
+            divLi.className = 'locale-results-divider';
+            divLi.setAttribute('role', 'presentation');
+            results.appendChild(divLi);
+          }
+        }
+
+        // Always offer global search
+        var customLi = document.createElement('li');
+        customLi.className = 'locale-result-item locale-result-custom';
+        customLi.setAttribute('role', 'option');
+        customLi.dataset.custom = 'true';
+        customLi.innerHTML =
+          '<span class="locale-result-city">' +
+            '<span class="locale-result-type-badge locale-result-type-globe">\uD83C\uDF10</span>' +
+            'Search globally for <em>\u201C' + escapeHTML(q) + '\u201D</em>' +
+          '</span>';
+        customLi.addEventListener('mousedown', function(e) { e.preventDefault(); verifyCustomCity(q); });
+        results.appendChild(customLi);
+
+        results.classList.add('is-open');
+        search.setAttribute('aria-expanded', 'true');
+        _activeIdx = -1;
+
+        US_CITIES.forEach(function(c, i) {
+          if (_markers[i]) _markers[i].setStyle({fillOpacity: (c.name+', '+c.state).toLowerCase().includes(ql) ? 0.85 : 0.1});
+        });
+        US_AIRPORTS.forEach(function(a, i) {
+          if (_airportMarkers[i]) _airportMarkers[i].setStyle({fillOpacity: (a.iata+' '+a.name+' '+a.city).toLowerCase().includes(ql) ? 0.85 : 0.1});
+        });
+      }
+
+      function pickResult(label) {
+        search.value = label;
+        closeResults();
+        var idx = US_CITIES.findIndex(function(c) { return (c.name+', '+c.state).toLowerCase() === label.toLowerCase(); });
+        if (idx !== -1) selectCity(idx);
+        _markers.forEach(function(m) { m.setStyle({fillOpacity:0.8}); });
+        _airportMarkers.forEach(function(m) { m.setStyle({fillOpacity:0.7}); });
+      }
+
+      function verifyCustomCity(q) {
+        closeResults();
+        search.disabled = true;
+        search.value = 'Verifying\u2026';
+        fetch('https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(q) + '&format=json&limit=1&addressdetails=1', {
+          headers: { 'Accept-Language': 'en' }
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          search.disabled = false;
+          if (!data || !data.length) {
+            search.value = '';
+            search.placeholder = 'City not found \u2014 try again';
+            setTimeout(function() { search.placeholder = 'Search any city\u2026'; }, 2500);
+            return;
+          }
+          var result = data[0];
+          var addr   = result.address || {};
+          var city   = addr.city || addr.town || addr.village || addr.municipality || addr.county || result.display_name.split(',')[0].trim();
+          var state   = addr.state || '';
+          var country = addr.country || '';
+          var isUS    = country === 'United States';
+          var label   = city + (state ? ', ' + state : '') + (!isUS && country ? ', ' + country : '');
+          _selectedEntry = { type:'custom', data: { type:'custom', label:label, displayLabel:label, lat:parseFloat(result.lat), lng:parseFloat(result.lon) } };
+          search.value = label;
+          document.getElementById('locale-confirm-btn').disabled = false;
+          if (_map) _map.setView([parseFloat(result.lat), parseFloat(result.lon)], Math.max(_map.getZoom(), 7), {animate:true});
+        })
+        .catch(function() {
+          search.disabled = false;
+          search.value = '';
+          search.placeholder = 'Lookup failed \u2014 try again';
+          setTimeout(function() { search.placeholder = 'Search any city\u2026'; }, 2500);
+        });
+      }
+
+      search.addEventListener('input', function() { renderResults(this.value.trim()); });
+
+      search.addEventListener('keydown', function(e) {
+        var items = getAllResultItems();
+        if (!results.classList.contains('is-open') || !items.length) return;
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (_activeIdx < items.length - 1) _activeIdx++;
+          items.forEach(function(el, i) { el.classList.toggle('is-active', i === _activeIdx); });
+          if (items[_activeIdx]) items[_activeIdx].scrollIntoView({block:'nearest'});
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (_activeIdx > 0) _activeIdx--;
+          items.forEach(function(el, i) { el.classList.toggle('is-active', i === _activeIdx); });
+          if (items[_activeIdx]) items[_activeIdx].scrollIntoView({block:'nearest'});
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (_activeIdx !== -1 && items[_activeIdx]) {
+            var item = items[_activeIdx];
+            if (item.dataset.custom === 'true') { verifyCustomCity(search.value.trim()); }
+            else if (item.dataset.airportIdx != null) { selectAirport(parseInt(item.dataset.airportIdx)); closeResults(); }
+            else if (item.dataset.city) { pickResult(item.dataset.city); }
+          }
+        } else if (e.key === 'Escape') {
+          closeResults();
+        }
+      });
+
+      search.addEventListener('blur', function() { setTimeout(closeResults, 150); });
+
+      closeX.addEventListener('click', closeLocalePicker);
+      modal.addEventListener('click', function(e) { if (e.target === modal) closeLocalePicker(); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeLocalePicker();
+      });
+
+      confirm.addEventListener('click', function() {
+        if (!_selectedEntry) return;
+        var localeObj;
+        if (_selectedEntry.type === 'city') {
+          var city = US_CITIES[_selectedEntry.idx];
+          localeObj = { type:'city', label: city.name + ', ' + city.state };
+        } else if (_selectedEntry.type === 'airport') {
+          var ap = US_AIRPORTS[_selectedEntry.idx];
+          localeObj = { type:'airport', iata:ap.iata, name:ap.name, label:ap.iata+' \u2013 '+ap.name, city:ap.city, state:ap.state };
+        } else if (_selectedEntry.type === 'custom') {
+          localeObj = _selectedEntry.data;
+        }
+        var st = loadSettings();
+        st.customLocale = localeObj;
+        saveSettings(st);
+        setGeoGreeting(localeObj);
+        var badge = document.getElementById('locale-active-badge');
+        if (badge) { badge.textContent = localeObj.displayLabel || localeObj.label; badge.style.display = ''; }
+        closeLocalePicker();
+      });
+
+      reset.addEventListener('click', function() {
+        var st = loadSettings();
+        delete st.customLocale;
+        saveSettings(st);
+        var badge = document.getElementById('locale-active-badge');
+        if (badge) { badge.textContent = ''; badge.style.display = 'none'; }
+        var el = document.getElementById('geo-greeting');
+        if (el) el.textContent = 'Real location restored on next visit.';
+        closeLocalePicker();
+      });
+    });
+  })();
+  </script>
+
+  
+  <div id="flashbang-toast" role="status" aria-live="polite">
+    <span class="flashbang-icon">⚠️</span>
+    <span>Flashbang warning: Cal.com didn't get the dark mode memo.</span>
+  </div>
+</body>
+</html>

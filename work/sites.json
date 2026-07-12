@@ -1,0 +1,22 @@
+[
+  {
+    "id": "acrp",
+    "name": "Allegheny County Roleplay",
+    "description": "Allegheny County Roleplay is an ER;LC community dedicated to quality roleplay.",
+    "url": "https://alleghenycountyroleplay.com",
+    "thumbnail": "/work/thumbnails/acrp_hero.jpg",
+    "tags": ["HTML", "CSS", "JS"],
+    "featured": true,
+    "caseStudy": "/work/acrp.html"
+  },
+  {
+    "id": "contentltd-xyz",
+    "name": "contentltd.xyz",
+    "description": "This is my personal Link-in-bio site. You're on it right now!",
+    "url": "https://contentltd.xyz",
+    "thumbnail": "/work/thumbnails/contentltd-xyz.png",
+    "tags": ["HTML", "CSS", "JS"],
+    "featured": true,
+    "caseStudy": null
+  }
+]
