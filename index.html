@@ -201,7 +201,6 @@
 
   <link rel="preload" href="/index.css" as="style">
   <link rel="preload" href="https://auxcdn.contentltd.xyz/media/Arcadia_Bay.jpeg" as="image" fetchpriority="high">
-  <link rel="preload" href="https://auxcdn.contentltd.xyz/media/handwritten.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="https://profileapi.contentltd.xyz/pfp/image.png" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/index.css">
 
@@ -211,6 +210,35 @@
     workTab: false,      // show the "Work" tab in the sidebar main nav
     enterSounds: false   // play the terminal-ping SFX when the splash is dismissed
   };
+  </script>
+
+  <!-- ─── 'Handwritten' font loader — the CDN drops the response often enough
+       that a plain @font-face isn't reliable, so this retries the fetch with
+       backoff until it actually gets a 200, then registers the font. ─── -->
+  <script>
+  (function() {
+    var FONT_URL = 'https://auxcdn.contentltd.xyz/media/handwritten.ttf';
+    var MAX_DELAY = 8000;
+
+    function attempt(delay) {
+      fetch(FONT_URL, { cache: 'no-store' })
+        .then(function(res) {
+          if (!res.ok) throw new Error('status ' + res.status);
+          return res.arrayBuffer();
+        })
+        .then(function(buf) {
+          return new FontFace('Handwritten', buf).load();
+        })
+        .then(function(font) {
+          document.fonts.add(font);
+        })
+        .catch(function() {
+          setTimeout(function() { attempt(Math.min(delay * 1.5, MAX_DELAY)); }, delay);
+        });
+    }
+
+    attempt(500);
+  })();
   </script>
 
   <script>

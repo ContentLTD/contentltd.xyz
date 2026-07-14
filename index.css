@@ -53,11 +53,9 @@ body {
   position: relative;
 }
 
-@font-face {
-  font-family: 'Handwritten';
-  src: url('https://auxcdn.contentltd.xyz/media/handwritten.ttf') format('truetype');
-  font-display: swap;
-}
+/* 'Handwritten' is registered at runtime via the retrying FontFace loader in
+   index.html — the CDN occasionally drops the response, so plain @font-face
+   (which never retries a failed fetch) isn't reliable enough here. */
 
 /* Dynamic weather sky disabled — replaced by the static Arcadia Bay photo below. */
 .sky {
