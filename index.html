@@ -458,17 +458,19 @@
       
       <div class="tab-panel active" id="panel-personal" role="tabpanel" aria-labelledby="tab-personal">
 
-        <div class="info-card s1">
-          <h3 class="info-card-title">About Me</h3>
-          <p class="info-card-body">I'm ContentLTD and I'm a website developer and a community leader. I am currently leading Allegheny County Roleplay while making websites for other ER;LC servers.</p>
-        </div>
+        <div class="info-card-row">
+          <div class="info-card s1">
+            <h3 class="info-card-title">About Me</h3>
+            <p class="info-card-body">I'm ContentLTD and I'm a website developer and a community leader. I am currently leading Allegheny County Roleplay while making websites for other ER;LC servers.</p>
+          </div>
 
-        <div class="info-card s2">
-          <h3 class="info-card-title">Favorite Quote</h3>
-          <blockquote class="info-card-quote" id="quote-block">
-            <p id="quote-text"></p>
-            <cite id="quote-cite"></cite>
-          </blockquote>
+          <div class="info-card s2">
+            <h3 class="info-card-title">Favorite Quote</h3>
+            <blockquote class="info-card-quote" id="quote-block">
+              <p id="quote-text"></p>
+              <cite id="quote-cite"></cite>
+            </blockquote>
+          </div>
         </div>
 
         <section class="gh-section s3" id="gh-section">
@@ -483,6 +485,23 @@
           <div class="gh-feed" id="gh-feed">
             <div class="gh-loading">Loading…</div>
           </div>
+        </section>
+
+        <section class="gh-section steam-section s4" id="steam-section" hidden>
+          <header class="gh-section-header">
+            <span class="section-label">Recently Played</span>
+            <div class="feed-platform-links">
+              <span class="feed-platform-link" title="Steam"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg></span>
+            </div>
+          </header>
+          <div class="steam-games" id="steam-games"></div>
+        </section>
+
+        <section class="gh-section obsession-section s5" id="obsession-section" hidden>
+          <header class="gh-section-header">
+            <span class="section-label">Current Obsession</span>
+          </header>
+          <div class="obsession-card" id="obsession-card"></div>
         </section>
 
       </div>
@@ -1510,6 +1529,7 @@
     var SVG_GH = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>';
     var SVG_BSK = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 360 320" fill="currentColor"><path d="M180 142c-16.3-31.7-60.7-90.8-102-120C36.6-.5 1.6-4 1.6 23.9c0 5 2.7 42.2 4.4 48.3 5.6 20 25.5 26.5 43.4 23.2 0 0-57.4 9.8-57.4 67.2 0 56 56.2 74.8 101.7 55.2 0 0-16.5 45.6-28 72C52 327.4 68.1 345 93.7 320c19.1-18.5 43.8-68 54.8-97.7 5.2-14 8.3-25 8.3-25H203s3.1 11 8.3 25c11 29.7 35.7 79.2 54.8 97.7 25.6 25 41.7 7.4 28.2-20.2-11.5-26.4-28-72-28-72 45.5 19.6 101.7.8 101.7-55.2 0-57.4-57.4-67.2-57.4-67.2 17.9 3.3 37.8-3.2 43.4-23.2 1.7-6.1 4.4-43.3 4.4-48.3 0-27.9-35-24.4-76.5 2.1C240.7 51.2 196.3 110.3 180 142z"/></svg>';
     var SVG_X = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.268 5.638 5.896-5.638zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
+    var SVG_STEAM = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>';
 
     // ── Client-side rate-limit cache (5 min TTL) ──────────────────────────
     var FEED_TTL = 5 * 60 * 1000;
@@ -1644,7 +1664,62 @@
             }
           }).catch(function() {});
 
-    await Promise.allSettled([ghPromise, bskyPromise, xPromise]);
+    // ── Steam via Worker proxy (5-min localStorage cache) ────────────────
+    function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+    function processSteamData(d) {
+      (d.recentAchievements || []).forEach(function(a) {
+        var textHtml = 'Unlocked “' + esc(a.achievementName) + '” in <span class="gh-repo">' + esc(a.game) + '</span>';
+        items.push({ ts: new Date(a.unlockedAt).getTime(), platform: 'steam', icon: SVG_STEAM, textHtml: textHtml, time: relTime(a.unlockedAt) });
+      });
+      renderSteamGames(d.recentGames || []);
+    }
+
+    function renderSteamGames(games) {
+      var section = document.getElementById('steam-section');
+      var grid = document.getElementById('steam-games');
+      if (!section || !grid || !games.length) return;
+      grid.innerHTML = '';
+      games.forEach(function(g) {
+        var card = document.createElement('div');
+        card.className = 'steam-game';
+        var cover = document.createElement('img');
+        cover.className = 'steam-game-cover';
+        cover.src = g.coverUrl;
+        cover.alt = '';
+        cover.loading = 'lazy';
+        cover.onerror = function() {
+          if (g.iconUrl && cover.src !== g.iconUrl) { cover.src = g.iconUrl; }
+          else { cover.style.visibility = 'hidden'; }
+        };
+        var info = document.createElement('div');
+        info.className = 'steam-game-info';
+        var name = document.createElement('span');
+        name.className = 'steam-game-name';
+        name.textContent = g.name;
+        var hours = document.createElement('span');
+        hours.className = 'steam-game-hours';
+        hours.textContent = g.hoursRecent + 'h past 2 weeks · ' + g.hoursTotal + 'h total';
+        info.appendChild(name);
+        info.appendChild(hours);
+        card.appendChild(cover);
+        card.appendChild(info);
+        grid.appendChild(card);
+      });
+      section.hidden = false;
+    }
+
+    var steamCached = getCachedFeed('steam');
+    var steamPromise = steamCached
+      ? Promise.resolve().then(function() { processSteamData(steamCached); })
+      : fetch('https://profileapi.contentltd.xyz/steamdata')
+          .then(function(r) { if (!r.ok) throw new Error('steam ' + r.status); return r.json(); })
+          .then(function(d) {
+            setCachedFeed('steam', d);
+            processSteamData(d);
+          }).catch(function() {});
+
+    await Promise.allSettled([ghPromise, bskyPromise, xPromise, steamPromise]);
 
     feed.innerHTML = '';
     items.sort(function(a, b) { return b.ts - a.ts; }).slice(0, 10).forEach(function(item) {
@@ -1657,6 +1732,73 @@
       empty.textContent = 'No recent activity.';
       feed.appendChild(empty);
     }
+  });
+  </script>
+
+  <script data-cfasync="false">
+  document.addEventListener('DOMContentLoaded', function() {
+    var section = document.getElementById('obsession-section');
+    var card = document.getElementById('obsession-card');
+    if (!section || !card) return;
+
+    function formatSince(s) {
+      var m = /^(\d{4})-(\d{2})$/.exec(s);
+      if (!m) return s;
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return (months[parseInt(m[2], 10) - 1] || m[2]) + ' ' + m[1];
+    }
+
+    fetch('/data/obsessions.json', { cache: 'no-store' })
+      .then(function(r) { if (!r.ok) throw new Error('obsession ' + r.status); return r.json(); })
+      .then(function(d) {
+        var o = d && d.obsession;
+        if (!o || !o.name) return;
+
+        var coverSrc = o.cover || (o.appid ? 'https://cdn.akamai.steamstatic.com/steam/apps/' + o.appid + '/library_600x900.jpg' : null);
+        if (coverSrc) {
+          var cover = document.createElement('img');
+          cover.className = 'obsession-cover';
+          cover.src = coverSrc;
+          cover.alt = '';
+          cover.loading = 'lazy';
+          cover.onerror = function() { cover.style.visibility = 'hidden'; };
+          card.appendChild(cover);
+        }
+
+        var info = document.createElement('div');
+        info.className = 'obsession-info';
+
+        var name;
+        if (o.storeUrl) {
+          name = document.createElement('a');
+          name.href = o.storeUrl;
+          name.target = '_blank';
+          name.rel = 'noopener noreferrer';
+        } else {
+          name = document.createElement('span');
+        }
+        name.className = 'obsession-name';
+        name.textContent = o.name;
+        info.appendChild(name);
+
+        if (o.note) {
+          var note = document.createElement('p');
+          note.className = 'obsession-note';
+          note.textContent = o.note;
+          info.appendChild(note);
+        }
+
+        if (o.since) {
+          var since = document.createElement('span');
+          since.className = 'obsession-since';
+          since.textContent = 'Obsessed since ' + formatSince(o.since);
+          info.appendChild(since);
+        }
+
+        card.appendChild(info);
+        section.hidden = false;
+      })
+      .catch(function() {});
   });
   </script>
 

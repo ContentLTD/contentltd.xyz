@@ -1,6 +1,8 @@
-/.claude/*
+.claude/*
 .DS_Store
 node_modules/
 .env
 .env.*
 .dev.vars
+noisy-hall-36db/
+.gitignore
