@@ -212,16 +212,20 @@
   };
   </script>
 
-  <!-- ─── 'Handwritten' font loader — the CDN drops the response often enough
-       that a plain @font-face isn't reliable, so this retries the fetch with
-       backoff until it actually gets a 200, then registers the font. ─── -->
+  <!-- ─── 'Handwritten' font loader. Cloudflare's edge cache in front of R2
+       does not vary on Origin, and R2 omits CORS headers when the request has
+       no Origin header — so if an Origin-less request (e.g. opening the URL in
+       a tab) seeds the cache, every CORS fetch after it fails. The ?v= param
+       keeps this URL's cache entry seeded only by this CORS fetch; bump it if
+       the entry ever gets poisoned again. Durable fix is a response-header
+       transform rule on auxcdn adding Access-Control-Allow-Origin: *. ─── -->
   <script>
   (function() {
-    var FONT_URL = 'https://auxcdn.contentltd.xyz/media/handwritten.ttf';
+    var FONT_URL = 'https://auxcdn.contentltd.xyz/media/handwritten.ttf?v=2';
     var MAX_DELAY = 8000;
 
     function attempt(delay) {
-      fetch(FONT_URL, { cache: 'no-store' })
+      fetch(FONT_URL)
         .then(function(res) {
           if (!res.ok) throw new Error('status ' + res.status);
           return res.arrayBuffer();
