@@ -1183,6 +1183,7 @@ body.entered .layout { animation: layout-enter 900ms ease both; }
 .feed-icon-github { color: #8dba9d; opacity: 1; }
 .feed-icon-bsky   { color: #6eb3f5; opacity: 1; }
 .feed-icon-x      { color: var(--text-3); opacity: 1; }
+.feed-icon-steam  { color: #66c0f4; opacity: 1; }
 
 
 .feed-platform-links {
@@ -1197,6 +1198,114 @@ body.entered .layout { animation: layout-enter 900ms ease both; }
   text-decoration: none;
 }
 .feed-platform-link:hover { color: var(--accent); }
+
+
+.steam-section {
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+.steam-games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.steam-game {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.steam-game-cover {
+  width: 42px;
+  height: 63px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background-color: #000000;
+}
+
+.steam-game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.steam-game-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.steam-game-hours {
+  font-size: 0.68rem;
+  color: var(--text-3);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+
+.obsession-section {
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+.obsession-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.obsession-cover {
+  width: 42px;
+  height: 63px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background-color: #000000;
+}
+
+.obsession-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.obsession-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.obsession-note {
+  font-size: 0.68rem;
+  color: var(--text-3);
+  margin: 0;
+}
+
+.obsession-since {
+  font-size: 0.68rem;
+  color: var(--text-3);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
 
 
 .settings-fab {
@@ -1655,6 +1764,14 @@ body.mode-oled .exp-card          { background: #000; }
   margin-bottom: 20px;
 }
 
+.info-card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.info-card-row .info-card { margin-bottom: 0; }
+
 .info-card-title {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: 1.1rem;
@@ -2041,6 +2158,7 @@ body.mode-oled .exp-card          { background: #000; }
 
 @media (max-width: 540px) {
   .work-cards-grid { grid-template-columns: 1fr; }
+  .info-card-row { grid-template-columns: 1fr; }
 }
 
 
