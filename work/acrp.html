@@ -37,7 +37,6 @@
   <meta name="theme-color" content="#0d0b0a">
   <meta name="color-scheme" content="dark">
 
-  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -129,8 +128,6 @@
       line-height: 1.6;
       min-height: 100vh;
     }
-
-    /* ── Top bar ──────────────────────────────────── */
     .topbar {
       position: sticky;
       top: 0;
@@ -174,15 +171,11 @@
     }
 
     .topbar-breadcrumb a:hover { color: var(--text-2); }
-
-    /* ── Page layout ──────────────────────────────── */
     .page {
       max-width: 760px;
       margin: 0 auto;
       padding: 72px 48px 120px;
     }
-
-    /* ── Hero ─────────────────────────────────────── */
     .hero {
       margin-bottom: 64px;
     }
@@ -274,8 +267,6 @@
       background: var(--surface);
       transform: translateY(-1px);
     }
-
-    /* ── Hero screenshot ──────────────────────────── */
     .hero-screenshot {
       margin-top: 40px;
       border-radius: var(--radius);
@@ -305,15 +296,11 @@
     }
 
     .screenshot-placeholder svg { opacity: 0.25; }
-
-    /* ── Divider ──────────────────────────────────── */
     .divider {
       height: 1px;
       background: var(--rule);
       margin: 56px 0;
     }
-
-    /* ── Section ──────────────────────────────────── */
     .section {
       margin-bottom: 52px;
     }
@@ -345,8 +332,6 @@
     .section p + p {
       margin-top: 14px;
     }
-
-    /* ── Highlight callout ────────────────────────── */
     .callout {
       margin: 28px 0;
       padding: 20px 24px;
@@ -360,8 +345,6 @@
       color: var(--text);
       line-height: 1.65;
     }
-
-    /* ── Bullet list ──────────────────────────────── */
     .bullet-list {
       list-style: none;
       display: flex;
@@ -387,8 +370,6 @@
       background: var(--accent);
       margin-top: 9px;
     }
-
-    /* ── Tech stack grid ──────────────────────────── */
     .tech-grid {
       display: flex;
       flex-wrap: wrap;
@@ -409,8 +390,6 @@
       color: var(--text-2);
       line-height: 1;
     }
-
-    /* ── Stats row ────────────────────────────────── */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -441,8 +420,6 @@
       color: var(--text-3);
       margin-top: 4px;
     }
-
-    /* ── Screenshot gallery ───────────────────────── */
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -463,8 +440,6 @@
       height: 100%;
       object-fit: cover;
     }
-
-    /* ── Footer ───────────────────────────────────── */
     .page-footer {
       margin-top: 80px;
       padding-top: 28px;
@@ -487,8 +462,6 @@
     }
 
     .page-footer a:hover { color: var(--text); }
-
-    /* ── Responsive ───────────────────────────────── */
     @media (max-width: 768px) {
       .topbar { padding: 0 20px; }
       .page { padding: 56px 20px 96px; }
@@ -504,7 +477,6 @@
 </head>
 <body>
 
-  
   <header class="topbar" role="banner">
     <a href="/work/" class="topbar-back" aria-label="Back to Work">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -523,7 +495,6 @@
 
   <main class="page">
 
-    
     <section class="hero">
       <p class="hero-kicker">Case Study</p>
       <h1>Allegheny County Roleplay</h1>
@@ -557,7 +528,6 @@
         <a href="/work/" class="btn-secondary">← All work</a>
       </div>
 
-      
       <div class="hero-screenshot">
         <img src="/work/thumbnails/acrp_hero.jpg" alt="Allegheny County Roleplay portal screenshot"
              onerror="this.style.display='none'">
@@ -567,7 +537,6 @@
 
     <div class="divider"></div>
 
-    
     <section class="section">
       <p class="section-label">The Brief</p>
       <h2>A site that feels like a real organization</h2>
@@ -582,7 +551,6 @@
       </p>
     </section>
 
-    
     <section class="section">
       <p class="section-label">The Numbers</p>
       <h2>Two years of tuning</h2>
@@ -591,11 +559,9 @@
         There are roughly 10–30 pages on the site (I genuinely lost count), and I've used zero copy-paste assets.
       </p>
 
-      
       </div>
     </section>
 
-    
     <section class="section">
       <p class="section-label">The Hard Part</p>
       <h2>Vanilla, without the boilerplate look</h2>
@@ -614,7 +580,6 @@
       </p>
     </section>
 
-    
     <section class="section">
       <p class="section-label">The Stack</p>
       <h2>HTML5. CSS3. Vanilla JS.</h2>
@@ -637,8 +602,6 @@
       </div>
     </section>
 
-
-    
     <section class="section">
       <p class="section-label">The Outcome</p>
       <h2>A site that feels good to use</h2>
@@ -648,7 +611,6 @@
       </p>
     </section>
 
-    
     <section class="section">
       <img src="/work/asset/acrp/acrp_fullsite.png"
            alt="Full-page screenshot of the Allegheny County Roleplay website"
@@ -657,7 +619,6 @@
            style="width: 100%; height: auto; border-radius: 10px; display: block; border: 1px solid var(--rule);">
     </section>
 
-    
     <section class="section">
       <p class="section-label">Links</p>
       <div class="hero-actions">
@@ -672,7 +633,6 @@
       </div>
     </section>
 
-    
     <footer class="page-footer">
       <p>© <span id="year"></span> ContentLTD</p>
       <p><a href="/work/">← Work</a></p>

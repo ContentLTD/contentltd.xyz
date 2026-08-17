@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ─── Primary SEO ──────────────────────────────────────────── -->
   <title>ContentLTD — Developer, Community Builder & Founder of ACRP</title>
   <meta name="description" content="ContentLTD is a website developer and community builder. Founder of Allegheny County Roleplay (ACRP). Building websites, web apps, and online communities on the internet.">
   <meta name="author" content="ContentLTD">
@@ -23,7 +22,6 @@
   <link rel="sitemap" type="application/xml" href="https://contentltd.xyz/sitemap.xml">
   <link rel="author" type="text/plain" href="https://contentltd.xyz/humans.txt">
 
-  <!-- ─── rel="me" — verified identity (Google Knowledge Graph + IndieWeb) ─── -->
   <link rel="me" href="https://github.com/contentltd">
   <link rel="me" href="https://bsky.app/profile/contentltd.xyz">
   <link rel="me" href="https://x.com/contentltd_">
@@ -31,7 +29,6 @@
   <link rel="me" href="https://www.last.fm/user/contentltd">
   <link rel="me" href="mailto:c@contentltd.xyz">
 
-  <!-- ─── Open Graph ──────────────────────────────────────────── -->
   <meta property="og:site_name" content="ContentLTD">
   <meta property="og:title" content="ContentLTD — Developer, Community Builder & Founder of ACRP">
   <meta property="og:description" content="ContentLTD is a website developer and community builder. Founder of Allegheny County Roleplay. Building things on the internet.">
@@ -46,7 +43,6 @@
   <meta property="og:locale" content="en_US">
   <meta property="profile:username" content="contentltd">
 
-  <!-- ─── Twitter / X ─────────────────────────────────────────── -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@contentltd_">
   <meta name="twitter:creator" content="@contentltd_">
@@ -57,7 +53,6 @@
   <meta name="twitter:image:alt" content="ContentLTD profile picture">
   <meta name="twitter:url" content="https://contentltd.xyz/">
 
-  <!-- ─── App / Theme ─────────────────────────────────────────── -->
   <meta name="theme-color" content="#0d0b0a">
   <meta name="color-scheme" content="dark">
   <meta name="msapplication-TileColor" content="#0d0b0a">
@@ -67,12 +62,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="format-detection" content="telephone=no">
 
-  <!-- ─── Verification placeholders (uncomment & fill once verified) ─ -->
-  <!-- <meta name="google-site-verification" content="REPLACE_ME"> -->
-  <!-- <meta name="msvalidate.01" content="REPLACE_ME"> -->
-  <!-- <meta name="yandex-verification" content="REPLACE_ME"> -->
-
-  <!-- ─── Structured Data: WebSite (sitelinks searchbox candidate) ─── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,7 +84,6 @@
   }
   </script>
 
-  <!-- ─── Structured Data: Person (entity for Knowledge Graph) ─── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -134,7 +122,6 @@
   }
   </script>
 
-  <!-- ─── Structured Data: Organization (brand entity) ─── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -160,7 +147,6 @@
   }
   </script>
 
-  <!-- ─── Structured Data: WebPage (binds entities to this URL) ─── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -194,31 +180,33 @@
   <link rel="dns-prefetch" href="https://api.github.com">
   <link rel="dns-prefetch" href="https://ws.audioscrobbler.com">
 
-  
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap"></noscript>
 
   <link rel="preload" href="/index.css" as="style">
-  <link rel="preload" href="https://auxcdn.contentltd.xyz/media/Arcadia_Bay.jpeg" as="image" fetchpriority="high">
+  <link rel="preconnect" href="https://auxcdn.contentltd.xyz" crossorigin>
   <link rel="preload" href="https://profileapi.contentltd.xyz/pfp/image.png" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/index.css">
 
-  <!-- ─── Feature flags — flip these booleans to toggle site features ─── -->
   <script>
   window.SITE_FLAGS = {
-    workTab: false,      // show the "Work" tab in the sidebar main nav
-    enterSounds: false   // play the terminal-ping SFX when the splash is dismissed
+    workTab: false,
+    enterSounds: false
   };
   </script>
 
-  <!-- ─── 'Handwritten' font loader. Cloudflare's edge cache in front of R2
-       does not vary on Origin, and R2 omits CORS headers when the request has
-       no Origin header — so if an Origin-less request (e.g. opening the URL in
-       a tab) seeds the cache, every CORS fetch after it fails. The ?v= param
-       keeps this URL's cache entry seeded only by this CORS fetch; bump it if
-       the entry ever gets poisoned again. Durable fix is a response-header
-       transform rule on auxcdn adding Access-Control-Allow-Origin: *. ─── -->
+  <script>
+  window.__musicData = fetch('/data/music.json').then(function(r) { return r.json(); });
+  window.__musicData.catch(function() {});
+
+  window.SITE_ENTERED = false;
+  window.onSiteEnter = function(fn) {
+    if (window.SITE_ENTERED) fn();
+    else document.addEventListener('site:enter', function() { fn(); }, { once: true });
+  };
+  </script>
+
   <script>
   (function() {
     var FONT_URL = 'https://cdn.itzcontent.com/fonts/handwritten.ttf';
@@ -257,15 +245,21 @@
       if (p.largeText) document.documentElement.classList.add('font-large');
       if (p.monochrome) document.documentElement.classList.add('mode-mono');
       if (p.oled) document.documentElement.classList.add('mode-oled');
+      if (p.underlineLinks) document.documentElement.classList.add('a11y-underline');
+      if (p.pauseVideo) document.documentElement.classList.add('vid-paused');
+      window.__kbShortcutsOff = p.kbShortcuts === false;
     } catch(e) {}
   })();
   </script>
 <body>
 
-  <div class="splash" id="splash" role="dialog" aria-modal="true" tabindex="0">
-    <p class="splash-note">This site plays music</p>
-    <button class="splash-enter" id="splash-btn">Enter</button>
-    <div class="splash-caption" aria-hidden="true">Arcadia Bay, OR<br>12:17 AM</div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Enter site" tabindex="0">
+    <div class="splash-inner">
+      <p class="splash-note">This site plays music</p>
+      <button class="splash-enter" id="splash-btn" type="button">Enter</button>
+    </div>
   </div>
 
   <div class="music-hint" id="music-hint" role="status" aria-hidden="true">
@@ -283,12 +277,128 @@
     </div>
   </div>
 
-  <audio id="bg-audio" preload="none" loop tabindex="-1"></audio>
+  <audio id="bg-audio" preload="none" tabindex="-1"></audio>
   <audio id="ping-1" src="/TerminalPing-1.ogg" preload="auto"></audio>
   <audio id="ping-2" src="/TN_C_beep.ogg" preload="auto"></audio>
 
-  
-  <div class="bg-photo" aria-hidden="true"></div>
+  <div class="bg-photo" aria-hidden="true">
+    <video class="bg-video" id="bg-video"
+           src="https://auxcdn.contentltd.xyz/media/cutscene.mov"
+           muted loop playsinline disablepictureinpicture
+           preload="auto" tabindex="-1"></video>
+  </div>
+
+  <script data-cfasync="false">
+
+  (function() {
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var splash = document.getElementById('splash');
+    var btn = document.getElementById('splash-btn');
+
+    document.body.classList.add('entered');
+
+    var video = document.getElementById('bg-video');
+    if (video) {
+      video.autoplay = false;
+      video.removeAttribute('autoplay');
+      video.pause();
+    }
+
+    function videoAllowed() {
+      return !reduced && !document.documentElement.classList.contains('vid-paused');
+    }
+
+    function setInert(on) {
+      ['.layout', '.settings-fab'].forEach(function(sel) {
+        var el = document.querySelector(sel);
+        if (!el) return;
+        if (on) el.setAttribute('inert', '');
+        else el.removeAttribute('inert');
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!entered) setInert(true);
+      }, { once: true });
+    } else if (!window.SITE_ENTERED) {
+      setInert(true);
+    }
+
+    var entered = false;
+    function enter() {
+      if (entered) return;
+      entered = true;
+      window.SITE_ENTERED = true;
+
+      if (splash) {
+        splash.classList.add('hidden');
+        splash.setAttribute('aria-hidden', 'true');
+        setTimeout(function() { splash.style.display = 'none'; }, reduced ? 0 : 320);
+      }
+      setInert(false);
+
+      if (video && videoAllowed()) {
+
+        var kick = function() { if (videoAllowed()) video.play().catch(function(){}); };
+        kick();
+        video.addEventListener('canplay', kick, { once: true });
+      }
+
+      document.dispatchEvent(new CustomEvent('site:enter'));
+
+      var p1 = document.getElementById('ping-1');
+      var p2 = document.getElementById('ping-2');
+      var soundsOn = window.SITE_FLAGS ? window.SITE_FLAGS.enterSounds : true;
+      if (soundsOn && !reduced && p1) {
+        p1.volume = 0.45;
+        p1.play().catch(function(){});
+        setTimeout(function() {
+          if (p2) { p2.volume = 0.45; p2.play().catch(function(){}); }
+        }, 790);
+      }
+
+      var hint = document.getElementById('music-hint');
+      if (hint) {
+        setTimeout(function() {
+          hint.classList.add('visible');
+          hint.setAttribute('aria-hidden', 'false');
+          var hovering = false;
+          var expired = false;
+          function hideHint() {
+            hint.classList.remove('visible');
+            hint.setAttribute('aria-hidden', 'true');
+          }
+          hint.addEventListener('mouseenter', function() { hovering = true; });
+          hint.addEventListener('mouseleave', function() {
+            hovering = false;
+            if (expired) hideHint();
+          });
+          setTimeout(function() {
+            expired = true;
+            if (!hovering) hideHint();
+          }, 4000);
+        }, reduced ? 100 : 500);
+      }
+
+      var mc = document.getElementById('main-content');
+      if (mc) { try { mc.focus({ preventScroll: true }); } catch (e) { mc.focus(); } }
+    }
+
+    if (splash) {
+      splash.addEventListener('click', enter);
+      splash.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
+          e.preventDefault();
+
+          e.stopPropagation();
+          enter();
+        }
+      });
+      splash.focus();
+    }
+    if (btn) btn.addEventListener('click', function(e) { e.stopPropagation(); enter(); });
+  })();
+  </script>
 
   <div class="sky" id="sky" aria-hidden="true">
     <div class="sky-gradient" id="sky-gradient"></div>
@@ -299,14 +409,14 @@
           <stop offset="60%" stop-color="#ffb366" stop-opacity="0.25"/>
           <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
         </radialGradient>
-        
+
         <radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
           <stop offset="0%"  stop-color="#f6f8ff" stop-opacity="0.55"/>
           <stop offset="25%" stop-color="#e4e9f5" stop-opacity="0.32"/>
           <stop offset="55%" stop-color="#c0cadd" stop-opacity="0.14"/>
           <stop offset="100%" stop-color="#a4b0c2" stop-opacity="0"/>
         </radialGradient>
-        
+
         <radialGradient id="moonBloom" cx="50%" cy="50%" r="50%">
           <stop offset="0%"  stop-color="#cfd9ee" stop-opacity="0.22"/>
           <stop offset="40%" stop-color="#aab6d0" stop-opacity="0.10"/>
@@ -324,19 +434,19 @@
           <stop offset="100%" stop-color="#232634" stop-opacity="0"/>
         </radialGradient>
         <filter id="moonCraterBlur"><feGaussianBlur stdDeviation="0.6"/></filter>
-        
+
         <filter id="cloudBlur"><feGaussianBlur stdDeviation="12"/></filter>
         <filter id="cloudBlurLight"><feGaussianBlur stdDeviation="6"/></filter>
         <filter id="cloudBlurStrong"><feGaussianBlur stdDeviation="18"/></filter>
         <filter id="softBlur"><feGaussianBlur stdDeviation="4"/></filter>
-        
+
         <filter id="cloudFeather" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="18" result="b"/>
           <feComponentTransfer in="b">
             <feFuncA type="linear" slope="1.15" intercept="-0.08"/>
           </feComponentTransfer>
         </filter>
-        
+
         <filter id="boltGlow" x="-50%" y="-10%" width="200%" height="120%">
           <feGaussianBlur stdDeviation="3.5" result="halo"/>
           <feMerge>
@@ -357,8 +467,8 @@
   </div>
 
   <div class="layout">
-    
-    <aside class="sidebar">
+
+    <aside class="sidebar" aria-label="Profile and now playing">
       <div class="sidebar-inner">
         <div class="profile s1">
           <div class="avatar">
@@ -373,66 +483,81 @@
         <nav class="links s2" aria-label="Social links">
           <a href="/blog/" rel="noopener" class="link-item">
             <span class="link-text">Blog</span>
-            <span class="link-arrow">→</span>
+            <span class="link-arrow" aria-hidden="true">→</span>
           </a>
           <a href="https://youtube.com/@contentltd_rblx" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-text">YouTube</span>
-            <span class="link-arrow">→</span>
+            <span class="link-arrow" aria-hidden="true">→</span>
           </a>
           <a href="https://bsky.app/profile/contentltd.xyz" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-text">Bluesky</span>
-            <span class="link-arrow">→</span>
+            <span class="link-arrow" aria-hidden="true">→</span>
           </a>
           <a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-text">X (Personal)</span>
-            <span class="link-arrow">→</span>
+            <span class="link-arrow" aria-hidden="true">→</span>
           </a>
           <a href="https://www.last.fm/user/contentltd" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-text">Last.fm</span>
-            <span class="link-arrow">→</span>
+            <span class="link-arrow" aria-hidden="true">→</span>
           </a>
           <a href="https://tracker.project-flight.com/?user=Itz_ContentLTD" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-text">Project Flight</span>
-            <span class="link-arrow">→</span>
+            <span class="link-arrow" aria-hidden="true">→</span>
           </a>
         </nav>
 
         <section class="tz-widget s3" id="tz-widget" aria-label="Timezone info">
-          <p class="section-label">Local Time</p>
+          <h2 class="section-label">Local Time</h2>
           <div class="tz-body">
             <span class="tz-clock" id="tz-clock">--:--</span>
             <span class="tz-badge t-text-swap neutral" id="tz-badge" title="Calculating your offset…">±0h</span>
           </div>
           <div class="wx-line" id="wx-line" aria-live="polite">
-            <span class="wx-dot" id="wx-dot"></span>
             <span class="wx-text" id="wx-text">Reading the sky…</span>
           </div>
         </section>
 
         <section class="now-playing s4" aria-label="Now playing">
           <div class="np-header">
-            <p class="section-label">Now Playing</p>
+            <h2 class="section-label">Now Playing</h2>
             <a class="np-lfm" id="np-lfm" href="https://www.last.fm/user/contentltd" target="_blank" rel="noopener noreferrer" hidden></a>
           </div>
           <div class="np-content">
             <img class="np-cover" id="np-cover" width="48" height="48" loading="lazy" decoding="async" src="" alt="">
-            <div class="np-details">
+            <div class="np-details" aria-live="polite">
               <span class="np-title t-text-swap" id="np-title">Loading...</span>
               <span class="np-artist t-text-swap" id="np-artist"></span>
               <span class="np-album" id="np-album"></span>
             </div>
           </div>
           <div class="np-progress">
-            <div class="np-bar"><div class="np-fill" id="np-fill"></div></div>
-            <div class="np-times">
+            <div class="np-bar" id="np-bar" role="progressbar"
+                 aria-label="Track progress" aria-valuemin="0" aria-valuemax="100"
+                 aria-valuenow="0" aria-valuetext="0:00 of 0:00"><div class="np-fill" id="np-fill"></div></div>
+            <div class="np-times" aria-hidden="true">
               <span id="np-current">0:00</span>
               <span id="np-duration">0:00</span>
             </div>
           </div>
-          <button class="vol-btn" id="vol-btn" aria-label="Toggle mute">
-            <span id="vol-icon">🔊</span>
-            <input type="range" id="vol-slider" min="0" max="1" step="0.01" value="0.25" aria-label="Volume">
-          </button>
+          <div class="np-transport">
+            <button class="np-ctl" id="np-playpause" type="button" aria-label="Play">
+              <svg class="np-ico-play" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.14-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>
+              <svg class="np-ico-pause" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            </button>
+            <button class="np-ctl" id="np-skip" type="button" aria-label="Skip to next track">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5.14v13.72a1 1 0 0 0 1.52.85l9.4-5.79v4.94a1 1 0 0 0 2 0V5.14a1 1 0 0 0-2 0v4.94l-9.4-5.79A1 1 0 0 0 5 5.14z"/></svg>
+            </button>
+
+            <div class="vol-btn">
+              <button type="button" class="vol-toggle" id="vol-btn" data-vol-state="low" aria-label="Mute">
+                <svg class="vol-ico vol-ico-high" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffffff" d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zm20.264-13.264l-1.497 1.497c1.847 1.783 2.983 4.157 2.983 6.767 0 2.61-1.135 4.984-2.983 6.766l1.498 1.498c2.305-2.153 3.735-5.055 3.735-8.264s-1.43-6.11-3.736-8.264zm-.489 8.264c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z"/></svg>
+                <svg class="vol-ico vol-ico-low" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffffff" d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zM19.775 12c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z"/></svg>
+                <svg class="vol-ico vol-ico-mute" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffffff" d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10z"/><path stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" d="M15 7l8 8m0-8l-8 8"/></svg>
+              </button>
+              <input type="range" id="vol-slider" min="0" max="1" step="0.01" value="0.25" aria-label="Volume">
+            </div>
+          </div>
           <p class="vol-ios-hint" id="vol-ios-hint" hidden>Use device volume buttons</p>
         </section>
 
@@ -444,28 +569,25 @@
       </div>
     </aside>
 
-    
     <div class="t-page-slide" id="page-slider" data-page="1">
-    <main class="main t-page" data-page-id="1">
+    <main class="main t-page" data-page-id="1" id="main-content" tabindex="-1">
 
-      
       <div class="main-tabs s1" id="main-tabs" role="tablist" aria-label="View">
         <button class="main-tab active" id="tab-personal" role="tab" aria-selected="true" aria-controls="panel-personal">Personal</button>
         <button class="main-tab" id="tab-work" role="tab" aria-selected="false" aria-controls="panel-work">Work</button>
         <button class="main-tab" id="tab-lyrics" role="tab" aria-selected="false" aria-controls="panel-lyrics">Lyrics</button>
       </div>
 
-      
       <div class="tab-panel active" id="panel-personal" role="tabpanel" aria-labelledby="tab-personal">
 
         <div class="info-card-row">
           <div class="info-card s1">
-            <h3 class="info-card-title">About Me</h3>
+            <h2 class="info-card-title">About Me</h2>
             <p class="info-card-body">I'm ContentLTD and I'm a website developer and a community leader. I am currently leading Allegheny County Roleplay while making websites for other ER;LC servers.</p>
           </div>
 
-          <div class="info-card s2">
-            <h3 class="info-card-title">Favorite Quote</h3>
+          <div class="info-card info-card-quote-card s2">
+            <h2 class="info-card-title">Favorite Quote</h2>
             <blockquote class="info-card-quote" id="quote-block">
               <p id="quote-text"></p>
               <cite id="quote-cite"></cite>
@@ -473,40 +595,39 @@
           </div>
         </div>
 
-        <section class="gh-section s3" id="gh-section">
+        <section class="gh-section s3" id="gh-section" aria-labelledby="gh-section-title">
           <header class="gh-section-header">
-            <span class="section-label">Recent Activity</span>
+            <h2 class="section-label" id="gh-section-title">Recent Activity</h2>
             <div class="feed-platform-links">
-              <a href="https://github.com/ContentLTD" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-              <a href="https://bsky.app/profile/contentltd.xyz" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="Bluesky"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 360 320" fill="currentColor"><path d="M180 142c-16.3-31.7-60.7-90.8-102-120C36.6-.5 1.6-4 1.6 23.9c0 5 2.7 42.2 4.4 48.3 5.6 20 25.5 26.5 43.4 23.2 0 0-57.4 9.8-57.4 67.2 0 56 56.2 74.8 101.7 55.2 0 0-16.5 45.6-28 72C52 327.4 68.1 345 93.7 320c19.1-18.5 43.8-68 54.8-97.7 5.2-14 8.3-25 8.3-25H203s3.1 11 8.3 25c11 29.7 35.7 79.2 54.8 97.7 25.6 25 41.7 7.4 28.2-20.2-11.5-26.4-28-72-28-72 45.5 19.6 101.7.8 101.7-55.2 0-57.4-57.4-67.2-57.4-67.2 17.9 3.3 37.8-3.2 43.4-23.2 1.7-6.1 4.4-43.3 4.4-48.3 0-27.9-35-24.4-76.5 2.1C240.7 51.2 196.3 110.3 180 142z"/></svg></a>
-              <a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="X"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+              <a href="https://github.com/ContentLTD" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="GitHub" aria-label="GitHub profile"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+              <a href="https://bsky.app/profile/contentltd.xyz" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="Bluesky" aria-label="Bluesky profile"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 360 320" fill="currentColor" aria-hidden="true" focusable="false"><path d="M180 142c-16.3-31.7-60.7-90.8-102-120C36.6-.5 1.6-4 1.6 23.9c0 5 2.7 42.2 4.4 48.3 5.6 20 25.5 26.5 43.4 23.2 0 0-57.4 9.8-57.4 67.2 0 56 56.2 74.8 101.7 55.2 0 0-16.5 45.6-28 72C52 327.4 68.1 345 93.7 320c19.1-18.5 43.8-68 54.8-97.7 5.2-14 8.3-25 8.3-25H203s3.1 11 8.3 25c11 29.7 35.7 79.2 54.8 97.7 25.6 25 41.7 7.4 28.2-20.2-11.5-26.4-28-72-28-72 45.5 19.6 101.7.8 101.7-55.2 0-57.4-57.4-67.2-57.4-67.2 17.9 3.3 37.8-3.2 43.4-23.2 1.7-6.1 4.4-43.3 4.4-48.3 0-27.9-35-24.4-76.5 2.1C240.7 51.2 196.3 110.3 180 142z"/></svg></a>
+              <a href="https://x.com/contentltd_" target="_blank" rel="noopener noreferrer" class="feed-platform-link" title="X" aria-label="X profile"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
             </div>
           </header>
-          <div class="gh-feed" id="gh-feed">
+          <div class="gh-feed" id="gh-feed" aria-live="polite" aria-busy="true">
             <div class="gh-loading">Loading…</div>
           </div>
         </section>
 
-        <section class="gh-section steam-section s4" id="steam-section" hidden>
+        <section class="gh-section steam-section s4" id="steam-section" aria-labelledby="steam-section-title" hidden>
           <header class="gh-section-header">
-            <span class="section-label">Recently Played</span>
+            <h2 class="section-label" id="steam-section-title">Recently Played</h2>
             <div class="feed-platform-links">
-              <span class="feed-platform-link" title="Steam"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg></span>
+              <span class="feed-platform-link" title="Steam" role="img" aria-label="Steam"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg></span>
             </div>
           </header>
-          <div class="steam-games" id="steam-games"></div>
+          <div class="steam-games" id="steam-games" role="list"></div>
         </section>
 
-        <section class="gh-section obsession-section s5" id="obsession-section" hidden>
+        <section class="gh-section obsession-section s5" id="obsession-section" aria-labelledby="obsession-section-title" hidden>
           <header class="gh-section-header">
-            <span class="section-label">Current Obsession</span>
+            <h2 class="section-label" id="obsession-section-title">Current Obsession</h2>
           </header>
           <div class="obsession-card" id="obsession-card"></div>
         </section>
 
       </div>
 
-      
       <div class="tab-panel" id="panel-work" role="tabpanel" aria-labelledby="tab-work">
 
         <header class="main-header s1">
@@ -521,20 +642,20 @@
 
         <div class="info-card s3">
           <h3 class="info-card-title">My Techstack</h3>
-          <div class="techstack-grid">
-            <span class="tech-tag">
+          <div class="techstack-grid" role="list">
+            <span class="tech-tag" role="listitem">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" aria-hidden="true"><path fill="#e34c26" d="M64 32l34.9 395.8L256 480l157.1-52.2L448 32H64zm308 132H188l4 51h176l-13.6 148.4L256 393.2l-98.7-61.5-6.5-71.2h49l3.4 37.9 52.8 14.3 52.7-14.3 5.5-59.2H144.3l-12.2-131.6h248.4l-8.5 91.6z"/></svg>
               HTML
             </span>
-            <span class="tech-tag">
+            <span class="tech-tag" role="listitem">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" aria-hidden="true"><path fill="#264de4" d="M64 32l34.9 395.8L256 480l157.1-52.2L448 32H64zm307.8 132.5l-4.3 47.4H184.6l4.3 47.4h178.6l-13.4 148.4-98 27.3-97.7-27.3-6.3-71.2h47.4l3.4 37.9 53.2 14.4 53.5-14.4 5.5-61.6H149.4l-12.2-131.6h237.6z"/></svg>
               CSS
             </span>
-            <span class="tech-tag">
+            <span class="tech-tag" role="listitem">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 630 630" aria-hidden="true"><rect width="630" height="630" fill="#f7df1e" rx="4"/><path d="M165.65 526.47l48.204-29.177c9.302 16.504 17.765 30.476 38.087 30.476 19.484 0 31.769-7.621 31.769-37.25V258.42h59.204v233.6c0 61.32-35.944 89.2-88.385 89.2-47.361 0-74.921-24.52-88.879-54.75M375.58 516.13l48.204-27.895c12.729 20.747 29.245 36.023 58.421 36.023 24.517 0 40.187-12.282 40.187-29.25 0-20.29-16.104-27.452-43.197-39.27l-14.822-6.371c-42.754-18.177-71.128-40.95-71.128-89.2 0-44.411 33.836-78.24 86.739-78.24 37.638 0 64.729 13.075 84.182 47.363l-46.066 29.549c-10.148-18.18-21.081-25.344-38.116-25.344-17.372 0-28.336 11.005-28.336 25.344 0 17.745 10.963 24.908 36.258 35.894l14.822 6.371c50.337 21.548 78.711 43.548 78.711 92.852 0 53.147-41.754 82.54-97.822 82.54-54.839 0-90.303-26.124-107.637-60.305"/></svg>
               JS
             </span>
-            <span class="tech-tag">
+            <span class="tech-tag" role="listitem">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 255" aria-hidden="true"><defs><linearGradient id="py-a" x1="12.959%" y1="12.039%" x2="79.639%" y2="78.201%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="py-b" x1="19.128%" y1="20.579%" x2="90.742%" y2="88.429%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs><path fill="url(#py-a)" d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z"/><path fill="url(#py-b)" d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z"/></svg>
               Python
             </span>
@@ -568,13 +689,13 @@
 
       </div>
 
-
       <div class="tab-panel" id="panel-lyrics" role="tabpanel" aria-labelledby="tab-lyrics">
 
         <div class="info-card s1 lyrics-card">
-          <h3 class="info-card-title">Lyrics</h3>
+          <h2 class="info-card-title">Lyrics</h2>
           <p class="lyrics-meta" id="lyrics-meta"></p>
-          <div class="lyrics-lines" id="lyrics-lines"></div>
+          <div class="lyrics-lines" id="lyrics-lines" role="region"
+               aria-label="Synced lyrics" tabindex="0"></div>
         </div>
 
       </div>
@@ -622,8 +743,6 @@
     var backBtn    = document.getElementById('cal-back-btn');
     if (!slider || !mainEl || !calPanel) return;
 
-    // Keep slider tall enough for whichever page is active so absolutely-
-    // positioned t-page children don't collapse the layout.
     function syncHeight() {
       var active = slider.getAttribute('data-page') === '2' ? calPanel : mainEl;
       slider.style.minHeight = active.scrollHeight + 'px';
@@ -634,7 +753,7 @@
       ro.observe(mainEl);
       ro.observe(calPanel);
     }
-    // Disable the exit-slide on first paint so page 1 doesn't ghost in.
+
     slider.style.setProperty('--page-exit-enabled', '0');
     requestAnimationFrame(function() {
       syncHeight();
@@ -643,10 +762,20 @@
       });
     });
 
+    var prefersReduced = window.matchMedia &&
+                         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function showPage(n) {
       slider.setAttribute('data-page', String(n));
       syncHeight();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+
+      if (window.srAnnounce) window.srAnnounce(n === 2 ? 'Booking page' : 'Main page');
+      var target = n === 2 ? calPanel : mainEl;
+      if (target) {
+        target.setAttribute('tabindex', '-1');
+        try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); }
+      }
     }
 
     var _calReady = false;
@@ -702,12 +831,8 @@
       });
     }
 
-    // Auto-size the embed to its content so no scrollbar is needed.
-    // Cal.com sends postMessage({originator:'CAL', type:'__dimensionChanged', data:{iframeHeight:N}})
-    // whenever its internal layout changes (month navigation, slot expansion, etc.).
     var calEl = document.getElementById('my-cal-inline-quick-chat');
-    // Cal.com's branding bar is ~44 px tall. We subtract it from the container
-    // height and rely on .cal-embed-card { overflow: hidden } to clip it.
+
     var CAL_BRAND_HEIGHT = 44;
     window.addEventListener('message', function(e) {
       if (!e.data || e.data.originator !== 'CAL') return;
@@ -717,84 +842,10 @@
       }
       if (h && calEl) {
         calEl.style.height = Math.max(200, h - CAL_BRAND_HEIGHT) + 'px';
-        // Let the slider recalculate so the sidebar stays flush.
+
         syncHeight();
       }
     });
-  });
-  </script>
-
-  <script data-cfasync="false">
-  document.addEventListener('DOMContentLoaded', function() {
-    var splash = document.getElementById('splash');
-    var btn = document.getElementById('splash-btn');
-    var audio = document.getElementById('bg-audio');
-    if (!splash) return;
-
-    var dismissed = false;
-    function dismiss() {
-      if (dismissed) return;
-      dismissed = true;
-      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      // Stage 1: fade out the prompt, fade in the "Arcadia Bay, OR" caption
-      splash.classList.add('entering');
-
-      var p1 = document.getElementById('ping-1');
-      var p2 = document.getElementById('ping-2');
-      var soundsOn = window.SITE_FLAGS ? window.SITE_FLAGS.enterSounds : true;
-      if (soundsOn && !reduced && p1) {
-        p1.volume = 0.45;
-        p1.play().catch(function(){});
-        setTimeout(function() {
-          if (p2) { p2.volume = 0.45; p2.play().catch(function(){}); }
-        }, 790);
-      }
-      if (audio && audio.paused) audio.play().catch(function(){});
-
-      // Stage 2: hold on the caption, then fade the splash out and the content in
-      var hold = reduced ? 500 : 2400;
-      setTimeout(function() {
-        splash.classList.add('hidden');
-        document.body.classList.add('entered');
-        setTimeout(function() { splash.style.display = 'none'; }, 950);
-        // Stage 3: once the content has faded in, gradually darken the photo
-        setTimeout(function() {
-          document.body.classList.add('bg-dimmed');
-        }, reduced ? 100 : 1300);
-        // Stage 4: mute-shortcut hint — 4 seconds, but never while hovered
-        var hint = document.getElementById('music-hint');
-        if (hint) {
-          setTimeout(function() {
-            hint.classList.add('visible');
-            hint.setAttribute('aria-hidden', 'false');
-            var hovering = false;
-            var expired = false;
-            function hideHint() {
-              hint.classList.remove('visible');
-              hint.setAttribute('aria-hidden', 'true');
-            }
-            hint.addEventListener('mouseenter', function() { hovering = true; });
-            hint.addEventListener('mouseleave', function() {
-              hovering = false;
-              if (expired) hideHint();
-            });
-            setTimeout(function() {
-              expired = true;
-              if (!hovering) hideHint();
-            }, 4000);
-          }, reduced ? 200 : 1000);
-        }
-        document.body.focus();
-      }, hold);
-    }
-
-    splash.addEventListener('click', function(e) { e.stopPropagation(); dismiss(); });
-    if (btn) btn.addEventListener('click', function(e) { e.stopPropagation(); dismiss(); });
-    splash.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { e.preventDefault(); dismiss(); }
-    });
-    splash.focus();
   });
   </script>
 
@@ -810,6 +861,8 @@
     var duration = document.getElementById('np-duration');
     var volBtn = document.getElementById('vol-btn');
     var slider = document.getElementById('vol-slider');
+    var playBtn = document.getElementById('np-playpause');
+    var skipBtn = document.getElementById('np-skip');
 
     var textSwapDur = parseFloat(
       getComputedStyle(document.documentElement).getPropertyValue('--text-swap-dur')
@@ -827,11 +880,7 @@
       }, textSwapDur);
     }
 
-    // Loads the song in a rolling 30-second window instead of grabbing the
-    // whole file up front: each hidden helper <audio> primes one section, and
-    // once the *next* section reports canplaythrough, the section behind it
-    // is dropped so at most two 30s windows are ever buffered at a time.
-    function setupChunkedPreload(url) {
+    function setupChunkedPreload(url, startAt) {
       var SECTION = 30;
       var LOOKAHEAD = 10;
       var chunks = new Map();
@@ -863,46 +912,161 @@
         chunks.set(idx, el);
       }
 
-      preload(0);
+      preload(Math.max(0, Math.floor((startAt || 0) / SECTION)));
 
       var currentSection = -1;
-      audio.addEventListener('timeupdate', function() {
+      function onTimeUpdate() {
         var sec = Math.floor(audio.currentTime / SECTION);
         if (sec !== currentSection) currentSection = sec;
         if (!chunks.has(sec)) preload(sec);
         var sectionEnd = (sec + 1) * SECTION;
         if (audio.currentTime >= sectionEnd - LOOKAHEAD) preload(sec + 1);
+      }
+      audio.addEventListener('timeupdate', onTimeUpdate);
+
+      return function teardown() {
+        audio.removeEventListener('timeupdate', onTimeUpdate);
+        Array.from(chunks.keys()).forEach(unload);
+      };
+    }
+
+    audio.volume = 0.25;
+    slider.value = 0.25;
+
+    var FIRST_TRACK = 'Through the Cellar Door';
+    var queue = [];
+    var trackIdx = 0;
+    var stopPreload = null;
+
+    var STORE_KEY = 'site-music-state';
+    var RESUME_MAX_AGE = 12 * 60 * 60 * 1000;
+    var pendingSeek = 0;
+
+    function readState() {
+      try {
+        var raw = localStorage.getItem(STORE_KEY);
+        if (!raw) return null;
+        var s = JSON.parse(raw);
+        if (!s || typeof s.file !== 'string') return null;
+        if (s.savedAt && Date.now() - s.savedAt > RESUME_MAX_AGE) return null;
+        return s;
+      } catch (e) { return null; }
+    }
+
+    function saveState() {
+      var track = queue[trackIdx];
+      if (!track) return;
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify({
+          file: track.file,
+          time: audio.currentTime || 0,
+          savedAt: Date.now()
+        }));
+      } catch (e) {}
+    }
+
+    function showDmcaNotice() {
+      var npSection = document.querySelector('.now-playing');
+      if (npSection) {
+        npSection.innerHTML = '<h2 class="section-label">Now Playing</h2><p class="np-dmca">This track has been DMCA&rsquo;d by its owner.</p>';
+      }
+    }
+
+    function loadTrack(i, autoplay, seekTo) {
+      var track = queue[i];
+      if (!track) return;
+      trackIdx = i;
+      pendingSeek = seekTo || 0;
+
+      if (stopPreload) { stopPreload(); stopPreload = null; }
+
+      audio.preload = 'metadata';
+      audio.src = track.file;
+      audio.load();
+      stopPreload = setupChunkedPreload(track.file, pendingSeek);
+
+      cover.src = track.cover;
+      cover.alt = '';
+      cover.classList.remove('new');
+      void cover.offsetWidth;
+      cover.classList.add('new');
+      swapText(title, track.name);
+      swapText(artist, track.artist);
+      album.textContent = track.album;
+
+      title.title = track.name;
+      artist.title = track.artist;
+
+      current.textContent = fmt(pendingSeek);
+      duration.textContent = '0:00';
+      fill.style.transform = 'scaleX(0)';
+
+      document.dispatchEvent(new CustomEvent('np:trackchange', { detail: track }));
+
+      saveState();
+      if (autoplay) audio.play().catch(function(){});
+    }
+
+    function nextTrack(autoplay) {
+      if (!queue.length) return;
+      loadTrack((trackIdx + 1) % queue.length, autoplay !== false);
+    }
+
+    var gestureArmed = false;
+    function startPlayback() {
+      window.onSiteEnter(function() {
+        var p = audio.play();
+        if (p && p.catch) p.catch(armGesture);
       });
+    }
+    function armGesture() {
+      if (gestureArmed) return;
+      gestureArmed = true;
+      var events = ['pointerdown', 'keydown', 'touchstart'];
+      function go() {
+        events.forEach(function(ev) { document.removeEventListener(ev, go); });
+        gestureArmed = false;
+        audio.play().catch(function(){});
+      }
+      events.forEach(function(ev) { document.addEventListener(ev, go, { passive: true }); });
     }
 
     try {
-      var res = await fetch('/data/music.json');
-      var data = await res.json();
-      var song = data.song;
 
-      if (song.dmca) {
-        var npSection = document.querySelector('.now-playing');
-        if (npSection) {
-          npSection.innerHTML = '<p class="section-label">Now Playing</p><p class="np-dmca">This track has been DMCA&rsquo;d by its owner.</p>';
-        }
+      var data = await (window.__musicData || fetch('/data/music.json').then(function(r) { return r.json(); }));
+
+      var tracks = (data.tracks || (data.song ? [data.song] : [])).slice();
+      queue = tracks.filter(function(t) { return t && t.file && !t.dmca; });
+      queue.sort(function(a, b) {
+        return (b.name === FIRST_TRACK) - (a.name === FIRST_TRACK);
+      });
+
+      if (!queue.length) {
+        showDmcaNotice();
       } else {
-        audio.src = song.file;
-        setupChunkedPreload(song.file);
-        cover.src = song.cover;
-        cover.alt = song.album;
-        cover.classList.remove('new');
-        void cover.offsetWidth;
-        cover.classList.add('new');
-        swapText(title, song.name);
-        swapText(artist, song.artist);
-        album.textContent = song.album;
+
+        var saved = readState();
+        var savedIdx = saved ? queue.findIndex(function(t) { return t.file === saved.file; }) : -1;
+
+        if (savedIdx >= 0) loadTrack(savedIdx, false, saved.time || 0);
+        else loadTrack(0, false);
+
+        startPlayback();
       }
     } catch (e) {
       swapText(title, 'Unable to load');
     }
 
-    audio.volume = 0.25;
-    slider.value = 0.25;
+    audio.addEventListener('loadedmetadata', function() {
+      if (!pendingSeek) return;
+
+      if (isFinite(audio.duration) && pendingSeek < audio.duration - 1) {
+        try { audio.currentTime = pendingSeek; } catch (e) {}
+      }
+      pendingSeek = 0;
+    });
+
+    audio.addEventListener('ended', function() { nextTrack(true); });
 
     var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -911,11 +1075,12 @@
     var lastVol = 0.25;
 
     function setIcon(vol, muted) {
-      var icon = document.getElementById('vol-icon');
-      if (!icon) return;
-      if (muted || vol === 0) { icon.textContent = '\uD83D\uDD07'; volBtn.setAttribute('aria-label', 'Unmute'); }
-      else if (vol < 0.4)    { icon.textContent = '\uD83D\uDD09'; volBtn.setAttribute('aria-label', 'Mute'); }
-      else                   { icon.textContent = '\uD83D\uDD0A'; volBtn.setAttribute('aria-label', 'Mute'); }
+      if (slider) slider.setAttribute('aria-valuetext',
+        muted ? 'Muted' : Math.round(vol * 100) + '%');
+      if (!volBtn) return;
+      var state = (muted || vol === 0) ? 'muted' : (vol < 0.4 ? 'low' : 'high');
+      volBtn.setAttribute('data-vol-state', state);
+      volBtn.setAttribute('aria-label', state === 'muted' ? 'Unmute' : 'Mute');
     }
 
     if (isIOS) {
@@ -979,10 +1144,54 @@
       duration.textContent = fmt(audio.duration);
     });
 
+    function syncPlayBtn() {
+      if (!playBtn) return;
+      var playing = !audio.paused;
+      playBtn.classList.toggle('is-playing', playing);
+      playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+    }
+
+    if (playBtn) {
+      playBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (audio.paused) audio.play().catch(function(){});
+        else audio.pause();
+      });
+    }
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+
+        nextTrack(!audio.paused);
+        saveState();
+      });
+    }
+
+    audio.addEventListener('play', syncPlayBtn);
+    audio.addEventListener('pause', function() { syncPlayBtn(); saveState(); });
+    syncPlayBtn();
+
+    var lastSave = 0;
+    var npBar = document.getElementById('np-bar');
     audio.addEventListener('timeupdate', function() {
       current.textContent = fmt(audio.currentTime);
       var pct = audio.duration ? audio.currentTime / audio.duration : 0;
       fill.style.transform = 'scaleX(' + pct + ')';
+
+      if (npBar) {
+        npBar.setAttribute('aria-valuenow', Math.round(pct * 100));
+        npBar.setAttribute('aria-valuetext',
+          fmt(audio.currentTime) + ' of ' + fmt(audio.duration));
+      }
+
+      var now = Date.now();
+      if (now - lastSave > 2000) { lastSave = now; saveState(); }
+    });
+
+    window.addEventListener('pagehide', saveState);
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') saveState();
     });
   });
   </script>
@@ -1030,7 +1239,7 @@
               ${exp.links.map(link => `
                 <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="exp-link">
                   ${link.label}
-                  <span class="exp-link-arrow">↗</span>
+                  <span class="exp-link-arrow" aria-hidden="true">↗</span>
                 </a>
               `).join('')}
             </div>
@@ -1260,7 +1469,7 @@
 
   <script data-cfasync="false">
   document.addEventListener('DOMContentLoaded', function() {
-    // If user has picked a custom locale, use it immediately — skip IP fetch
+
     try {
       var _cs = JSON.parse(localStorage.getItem('site-settings') || '{}');
       if (_cs.customLocale) {
@@ -1291,14 +1500,10 @@
         var asnLower = (d.asn || '').toLowerCase();
         var vpnReason = null;
 
-        // ─── 1. Bogon / private / reserved ranges ─────────────────────────
         if (d.bogon === true) {
           vpnReason = 'Bogon IP — reserved/private range';
         }
 
-        // ─── 2. Tier-1 commercial VPN brands (consumer) ───────────────────
-        // Covers NordVPN, ExpressVPN, Surfshark, ProtonVPN, Mullvad, PIA,
-        // CyberGhost, IPVanish, TunnelBear, Windscribe, VyprVPN, HMA, etc.
         else if (/\b(nordvpn|nordlynx|nordwhisper|tefincom)\b/i.test(orgLower)) {
           vpnReason = 'NordVPN infrastructure: ' + d.org;
         } else if (/\b(expressvpn|express vpn)\b/i.test(orgLower)) {
@@ -1349,18 +1554,14 @@
           vpnReason = 'Speedify: ' + d.org;
         }
 
-        // ─── 3. Residential proxy / mobile proxy / rotating proxy orgs ────
         else if (/\b(bright ?data|luminati|netnut|smartproxy|oxylabs|soax|iproyal|froxy|geonode|shifter|stormproxies|rayobyte|blazing ?seo)\b/i.test(orgLower)) {
           vpnReason = 'Residential/rotating proxy: ' + d.org;
         }
 
-        // ─── 4. Tor exit nodes ────────────────────────────────────────────
         else if (/\b(tor|calyx institute|nos oignons|torservers|artikel 10|chaos computer club|foundation for applied privacy|digitalcourage|riseup)\b/i.test(orgLower)) {
           vpnReason = 'Tor exit node / Tor-friendly org: ' + d.org;
         }
 
-        // ─── 5. Cloud / datacenter / hosting providers (no residential user would be here) ─
-        // Big-3 hyperscalers
         else if (/\b(amazon|aws|amazon\.com|amazon technologies|amazon-02|amazon data services)\b/i.test(orgLower)) {
           vpnReason = 'Amazon AWS datacenter: ' + d.org;
         } else if (/\b(google|google cloud|google llc|google-cloud-platform)\b/i.test(orgLower)) {
@@ -1368,7 +1569,7 @@
         } else if (/\b(microsoft|azure|microsoft corporation|microsoft azure)\b/i.test(orgLower)) {
           vpnReason = 'Microsoft Azure datacenter: ' + d.org;
         }
-        // Other major hyperscalers / cloud
+
         else if (/\b(oracle|oracle corporation|oracle cloud)\b/i.test(orgLower)) {
           vpnReason = 'Oracle Cloud: ' + d.org;
         } else if (/\b(ibm|ibm cloud|softlayer)\b/i.test(orgLower)) {
@@ -1411,12 +1612,10 @@
           vpnReason = 'Constant/Choopa hosting: ' + d.org;
         }
 
-        // ─── 6. Known VPN-friendly bulletproof/budget hosts ───────────────
         else if (/\b(clouvider|m247|datacamp|bandwidth technologies|latitude\.sh|packethub|packethub s\.a\.?|privatelayer|ipxo|hostkey|selectel|timeweb|reg\.ru|king servers|vdsina|flyservers|ddos-guard|stark industries|global layer|servers\.com)\b/i.test(orgLower)) {
           vpnReason = 'VPN-friendly host: ' + d.org;
         }
 
-        // ─── 7. Generic keywords (catch-all; last line of defense) ────────
         else if (/\bvpn\b/i.test(orgLower)) {
           vpnReason = 'Generic "VPN" keyword in org: ' + d.org;
         } else if (/\b(proxy|anonymizer|anonymize)\b/i.test(orgLower)) {
@@ -1425,14 +1624,12 @@
           vpnReason = 'Generic hosting/datacenter keyword: ' + d.org;
         }
 
-        // ─── 8. ASN cross-check (cloud/hosting ASNs) ──────────────────────
-        // Residential ISPs almost never match these AS numbers.
         else if (asnLower) {
-          // Extract the ASN number from the "AS12345" format ipapi returns
+
           var asnMatch = asnLower.match(/as(\d+)/);
           if (asnMatch) {
             var asn = parseInt(asnMatch[1], 10);
-            // Well-known datacenter / cloud ASNs
+
             var DATACENTER_ASNS = {
               14061:'DigitalOcean', 16509:'Amazon AWS', 14618:'Amazon AWS',
               15169:'Google', 396982:'Google Cloud', 8075:'Microsoft',
@@ -1470,7 +1667,7 @@
           el.textContent = 'Nice VPN :>';
           return;
         }
-        // Airport proximity detection — within ~3 km of a known airport
+
         if (d.latitude && d.longitude && window.US_AIRPORTS) {
           var _hav = function(la1,lo1,la2,lo2) {
             var R=6371,dLa=(la2-la1)*Math.PI/180,dLo=(lo2-lo1)*Math.PI/180;
@@ -1531,7 +1728,6 @@
     var SVG_X = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.268 5.638 5.896-5.638zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
     var SVG_STEAM = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>';
 
-    // ── Client-side rate-limit cache (5 min TTL) ──────────────────────────
     var FEED_TTL = 5 * 60 * 1000;
     var FEED_TTL_X = 24 * 60 * 60 * 1000;
     function getCachedFeed(key) {
@@ -1556,9 +1752,10 @@
       return Math.floor(diff / 2592000) + 'mo ago';
     }
 
-    function makeRow(iconSvg, platform, textHtml, timeStr, href) {
+    function makeRow(iconSvg, platform, textHtml, timeStr, href, iso) {
       var row = document.createElement('div');
       row.className = 'gh-event';
+      row.setAttribute('role', 'listitem');
       var ic = document.createElement('span');
       ic.className = 'feed-icon feed-icon-' + platform;
       ic.setAttribute('aria-hidden', 'true');
@@ -1566,8 +1763,10 @@
       var tx = document.createElement('span');
       tx.className = 'gh-text';
       tx.innerHTML = textHtml;
-      var tm = document.createElement('span');
+      tx.title = tx.textContent;
+      var tm = document.createElement(iso ? 'time' : 'span');
       tm.className = 'gh-time';
+      if (iso) tm.setAttribute('datetime', iso);
       tm.textContent = timeStr;
       row.appendChild(ic);
       row.appendChild(tx);
@@ -1577,7 +1776,6 @@
 
     var items = [];
 
-    // ── GitHub (5-min localStorage cache) ────────────────────────────────
     function processGhEvents(events) {
       var seen = new Set();
       events.filter(function(ev) {
@@ -1598,7 +1796,7 @@
           default: text = 'Activity on';
         }
         var repoHtml = ' <a href="https://github.com/' + repoFull + '" target="_blank" rel="noopener noreferrer" class="gh-repo">' + repoDisplay + '</a>';
-        items.push({ ts: new Date(ev.created_at).getTime(), platform: 'github', icon: SVG_GH, textHtml: text + repoHtml, time: relTime(ev.created_at) });
+        items.push({ ts: new Date(ev.created_at).getTime(), platform: 'github', icon: SVG_GH, textHtml: text + repoHtml, time: relTime(ev.created_at), iso: ev.created_at });
       });
     }
 
@@ -1615,7 +1813,6 @@
           processGhEvents(events);
         }).catch(function() {});
 
-    // ── Bluesky (5-min localStorage cache) ───────────────────────────────
     function processBskyFeed(feedItems) {
       (feedItems || []).forEach(function(item) {
         var post = item.post;
@@ -1625,12 +1822,12 @@
         var txt = (post.record && post.record.text) ? post.record.text : 'Post';
         var preview = txt.length > 60 ? txt.slice(0, 57) + '\u2026' : txt;
         var textHtml = '\u201c<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="gh-repo">' + preview.replace(/</g, '&lt;') + '</a>\u201d';
-        items.push({ ts: new Date(post.indexedAt).getTime(), platform: 'bsky', icon: SVG_BSK, textHtml: textHtml, time: relTime(post.indexedAt) });
+        items.push({ ts: new Date(post.indexedAt).getTime(), platform: 'bsky', icon: SVG_BSK, textHtml: textHtml, time: relTime(post.indexedAt), iso: post.indexedAt });
       });
     }
 
     var bskyCached = getCachedFeed('bsky');
-    // bust any cached empty result from before filter param was added
+
     if (bskyCached && bskyCached.length === 0) { localStorage.removeItem('__feed_bsky'); bskyCached = null; }
     var bskyPromise = bskyCached
       ? Promise.resolve().then(function() { processBskyFeed(bskyCached); })
@@ -1641,14 +1838,13 @@
             processBskyFeed(d.feed || []);
           }).catch(function(err) { console.error('[bsky]', err); });
 
-    // ── X / Twitter via Worker proxy (5-min localStorage cache) ──────────
     function processXTweets(tweets) {
       (tweets || []).forEach(function(t) {
         var url = 'https://x.com/contentltd_/status/' + t.id;
         var txt = t.text || '';
         var preview = txt.length > 60 ? txt.slice(0, 57) + '\u2026' : txt;
         var textHtml = '\u201c<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="gh-repo">' + preview.replace(/</g, '&lt;') + '</a>\u201d';
-        items.push({ ts: new Date(t.created_at).getTime(), platform: 'x', icon: SVG_X, textHtml: textHtml, time: relTime(t.created_at) });
+        items.push({ ts: new Date(t.created_at).getTime(), platform: 'x', icon: SVG_X, textHtml: textHtml, time: relTime(t.created_at), iso: t.created_at });
       });
     }
 
@@ -1664,13 +1860,12 @@
             }
           }).catch(function() {});
 
-    // ── Steam via Worker proxy (5-min localStorage cache) ────────────────
     function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
 
     function processSteamData(d) {
       (d.recentAchievements || []).forEach(function(a) {
         var textHtml = 'Unlocked “' + esc(a.achievementName) + '” in <span class="gh-repo">' + esc(a.game) + '</span>';
-        items.push({ ts: new Date(a.unlockedAt).getTime(), platform: 'steam', icon: SVG_STEAM, textHtml: textHtml, time: relTime(a.unlockedAt) });
+        items.push({ ts: new Date(a.unlockedAt).getTime(), platform: 'steam', icon: SVG_STEAM, textHtml: textHtml, time: relTime(a.unlockedAt), iso: a.unlockedAt });
       });
       renderSteamGames(d.recentGames || []);
     }
@@ -1683,6 +1878,7 @@
       games.forEach(function(g) {
         var card = document.createElement('div');
         card.className = 'steam-game';
+        card.setAttribute('role', 'listitem');
         var cover = document.createElement('img');
         cover.className = 'steam-game-cover';
         cover.src = g.coverUrl;
@@ -1697,6 +1893,7 @@
         var name = document.createElement('span');
         name.className = 'steam-game-name';
         name.textContent = g.name;
+        name.title = g.name;
         var hours = document.createElement('span');
         hours.className = 'steam-game-hours';
         hours.textContent = g.hoursRecent + 'h past 2 weeks · ' + g.hoursTotal + 'h total';
@@ -1722,11 +1919,15 @@
     await Promise.allSettled([ghPromise, bskyPromise, xPromise, steamPromise]);
 
     feed.innerHTML = '';
+    feed.setAttribute('aria-busy', 'false');
+
+    feed.setAttribute('role', 'list');
     items.sort(function(a, b) { return b.ts - a.ts; }).slice(0, 10).forEach(function(item) {
-      feed.appendChild(makeRow(item.icon, item.platform, item.textHtml, item.time, null));
+      feed.appendChild(makeRow(item.icon, item.platform, item.textHtml, item.time, null, item.iso));
     });
 
     if (!feed.children.length) {
+      feed.removeAttribute('role');
       var empty = document.createElement('p');
       empty.className = 'gh-loading';
       empty.textContent = 'No recent activity.';
@@ -1779,6 +1980,7 @@
         }
         name.className = 'obsession-name';
         name.textContent = o.name;
+        name.title = o.name;
         info.appendChild(name);
 
         if (o.note) {
@@ -1803,7 +2005,7 @@
   </script>
 
   <script data-cfasync="false">
-  
+
   (function() {
     'use strict';
 
@@ -1907,7 +2109,6 @@
       lightning: document.getElementById('sky-lightning')
     };
     var skyEl = document.getElementById('sky');
-    var dotEl = document.getElementById('wx-dot');
     var textEl = document.getElementById('wx-text');
     var lightningTimer = null;
     window._skyLT = { get: function() { return lightningTimer; }, clear: function() { if (lightningTimer) { clearTimeout(lightningTimer); lightningTimer = null; } } };
@@ -2574,7 +2775,12 @@
       stroke(0);
     }
 
+    var _lastFlash = 0;
     function triggerFlash(intensity) {
+
+      var _now = Date.now();
+      if (_now - _lastFlash < 1000) return;
+      _lastFlash = _now;
       document.body.style.setProperty('--wx-flash-intensity', intensity.toFixed(2));
       document.body.style.setProperty('--wx-flash-x', (15 + Math.random() * 70).toFixed(0) + '%');
       document.body.style.setProperty('--wx-flash-y', (10 + Math.random() * 25).toFixed(0) + '%');
@@ -2641,7 +2847,6 @@
           break;
       }
 
-      if (dotEl) dotEl.className = 'wx-dot ' + (cond === 'clouds-heavy' || cond === 'clouds-light' ? 'clouds' : cond);
       if (textEl) textEl.textContent = info.label;
 
       skyEl.classList.add('ready');
@@ -2714,6 +2919,8 @@
   document.addEventListener('keydown', function(e) {
     var tag = e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target.isContentEditable) return;
+
+    if (window.__kbShortcutsOff) return;
     var audio = document.getElementById('bg-audio');
     if (!audio) return;
     if (e.key === 'm' || e.key === 'M') {
@@ -2738,8 +2945,8 @@
   });
   </script>
 
-  
-  <button class="settings-fab" id="settings-fab" aria-label="Settings" aria-expanded="false">
+  <aside class="settings-shell" aria-label="Site settings">
+  <button class="settings-fab" id="settings-fab" aria-label="Settings" aria-expanded="false" aria-controls="settings-panel" aria-haspopup="true">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
   </button>
   <div class="settings-panel t-dropdown" id="settings-panel" data-origin="bottom-right" aria-label="Settings">
@@ -2773,6 +2980,18 @@
       <label class="settings-label" for="tog-large">Large text</label>
       <button role="switch" class="settings-toggle" id="tog-large" aria-checked="false"></button>
     </div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-underline">Underline links</label>
+      <button role="switch" class="settings-toggle" id="tog-underline" aria-checked="false"></button>
+    </div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-shortcuts">Key shortcuts</label>
+      <button role="switch" class="settings-toggle" id="tog-shortcuts" aria-checked="true"></button>
+    </div>
+    <div class="settings-row">
+      <label class="settings-label" for="tog-pausevid">Pause backdrop</label>
+      <button role="switch" class="settings-toggle" id="tog-pausevid" aria-checked="false"></button>
+    </div>
 
     <div class="settings-divider"></div>
     <div class="settings-section-label">Privacy</div>
@@ -2780,10 +2999,11 @@
       <span class="settings-label" style="pointer-events:none">Hide locale</span>
       <span class="locale-row-right">
         <span class="locale-active-badge" id="locale-active-badge" style="display:none"></span>
-        <span class="settings-chevron">›</span>
+        <span class="settings-chevron" aria-hidden="true">›</span>
       </span>
     </button>
   </div>
+  </aside>
 
   <script>
   (function() {
@@ -2795,8 +3015,28 @@
     var togOled      = document.getElementById('tog-oled');
     var togContrast  = document.getElementById('tog-contrast');
     var togLarge     = document.getElementById('tog-large');
+    var togUnderline = document.getElementById('tog-underline');
+    var togShortcuts = document.getElementById('tog-shortcuts');
+    var togPauseVid  = document.getElementById('tog-pausevid');
     var localeRow    = document.getElementById('open-locale-picker');
     var localeBadge  = document.getElementById('locale-active-badge');
+
+    var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+
+    function syncVideoPlayback() {
+      var v = document.getElementById('bg-video');
+      if (!v) return;
+      var stopped = document.documentElement.classList.contains('vid-paused') ||
+                    togMotion.getAttribute('aria-checked') === 'true' ||
+                    (mqReduce && mqReduce.matches);
+      if (stopped) { v.pause(); }
+      else if (window.SITE_ENTERED) { v.play().catch(function(){}); }
+    }
+    if (mqReduce) {
+      var onMq = function() { syncVideoPlayback(); };
+      if (mqReduce.addEventListener) mqReduce.addEventListener('change', onMq);
+      else if (mqReduce.addListener) mqReduce.addListener(onMq);
+    }
 
     function loadSettings() {
       try { return JSON.parse(localStorage.getItem('site-settings') || '{}'); } catch(e) { return {}; }
@@ -2812,6 +3052,7 @@
       togMotion.classList.toggle('is-on', on);
       if (on && window._skyLT) window._skyLT.clear();
       if (!on && window.wx && window.wx.resumeLightning) window.wx.resumeLightning();
+      syncVideoPlayback();
     }
     function applyFont(on) {
       document.documentElement.classList.toggle('font-inter', on);
@@ -2843,6 +3084,22 @@
       togOled.setAttribute('aria-checked', on ? 'true' : 'false');
       togOled.classList.toggle('is-on', on);
     }
+    function applyUnderline(on) {
+      document.documentElement.classList.toggle('a11y-underline', on);
+      togUnderline.setAttribute('aria-checked', on ? 'true' : 'false');
+      togUnderline.classList.toggle('is-on', on);
+    }
+    function applyShortcuts(on) {
+      window.__kbShortcutsOff = !on;
+      togShortcuts.setAttribute('aria-checked', on ? 'true' : 'false');
+      togShortcuts.classList.toggle('is-on', on);
+    }
+    function applyPauseVid(on) {
+      document.documentElement.classList.toggle('vid-paused', on);
+      togPauseVid.setAttribute('aria-checked', on ? 'true' : 'false');
+      togPauseVid.classList.toggle('is-on', on);
+      syncVideoPlayback();
+    }
 
     var s = loadSettings();
     applyMotion(!!s.reducedMotion);
@@ -2851,6 +3108,9 @@
     applyLarge(!!s.largeText);
     applyMono(!!s.monochrome);
     applyOled(!!s.oled);
+    applyUnderline(!!s.underlineLinks);
+    applyShortcuts(s.kbShortcuts !== false);
+    applyPauseVid(!!s.pauseVideo);
     if (s.customLocale && localeBadge) {
       var _cl = s.customLocale;
       localeBadge.textContent = typeof _cl === 'object' ? (_cl.displayLabel || _cl.label) : _cl;
@@ -2880,6 +3140,12 @@
     document.addEventListener('click', function(e) {
       if (panel.classList.contains('is-open') && !panel.contains(e.target) && e.target !== fab) {
         closePanel();
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+        closePanel();
+        fab.focus();
       }
     });
 
@@ -2913,6 +3179,21 @@
       applyOled(next);
       var st = loadSettings(); st.oled = next; saveSettings(st);
     });
+    togUnderline.addEventListener('click', function() {
+      var next = togUnderline.getAttribute('aria-checked') !== 'true';
+      applyUnderline(next);
+      var st = loadSettings(); st.underlineLinks = next; saveSettings(st);
+    });
+    togShortcuts.addEventListener('click', function() {
+      var next = togShortcuts.getAttribute('aria-checked') !== 'true';
+      applyShortcuts(next);
+      var st = loadSettings(); st.kbShortcuts = next; saveSettings(st);
+    });
+    togPauseVid.addEventListener('click', function() {
+      var next = togPauseVid.getAttribute('aria-checked') !== 'true';
+      applyPauseVid(next);
+      var st = loadSettings(); st.pauseVideo = next; saveSettings(st);
+    });
 
     if (localeRow) {
       localeRow.addEventListener('click', function() {
@@ -2922,8 +3203,6 @@
     }
   })();
   </script>
-
-  <script src="/assets/contrast-engine.js" defer></script>
 
   <script>
   (function() {
@@ -2939,19 +3218,34 @@
     var tabBar = document.getElementById('main-tabs');
     if (tabBar && tabBar.querySelectorAll('.main-tab').length < 2) tabBar.hidden = true;
 
-    var tabs = document.querySelectorAll('.main-tab');
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.main-tab'));
     var panels = document.querySelectorAll('.tab-panel');
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        tabs.forEach(function(t) {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        panels.forEach(function(p) { p.classList.remove('active'); });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        var panelId = tab.getAttribute('aria-controls');
-        document.getElementById(panelId).classList.add('active');
+
+    function activateTab(tab) {
+      tabs.forEach(function(t) {
+        var on = t === tab;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.setAttribute('tabindex', on ? '0' : '-1');
+      });
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      var panel = document.getElementById(tab.getAttribute('aria-controls'));
+      if (panel) panel.classList.add('active');
+    }
+
+    tabs.forEach(function(tab, i) {
+      tab.setAttribute('tabindex', tab.classList.contains('active') ? '0' : '-1');
+      tab.addEventListener('click', function() { activateTab(tab); });
+      tab.addEventListener('keydown', function(e) {
+        var next = null;
+        if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        else return;
+        e.preventDefault();
+        next.focus();
+        activateTab(next);
       });
     });
   })();
@@ -2974,68 +3268,90 @@
       container.innerHTML = '<p class="lyrics-error">Unable to load lyrics.</p>';
     }
 
-    fetch('/data/obstacles.ttml')
-      .then(function(r) {
-        if (!r.ok) throw new Error('http ' + r.status);
-        return r.text();
-      })
-      .then(function(text) {
-        var xml = new DOMParser().parseFromString(text.trim(), 'application/xml');
-        if (xml.getElementsByTagName('parsererror').length) throw new Error('bad ttml');
+    var detachSync = null;
+    var loadToken = 0;
 
-        var cues = [];
-        var ps = xml.getElementsByTagName('p');
-        for (var i = 0; i < ps.length; i++) {
-          var begin = ps[i].getAttribute('begin');
-          var end = ps[i].getAttribute('end');
-          if (!begin || !end) continue;
-          cues.push({ start: parseTimestamp(begin), end: parseTimestamp(end), text: ps[i].textContent.trim() });
-        }
+    function reset() {
+      if (detachSync) { detachSync(); detachSync = null; }
+      container.innerHTML = '';
+    }
 
-        var lines = [];
-        cues.forEach(function(cue) {
-          if (!cue.text) return; // instrumental gap — nothing to render
-          var line = document.createElement('p');
-          line.className = 'lyrics-line';
-          line.textContent = cue.text;
-          container.appendChild(line);
-          lines.push({ el: line, cue: cue });
+    function render(track) {
+      var token = ++loadToken;
+      reset();
+
+      if (metaEl) metaEl.textContent = track ? track.name + ' — ' + track.artist : '';
+
+      if (!track || !track.lyrics) {
+        container.innerHTML = '<p class="lyrics-error">No synced lyrics for this track.</p>';
+        return;
+      }
+
+      fetch(track.lyrics)
+        .then(function(r) {
+          if (!r.ok) throw new Error('http ' + r.status);
+          return r.text();
+        })
+        .then(function(text) {
+          if (token !== loadToken) return;
+          var xml = new DOMParser().parseFromString(text.trim(), 'application/xml');
+          if (xml.getElementsByTagName('parsererror').length) throw new Error('bad ttml');
+
+          var cues = [];
+          var ps = xml.getElementsByTagName('p');
+          for (var i = 0; i < ps.length; i++) {
+            var begin = ps[i].getAttribute('begin');
+            var end = ps[i].getAttribute('end');
+            if (!begin || !end) continue;
+            cues.push({ start: parseTimestamp(begin), end: parseTimestamp(end), text: ps[i].textContent.trim() });
+          }
+
+          var lines = [];
+          cues.forEach(function(cue) {
+            if (!cue.text) return;
+            var line = document.createElement('p');
+            line.className = 'lyrics-line';
+            line.textContent = cue.text;
+            container.appendChild(line);
+            lines.push({ el: line, cue: cue });
+          });
+
+          if (!lines.length) { fail(); return; }
+
+          if (!audio) return;
+
+          var activeIdx = -1;
+          function update() {
+            var t = audio.currentTime;
+            var found = -1;
+            for (var i = 0; i < lines.length; i++) {
+              if (t >= lines[i].cue.start && t < lines[i].cue.end) { found = i; break; }
+            }
+            if (found === activeIdx) return;
+            if (activeIdx >= 0) lines[activeIdx].el.classList.remove('active');
+            activeIdx = found;
+            if (activeIdx >= 0) {
+              var activeEl = lines[activeIdx].el;
+              activeEl.classList.add('active');
+              activeEl.scrollIntoView({
+                block: 'center',
+                behavior: (window.matchMedia &&
+                           window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+                          ? 'auto' : 'smooth'
+              });
+            }
+          }
+
+          audio.addEventListener('timeupdate', update);
+          detachSync = function() { audio.removeEventListener('timeupdate', update); };
+          update();
+        })
+        .catch(function() {
+          if (token === loadToken) fail();
         });
+    }
 
-        if (!lines.length) { fail(); return; }
-
-        if (!audio) return;
-
-        var activeIdx = -1;
-        function update() {
-          var t = audio.currentTime;
-          var found = -1;
-          for (var i = 0; i < lines.length; i++) {
-            if (t >= lines[i].cue.start && t < lines[i].cue.end) { found = i; break; }
-          }
-          if (found === activeIdx) return;
-          if (activeIdx >= 0) lines[activeIdx].el.classList.remove('active');
-          activeIdx = found;
-          if (activeIdx >= 0) {
-            var activeEl = lines[activeIdx].el;
-            activeEl.classList.add('active');
-            activeEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
-          }
-        }
-
-        audio.addEventListener('timeupdate', update);
-        update();
-      })
-      .catch(fail);
-
-    fetch('/data/music.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        if (metaEl && data.song && !data.song.dmca) {
-          metaEl.textContent = data.song.name + ' — ' + data.song.artist;
-        }
-      })
-      .catch(function() {});
+    document.addEventListener('np:trackchange', function(e) { render(e.detail); });
   })();
   </script>
 
@@ -3056,7 +3372,6 @@
   })();
   </script>
 
-  
   <div class="locale-modal-backdrop" id="locale-modal" role="dialog" aria-modal="true" aria-labelledby="locale-modal-ttl" aria-hidden="true">
     <div class="locale-modal-card">
       <div class="locale-modal-hdr">
@@ -3066,6 +3381,7 @@
         </button>
       </div>
       <div class="locale-search-bar">
+        <label class="sr-only" for="locale-search">Search for a city or airport</label>
         <input type="text" id="locale-search" placeholder="Search any US city…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="locale-results">
         <ul class="locale-results" id="locale-results" role="listbox" aria-label="City suggestions"></ul>
       </div>
@@ -3195,7 +3511,7 @@
     var _map = null;
     var _markers = [];
     var _airportMarkers = [];
-    var _selectedEntry = null; // { type:'city'|'airport'|'custom', idx?, data? }
+    var _selectedEntry = null;
 
     function loadSettings() {
       try { return JSON.parse(localStorage.getItem('site-settings') || '{}'); } catch(e) { return {}; }
@@ -3284,7 +3600,6 @@
         _airportMarkers.push(m);
       });
 
-      // Restore any previously saved selection
       var st = loadSettings();
       if (st.customLocale) {
         var saved = st.customLocale;
@@ -3320,17 +3635,45 @@
       document.head.appendChild(js);
     }
 
+    var _lastFocused = null;
+
+    function focusables(modal) {
+      return Array.prototype.filter.call(
+        modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+        function(el) {
+          return el.offsetWidth || el.offsetHeight || el.getClientRects().length;
+        });
+    }
+
+    function trapTab(e) {
+      if (e.key !== 'Tab') return;
+      var modal = document.getElementById('locale-modal');
+      if (!modal || !modal.classList.contains('is-open')) return;
+      var f = focusables(modal);
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+
     window.openLocalePicker = function() {
       var modal = document.getElementById('locale-modal');
       if (!modal) return;
+      _lastFocused = document.activeElement;
       _selectedEntry = null;
       document.getElementById('locale-search').value = '';
       document.getElementById('locale-confirm-btn').disabled = true;
       modal.setAttribute('aria-hidden', 'false');
       modal.style.display = 'flex';
+      document.addEventListener('keydown', trapTab, true);
       requestAnimationFrame(function() {
         requestAnimationFrame(function() {
           modal.classList.add('is-open');
+          var search = document.getElementById('locale-search');
+          if (search) search.focus();
           loadLeaflet(function() { setTimeout(initMap, 60); });
         });
       });
@@ -3341,10 +3684,12 @@
       if (!modal) return;
       modal.classList.remove('is-open');
       modal.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', trapTab, true);
       setTimeout(function() { modal.style.display = 'none'; }, 220);
+      if (_lastFocused && _lastFocused.focus) _lastFocused.focus();
+      _lastFocused = null;
     }
 
-    // ── Search dropdown ───────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', function() {
       var modal   = document.getElementById('locale-modal');
       var closeX  = document.getElementById('locale-modal-x');
@@ -3366,7 +3711,24 @@
       function closeResults() {
         results.classList.remove('is-open');
         search.setAttribute('aria-expanded', 'false');
+        search.removeAttribute('aria-activedescendant');
         _activeIdx = -1;
+      }
+
+      function setActive(items, idx) {
+        _activeIdx = idx;
+        items.forEach(function(el, i) {
+          var on = i === idx;
+          el.classList.toggle('is-active', on);
+          el.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        if (idx >= 0 && items[idx]) {
+          if (!items[idx].id) items[idx].id = 'locale-opt-' + idx;
+          search.setAttribute('aria-activedescendant', items[idx].id);
+          items[idx].scrollIntoView({ block: 'nearest' });
+        } else {
+          search.removeAttribute('aria-activedescendant');
+        }
       }
 
       function getAllResultItems() {
@@ -3391,6 +3753,7 @@
         if (shownAirports.length + shownCities.length === 0) {
           var emptyLi = document.createElement('li');
           emptyLi.className = 'locale-results-empty';
+          emptyLi.setAttribute('role', 'presentation');
           emptyLi.textContent = 'No results \u2014 search globally?';
           results.appendChild(emptyLi);
         } else {
@@ -3437,7 +3800,6 @@
           }
         }
 
-        // Always offer global search
         var customLi = document.createElement('li');
         customLi.className = 'locale-result-item locale-result-custom';
         customLi.setAttribute('role', 'option');
@@ -3452,6 +3814,7 @@
 
         results.classList.add('is-open');
         search.setAttribute('aria-expanded', 'true');
+        search.removeAttribute('aria-activedescendant');
         _activeIdx = -1;
 
         US_CITIES.forEach(function(c, i) {
@@ -3483,6 +3846,7 @@
           search.disabled = false;
           if (!data || !data.length) {
             search.value = '';
+            if (window.srAnnounce) window.srAnnounce('City not found, try again');
             search.placeholder = 'City not found \u2014 try again';
             setTimeout(function() { search.placeholder = 'Search any city\u2026'; }, 2500);
             return;
@@ -3502,6 +3866,7 @@
         .catch(function() {
           search.disabled = false;
           search.value = '';
+          if (window.srAnnounce) window.srAnnounce('Lookup failed, try again');
           search.placeholder = 'Lookup failed \u2014 try again';
           setTimeout(function() { search.placeholder = 'Search any city\u2026'; }, 2500);
         });
@@ -3514,14 +3879,10 @@
         if (!results.classList.contains('is-open') || !items.length) return;
         if (e.key === 'ArrowDown') {
           e.preventDefault();
-          if (_activeIdx < items.length - 1) _activeIdx++;
-          items.forEach(function(el, i) { el.classList.toggle('is-active', i === _activeIdx); });
-          if (items[_activeIdx]) items[_activeIdx].scrollIntoView({block:'nearest'});
+          setActive(items, _activeIdx < items.length - 1 ? _activeIdx + 1 : _activeIdx);
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
-          if (_activeIdx > 0) _activeIdx--;
-          items.forEach(function(el, i) { el.classList.toggle('is-active', i === _activeIdx); });
-          if (items[_activeIdx]) items[_activeIdx].scrollIntoView({block:'nearest'});
+          setActive(items, _activeIdx > 0 ? _activeIdx - 1 : _activeIdx);
         } else if (e.key === 'Enter') {
           e.preventDefault();
           if (_activeIdx !== -1 && items[_activeIdx]) {
@@ -3578,7 +3939,60 @@
   })();
   </script>
 
-  
+  <div id="sr-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+  (function() {
+    var announcer = document.getElementById('sr-announcer');
+    window.srAnnounce = function(msg) {
+      if (!announcer) return;
+
+      announcer.textContent = '';
+      setTimeout(function() { announcer.textContent = msg; }, 60);
+    };
+
+    var NEW_TAB = ' (opens in a new tab)';
+    function markExternal(root) {
+      var links = (root || document).querySelectorAll('a[target="_blank"]:not([data-newtab])');
+      Array.prototype.forEach.call(links, function(a) {
+        a.setAttribute('data-newtab', '');
+        if (a.textContent.indexOf('opens in a new tab') !== -1) return;
+        var note = document.createElement('span');
+        note.className = 'sr-only';
+        note.textContent = NEW_TAB;
+        a.appendChild(note);
+      });
+    }
+    markExternal();
+
+    var queued = false;
+    new MutationObserver(function() {
+      if (queued) return;
+      queued = true;
+      setTimeout(function() { queued = false; markExternal(); }, 250);
+    }).observe(document.body, { childList: true, subtree: true });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.main-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          window.srAnnounce(tab.textContent.trim() + ' panel shown');
+        });
+      });
+    });
+
+    var lastLine = null;
+    new MutationObserver(function() {
+      var active = document.querySelector('.lyrics-line.active');
+      if (active === lastLine) return;
+      if (lastLine) lastLine.removeAttribute('aria-current');
+      if (active) active.setAttribute('aria-current', 'true');
+      lastLine = active;
+    }).observe(document.documentElement, {
+      subtree: true, attributes: true, attributeFilter: ['class']
+    });
+  })();
+  </script>
+
   <div id="flashbang-toast" role="status" aria-live="polite">
     <span class="flashbang-icon">⚠️</span>
     <span>Flashbang warning: Cal.com didn't get the dark mode memo.</span>

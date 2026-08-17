@@ -1,9 +1,4 @@
-/* =====================================================================
-   studio-auth.js  —  Login + encrypted API client + paste-to-upload
-   Pairs with: norelease/blog-api/src/worker.js
-   Codes: 9981 = success, 88712 = fail
-   Transport: RSA-OAEP-256 wrap + AES-256-GCM per request.
-   ===================================================================== */
+
 
 (function () {
   const OK  = 9981;
@@ -17,7 +12,6 @@
   const te = new TextEncoder();
   const td = new TextDecoder();
 
-  /* ============ input sanitization ============ */
   function sanitizeStr(s, maxLen) {
     if (typeof s !== "string") return "";
     return s
@@ -27,7 +21,6 @@
       .slice(0, maxLen || 256);
   }
 
-  /* ============ base64url ============ */
   function b64uEnc(bytes) {
     const a = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
     let s = ""; for (let i = 0; i < a.length; i++) s += String.fromCharCode(a[i]);
@@ -41,12 +34,6 @@
     return out;
   }
 
-  /* ============ JWT store (encrypted at rest) ============
-     The JWT never sits in sessionStorage as plaintext.
-     A non-extractable AES-GCM CryptoKey is stored in IndexedDB, and
-     only {iv, ct} ciphertext is written to sessionStorage. Even if an
-     attacker reads sessionStorage, the bytes are useless without the
-     IDB key handle, which cannot be exfiltrated in raw form. */
   const IDB_NAME = "clt_studio_auth";
   const IDB_STORE = "keys";
   const IDB_KEY_ID = "jwt-wrap-v1";
@@ -91,7 +78,7 @@
     if (k) return k;
     k = await crypto.subtle.generateKey(
       { name: "AES-GCM", length: 256 },
-      false, // non-extractable
+      false,
       ["encrypt", "decrypt"]
     );
     await idbPut(IDB_KEY_ID, k);
@@ -124,7 +111,7 @@
         sessionStorage.setItem(TOKEN_KEY, b64uEnc(iv) + "." + b64uEnc(ct));
         sessionStorage.setItem(EXP_KEY, String(expires));
       } catch {
-        // Encryption failed: do not fall back to plaintext. Refuse to store.
+
         try { sessionStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(EXP_KEY); } catch {}
       }
     },
@@ -134,7 +121,6 @@
     },
   };
 
-  /* ============ RSA public key bootstrap ============ */
   let _pubKey = null;
   async function getPubKey() {
     if (_pubKey) return _pubKey;
@@ -148,7 +134,6 @@
     return _pubKey;
   }
 
-  /* ============ per-request session keys ============ */
   async function makeAesKey() {
     return crypto.subtle.generateKey(
       { name: "AES-GCM", length: 256 }, true, ["encrypt", "decrypt"]
@@ -173,7 +158,6 @@
     return JSON.parse(td.decode(pt));
   }
 
-  /* ============ encrypted POST helper ============ */
   async function encPost(path, bodyObj, { auth = true } = {}) {
     const aesKey  = await makeAesKey();
     const wrapped = await wrapAesKey(aesKey);
@@ -204,7 +188,6 @@
     return { status: r.status, body: env };
   }
 
-  /* ============ auth API ============ */
   async function login(username, password) {
     const u = sanitizeStr(username, 128);
     const p = sanitizeStr(password, 256);
@@ -226,11 +209,6 @@
     await authStore.clear();
   }
 
-  /* ============ encrypted studio bundle loader ============
-     The editor source is not served as a static file. After auth succeeds,
-     we fetch it over the same RSA+AES envelope, decrypt it in memory, and
-     execute it via a one-shot blob URL that is revoked immediately. An
-     unauthenticated visitor sees only this auth shell and the login modal. */
   let _bundleLoaded = false;
   async function loadStudioBundle() {
     if (_bundleLoaded) return true;
@@ -253,7 +231,7 @@
     return true;
   }
 
-  const MAX_UPLOAD_BYTES = 10 * 1024 * 1024; // 10 MB — must match worker MAX_UPLOAD_BYTES
+  const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
   const ALLOWED_MIME = new Set([
     "image/png", "image/jpeg", "image/webp", "image/gif",
     "image/avif", "image/svg+xml", "application/pdf",
@@ -264,7 +242,6 @@
     return typeof u === "string" && u.length < 2048 && MEDIA_HOST_ALLOW.test(u);
   }
 
-  /* ============ encrypted upload ============ */
   async function uploadBlob(blob, filename) {
     if (!authStore.isLikelyValid()) return { code: ERR, reason: "no-auth" };
     if (!blob || !blob.size)        return { code: ERR, reason: "empty" };
@@ -313,7 +290,6 @@
     return { code: ERR, reason: env.reason || "upload" };
   }
 
-  /* ============ login modal UI ============ */
   const MODAL_HTML = `
     <div class="auth-scrim" id="auth-scrim" role="dialog" aria-modal="true" aria-label="Sign in">
       <div class="auth-card">
@@ -395,7 +371,6 @@
     document.body.classList.remove("auth-gated");
   }
 
-  /* ============ init ============ */
   async function init() {
     try { await getPubKey(); }
     catch { console.warn("[studio-auth] pubkey unavailable; API is offline"); mountModal(); return; }
@@ -414,7 +389,6 @@
     mountModal();
   }
 
-  /* ============ paste / drop -> upload ============ */
   function toast(msg) {
     const t = document.getElementById("toast");
     if (!t) { console.log("[studio]", msg); return; }
@@ -447,7 +421,6 @@
     apiBase: API_BASE, codes: { OK, ERR },
   };
 
-  // If a media block of the right type is focused, fill it instead of inserting a new one.
   function fillOrInsert(kind, url, filename) {
     const focused = document.activeElement?.closest?.(".block");
     if (focused) {
@@ -471,7 +444,7 @@
   document.addEventListener("paste", async (e) => {
     if (!authStore.isLikelyValid()) return;
     const items = e.clipboardData?.items || [];
-    // Find a file item first — if present, block default paste immediately (before any await)
+
     let fileItem = null;
     for (const it of items) {
       if (it.kind === "file") {
@@ -482,7 +455,7 @@
       }
     }
     if (!fileItem) return;
-    e.preventDefault(); // stop browser inserting base64 inline — must be sync before any await
+    e.preventDefault();
     const kind = mimeToBlockType(fileItem.type);
     const url = await uploadAndInsert(fileItem, fileItem.name);
     if (!url) return;
