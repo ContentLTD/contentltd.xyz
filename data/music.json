@@ -1,10 +1,37 @@
 {
-  "song": {
-    "name": "Obstacles",
-    "artist": "Syd Matters",
-    "album": "Someday We Will Foresee Obstacles",
-    "cover": "https://auxcdn.contentltd.xyz/music/album_art.jpg",
-    "file": "https://auxcdn.contentltd.xyz/music/obsticles.mp3",
-    "dmca": false
-  }
+  "tracks": [
+    {
+      "name": "Through the Cellar Door",
+      "artist": "Lanterns on the Lake",
+      "album": "Beings",
+      "cover": "https://auxcdn.contentltd.xyz/music/lanterns.jpg",
+      "file": "https://auxcdn.contentltd.xyz/music/lanterns.mp3",
+      "dmca": false
+    },
+    {
+      "name": "No Below",
+      "artist": "Speedy Ortiz",
+      "album": "Major Arcana",
+      "cover": "https://auxcdn.contentltd.xyz/music/speedy.png",
+      "file": "https://auxcdn.contentltd.xyz/music/No%20Below.mp3",
+      "dmca": false
+    },
+    {
+      "name": "All I Wanted",
+      "artist": "Daughter",
+      "album": "Music From Before the Storm",
+      "cover": "https://auxcdn.contentltd.xyz/music/daughter.jpg",
+      "file": "https://auxcdn.contentltd.xyz/music/All%20I%20Wanted.mp3",
+      "dmca": false
+    },
+    {
+      "name": "Obstacles",
+      "artist": "Syd Matters",
+      "album": "Someday We Will Foresee Obstacles",
+      "cover": "https://auxcdn.contentltd.xyz/music/album_art.jpg",
+      "file": "https://auxcdn.contentltd.xyz/music/obsticles.mp3",
+      "lyrics": "/data/obstacles.ttml",
+      "dmca": false
+    }
+  ]
 }

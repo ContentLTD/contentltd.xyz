@@ -8,18 +8,14 @@ class DiscordProfileUpdater {
     this.isUpdating = false;
   }
 
-  
   async init() {
     console.log('🔄 Discord Profile Updater started');
-    
 
     await this.updateProfile();
-    
 
     setInterval(() => {
       this.updateProfile();
     }, this.updateInterval);
-    
 
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden && this.shouldUpdate()) {
@@ -28,14 +24,12 @@ class DiscordProfileUpdater {
     });
   }
 
-  
   shouldUpdate() {
     if (!this.lastUpdate) return true;
     const timeSinceUpdate = Date.now() - this.lastUpdate;
     return timeSinceUpdate > 30 * 60 * 1000;
   }
 
-  
   async fetchDiscordProfile() {
     try {
       const response = await fetch(`${this.workerUrl}/api/discord-profile`, {
@@ -56,7 +50,6 @@ class DiscordProfileUpdater {
     }
   }
 
-  
   async updateProfile() {
     if (this.isUpdating) {
       console.log('⏳ Update already in progress, skipping...');
@@ -64,25 +57,23 @@ class DiscordProfileUpdater {
     }
 
     this.isUpdating = true;
-    
+
     try {
       console.log('🔄 Fetching Discord profile data...');
       const profileData = await this.fetchDiscordProfile();
-      
+
       if (!profileData || profileData.error) {
         throw new Error(profileData?.message || 'Invalid profile data received');
       }
 
       this.updateProfilePicture(profileData.avatar);
-      
 
       if (profileData.banner) {
         this.updateBanner(profileData.banner);
       }
-      
 
       this.updateUsername(profileData.globalName || profileData.username);
-      
+
       this.lastUpdate = Date.now();
       console.log('✅ Profile updated successfully:', {
         username: profileData.globalName || profileData.username,
@@ -98,14 +89,12 @@ class DiscordProfileUpdater {
     }
   }
 
-  
   updateProfilePicture(avatarUrl) {
     const profileImg = document.querySelector('.profile-pic img');
     const ogImage = document.querySelector('meta[property="og:image"]');
-    
 
     const workerImageUrl = `${this.workerUrl}/pfp/image.png`;
-    
+
     if (profileImg) {
       profileImg.src = workerImageUrl;
       profileImg.alt = 'Discord Avatar';
@@ -113,19 +102,17 @@ class DiscordProfileUpdater {
     } else {
       console.log('❌ Profile picture element not found');
     }
-    
+
     if (ogImage) {
       ogImage.content = workerImageUrl;
     }
   }
 
-  
   updateBanner(bannerUrl) {
     const bannerBg = document.querySelector('.profile-ban-bg');
-    
 
     const workerBannerUrl = `${this.workerUrl}/banner/image.png`;
-    
+
     if (bannerBg) {
 
       bannerBg.style.background = `url('${workerBannerUrl}') no-repeat center center`;
@@ -136,7 +123,6 @@ class DiscordProfileUpdater {
     }
   }
 
-  
   updateUsername(username) {
 
     const usernameElement = document.querySelector('h1#username-typewriter');
@@ -146,7 +132,6 @@ class DiscordProfileUpdater {
     }
   }
 
-  
   async forceUpdate() {
     this.isUpdating = false;
     await this.updateProfile();
@@ -156,10 +141,9 @@ class DiscordProfileUpdater {
 document.addEventListener('DOMContentLoaded', () => {
 
   const WORKER_URL = 'https://profileapi.contentltd.xyz';
-  
+
   const updater = new DiscordProfileUpdater(WORKER_URL);
   updater.init();
-  
 
   window.discordUpdater = updater;
 });

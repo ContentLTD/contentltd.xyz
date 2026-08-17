@@ -15,8 +15,6 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
              radial-gradient(50% 40% at 88% 90%,rgba(74,140,92,.04),transparent 60%);}
 body.light{--base:#f3ede5;--surface:#e9e2d8;--surface-2:#dfd7cb;
   --text:#1a1410;--text-2:#5a4f44;--text-3:#998f84;--rule:rgba(0,0,0,.07);}
-
-/* ===================== CUSTOM CURSOR ===================== */
 .cur-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
   background:var(--accent);pointer-events:none;z-index:9999;
   transform:translate(-50%,-50%);transition:transform 80ms,background 200ms,opacity 200ms;
@@ -31,14 +29,10 @@ body.cursor-hover .cur-ring{width:48px;height:48px;
   border-color:color-mix(in oklab,var(--accent) 30%,transparent);}
 body.cursor-clicking .cur-dot{transform:translate(-50%,-50%) scale(.6);}
 @media(hover:none){.cur-dot,.cur-ring{display:none;}html,body{cursor:auto;}}
-
-/* ===================== READING PROGRESS ===================== */
 .progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;
   background:linear-gradient(90deg,var(--accent),color-mix(in oklab,var(--accent) 60%,white));
   z-index:200;transition:width 60ms linear,opacity 300ms;pointer-events:none;opacity:0;}
 .progress-bar.show{opacity:1;}
-
-/* ===================== MAST ===================== */
 .mast-wrap{position:sticky;top:0;z-index:20;
   backdrop-filter:blur(20px) saturate(1.4);
   -webkit-backdrop-filter:blur(20px) saturate(1.4);
@@ -50,7 +44,6 @@ body.light .mast-wrap{
 .mast{position:relative;z-index:5;
   display:flex;align-items:center;justify-content:space-between;
   padding:14px clamp(20px,5vw,80px);max-width:1400px;margin:0 auto;}
-/* animated wordmark — collapses to C. expands on hover */
 .mark{font-family:var(--font-display);font-size:21px;line-height:1;
   color:var(--text);letter-spacing:-.01em;cursor:pointer;
   display:inline-flex;align-items:baseline;overflow:hidden;
@@ -85,7 +78,6 @@ body.light .mast-wrap{
 .mast-right{display:flex;align-items:center;gap:20px;}
 .mast .meta{color:var(--text-3);font-variant-numeric:tabular-nums;font-size:13px;}
 .mast .meta b{color:var(--text-2);font-weight:500;}
-/* top nav links */
 .mast-nav{display:flex;align-items:center;gap:4px;}
 .mast-nav button{appearance:none;background:transparent;border:0;
   color:var(--text-3);font:inherit;font-size:13px;cursor:none;
@@ -94,19 +86,13 @@ body.light .mast-wrap{
 .mast-nav button:hover{color:var(--text);background:rgba(255,255,255,.06);}
 body.light .mast-nav button:hover{background:rgba(0,0,0,.05);}
 .mast-nav button.mast-active{color:var(--text);}
-
-/* ===================== MAIN ===================== */
 main{position:relative;z-index:5;max-width:1400px;margin:0 auto;
   padding:0 clamp(20px,5vw,80px) 200px;}
-
-/* view transitions */
 .view{display:none;opacity:0;transform:translateY(16px);}
 .view.active{display:block;opacity:1;animation:viewIn 400ms var(--ease-out) both;}
 .view.out{animation:viewOut 250ms var(--ease-in-out) forwards;}
 @keyframes viewIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
 @keyframes viewOut{from{opacity:1;transform:none;}to{opacity:0;transform:translateY(-10px);}}
-
-/* ===================== HERO ===================== */
 .hero{margin:clamp(40px,10vh,120px) 0 clamp(48px,8vh,96px);
   max-width:1060px;will-change:transform;}
 .hero-eye{display:block;margin-bottom:24px;font-size:11px;
@@ -126,8 +112,6 @@ main{position:relative;z-index:5;max-width:1400px;margin:0 auto;
   font-size:clamp(15px,1.4vw,18px);line-height:1.6;color:var(--text-2);
   opacity:0;animation:fadeUp 800ms 500ms var(--ease-out) forwards;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
-
-/* ===================== FEED ===================== */
 .feed-bar{display:flex;align-items:center;justify-content:space-between;
   padding-bottom:12px;border-bottom:1px solid var(--rule);margin-bottom:8px;}
 .feed-bar .feed-title{font-size:11px;text-transform:uppercase;
@@ -145,8 +129,6 @@ main{position:relative;z-index:5;max-width:1400px;margin:0 auto;
 .chips button.on{color:var(--accent);
   border-color:color-mix(in oklab,var(--accent) 40%,transparent);
   background:var(--accent-soft);}
-
-/* EDITORIAL GRID */
 .post-grid{display:grid;grid-template-columns:1fr 1fr;
   grid-auto-rows:auto;position:relative;}
 @media(max-width:700px){.post-grid{grid-template-columns:1fr;}}
@@ -165,14 +147,10 @@ main{position:relative;z-index:5;max-width:1400px;margin:0 auto;
 @media(max-width:700px){
   .post.col-l,.post.col-r{padding-left:0;padding-right:0;border-right:none;}
 }
-
-/* hover bg */
 .post::before{content:"";position:absolute;inset:0 -10px;
   background:var(--accent-soft);border-radius:8px;
   opacity:0;transition:opacity 200ms;z-index:-1;}
 .post:hover::before{opacity:1;}
-
-/* search highlights */
 .post.dimmed{opacity:.18!important;}
 .post.hi mark{background:color-mix(in oklab,var(--accent) 25%,transparent);
   color:var(--text);border-radius:3px;padding:0 2px;}
@@ -208,15 +186,11 @@ main{position:relative;z-index:5;max-width:1400px;margin:0 auto;
 .p-arrow{display:inline-block;font-size:18px;color:var(--text-3);
   transition:transform 220ms var(--ease-out),color 220ms;margin-left:6px;}
 .post:hover .p-arrow{transform:translateX(5px);color:var(--accent);}
-
-/* density */
 body[data-density="compact"] .post{padding-top:18px;padding-bottom:18px;}
 body[data-density="compact"] .post.feat{padding-top:32px;padding-bottom:24px;}
 body[data-density="compact"] .p-dek{display:none;}
 body[data-density="airy"] .post{padding-top:48px;padding-bottom:48px;}
 body[data-density="airy"] .post.feat{padding-top:80px;padding-bottom:60px;}
-
-/* ===================== ARTICLE ===================== */
 .art-wrap{display:grid;grid-template-columns:1fr min(680px,100%) 1fr;
   padding-top:clamp(40px,8vh,80px);}
 .art-wrap>*{grid-column:2;}
@@ -272,8 +246,6 @@ body[data-density="airy"] .post.feat{padding-top:80px;padding-bottom:60px;}
 .dm-sub .n{opacity:.6;}
 .art-end{text-align:center;color:var(--text-3);
   margin:60px 0 28px;letter-spacing:.4em;}
-
-/* mast chip — inline in nav bar, swaps with nav buttons in article view */
 .mast-nav{transition:opacity 280ms var(--ease-out),transform 280ms var(--ease-out);}
 body.view-article-active .mast-nav{
   opacity:0;pointer-events:none;transform:translateY(-4px);}
@@ -288,8 +260,6 @@ body.view-article-active .mast-nav{
   font-family:var(--font-display);font-size:15px;}
 .mast-chip .rc-sep{width:1px;height:14px;background:var(--rule);flex:none;}
 .mast-chip #rc-time{font-size:11px;color:var(--text-3);white-space:nowrap;}
-
-/* ===================== GLASS DOCK ===================== */
 .glass-dock{
   position:fixed;left:50%;bottom:28px;
   transform:translateX(-50%);z-index:50;
@@ -332,8 +302,6 @@ body.light .glass-dock .div{background:rgba(0,0,0,.12);}
   gap:8px;font-size:13px;flex-shrink:0;
   transition:background 180ms var(--ease-out),color 180ms var(--ease-out);}
 .glass-dock button:hover{color:var(--text);background:rgba(255,255,255,.07);}
-
-/* theme toggle — compact proportional design */
 .theme-toggle{position:relative;z-index:1;
   width:64px;height:34px;border-radius:999px;padding:2px;
   background:rgba(0,0,0,.24);border:0;cursor:none;overflow:hidden;
@@ -355,23 +323,17 @@ body.light .tt-moon{opacity:1;transform:scale(1) rotate(0deg);}
   color:rgba(255,255,255,.22);display:flex;align-items:center;
   transition:opacity 300ms,left 380ms cubic-bezier(.34,1.2,.64,1);}
 body.light .tt-ghost{left:6px;right:auto;}
-
-/* section pick / ToC */
 .glass-dock .section-pick{min-width:140px;justify-content:space-between;
   color:var(--text);padding-right:12px;}
 .glass-dock .section-pick .sl{font-size:13px;color:var(--text);}
 .glass-dock .section-pick .chev{color:var(--text-3);font-size:10px;
   transition:transform 220ms var(--ease-out);}
 .glass-dock .section-pick[aria-expanded="true"] .chev{transform:rotate(180deg);}
-
-/* search btn */
 .search-btn{gap:10px;}
 .search-btn svg{width:14px;height:14px;opacity:.7;}
 .search-btn .kbd{border:1px solid rgba(255,255,255,.14);border-radius:4px;
   color:var(--text-3);font-size:10px;padding:2px 5px;letter-spacing:.05em;}
 body.light .search-btn .kbd{border-color:rgba(0,0,0,.13);}
-
-/* dock menu */
 .dock-menu{position:fixed;bottom:84px;left:50%;
   transform:translateX(-50%) translateY(10px);
   z-index:49;min-width:280px;padding:8px;border-radius:18px;
@@ -399,8 +361,6 @@ body.light .dock-menu .dm-item:hover{background:rgba(0,0,0,.05);}
 .dock-menu .toc-dot{width:6px;height:6px;border-radius:50%;
   background:var(--text-3);transition:background 300ms,transform 300ms;}
 .dock-menu .dm-item.act .toc-dot{background:var(--accent);transform:scale(1.3);}
-
-/* ===================== SPOTLIGHT SEARCH ===================== */
 .spotlight{position:fixed;inset:0;z-index:90;
   display:flex;align-items:flex-start;justify-content:center;
   padding-top:clamp(60px,14vh,160px);
@@ -455,12 +415,8 @@ body.light .sl-hint{border-top-color:rgba(0,0,0,.07);}
 .sl-hint kbd{border:1px solid rgba(255,255,255,.13);border-radius:4px;
   padding:2px 6px;font-family:inherit;color:var(--text-2);}
 body.light .sl-hint kbd{border-color:rgba(0,0,0,.12);}
-
-/* highlight in feed when search active */
 .feed-searching .post:not(.hi){opacity:.15;}
 .feed-searching .post.hi mark{background:color-mix(in oklab,var(--accent) 22%,transparent);color:var(--text);border-radius:2px;padding:0 2px;}
-
-/* ===================== TWEAKS ===================== */
 .tweaks-fab{position:fixed;right:18px;top:18px;z-index:60;
   width:34px;height:34px;border-radius:50%;
   background:rgba(22,19,17,.62);border:1px solid var(--rule);
@@ -485,8 +441,6 @@ body.tweaks-on .tweaks-panel.open{display:block;}
 .swatches{display:flex;gap:7px;}
 .swatches button{width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.12);cursor:none;padding:0;transition:transform 180ms;}
 .swatches button.on{box-shadow:0 0 0 2px var(--base),0 0 0 4px var(--text);}
-
-/* ===================== EASTER EGGS ===================== */
 .ghost-arrow{position:fixed;top:0;left:0;color:var(--accent);font-family:var(--font-display);font-size:13px;pointer-events:none;opacity:0;transition:opacity 700ms;z-index:4;transform:translate(-50%,-50%);white-space:nowrap;}
 .ghost-arrow.show{opacity:.3;}
 .corner-mark{position:fixed;bottom:12px;left:14px;z-index:30;color:var(--text-3);font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:none;user-select:none;transition:color 180ms;}
@@ -503,11 +457,8 @@ body.tweaks-on .tweaks-panel.open{display:block;}
 .tinput input{flex:1;background:transparent;border:0;outline:0;font:inherit;color:var(--text);caret-color:var(--accent);}
 
 .view-legal .art-wrap{max-width:680px;margin:0 auto;}
-
-/* ===================== MOBILE ===================== */
-/* Prevent horizontal scroll anywhere on narrow screens */
 html,body{overflow-x:hidden;}
-html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
+html{scroll-padding-top:72px;}
 
 @media(max-width:900px){
   .mast{padding:12px clamp(16px,4vw,24px);}
@@ -519,39 +470,28 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
 }
 
 @media(max-width:600px){
-  /* safe-area padding for iOS notch / home indicator */
   .mast{padding-left:max(16px,env(safe-area-inset-left));
         padding-right:max(16px,env(safe-area-inset-right));}
-
-  /* MAST — strip non-essential meta, shrink chip */
   .mast-right .meta{display:none;}
-  .mark{padding:8px 2px;font-size:22px;}  /* larger tap target */
+  .mark{padding:8px 2px;font-size:22px;}
   .mast-nav button{padding:8px 12px;font-size:13px;min-height:36px;}
   .mast-chip{max-width:55vw;}
   .mast-chip #rc-title{max-width:140px;font-size:13px;}
   .mast-chip #rc-time{font-size:10px;}
 
   main{padding-bottom:140px;}
-
-  /* HERO — tighter vertical rhythm */
   .hero{margin:32px 0 44px;}
   .hero-title{font-size:clamp(40px,11vw,64px);}
   .hero-lede{font-size:15px;margin-top:20px;}
-
-  /* FEED */
   .feed-bar{padding-bottom:10px;}
   .chips{gap:8px;margin:12px 0 24px;}
-  .chips button{padding:8px 14px;font-size:11px;min-height:34px;}  /* bigger tap */
-
-  /* POSTS */
+  .chips button{padding:8px 14px;font-size:11px;min-height:34px;}
   .post-grid{grid-template-columns:1fr;}
   .post{padding:24px 0;}
   .post.feat{padding:32px 0 24px;}
   .post.col-l,.post.col-r{padding:24px 0;border-right:none;}
   .post::before{inset:0 -8px;}
   .p-dek{font-size:14px;}
-
-  /* ARTICLE — reading-optimised */
   .art-wrap{padding-top:32px;}
   .art-back{padding:10px 0;margin-bottom:20px;font-size:11px;}
   .art-wrap h1{font-size:clamp(32px,8.5vw,44px);margin:0 0 18px;line-height:1.08;}
@@ -570,11 +510,8 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   .art-full-bleed{margin:36px -20px;height:clamp(200px,38vh,320px);
     border-radius:0;}
   .art-bleed-cap{left:16px;font-size:9px;}
-
-  /* GLASS DOCK — full-width strip with real touch targets */
   .glass-dock{left:10px;right:10px;bottom:calc(12px + env(safe-area-inset-bottom));
     transform:none;padding:6px;border-radius:18px;gap:2px;
-    /* Kill the desktop centring animation so it can't re-apply translateX(-50%) */
     animation:dockInMobile 700ms 600ms var(--ease-out) forwards;}
   @keyframes dockInMobile{
     from{opacity:0;transform:translateY(20px);}
@@ -587,46 +524,30 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   .glass-dock .section-pick{min-width:0;flex:1;padding-right:10px;}
   .glass-dock .section-pick .sl{font-size:13px;overflow:hidden;
     text-overflow:ellipsis;white-space:nowrap;}
-
-  /* Theme toggle sized proportionally for mobile (44px row height) */
   .theme-toggle{width:62px;height:36px;}
   .tt-pill{width:32px;height:32px;top:2px;left:2px;}
   .tt-sun,.tt-moon{width:14px;height:14px;}
   body.light .tt-pill{transform:translateX(26px);}
-
-  /* Search — hide redundant label + kbd shortcut */
   .search-btn{padding:0 12px;}
   .search-btn .sl-label{display:none;}
   .search-btn .kbd{display:none;}
-
-  /* DOCK MENU — ride the full-width dock, not a centred point */
   .dock-menu{left:10px;right:10px;min-width:0;
     transform:translateY(10px);bottom:calc(72px + env(safe-area-inset-bottom));}
   .dock-menu.open{transform:translateY(0)!important;}
-
-  /* SPOTLIGHT — more screen, no hint row */
   .spotlight{padding-top:clamp(40px,8vh,80px);}
   .spotlight-box{width:calc(100vw - 24px);}
-  .sl-field input{font-size:16px;}  /* prevent iOS zoom-on-focus */
+  .sl-field input{font-size:16px;}
   .sl-hint{display:none;}
   .sl-results{max-height:60vh;}
-  .sl-res{padding:13px 12px;}  /* bigger tap */
-
-  /* TWEAKS panel */
+  .sl-res{padding:13px 12px;}
   .tweaks-panel{right:10px;left:10px;width:auto;}
   .tweaks-fab{right:10px;top:10px;width:40px;height:40px;}
   .t-seg button{min-height:34px;}
   .swatches button{width:28px;height:28px;}
-
-  /* TERMINAL easter-egg */
   .terminal .box{width:calc(100vw - 24px);max-width:none;height:70vh;}
-
-  /* custom cursor off on touch */
   body.cursor-hover .cur-dot,.cur-dot,.cur-ring{display:none!important;}
   html,body{cursor:auto;}
 }
-
-/* general animations */
 @keyframes wordIn{from{opacity:0;transform:translateY(100%);}to{opacity:1;transform:none;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 @keyframes viewIn{to{opacity:1;transform:none;}}
@@ -634,11 +555,10 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
 </style>
 </head>
 <body data-glass="subtle" data-density="compact">
-
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <div class="cur-dot" id="cur-dot"></div>
 <div class="cur-ring" id="cur-ring"></div>
-
 
 <div class="progress-bar" id="progress"></div>
 
@@ -647,7 +567,7 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   <nav class="mast-nav" id="mast-nav">
     <button data-goto="index" class="mast-active">Blog</button>
   </nav>
-  
+
   <div class="mast-chip" id="read-chip">
     <span id="rc-title">—</span>
     <div class="rc-sep"></div>
@@ -658,8 +578,7 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   </div>
 </header></div>
 
-<main>
-
+<main id="main" tabindex="-1">
 
 <section class="view view-index" id="view-index" data-screen-label="01 Blog">
   <div class="hero" id="hero">
@@ -684,7 +603,6 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   <div class="post-grid" id="post-grid"></div>
   <p style="margin-top:60px;color:var(--text-3);text-align:center;letter-spacing:.4em;font-size:10px;">— end of feed —</p>
 </section>
-
 
 <section class="view view-article" id="view-article" data-screen-label="02 Article">
   <div class="art-wrap" id="art-wrap">
@@ -714,7 +632,6 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   </div>
 </section>
 
-
 <section class="view view-legal" id="view-legal" data-screen-label="03 Legal">
   <div class="art-wrap" style="padding-top:clamp(40px,8vh,80px)">
     <span class="art-back" id="legal-back"><span class="ba">←</span> back to blog</span>
@@ -734,7 +651,6 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
 </section>
 
 </main>
-
 
 <nav class="glass-dock" id="dock" aria-label="primary">
   <button class="theme-toggle seg" id="theme-toggle" aria-label="toggle theme" style="padding:0px 14px 0px 16px">
@@ -761,8 +677,7 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   </button>
 </nav>
 
-<div class="dock-menu" id="dock-menu" role="listbox" style="margin:0px;border-radius:18px 18px 0px 0px"></div>
-
+<div class="dock-menu" id="dock-menu" aria-label="Section navigation" style="margin:0px;border-radius:18px 18px 0px 0px"></div>
 
 <div class="spotlight" id="spotlight">
   <div class="spotlight-box">
@@ -781,7 +696,6 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   </div>
 </div>
 
-
 <span class="corner-mark" id="corner-mark">· · ·</span>
 <button class="tweaks-fab" id="tweaks-fab" title="tweaks"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 <aside class="tweaks-panel" id="tweaks-panel">
@@ -797,15 +711,14 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
   </div>
   <div class="t-grp"><span class="t-lbl">Accent</span>
     <div class="swatches" id="swatches">
-      <button class="on" data-color="#c4683a" style="background:#c4683a"></button>
-      <button data-color="#9b6b3f" style="background:#9b6b3f"></button>
-      <button data-color="#7a8a5a" style="background:#7a8a5a"></button>
-      <button data-color="#a85a55" style="background:#a85a55"></button>
+      <button class="on" data-color="#cc7043" style="background:#cc7043"></button>
+      <button data-color="#a67c55" style="background:#a67c55"></button>
+      <button data-color="#7e8e5f" style="background:#7e8e5f"></button>
+      <button data-color="#b77671" style="background:#b77671"></button>
       <button data-color="#cda85b" style="background:#cda85b"></button>
     </div>
   </div>
 </aside>
-
 
 <div class="terminal" id="terminal">
   <div class="box">
@@ -821,11 +734,10 @@ html{scroll-padding-top:72px;} /* sticky mast clearance for in-page anchors */
 <span class="ghost-arrow" id="ghost">→ stay a while</span>
 
 <script>
-const TWEAK_DEFAULTS=/*EDITMODE-BEGIN*/{"glass":"subtle","density":"compact","font":"dm","accent":"#c4683a"}/*EDITMODE-END*/;
+const TWEAK_DEFAULTS=/*EDITMODE-BEGIN*/{"glass":"subtle","density":"compact","font":"dm","accent":"#cc7043"}/*EDITMODE-END*/;
 </script>
 <script>
-/* ============================================================ DATA */
-/* ============================================================ ARTICLES FROM articles.json */
+
 let fetchedArticles=[];
 async function fetchArticles(){
   try{
@@ -836,7 +748,7 @@ async function fetchArticles(){
       ...p,
       id:"j_"+p.id,
       userPost:true,
-      // legacy (inline blocks) support — new entries use `file`
+
       rawBlocks:p.blocks||null,
       articleFile:p.file||null,
       _htmlCache:null
@@ -861,14 +773,12 @@ async function loadArticleHtml(p){
   return"";
 }
 
-// POSTS is populated from articles.json on init
 let POSTS=[];
 
 const stripHtml=s=>s.replace(/<[^>]*>/g,"");
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 
-/* ============================================================ CURSOR */
 const dot=$("#cur-dot"),ring=$("#cur-ring");
 let rx=0,ry=0,dx=0,dy=0;
 document.addEventListener("mousemove",e=>{
@@ -887,7 +797,6 @@ document.querySelectorAll("a,button,.post,.chips button,.mark,.art-back,.corner-
   el.addEventListener("mouseleave",()=>document.body.classList.remove("cursor-hover"));
 });
 
-/* ============================================================ WORDMARK ANIMATION */
 (function(){
   const rest = "ontentLTD";
   const mark = $("#logomark");
@@ -898,7 +807,6 @@ document.querySelectorAll("a,button,.post,.chips button,.mark,.art-back,.corner-
   mark.addEventListener("click",()=>goTo("index"));
 })();
 
-/* mast nav */
 $$("#mast-nav button").forEach(b=>b.addEventListener("click",()=>goTo(b.dataset.goto)));
 function updateMastNav(id){
   $$("#mast-nav button").forEach(b=>b.classList.toggle("mast-active",b.dataset.goto===id));
@@ -906,7 +814,6 @@ function updateMastNav(id){
 function tick(){const d=new Date();let h=d.getHours(),m=d.getMinutes();const ap=h>=12?"pm":"am";h=h%12||12;$("#clock").textContent=`${h}:${m.toString().padStart(2,"0")} ${ap}`;}
 tick();setInterval(tick,30000);
 
-/* ============================================================ PARALLAX */
 const hero=$("#hero");
 window.addEventListener("scroll",()=>{
   if(currentView!=="index")return;
@@ -916,7 +823,6 @@ window.addEventListener("scroll",()=>{
   updateProgress();
 },{passive:true});
 
-/* ============================================================ READING PROGRESS + CHIP */
 const progressEl=$("#progress");
 const readChip=$("#read-chip");
 function updateProgress(){
@@ -927,14 +833,13 @@ function updateProgress(){
   progressEl.style.width=(pct*100)+"%";
   progressEl.classList.toggle("show",pct>0.01);
   readChip.classList.toggle("show",currentView==="article");
-  // estimate time left
+
   const wordsLeft=Math.max(0,Math.round(350*(1-pct)));
   const minsLeft=Math.max(1,Math.round(wordsLeft/220));
   $("#rc-time").textContent=pct>.95?"done":`${minsLeft} min left`;
 }
 window.addEventListener("scroll",updateProgress,{passive:true});
 
-/* ============================================================ FEED */
 let activeTag="all";
 function renderFeed(){
   const posts=POSTS.filter(p=>activeTag==="all"||p.tag===activeTag);
@@ -959,14 +864,14 @@ function renderFeed(){
     }
   }
   $("#post-grid").innerHTML=html;
-  // reveal via IntersectionObserver
+
   const observer=new IntersectionObserver(entries=>{
     entries.forEach((e,_)=>{if(e.isIntersecting){e.target.classList.add("revealed");observer.unobserve(e.target);}});
   },{threshold:.1,rootMargin:"0px 0px -40px 0px"});
   $$(".post").forEach((el,i)=>{el.style.transitionDelay=(i%6*60)+"ms";observer.observe(el);});
-  // events
+
   $$(".post").forEach(el=>el.addEventListener("click",()=>openArticle(el.dataset.id)));
-  // magnetic title
+
   $$(".post").forEach(el=>{
     const title=el.querySelector(".p-title");
     if(!title)return;
@@ -997,7 +902,6 @@ $$("#chips button").forEach(b=>b.addEventListener("click",()=>{
   b.classList.add("on");activeTag=b.dataset.tag;renderFeed();clearSpotlight();
 }));
 
-/* ============================================================ ROUTING */
 let currentView="index";
 let slIndex=-1,slMatches=[];
 function goTo(id){
@@ -1005,7 +909,7 @@ function goTo(id){
   if(prev&&prev.id!==(id==="article"?"view-article":`view-${id}`)){
     prev.classList.add("out");setTimeout(()=>prev.classList.remove("out","active"),260);
   } else if(prev){
-    return; // already on this view
+    return;
   }
   currentView=id;
   const el=id==="article"?$("#view-article"):$(`#view-${id}`);
@@ -1092,14 +996,13 @@ function computeReadMin(root){
   return Math.max(1,Math.round(totalSec/60));
 }
 function escHtmlBlog(t){return(t||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-/* ============================================================ INIT */
-// Show a view immediately, then load articles.json async
+
 try{const v=localStorage.getItem("clt_view");if(v&&v!=="legal")goTo(v);else goTo("index");}catch(e){goTo("index");}
 updateMastNav("index");
 (async()=>{
   const fetched=await fetchArticles();
   if(fetched.length){POSTS=fetched;renderFeed();}
-  // restore article view once data is loaded
+
   try{
     const v=localStorage.getItem("clt_view");
     if(v==="article"){
@@ -1110,7 +1013,7 @@ updateMastNav("index");
 })();
 
 $('#logomark').addEventListener("click",()=>{
-  // In article/legal view -> go to blog index; otherwise -> go to site root
+
   if(currentView==="article"||currentView==="legal"){
     goTo("index");
   } else {
@@ -1120,13 +1023,24 @@ $('#logomark').addEventListener("click",()=>{
 $('#art-back').addEventListener("click",()=>goTo("index"));
 $('#legal-back').addEventListener("click",()=>goTo("index"));
 
-/* ============================================================ DOCK MENU / TOC */
 function closeDockMenu(){$("#dock-menu").classList.remove("open");$("#section-pick").setAttribute("aria-expanded","false");}
+
+function wireDockItems(menu){
+  menu.setAttribute("role","menu");
+  $$(".dm-item",menu).forEach(el=>{
+    el.setAttribute("role","menuitem");
+    el.setAttribute("tabindex","0");
+    el.addEventListener("keydown",ev=>{
+      if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();el.click();}
+      else if(ev.key==="Escape"){closeDockMenu();$("#section-pick").focus();}
+    });
+  });
+}
 function renderDockMenu(){
   const menu=$("#dock-menu");
   if(currentView==="article"){
     const hs=$$(".art-wrap h2[data-toc], .art-wrap h3[data-toc]");
-    if(!hs.length){menu.innerHTML="";return;}
+    if(!hs.length){menu.innerHTML="";menu.removeAttribute("role");return;}
     menu.innerHTML=`<div class="dm-head">In this article</div>`+
       hs.map((h,i)=>{const sub=h.tagName.toLowerCase()==="h3";return `<div class="dm-item${sub?" dm-sub":""}" data-hid="${h.id}"><div class="left"><span class="n">${sub?"·":String(i+1).padStart(2,"0")}</span><div style="font-size:${sub?13:14}px;color:var(--text${sub?"-2":""})">${h.dataset.toc}</div></div><div class="toc-dot"></div></div>`;}).join("")+
       `<div class="dm-item" style="border-top:1px solid var(--rule);margin-top:6px;padding-top:14px" data-back><div class="left"><span class="n">←</span><div style="font-size:13px;color:var(--text-3)">back to log</div></div><span class="chk"></span></div>`;
@@ -1137,13 +1051,13 @@ function renderDockMenu(){
       <div class="dm-item${currentView==="index"?" act":""}" data-id="index"><div class="left"><span class="n">01</span><div><div style="font-size:14px;color:var(--text)">Blog</div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-top:2px">all writing</div></div></div><span class="chk">${currentView==="index"?"✓":""}</span></div>`;
     $$(".dm-item[data-id]",menu).forEach(el=>el.addEventListener("click",()=>goTo(el.dataset.id)));
   }
+  wireDockItems(menu);
   cursorHoverAll();
 }
 renderDockMenu();
 $("#section-pick").addEventListener("click",e=>{e.stopPropagation();const m=$("#dock-menu");m.classList.toggle("open");$("#section-pick").setAttribute("aria-expanded",m.classList.contains("open")?"true":"false");closeSpotlight();});
 document.addEventListener("click",e=>{if(!$("#dock-menu").contains(e.target)&&!$("#section-pick").contains(e.target))closeDockMenu();});
 
-/* ToC observer */
 let tocObs=null;
 function setupTocObserver(){
   if(tocObs)tocObs.disconnect();
@@ -1156,7 +1070,6 @@ function setupTocObserver(){
   hs.forEach(h=>tocObs.observe(h));
 }
 
-/* ============================================================ SPOTLIGHT SEARCH (Cmd+K) */
 function openSpotlight(){
   $("#spotlight").classList.add("open");
   setTimeout(()=>$("#sl-input").focus(),50);
@@ -1171,7 +1084,7 @@ function clearSpotlight(){
   $("#sl-results").innerHTML="";
   $("#sl-count").textContent="";
   slIndex=-1;slMatches=[];
-  // clear feed highlights
+
   $$("#post-grid .post").forEach(p=>{
     p.classList.remove("hi","hi-focus","dimmed");
     const t=p.querySelector(".p-title");
@@ -1201,7 +1114,7 @@ function slSearch(q){
       <span class="sk">${p.tag}</span>
     </div>`).join("");
   $$(".sl-res",$("#sl-results")).forEach(el=>el.addEventListener("click",()=>{openArticle(el.dataset.id);closeSpotlight();}));
-  // highlight in feed
+
   if(q&&currentView==="index"){
     $("#post-grid").classList.add("feed-searching");
     $$("#post-grid .post").forEach(post=>{
@@ -1241,7 +1154,6 @@ $("#sl-input").addEventListener("keydown",e=>{
 $("#spotlight").addEventListener("click",e=>{if(e.target.id==="spotlight")closeSpotlight();});
 $("#search-btn").addEventListener("click",()=>{if($("#spotlight").classList.contains("open"))closeSpotlight();else openSpotlight();});
 
-/* ============================================================ KEYBOARD */
 document.addEventListener("keydown",e=>{
   const tag=document.activeElement.tagName;
   if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();
@@ -1249,7 +1161,6 @@ document.addEventListener("keydown",e=>{
   if(e.key==="Escape"){closeDockMenu();closeSpotlight();$("#terminal").classList.remove("open");}
 });
 
-/* ============================================================ THEME */
 let isLight=false;
 $("#theme-toggle").addEventListener("click",()=>{
   isLight=!isLight;document.body.classList.toggle("light",isLight);
@@ -1261,16 +1172,13 @@ $("#theme-toggle").addEventListener("click",()=>{
 });
 try{if(localStorage.getItem("clt_theme")==="light"){isLight=true;document.body.classList.add("light");}}catch(e){}
 
-/* ============================================================ DOCK SPECULAR */
 const dock=$("#dock");
 dock.addEventListener("mousemove",e=>{const r=dock.getBoundingClientRect();dock.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");});
 dock.addEventListener("mouseleave",()=>dock.style.setProperty("--mx","50%"));
 
-/* ============================================================ EASTER EGGS */
-// ghost cursor follower
 let idleT;const ghost=$("#ghost");
 document.addEventListener("mousemove",e=>{ghost.style.left=(e.clientX+24)+"px";ghost.style.top=(e.clientY+20)+"px";ghost.classList.remove("show");clearTimeout(idleT);idleT=setTimeout(()=>ghost.classList.add("show"),6000);});
-// corner: 7 clicks
+
 let cSeq=[],cTimer;const cornerEl=$("#corner-mark");
 const DOTS=["· · ·","·· ·","·· ··","··· ··","··· ···","···· ···","···· ····","!!!"];
 cornerEl.addEventListener("click",()=>{
@@ -1289,7 +1197,6 @@ $("#tinput").addEventListener("keydown",e=>{
   ({help:()=>out("commands: ls, whoami, now, posts, stoner, <span style='color:var(--accent)'>open studio.exe</span>, exit"),ls:()=>out("posts/  .secrets/  definitely-nothing/"),whoami:()=>out("contentltd — pa, weekends, websites"),now:()=>out("reading: the pattern on the stone · listening: carrie & lowell"),posts:()=>out(POSTS.slice(0,5).map(p=>"· "+stripHtml(p.title)).join("<br/>")),stoner:()=>out('"he had wanted certitude and the world had given him chance" — j. williams'),"open studio.exe":()=>{out("starting studio.exe\u2026");setTimeout(()=>window.open("Studio.html","_blank"),600);},"studio":()=>{out("starting studio.exe\u2026");setTimeout(()=>window.open("Studio.html","_blank"),600);},exit:()=>$("#terminal").classList.remove("open"),"":()=>{}}[cmd]||(()=>out(`<span style="color:var(--accent)">not found:</span> ${cmd} — try 'help'`)))();
 });
 
-/* ============================================================ TWEAKS */
 let tweaks={...TWEAK_DEFAULTS};
 function applyTweaks(){
   document.body.dataset.glass=tweaks.glass;
@@ -1315,7 +1222,6 @@ window.addEventListener("message",e=>{
 });
 window.parent.postMessage({type:"__edit_mode_available"},"*");
 
-/* ============================================================ CURSOR HOVER — RE-APPLY AFTER DOM CHANGES */
 function cursorHoverAll(){
   document.querySelectorAll("a,button,.post,.chips button,.mark,.art-back,.corner-mark,.sl-res,.dm-item,.mast-nav button").forEach(el=>{
     if(el._chAdded)return;el._chAdded=true;
