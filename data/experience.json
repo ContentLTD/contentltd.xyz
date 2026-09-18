@@ -21,6 +21,23 @@
           "url": "https://alleghenycountyroleplay.com/careers"
         }
       ]
+    },
+        {
+      "id": "he",
+      "name": "Hamilton Enjoyers",
+      "role": "Ensign (Trial Mod)",
+      "duration": "TBD",
+      "status": "current",
+      "statusLabel": "Current",
+      "type": "other",
+      "description": "I'm a Trial Moderator for Hamilton Enjoyers, ensuring members are following the rules in an educational enviornment.",
+      "icon": "https://auxcdn.contentltd.xyz/media/HE.png",
+      "links": [
+        {
+          "label": "Discord",
+          "url": "https://discord.gg/fPAYPQgheQ"
+        }
+      ]
     }, 
     {
       "id": "mbrp",
