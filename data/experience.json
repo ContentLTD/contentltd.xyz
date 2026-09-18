@@ -38,6 +38,23 @@
           "url": "https://discord.gg/fPAYPQgheQ"
         }
       ]
+    },
+    {
+      "id": "tc",
+      "name": "The Kingdom SFW",
+      "role": "Moderator",
+      "duration": "TBD",
+      "status": "current",
+      "statusLabel": "Current",
+      "type": "other",
+      "description": "I'm a Head Moderator for The Kingdom, ensuring members are following the rules.",
+      "icon": "https://auxcdn.contentltd.xyz/media/tc.webp",
+      "links": [
+        {
+          "label": "Discord",
+          "url": "https://discord.gg/MsxtsCy3rH"
+        }
+      ]
     }, 
     {
       "id": "mbrp",
@@ -70,6 +87,23 @@
         {
           "label": "Discord",
           "url": "https://discord.gg/uvfuvyygU3"
+        }
+      ]
+    },
+    {
+      "id": "wsrp",
+      "name": "Washington State Roleplay",
+      "role": "Ownership Advisor",
+      "duration": "1 Month",
+      "status": "ended",
+      "statusLabel": "Retired",
+      "type": "erlc",
+      "description": "I provided guidence regarding policies and employee management.",
+      "icon": "https://auxcdn.contentltd.xyz/media/wsrp.webp",
+      "links": [
+        {
+          "label": "Discord",
+          "url": "https://discord.gg/wsrp1"
         }
       ]
     }
