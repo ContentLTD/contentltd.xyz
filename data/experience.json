@@ -23,26 +23,26 @@
       ]
     },
         {
-      "id": "he",
-      "name": "Hamilton Enjoyers",
-      "role": "Soldier (Moderator)",
+      "id": "wsrp",
+      "name": "Washington State Roleplay",
+      "role": "Executive",
       "duration": "TBD",
       "status": "current",
       "statusLabel": "Current",
-      "type": "other",
-      "description": "I'm a Moderator for Hamilton Enjoyers, ensuring members are following the rules.",
-      "icon": "https://auxcdn.contentltd.xyz/media/HE.png",
+      "type": "erlc",
+      "description": "I oversee administrative matters and address legal and organizational questions while guiding WSRP toward continued improvement.",
+      "icon": "https://auxcdn.contentltd.xyz/media/wsrp.webp",
       "links": [
         {
           "label": "Discord",
-          "url": "https://discord.gg/fPAYPQgheQ"
+          "url": "https://discord.gg/wsrp1"
         }
       ]
     },
     {
       "id": "tc",
       "name": "The Kingdom SFW",
-      "role": "Moderator",
+      "role": "Head Moderator",
       "duration": "TBD",
       "status": "current",
       "statusLabel": "Current",
@@ -56,6 +56,23 @@
         }
       ]
     }, 
+            {
+      "id": "he",
+      "name": "Hamilton Enjoyers",
+      "role": "Soldier (Moderator)",
+      "duration": "~3 Months",
+      "status": "ended",
+      "statusLabel": "Former",
+      "type": "other",
+      "description": "I was a Moderator for Hamilton Enjoyers, ensuring members were following the rules.",
+      "icon": "https://auxcdn.contentltd.xyz/media/HE.png",
+      "links": [
+        {
+          "label": "Discord",
+          "url": "https://discord.gg/fPAYPQgheQ"
+        }
+      ]
+    },
     {
       "id": "mbrp",
       "name": "Metro Beach Roleplay",
@@ -89,23 +106,7 @@
           "url": "https://discord.gg/uvfuvyygU3"
         }
       ]
-    },
-    {
-      "id": "wsrp",
-      "name": "Washington State Roleplay",
-      "role": "Ownership Advisor",
-      "duration": "1 Month",
-      "status": "ended",
-      "statusLabel": "Retired",
-      "type": "erlc",
-      "description": "I provided guidence regarding policies and employee management.",
-      "icon": "https://auxcdn.contentltd.xyz/media/wsrp.webp",
-      "links": [
-        {
-          "label": "Discord",
-          "url": "https://discord.gg/wsrp1"
-        }
-      ]
     }
+
   ]
 }

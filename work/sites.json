@@ -10,6 +10,16 @@
     "caseStudy": "/work/acrp.html"
   },
   {
+    "id": "hamilton-enjoyers",
+    "name": "Hamilton Enjoyers",
+    "description": "A distinct identity and a home beyond Discord for a community of Hamilton fans.",
+    "url": "https://hamiltonenjoyers.com",
+    "thumbnail": "/work/thumbnails/hamilton-enjoyers.png",
+    "tags": ["HTML", "CSS", "JS"],
+    "featured": true,
+    "caseStudy": "/work/hamilton-enjoyers.html"
+  },
+  {
     "id": "contentltd-xyz",
     "name": "contentltd.xyz",
     "description": "This is my personal Link-in-bio site. You're on it right now!",

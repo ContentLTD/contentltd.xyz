@@ -84,13 +84,28 @@ body {
   overflow: hidden;
   background: var(--base);
 }
-.bg-video {
+.bg-image {
+  position: absolute;
+  inset: -15px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+  object-fit: cover;
+  filter: blur(5px);
+  pointer-events: none;
+}
+.bg-photo::after {
+  content: '';
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+.bg-image-full {
+  opacity: 0;
+  transition: opacity 1200ms ease;
+}
+.bg-image-full.is-loaded { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .bg-image-full { transition: none; }
 }
 
 .sky-gradient {
@@ -390,7 +405,7 @@ body.entered .layout { animation: layout-enter 900ms ease both; }
 
 .layout {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 320px minmax(0, 1fr);
   min-height: 100vh;
 }
 .sidebar {
@@ -416,7 +431,9 @@ body.entered .layout { animation: layout-enter 900ms ease both; }
 }
 .main {
   padding: var(--sp-xl) clamp(24px, 5vw, 72px) var(--sp-2xl);
-  max-width: 720px;
+  width: 100%;
+  min-width: 0;
+  max-width: 1200px;
 }
 
 .profile {
@@ -1589,10 +1606,11 @@ body.mode-mono .layout,
 body.mode-mono .settings-fab,
 body.mode-mono .settings-panel,
 body.mode-mono .locale-modal-backdrop,
-body.mode-mono .locale-modal-card,
-body.mode-mono .bg-video {
+body.mode-mono .locale-modal-card {
   filter: saturate(0);
 }
+
+body.mode-mono .bg-image { filter: blur(5px) saturate(0); }
 
 body.mode-mono .sky { filter: none; }
 
@@ -1796,7 +1814,7 @@ body.mode-oled .exp-card          { background: #000; }
 }
 .info-card-row {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--sp-md);
   margin-bottom: 0;
   align-items: start;
@@ -2247,7 +2265,7 @@ body.mode-oled .exp-card          { background: #000; }
   bottom: auto;
   width: 100%;
 }
-.t-page-slide > main.main.t-page    { max-width: 800px; }
+.t-page-slide > main.main.t-page    { max-width: 1200px; }
 .t-page-slide > .cal-panel.t-page   { max-width: 1100px; }
 @media (prefers-reduced-motion: reduce) {
   .t-page-slide .t-page { transition: none !important; }

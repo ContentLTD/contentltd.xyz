@@ -168,10 +168,6 @@
   <link rel="icon" type="image/png" href="https://profileapi.contentltd.xyz/pfp/image.png">
   <link rel="apple-touch-icon" href="https://profileapi.contentltd.xyz/pfp/image.png">
 
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.weather.gov">
@@ -184,8 +180,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap"></noscript>
 
+  <link rel="preload" href="/assets/bg-preview.jpg" as="image" fetchpriority="high">
   <link rel="preload" href="/index.css" as="style">
-  <link rel="preconnect" href="https://auxcdn.contentltd.xyz" crossorigin>
   <link rel="preload" href="https://profileapi.contentltd.xyz/pfp/image.png" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/index.css">
 
@@ -246,7 +242,6 @@
       if (p.monochrome) document.documentElement.classList.add('mode-mono');
       if (p.oled) document.documentElement.classList.add('mode-oled');
       if (p.underlineLinks) document.documentElement.classList.add('a11y-underline');
-      if (p.pauseVideo) document.documentElement.classList.add('vid-paused');
       window.__kbShortcutsOff = p.kbShortcuts === false;
     } catch(e) {}
   })();
@@ -278,15 +273,56 @@
   </div>
 
   <audio id="bg-audio" preload="none" tabindex="-1"></audio>
-  <audio id="ping-1" src="/TerminalPing-1.ogg" preload="auto"></audio>
-  <audio id="ping-2" src="/TN_C_beep.ogg" preload="auto"></audio>
+  <audio id="ping-1" src="/TerminalPing-1.ogg" preload="none"></audio>
+  <audio id="ping-2" src="/TN_C_beep.ogg" preload="none"></audio>
 
   <div class="bg-photo" aria-hidden="true">
-    <video class="bg-video" id="bg-video"
-           src="https://auxcdn.contentltd.xyz/media/cutscene.mov"
-           muted loop playsinline disablepictureinpicture
-           preload="auto" tabindex="-1"></video>
+    <img class="bg-image" id="bg-preview" src="/assets/bg-preview.jpg" alt="" width="480" height="270" loading="eager" decoding="async" fetchpriority="high">
+    <img class="bg-image bg-image-full" id="bg-image" data-src="https://auxcdn.contentltd.xyz/media/bg.jpg" alt="" width="2364" height="1330" decoding="async" fetchpriority="low">
+    <noscript><img class="bg-image" src="https://auxcdn.contentltd.xyz/media/bg.jpg" alt="" decoding="async" fetchpriority="low"></noscript>
   </div>
+
+  <script data-cfasync="false">
+  (function() {
+    var preview = document.getElementById('bg-preview');
+    var image = document.getElementById('bg-image');
+
+    function revealBackground() {
+      if (image.decode) {
+        image.decode().then(function() {
+          image.classList.add('is-loaded');
+        }).catch(function() {
+          if (image.naturalWidth) image.classList.add('is-loaded');
+        });
+      } else {
+        image.classList.add('is-loaded');
+      }
+    }
+    function loadBackground() {
+      if (!image || !image.dataset.src) return;
+      image.addEventListener('load', revealBackground, { once: true });
+      image.src = image.dataset.src;
+      image.removeAttribute('data-src');
+      // The preview remains visible if the full image fails to load.
+    }
+    function scheduleBackground() {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadBackground, { timeout: 1500 });
+      } else {
+        window.setTimeout(loadBackground, 200);
+      }
+    }
+    function waitForPreview() {
+      if (preview.complete) scheduleBackground();
+      else {
+        preview.addEventListener('load', scheduleBackground, { once: true });
+        preview.addEventListener('error', scheduleBackground, { once: true });
+      }
+    }
+    if (document.readyState === 'complete') waitForPreview();
+    else window.addEventListener('load', waitForPreview, { once: true });
+  })();
+  </script>
 
   <script data-cfasync="false">
 
@@ -296,17 +332,6 @@
     var btn = document.getElementById('splash-btn');
 
     document.body.classList.add('entered');
-
-    var video = document.getElementById('bg-video');
-    if (video) {
-      video.autoplay = false;
-      video.removeAttribute('autoplay');
-      video.pause();
-    }
-
-    function videoAllowed() {
-      return !reduced && !document.documentElement.classList.contains('vid-paused');
-    }
 
     function setInert(on) {
       ['.layout', '.settings-fab'].forEach(function(sel) {
@@ -336,13 +361,6 @@
         setTimeout(function() { splash.style.display = 'none'; }, reduced ? 0 : 320);
       }
       setInert(false);
-
-      if (video && videoAllowed()) {
-
-        var kick = function() { if (videoAllowed()) video.play().catch(function(){}); };
-        kick();
-        video.addEventListener('canplay', kick, { once: true });
-      }
 
       document.dispatchEvent(new CustomEvent('site:enter'));
 
@@ -2988,10 +3006,6 @@
       <label class="settings-label" for="tog-shortcuts">Key shortcuts</label>
       <button role="switch" class="settings-toggle" id="tog-shortcuts" aria-checked="true"></button>
     </div>
-    <div class="settings-row">
-      <label class="settings-label" for="tog-pausevid">Pause backdrop</label>
-      <button role="switch" class="settings-toggle" id="tog-pausevid" aria-checked="false"></button>
-    </div>
 
     <div class="settings-divider"></div>
     <div class="settings-section-label">Privacy</div>
@@ -3017,26 +3031,8 @@
     var togLarge     = document.getElementById('tog-large');
     var togUnderline = document.getElementById('tog-underline');
     var togShortcuts = document.getElementById('tog-shortcuts');
-    var togPauseVid  = document.getElementById('tog-pausevid');
     var localeRow    = document.getElementById('open-locale-picker');
     var localeBadge  = document.getElementById('locale-active-badge');
-
-    var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
-
-    function syncVideoPlayback() {
-      var v = document.getElementById('bg-video');
-      if (!v) return;
-      var stopped = document.documentElement.classList.contains('vid-paused') ||
-                    togMotion.getAttribute('aria-checked') === 'true' ||
-                    (mqReduce && mqReduce.matches);
-      if (stopped) { v.pause(); }
-      else if (window.SITE_ENTERED) { v.play().catch(function(){}); }
-    }
-    if (mqReduce) {
-      var onMq = function() { syncVideoPlayback(); };
-      if (mqReduce.addEventListener) mqReduce.addEventListener('change', onMq);
-      else if (mqReduce.addListener) mqReduce.addListener(onMq);
-    }
 
     function loadSettings() {
       try { return JSON.parse(localStorage.getItem('site-settings') || '{}'); } catch(e) { return {}; }
@@ -3052,9 +3048,15 @@
       togMotion.classList.toggle('is-on', on);
       if (on && window._skyLT) window._skyLT.clear();
       if (!on && window.wx && window.wx.resumeLightning) window.wx.resumeLightning();
-      syncVideoPlayback();
     }
     function applyFont(on) {
+      if (on && !document.getElementById('inter-font-stylesheet')) {
+        var font = document.createElement('link');
+        font.id = 'inter-font-stylesheet';
+        font.rel = 'stylesheet';
+        font.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
+        document.head.appendChild(font);
+      }
       document.documentElement.classList.toggle('font-inter', on);
       document.body.classList.toggle('font-inter', on);
       togFont.setAttribute('aria-checked', on ? 'true' : 'false');
@@ -3094,13 +3096,6 @@
       togShortcuts.setAttribute('aria-checked', on ? 'true' : 'false');
       togShortcuts.classList.toggle('is-on', on);
     }
-    function applyPauseVid(on) {
-      document.documentElement.classList.toggle('vid-paused', on);
-      togPauseVid.setAttribute('aria-checked', on ? 'true' : 'false');
-      togPauseVid.classList.toggle('is-on', on);
-      syncVideoPlayback();
-    }
-
     var s = loadSettings();
     applyMotion(!!s.reducedMotion);
     applyFont(!!s.interFont);
@@ -3110,7 +3105,6 @@
     applyOled(!!s.oled);
     applyUnderline(!!s.underlineLinks);
     applyShortcuts(s.kbShortcuts !== false);
-    applyPauseVid(!!s.pauseVideo);
     if (s.customLocale && localeBadge) {
       var _cl = s.customLocale;
       localeBadge.textContent = typeof _cl === 'object' ? (_cl.displayLabel || _cl.label) : _cl;
@@ -3189,12 +3183,6 @@
       applyShortcuts(next);
       var st = loadSettings(); st.kbShortcuts = next; saveSettings(st);
     });
-    togPauseVid.addEventListener('click', function() {
-      var next = togPauseVid.getAttribute('aria-checked') !== 'true';
-      applyPauseVid(next);
-      var st = loadSettings(); st.pauseVideo = next; saveSettings(st);
-    });
-
     if (localeRow) {
       localeRow.addEventListener('click', function() {
         closePanel();

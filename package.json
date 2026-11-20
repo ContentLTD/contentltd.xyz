@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "node dev/server.js"
+  },
   "devDependencies": {
     "wrangler": "^4.83.0"
   }
